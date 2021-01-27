@@ -13,22 +13,20 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
-
 	<!-- [<>] 태그의 에러는 상단 xml 주소의 문제 -->
 	<!-- [bean] 에서의 에러는 pom.xml 내용의 문제 -->
 
 	<context:component-scan base-package="com.company.service"/>
 	<!-- @ControllerAdvice 활성화 -->
 	<context:component-scan base-package="com.company.except"/>
-
 	<mybatis-spring:scan base-package="com.company.mapper"/>
 
 	<!-- Hikari 커넥션 풀 -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
-		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:orcl" />
-		<property name="username" value="javaDB" />
-		<property name="password" value="12345" />
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@coffee2021.cbgwtoz5mbmc.ap-northeast-2.rds.amazonaws.com:1521:orcl" />
+		<property name="username" value="coffeedb" />
+		<property name="password" value="admin12345" />
 	</bean>
 	
 	<!-- 커넥션 풀을 위한 DataSource 설정 -->
@@ -46,5 +44,6 @@
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="ds"/>
 	</bean>
+	<tx:annotation-driven/>
 	
 </beans>
