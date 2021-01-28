@@ -2,6 +2,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/eclipse,java,java-web,code-java
 # Edit at https://www.toptal.com/developers/gitignore?templates=eclipse,java,java-web,code-java
 
+node_modules
+
 ### Code-Java ###
 # Language Support for Java(TM) by Red Hat extension for Visual Studio Code - https://marketplace.visualstudio.com/items?itemName=redhat.java
 
