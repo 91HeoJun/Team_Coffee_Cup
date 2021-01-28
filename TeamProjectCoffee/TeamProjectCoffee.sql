@@ -1,4 +1,4 @@
--- È¸¿ø°¡ÀÔÀ» À§ÇÑ UserTBL
+-- íšŒì›ê°€ì…ì„ ìœ„í•œ UserTBL
 CREATE TABLE UserTBL (
 	userid		VARCHAR2(15), 
 	password	VARCHAR2(20)	NOT NULL, 
@@ -12,7 +12,7 @@ CREATE TABLE UserTBL (
 );
 
 
--- 1:1 °Ô½ÃÆÇÀ» À§ÇÑ BoarTBL
+-- 1:1 ê²Œì‹œíŒì„ ìœ„í•œ BoarTBL
 CREATE TABLE BoardTBL (
 	bno			NUMBER(10, 0)	NOT NULL, 
 	title		VARCHAR2(200)	NOT NULL, 
@@ -24,10 +24,10 @@ CREATE TABLE BoardTBL (
 	CONSTRAINT BoardTBL_PK PRIMARY KEY (bno)
 );
 
--- 1:1 °Ô½ÃÆÇÀÇ ±Û¹øÈ£¸¦ À§ÇÑ ½ÃÄı½º
+-- 1:1 ê²Œì‹œíŒì˜ ê¸€ë²ˆí˜¸ë¥¼ ìœ„í•œ ì‹œí€¸ìŠ¤
 CREATE SEQUENCE seq_board START WITH 1 INCREMENT BY 1;
 
--- 1:1 °Ô½ÃÆÇÀÇ Ã·ºÎÆÄÀÏÀ» À§ÇÑ BoardTBL_Attach
+-- 1:1 ê²Œì‹œíŒì˜ ì²¨ë¶€íŒŒì¼ì„ ìœ„í•œ BoardTBL_Attach
 CREATE TABLE BoardTBL_Attach (
 	uuid		VARCHAR2(100)	NOT NULL, 
 	uploadPath	VARCHAR2(200)	NOT NULL, 
@@ -37,10 +37,10 @@ CREATE TABLE BoardTBL_Attach (
     CONSTRAINT BoardTBL_Attach_PK PRIMARY KEY (uuid)
 );
 
--- BoarTBLÀÇ bno¿Í BoardTBL_AttachÀÇ bno ¿Ü·¡Å° ÀÛ¾÷ 
+-- BoarTBLì˜ bnoì™€ BoardTBL_Attachì˜ bno ì™¸ë˜í‚¤ ì‘ì—… 
 ALTER TABLE BoardTBL_Attach ADD CONSTRAINT FK_BoardTBL_Attach_bno_BoardTB FOREIGN KEY (bno) REFERENCES BoardTBL (bno);
 
--- 1:1 °Ô½ÃÆÇÀÇ ´ñ±ÛÀ» À§ÇÑ BoardTBL_Reply
+-- 1:1 ê²Œì‹œíŒì˜ ëŒ“ê¸€ì„ ìœ„í•œ BoardTBL_Reply
 CREATE TABLE BoardTBL_Reply (
 	rno			NUMBER(10, 0)	NOT NULL, 
     reply		VARCHAR2(1000)	NOT NULL, 
@@ -50,11 +50,11 @@ CREATE TABLE BoardTBL_Reply (
     CONSTRAINT BoardTBL_Reply_PK PRIMARY KEY (rno)
 );
 
--- 1:1 °Ô½ÃÆÇ ´ñ±ÛÀÇ ±Û¹øÈ£¸¦ À§ÇÑ ½ÃÄı½º
+-- 1:1 ê²Œì‹œíŒ ëŒ“ê¸€ì˜ ê¸€ë²ˆí˜¸ë¥¼ ìœ„í•œ ì‹œí€¸ìŠ¤
 CREATE SEQUENCE seq_reply START WITH 1 INCREMENT BY 1;
 
--- BoarTBLÀÇ bno¿Í BoardTBL_Reply bno ¿Ü·¡Å° ÀÛ¾÷ 
+-- BoarTBLì˜ bnoì™€ BoardTBL_Reply bno ì™¸ë˜í‚¤ ì‘ì—… 
 ALTER TABLE BoardTBL_Reply ADD CONSTRAINT FK_BoardTBL_Reply_bno_BoardTBL FOREIGN KEY (bno) REFERENCES BoardTBL (bno);
 
 
--- ProductTBL ºÎÅÍ ¹İ¿µ ¿¹Á¤
+-- ProductTBL ë¶€í„° ë°˜ì˜ ì˜ˆì •

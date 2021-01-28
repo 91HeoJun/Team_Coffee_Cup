@@ -15,7 +15,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		log.info("---- ÀÎµ¦½º·Î ÀÌµ¿Áß ... ----");
+		log.info("---- ì¸ë±ìŠ¤ í˜ì´ì§€ë¡œ ì´ë™ì¤‘ ... ----");
 				
 		return "index";
 	}

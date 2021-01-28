@@ -1,5 +1,5 @@
 
--- È¸¿ø°¡ÀÔÀ» À§ÇÑ UserTBL
+-- íšŒì›ê°€ìž…ì„ ìœ„í•œ UserTBL
 CREATE TABLE UserTBL (
 	userid		VARCHAR2(15), 
 	password	VARCHAR2(20)	NOT NULL, 
