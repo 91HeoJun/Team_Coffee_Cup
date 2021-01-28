@@ -58,3 +58,13 @@ ALTER TABLE BoardTBL_Reply ADD CONSTRAINT FK_BoardTBL_Reply_bno_BoardTBL FOREIGN
 
 
 -- ProductTBL 부터 반영 예정
+CREATE TABLE ProductTBL
+(
+    CODE        NUMBER(20)        NOT NULL, 
+    CATEGORY    VARCHAR2(20)      NOT NULL, 
+    NAME        VARCHAR2(50)      NOT NULL, 
+    CONTENT     VARCHAR2(3000)    NOT NULL, 
+    PRICE       NUMBER(20)        NOT NULL, 
+    AMOUNT      NUMBER(20)        NOT NULL, 
+    CONSTRAINT ProductTBL_PK PRIMARY KEY (CODE)
+);
