@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,66 +61,52 @@
 
     <section class="page-section cta">
       <div class="container">
+     
         <div class="row">
+        
+      		<!-- <div class="row"> -->
+      		<div>
+      			<ul>
+      				<li>item1</li>
+      				<li>item2</li>
+      				<li>item3</li>
+      				<li>item4</li>
+      			</ul>
+      		</div>
+      
           <div class="col-xl-9 mx-auto">
             <div class="cta-inner text-center rounded">
-              <h2 class="section-heading mb-5">
-                <span class="section-heading-upper">Come On In</span>
-                <span class="section-heading-lower">We're Open</span>
-              </h2>
-              <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
-                <li class="list-unstyled-item list-hours-item d-flex">
-                  Sunday
-                  <span class="ml-auto">Closed</span>
-                </li>
-                <li class="list-unstyled-item list-hours-item d-flex">
-                  Monday
-                  <span class="ml-auto">7:00 AM to 8:00 PM</span>
-                </li>
-                <li class="list-unstyled-item list-hours-item d-flex">
-                  Tuesday
-                  <span class="ml-auto">7:00 AM to 8:00 PM</span>
-                </li>
-                <li class="list-unstyled-item list-hours-item d-flex">
-                  Wednesday
-                  <span class="ml-auto">7:00 AM to 8:00 PM</span>
-                </li>
-                <li class="list-unstyled-item list-hours-item d-flex">
-                  Thursday
-                  <span class="ml-auto">7:00 AM to 8:00 PM</span>
-                </li>
-                <li class="list-unstyled-item list-hours-item d-flex">
-                  Friday
-                  <span class="ml-auto">7:00 AM to 8:00 PM</span>
-                </li>
-                <li class="list-unstyled-item list-hours-item d-flex">
-                  Saturday
-                  <span class="ml-auto">9:00 AM to 5:00 PM</span>
-                </li>
-              </ul>
-              <p class="address mb-5">
-                <em>
-                  <strong>1116 Orchard Street</strong>
-                  <br>
-                  Golden Valley, Minnesota
-                </em>
-              </p>
-              <p class="mb-0">
-                <small>
-                  <em>Call Anytime</em>
-                </small>
-                <br>
-                (317) 585-8468
-              </p>
+             <img alt="" src="/resources/store_img/store1.jpg" style="width:90%; height:auto">
+             <h3>store1</h3>
+            </div>
+             <div class="cta-inner text-center rounded">
+             <img alt="" src="/resources/store_img/store1.jpg" style="width:90%; height:auto">
+             <h3>store2</h3>
+            </div>
+             <div class="cta-inner text-center rounded">
+             <img alt="" src="/resources/store_img/store1.jpg" style="width:90%; height:auto">
+             <h3>store3</h3>
+            </div>
+             <div class="cta-inner text-center rounded">
+             <img alt="" src="/resources/store_img/store1.jpg" style="width:90%; height:auto">
+             <h3>store4</h3>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="page-section about-heading">
+	<section class="page-section about-heading">
+		<div class="container">
+			<div class="cta-inner text-center rounded">
+		      	<div id="map" style="width:500px;height:400px;"></div>
+			</div>
+		</div>		
+	</section>
+    <!-- <section class="page-section about-heading">
       <div class="container">
         <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="/resources/img/about.jpg" alt="">
+        <div id="map" style="width:1000px;height:700px;"></div>
         <div class="about-heading-content">
           <div class="row">
             <div class="col-xl-9 col-lg-10 mx-auto">
@@ -136,7 +124,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <footer class="footer text-faded text-center py-5">
       <div class="container">
@@ -153,6 +141,17 @@
       $('.list-hours li').eq(new Date().getDay()).addClass('today');
     </script>
 
+	<!-- Map Api scripts -->
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b2832706a60d412fa615315430debadd"></script>
+    <script>
+        var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+		var options = { //지도를 생성할 때 필요한 기본 옵션
+		center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
+		level: 3 //지도의 레벨(확대, 축소 정도)
+		};
+
+		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+    </script>
   </body>
 
 </html>
