@@ -1,5 +1,8 @@
 package com.company.mapper;
 
-public interface ProductMapper {
+import com.company.domain.ProductVO;
 
+public interface ProductMapper {
+	
+	public int insert(ProductVO vo); 
 }
