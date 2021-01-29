@@ -1,7 +1,8 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
-
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@include file="header.jsp" %>
+<link rel="stylesheet" type="text/css" href="header.css">
 <html lang="kr">
   <head>
     <meta charset="utf-8" />
@@ -29,69 +30,7 @@
       <span class="site-heading-lower">Business Casual</span>
     </h1>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#"> Start Bootstrap </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarResponsive"
-          aria-controls="navbarResponsive"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <ul>
-          <li class="nav-item px-lg-5">
-            <a class="nav-link text-uppercase text-expanded" href="login.html">Login</a>
-          </li>
-          <li class="nav-item px-lg-5">
-            <a class="mypage" href="products.html">My Page</a>
-          </li>
-          <li class="nav-item px-lg-5">
-            <a class="cart" href="store.html">Cart</a>
-          </li>
-        </ul>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item active px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="index.html"
-                >Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="about.html">About</a>
-            </li>
-            <li class="nav-item px-lg-4">
-              <a
-                class="nav-link text-uppercase text-expanded"
-                href="products.html"
-                >Products</a
-              >
-            </li>
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="store.html"
-                >Store</a
-              >
-            </li>
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="news.html"
-                >News</a
-              >
-            </li>
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="news.html"
-                >Board</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    
 
     <section class="page-section clearfix">
       <div class="container">
@@ -142,11 +81,7 @@
       </div>
     </section>
 
-    <footer class="footer text-faded text-center py-5">
-      <div class="container">
-        <p class="m-0 small">Copyright &copy; Your Website 2020</p>
-      </div>
-    </footer>
+<%@include file="footer.jsp" %>
 
     <!-- Bootstrap core JavaScript -->
     <script src="/resources/vendor/jquery/jquery.min.js"></script>
