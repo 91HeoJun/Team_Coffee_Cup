@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.mapper.NewsMapper">
+<!-- 새소식 - 은엽 -->
+	<!-- 새소식 게시판 추가 -->
+	<insert id="insertNews">
+		insert into NewsTBL (newsno, newsname, newscontent) values(#{newsno},#{newsname},#{newscontent})
+	</insert>
+
+	<!-- 새소식 게시판 리스트보기 -->
+	<select id="listNews" resultType="com.company.domain.NewsVO">
+	<![CDATA[
+		select * from NewsTBL order by newsno DESC
+	]]>
+	</select>
+
+	<!-- 새소식 게시판 상세보기 -->
+    <select id="detailNews" resultType="com.company.domain.NewsVO">
+            select * from NewsTBL where newsno = #{newsno}
+	</select>
+
+    <!-- 게시판 삭제하기 -->
+    <delete id="deleteNews">
+        delete from NewsTBL where newsno = #{newsno}
+    </delete>
+    
+    <!-- 게시판 수정하기 -->
+    <update id="updateNews">
+        update NewsTBL set newsname=#{newsname} , newscontent=#{newscontent}, where newsno=#{newsno}
+    </update>
+
+</mapper>
