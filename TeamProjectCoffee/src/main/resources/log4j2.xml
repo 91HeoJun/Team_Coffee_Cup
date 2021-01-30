@@ -8,11 +8,11 @@
     </Console>
     
     <!-- File Appender -->
-    <File name="File" fileName="log/application.log">
+    <!-- <File name="File" fileName="log/application.log">
       <PatternLayout>
         <pattern>%d %p %C{1.} [%t] %m%n</pattern>
       </PatternLayout>
-    </File>
+    </File> -->
   </Appenders>
   
   <Loggers>
