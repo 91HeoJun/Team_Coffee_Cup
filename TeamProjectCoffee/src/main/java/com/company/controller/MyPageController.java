@@ -12,6 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.company.domain.AuthVO;
 import com.company.domain.LoginVO;
+import com.company.domain.RegisterVO;
 import com.company.domain.ChangeVO;
 import com.company.service.MyPageService;
 
@@ -37,9 +38,13 @@ public class MyPageController {
 	@PostMapping("/signin")
 	public String loginPost(LoginVO login, HttpSession session) {
 		log.info("로그인 페이지 요청..."+login);
-		AuthVO auth=service.isLogin(login);
+		
+		AuthVO auth=service.isLogin(login); //LoginVO AuthVO에 담기
+		RegisterVO regist=service.getId(login);
+		
 		if(auth!=null) {
 			session.setAttribute("auth", auth);
+			session.setAttribute("regist", regist);
 			return "redirect:userInfo";
 		}else { //userid,password가 틀려서 로그인을 못한경우
 			return "redirect:signin";
@@ -49,7 +54,7 @@ public class MyPageController {
 	//마이 페이지 메인 보여주기-(회원상세정보)
 	@GetMapping("/userInfo")
 	public void userInfo() {
-		log.info("마이페이지 메인 폼 보여주기");
+		log.info("회원상세 폼 보여주기");
 	}
 	
 	//회원탈퇴 폼 보여주기
@@ -74,7 +79,7 @@ public class MyPageController {
 	//회원정보 수정 폼 보여주기
 	@GetMapping("/changeInfo")
 	public void changeInfo() {
-		log.info("비밀번호 변경 폼 보여주기");
+		log.info("회원정보 수정 폼 보여주기");
 	}
 	@PostMapping("/changeInfo")
 	public String changePost(ChangeVO change,@SessionAttribute AuthVO auth,HttpSession session,RedirectAttributes rttr) {
@@ -86,10 +91,10 @@ public class MyPageController {
 		
 		//service에 회원정보 변경 요청
 		if(service.update(change)) {//성공 => 세션해제 후 로그인 페이지로 이동
-			session.invalidate();
-			return "redirect:signin";
+	//		session.invalidate();
+			return "redirect:userInfo";
 		}else {//실패 => 회원정보 변경 폼 보여주기
-			rttr.addFlashAttribute("error","비밀번호를 확인해 주세요");				
+			rttr.addFlashAttribute("error","입력한 정보가 틀립니다!!");				
 		} return "redirect:changeInfo";	
 	}
 	

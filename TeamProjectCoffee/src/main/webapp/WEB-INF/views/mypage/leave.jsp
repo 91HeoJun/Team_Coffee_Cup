@@ -15,13 +15,13 @@
 			</div>	
 			<div class="form-group row justify-content-center">		
 				<div class="col-sm-10">	
-					<input type="password" name="password" id = "password" class="form-control" placeholder="비밀번호" autofocus="autofocus"/>
+					<input type="password" name="password" id = "password" class="form-control" placeholder="비밀번호를 입력해주세요" autofocus="autofocus"/>
 					<small id="password" class="text-info"></small>
 				</div>	
 			</div>				
 			<div class="form-group text-center">		
 				<button type="submit" class="btn btn-primary">탈퇴</button>
-			    <button type="button" class="btn btn-secondary" id="leavecancel">취소</button>		
+			    <button type="button" class="btn btn-secondary" id="leavecancel" onclick="location.href='userInfo'">취소</button>		
 			</div>
 		</div>
 	</div>	

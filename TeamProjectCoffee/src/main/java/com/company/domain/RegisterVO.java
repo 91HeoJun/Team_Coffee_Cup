@@ -1,6 +1,7 @@
 package com.company.domain;
 //마이페이지 회원정보 수정 테스트용 회원가입VO-은주
-//예지씨가 만든걸로 클래스명 수정하고 RegisterVO는 삭제예정입니다.
+//예지씨가 만든걸로 VO클래스명 수정하고 RegisterVO는 삭제예정
+//주소API사용시 addr1,addr2로 테이블 다시 만드는거 의논하기
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

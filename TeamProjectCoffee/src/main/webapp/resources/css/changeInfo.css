@@ -1,0 +1,230 @@
+@charset "UTF-8";
+.btn_100_41{
+	width: 100px;
+	height: 41px;
+	font-size: 14px;
+}
+#updateMyInfo{
+	margin: 100px auto 0px;
+	width: 1200px;
+	overflow: hidden;
+}
+
+#updateMyInfo .title{
+	margin: 0 auto;
+	width: 500px;
+	text-align: center;
+	font-size: 35px;
+	margin-bottom: 40px;
+}
+
+#updateMyInfo .container_c{
+	margin: 0 auto;
+	border: 1px #aaa solid;
+	width: 500px;
+	height: 790px;
+	margin-bottom: 100px;
+}
+
+#updateMyInfo .body{
+	margin: 0 40px 0 40px;
+	height: 675px;
+	position: relative;
+}
+
+#updateMyInfo .insert{
+	padding-top: 40px;
+}
+
+#updateMyInfo .insert input{
+	height: 38px;
+	border: 1px solid #aaa;
+	font-size: 14px;
+	padding-left: 15px;
+}
+
+#updateMyInfo .insert input:-ms-input-placeholder{
+	color: #aaa;
+	font-size: 14px;
+}
+
+#updateMyInfo .insert input::-webkit-input-placeholder{
+	color: #aaa;
+	font-size: 14px;
+}
+
+#updateMyInfo .insert input::-moz-placeholder{
+	color: #aaa;
+	font-size: 14px;
+}
+
+#updateMyInfo .insert input::-moz-placeholder{
+	color: #aaa;
+	font-size: 14px;
+}
+
+#updateMyInfo .insert .id input{
+	width: 131px;
+}
+
+#updateMyInfo .insert .id p{
+	cursor: pointer;
+	font-size: 14px;
+	color: #c80a1e;
+	border-bottom: 1px #c80a1e solid;
+	padding: 10px 2px 6px 0;
+}
+
+#updateMyInfo .insert .email{
+	margin-right: 13px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 403px;
+}
+
+#updateMyInfo .insert .pwd{
+	margin-top: 10px;
+}
+
+#updateMyInfo .insert .pwd div{
+	border: 1px #aaa solid;
+	margin-bottom: 10px;
+}
+
+#updateMyInfo .insert .pwd div>p{
+	float: right;
+	padding: 12px 5px 0 0;
+	color: #c80a1e;
+}
+
+#updateMyInfo .insert .pwd input{
+	width: 170px;
+	margin-bottom: 0px;
+	border: none;
+}
+
+#updateMyInfo .insert .name p{
+	font-size: 13px;
+	color: #aaa;
+}
+
+#updateMyInfo .insert .name input{
+	width: 403px;
+	margin-bottom: 10px;
+}
+
+#updateMyInfo .insert .name button{
+	width: 403px;
+	margin-bottom: 10px;
+}
+
+#updateMyInfo .insert .tel{
+	margin-top: 20px;
+}
+
+#updateMyInfo .insert .tel input{
+	width: 403px;
+}
+
+#updateMyInfo .insert .tel p{
+	cursor: pointer;
+	font-size: 14px;
+	color: #c80a1e;
+	border-bottom: 1px #c80a1e solid;
+	padding: 10px 2px 6px 0;
+}
+
+#updateMyInfo .button_r{
+	margin-top: 40px;
+}
+
+#updateMyInfo .button_r button_r:nth-child(1){
+	margin-right: 5px;
+}
+
+#updateMyInfo .layerPopup>div{
+	text-align: left;
+}
+
+#updateMyInfo .layerPopup{
+	display: none;
+	text-align: center;
+	z-index: 151;
+	bottom: 90px;
+	border: 1px #aaa solid;
+	position: absolute;
+	width: 500px;
+	height: 500px;
+	left: 50%;
+	margin: 0 0 0 -251px;
+	background-color: white;
+}
+
+#updateMyInfo .layerPopup .btn_240{
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 65px;
+}
+
+#updateMyInfo .pwd{
+	margin-top: 50px;
+	width: 405px;
+	/* margin: 0 auto; */
+}
+
+#updateMyInfo .pwd div{
+	border: 1px #aaa solid;
+	margin: 0  0px 10px 0px;
+}
+
+
+#updateMyInfo .pwd div>p{
+	float: right;
+	padding: 12px 5px 0 0;
+	color: #c80a1e;
+	font-size: 12px;
+}
+
+#updateMyInfo .pwd input{
+	width: 140px;
+	margin-bottom: 0px;
+	border: none;
+}
+
+#updateMyInfo .pwd input{
+	height: 38px;
+	font-size: 14px;
+	padding-left: 15px;
+}
+
+#updateMyInfo .pwd>p{
+	font-size: 14px;
+	margin-bottom: 12px;
+}
+
+#updateMyInfo .pwd>p:nth-child(3){
+	font-size: 14px;
+	margin-bottom: 12px;
+	margin-top: 30px;
+}
+
+#updateMyInfo .addr{
+	margin-top: 40px;
+}
+
+.btn_205{
+	width: 205px;
+	height: 50px;
+	font-size: 16px;
+}
+.btn_s_gray{
+	border: none;
+	background: #63666A;
+	color: #FFF;
+}
+.btn_s_blue{
+	border: none;
+	background-color: #0051ba;
+	color: #FFF;
+}

@@ -15,4 +15,5 @@ import lombok.ToString;
 public class LoginVO {
 	private String userid;
 	private String password;
+
 }

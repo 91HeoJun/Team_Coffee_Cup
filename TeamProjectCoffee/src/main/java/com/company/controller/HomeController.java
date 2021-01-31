@@ -4,6 +4,7 @@ import java.util.Locale;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -20,4 +21,10 @@ public class HomeController {
 		return "index";
 	}
 	
+	
+	//회사 소개 페이지 추가 -은주
+	@GetMapping("/about")
+	public void about() {
+		log.info("소개 페이지 요청");
+	}
 }

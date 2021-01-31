@@ -1,7 +1,6 @@
 package com.company.service;
-
-
 //마이페이지 서비스임플 - 은주
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +18,7 @@ public class MyPageServiceImpl implements MyPageService {
 	
 	@Override
 	public AuthVO isLogin(LoginVO login) {
-		return mapper.selectByMember(login);
+		return mapper.isLogin(login);
 	}
 
 	@Override
@@ -32,4 +31,7 @@ public class MyPageServiceImpl implements MyPageService {
 		return mapper.updateMember(change)>0?true:false;
 	}
 
+	public RegisterVO getId(LoginVO login) {
+		return mapper.getId(login);
+	}
 }
