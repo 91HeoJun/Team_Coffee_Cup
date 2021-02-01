@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.company.mapper.MyPageMapper">
-<!-- 마이페이지 회원 정보수정: 은주 -->
-
-
 	<!-- 개별 조회 -->
 	<select id="getId" resultType="com.company.domain.RegisterVO">
 	select * from UserTBL where userid=#{userid} and password=#{password}
@@ -21,8 +18,9 @@
 	
 	<!-- 회원정보 변경 -->
 	<update id="updateMember" parameterType="com.company.domain.ChangeVO">
-	update UserTBL set password=#{new_password}, email=#{email}, tel=#{tel}, addr=#{addr}	
-	where userid=#{userid} and password=#{password} 
+	update UserTBL set password=#{new_password}, email=#{email}, tel=#{tel},
+	postCode=#{postCode},address=#{address}, detailAddress=#{detailAddress}
+	where userid=#{userid}
 	</update>
 
 

@@ -1,10 +1,11 @@
 <%@page import="com.company.domain.RegisterVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ include file="../header.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:requestEncoding value="utf-8"/>
+
 
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
@@ -66,7 +67,7 @@
 					</div>
 					<div class="pwd">
 					<div>
-						<input type="password" name="password" id="password" value="${regist.password }" class="form-control" placeholder="현재 비밀번호" style="width: 403px;"/>
+						<input type="password" name="password" id="password" value="${regist.password}" class="form-control" placeholder="현재 비밀번호" style="width: 403px;"/>
 						<small id="password" class="text-info"></small>
 					</div>
 					<div class="eTooltip">
@@ -96,7 +97,7 @@
 					</div>
 					<div class="email">
 					<div>
-						<input type="text" name="email" id="email"  class="form-control" value="${regist.email }" placeholder="이메일 입력" style="width: 403px;"/>
+						<input type="text" name="email" id="email"  class="form-control" value="${regist.email}" placeholder="이메일 입력" style="width: 403px;"/>
 						<small id="email" class="text-info"></small>
 					</div>
 					</div>
@@ -106,24 +107,23 @@
 						<small id="tel" class="text-info"></small>
 					</div>
 					</div>
-					<div class="addr">
-						<input type="text" name="addr" id="addr"  class="form-control" value="${regist.addr}" placeholder="주소를 입력해주세요" style="width: 403px;"/>
-						<small id="addr" class="text-info"></small>					
-					</div>
-<!-- 주소API를 사용하여 주소입력시 DB table의 adress1, adress2 를 추가해야함
+				<!-- 주소API-->
 						<div class="addr">
-						<input type="text" id="sample2_postcode" placeholder="우편번호" style="width: 295px; margin: 15px 0 9px 0px;">
+						<input type="text" name="postCode" id="sample2_postcode" placeholder="우편번호" style="width: 295px; margin: 15px 0 9px 0px;" value="${regist.postCode}">
 						<input type="button" class="btn_s_gray btn_100_41" onclick="sample2_execDaumPostcode()" value="주소검색" size="10" style="padding-left: 0 !important;"><br>
-						<input type="text" name="address1" id="sample2_address" placeholder="주소" size="50" value="" data-msg="주소를" style="width: 295px; margin: 0 0 9px 0px;">
-						<input type="text" name="address2" id="sample2_detailAddress" placeholder="상세주소" size="25" value="" data-msg="상세주소를">
+						<input type="text" name="address" id="sample2_address" placeholder="주소" size="50" value="${regist.address}" data-msg="주소" style="width: 295px; margin: 0 0 9px 0px;">
+						<input type="text" name="detailAddress" id="sample2_detailAddress" placeholder="상세주소" size="25" value="${regist.detailAddress}" data-msg="상세주소">
 						<input type="text" id="sample2_extraAddress" placeholder="참고항목" size="20">
-					</div> -->
-
+					</div> 
+<%-- 					<div class="point">
+						<p>포인트</p>
+						<input type="text" name="point" value="${regist.point}" readonly="readonly">
+					</div> --%>
 				</div>
 			</form>
 			<div class="button_r">
 				<button type="submit" class="joinButton btn_s_blue btn_205" id="_btnInfo">확인</button>
-				<button class="joinButton btn_s_gray btn_205" onclick="location.herf='userInfo'">취소</button>
+				<button class="joinButton btn_s_gray btn_205" onclick="location.href='userInfo'">취소</button>
 </div>
 			</div>
 		</div>

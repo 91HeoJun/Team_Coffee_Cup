@@ -16,7 +16,9 @@ public class ChangeVO {
 	private String password;
 	private String new_password;
 	private String confirm_password;
-	private String addr;
+	private String postCode;
+	private String address;
+	private String detailAddress;
 	private String email;
 	private String tel;
 	

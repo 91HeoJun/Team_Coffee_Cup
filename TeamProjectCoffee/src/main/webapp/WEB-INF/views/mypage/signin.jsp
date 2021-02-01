@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" session="true"%>
+<%@ include file="../header.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -55,3 +56,4 @@
     </form>
   </body>
 </html>
+<%@include file="../footer.jsp" %>

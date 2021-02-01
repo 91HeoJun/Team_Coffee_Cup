@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="../header.jsp" %>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <form id="leaveform" action="" method="post">
 	<div class="card"  style="width: 40rem;margin:40px auto;">	
@@ -27,3 +28,4 @@
 	</div>	
 		
 </form>
+<%@include file="../footer.jsp" %>
