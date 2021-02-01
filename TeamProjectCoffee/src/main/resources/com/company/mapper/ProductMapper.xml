@@ -3,16 +3,16 @@
 <mapper namespace="com.company.mapper.ProductMapper">
 	<insert id="insert">
 		insert into ProductTBL(pCode, pCategory, product, pContent, pAmount, pDate, origin)
-		values(#{bno},#{title},#{content},#{writer})
+		values(#{pCode},#{pCategory},#{product},#{pContent},#{pAmount},#{pDate},#{origin})
 	</insert>
 	<update id="update">
-		update ProductTBL set price=#{price} where code=#{code}
+		update ProductTBL set price=#{price} where pCode=#{pCode}
 	</update>
 	<delete id="delete">
-		delete from ProductTBL where code=#{code}
+		delete from ProductTBL where pCode=#{pCode}
 	</delete>
 	<select id="select" resultType="com.company.domain.ProductVO">
-		select * from ProductTBL where code=#{code}
+		select * from ProductTBL where pCode=#{pCode}
 	</select>
 	<select id="selectAll" resultType="com.company.domain.ProductVO">
 		select * from ProductTBL
