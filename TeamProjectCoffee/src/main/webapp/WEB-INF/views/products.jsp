@@ -1,3 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<!-- ****** Header 위치 이동 시 경로 변경 필요 ****** -->
+<%@ include file="header.jsp" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -125,6 +132,8 @@
       <p class="m-0 small">Copyright &copy; Your Website 2020</p>
     </div>
   </footer>
+
+<%@include file="footer.jsp" %>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
