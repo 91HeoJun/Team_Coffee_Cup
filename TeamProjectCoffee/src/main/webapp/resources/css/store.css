@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+.menu li {
+	background-color: #f5c669;
+	font-size: 0.7em;
+}
+
+.list-group-item.activated{
+	background-color: #f7f2cd;
+}

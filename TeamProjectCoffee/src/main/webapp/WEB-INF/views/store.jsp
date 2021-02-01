@@ -30,12 +30,7 @@ Custom styles for this template
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"
 	integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
 	crossorigin="anonymous"></script>
-<style>
-.menu li {
-	background-color: #f5c669;
-	font-size: 0.7em;
-}
-</style>
+<link rel="stylesheet" href="/resources/css/store.css" />
 
 </head>
 
@@ -83,11 +78,11 @@ Custom styles for this template
 	<section class="page-section cta">
 		<div class="container">
 			<ul class="list-group list-group-flush float-left menu">
-				<li class="list-group-item">종로점</li>
-				<li class="list-group-item">서울역점</li>
-				<li class="list-group-item">A third item</li>
-				<li class="list-group-item">A fourth item</li>
-				<li class="list-group-item">And a fifth one</li>
+				<li class="list-group-item activated" id="list1">더종로R점</li>
+				<li class="list-group-item" id="list2">신세계의정부점</li>
+				<li class="list-group-item" id="list3">서울숲역점</li>
+				<li class="list-group-item" id="list4">용산아이파크몰점</li>
+				<li class="list-group-item" id="list5">판교역점</li>
 			</ul>
 
 			<div class="row">
@@ -96,7 +91,7 @@ Custom styles for this template
 
 				<div class="col-xl-12 mx-auto" style="margin-bottom: 1em;">
 					<div class="cta-inner text-center rounded">
-						<img class="rounded" alt="" src="/resources/store_img/jong-ro.jpg"
+						<img class="rounded store-img" alt="" src="/resources/store_img/jong-ro.jpg"
 							style="width: 100%; height: auto">
 						<h3 class="name" style="font-size: 1em; margin-top: 1em">스타벅스 더종로R점</h3>
 						<h3 class="address" style="font-size: 1em; margin-top: 1em">서울특별시
