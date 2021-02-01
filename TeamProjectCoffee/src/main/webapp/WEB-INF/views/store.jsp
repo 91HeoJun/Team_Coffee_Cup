@@ -27,7 +27,9 @@ Custom fonts for this template
 
 Custom styles for this template
 <link href="/resources/css/business-casual.min.css" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+	integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+	crossorigin="anonymous"></script>
 <style>
 .menu li {
 	background-color: #f5c669;
@@ -81,8 +83,8 @@ Custom styles for this template
 	<section class="page-section cta">
 		<div class="container">
 			<ul class="list-group list-group-flush float-left menu">
-				<li class="list-group-item">An item</li>
-				<li class="list-group-item">A second item</li>
+				<li class="list-group-item">종로점</li>
+				<li class="list-group-item">서울역점</li>
 				<li class="list-group-item">A third item</li>
 				<li class="list-group-item">A fourth item</li>
 				<li class="list-group-item">And a fifth one</li>
@@ -92,18 +94,19 @@ Custom styles for this template
 
 				<!-- <div class="row"> -->
 
-				<div class="col-xl-12 mx-auto" style="margin-bottom:1em;">
+				<div class="col-xl-12 mx-auto" style="margin-bottom: 1em;">
 					<div class="cta-inner text-center rounded">
-						<img class="rounded" alt="" src="/resources/store_img/store1.jpg"
+						<img class="rounded" alt="" src="/resources/store_img/jong-ro.jpg"
 							style="width: 100%; height: auto">
-						<h3 style="font-size: 1em; margin-top: 1em">스타벅스 종로점</h3>
+						<h3 class="name" style="font-size: 1em; margin-top: 1em">스타벅스 더종로R점</h3>
+						<h3 class="address" style="font-size: 1em; margin-top: 1em">서울특별시
+							종로구 종로2가 종로 51</h3>
 					</div>
 				</div>
-				
+
 				<div class="col-xl-12 mx-auto">
-					<div class="cta-inner text-center rounded clearfix flex-row">
-						<div class="float-lg-left" id="map" style="width:50%;height:350px;"></div>
-						<div>text</div>
+					<div class="cta-inner text-center rounded d-lg-flex flex-row">
+						<div id="map" style="width: 100%; height: 350px;"></div>
 					</div>
 				</div>
 			</div>
@@ -111,9 +114,7 @@ Custom styles for this template
 	</section>
 
 	<section class="page-section about-heading">
-		<div class="container">
-			
-		</div>
+		<div class="container"></div>
 	</section>
 	<!-- <section class="page-section about-heading">
       <div class="container">
@@ -153,20 +154,12 @@ Custom styles for this template
 		$('.list-hours li').eq(new Date().getDay()).addClass('today');
 	</script>
 
-	<!-- Map Api scripts -->
-	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b2832706a60d412fa615315430debadd"></script>
-	<script>
-		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
-		var options = { //지도를 생성할 때 필요한 기본 옵션
-			center : new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
-			level : 3
-		//지도의 레벨(확대, 축소 정도)
-		};
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b2832706a60d412fa615315430debadd&libraries=services"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b2832706a60d412fa615315430debadd"></script>
 
-		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
-	</script>
 	<script src="/resources/js/store.js"></script>
+
+	<!-- <script src="/resources/js/store.js"></script> -->
 </body>
 
 </html>
