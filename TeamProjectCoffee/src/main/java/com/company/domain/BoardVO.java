@@ -15,6 +15,7 @@ import lombok.ToString;
 @ToString
 public class BoardVO {
 
+	// 1:1 문의게시판 - 허 준
 	private int bno;
 	private String title;
 	private String content;
