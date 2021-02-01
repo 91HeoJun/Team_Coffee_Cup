@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -36,12 +37,12 @@
 
             <ul class="nav navbar-top-links navbar-right">
                 <li>
-                    <a class="dropdown-toggle" href="/member/signin">
+                    <a class="dropdown-toggle" href="/mypage/signin">
                        login
                     </a>                  
                 </li>
                 <li >
-                    <a class="dropdown-toggle" href="#">
+                    <a class="dropdown-toggle" href="/mypage/userInfo">
                         mypage
                     </a>
                 </li>
@@ -71,7 +72,7 @@
         <li class="nav-item">
           <a class="nav-link dropdown-toggle active dropdown-toggle" href="/about" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">소개</a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">about us</a></li>
+            <li><a class="dropdown-item" href="/about">about us</a></li>
             <li><a class="dropdown-item" href="#">coffee story</a></li>
             <li><a class="dropdown-item" href="#">recipe</a></li>
           </ul>
@@ -80,7 +81,7 @@
           <a class="nav-link" href="#">상품</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">매장</a>
+          <a class="nav-link" href="/store">매장</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
