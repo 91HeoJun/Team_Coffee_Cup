@@ -3,6 +3,7 @@ package com.company.mapper;
 import java.util.List;
 
 import com.company.domain.BoardVO;
+import com.company.domain.Criteria;
 
 public interface BoardMapper {
 
@@ -10,7 +11,10 @@ public interface BoardMapper {
 	public int delete(int bno);
 	public int update(BoardVO board);
 	
-	public List<BoardVO> list();
+	public List<BoardVO> list(Criteria cri);
 	public BoardVO select(int bno);
+	
+	public int totalCnt(Criteria cri);
+	
 	
 }

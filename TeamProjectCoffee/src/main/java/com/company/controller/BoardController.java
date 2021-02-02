@@ -8,10 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.company.domain.BoardVO;
+import com.company.domain.Criteria;
+import com.company.domain.pageVO;
 import com.company.service.BoardService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -88,19 +89,19 @@ public class BoardController {
 	
 	
 	// -----------------------------------------------------------------------
-	// 게시글 전체 조회 - 1차 완료 -----------------------------------------------------------
+	// 게시글 전체 조회 - 2차 완료 -----------------------------------------------------------
 	
 	@GetMapping("/list")
-	public void allList(Model model) {
+	public void allList(Model model, Criteria cri) {
 		log.info("---- 전체 리스트 가져오기 ... ----");
 		
-		List<BoardVO> list = boardService.getList();
+		List<BoardVO> list = boardService.getList(cri);
 		
+		int total = boardService.getTotalCnt(cri);
 		model.addAttribute("list", list);
+		model.addAttribute("pageVO", new pageVO(cri, total));
 	
 	}
-	
-	
 	
 	// -----------------------------------------------------------------------
 	//  -----------------------------------------------------------

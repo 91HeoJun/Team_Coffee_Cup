@@ -21,8 +21,19 @@
 	</update>
 
 	<!-- 전체 조회 -->
-	<select id="list" resultType="com.company.domain.BoardVO">
-		select * from BoardTBL
+	<select id="list" resultType="com.company.domain.BoardVO">		
+		<![CDATA[
+			select *
+			from(select /*+INDEX_DESC(BoardTBL BoardTBL_PK) */ 
+				rownum rn, bno, title, writer, regdate, updatedate, replyCnt
+				from BoardTBL
+				where
+		]]>
+			<include refid="criteria"></include>
+		<![CDATA[
+				rownum <= (#{pageNum} * #{amount}))
+				where rn > (#{pageNum} - 1) * #{amount}
+		]]>
 	</select>
 	
 	<!-- 특정 조회 -->
@@ -30,12 +41,10 @@
 		select * from BoardTBL where bno = #{bno}
 	</select>
 		
-		
-		
 	<!-- 전체 게시물 수 -->
-<!-- 	<select id="totalCnt" resultType="int">
+ 	<select id="totalCnt" resultType="int">
 		select count(*) from BoardTBL where <include refid="criteria"></include> bno > 0
-	</select> -->
+	</select>
 
 
 
@@ -43,8 +52,25 @@
 
 
 
-
-
-
+	<!-- 동적 SQL -->
+	<sql id="criteria">
+		<trim prefix="(" suffix=") AND" prefixOverrides="OR">
+			<foreach collection="typeArr" item="type">
+				<trim prefix="OR">
+					<choose>
+						<when test="type=='T'.toString()">
+							title like '%'||#{keyword}||'%'
+						</when>
+						<when test="type=='C'.toString()">
+							content like '%'||#{keyword}||'%'
+						</when>
+						<when test="type=='W'.toString()">
+							writer like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
 
 </mapper>

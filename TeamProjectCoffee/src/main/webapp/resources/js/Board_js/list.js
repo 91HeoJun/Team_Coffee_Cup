@@ -35,6 +35,22 @@ $(function() {
 		actionForm.submit();
 	})
 	
+	// 페이지 번호 클릭 submit
+	$(".paginate_button a").click(function(e){
+		e.preventDefault();
+		
+		actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+		
+		actionForm.submit();
+	})
+	
+	// 글 개수 반영
+	$(".form-control").change(function(){
+		actionForm.find("input[name='amount']").val($(this).val());
+		
+		actionForm.submit();
+	})
+	
 
 	
 })
