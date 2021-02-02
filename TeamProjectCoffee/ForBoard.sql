@@ -14,6 +14,10 @@ CREATE TABLE BoardTBL (
 -- 1:1 게시판의 글번호를 위한 시퀸스
 CREATE SEQUENCE seq_board START WITH 1 INCREMENT BY 1;
 
+-- 게시글 더미 생성 쿼리
+insert into BoardTBL(bno, title, content, writer)
+	(select seq_board.nextval, title, content, writer from BoardTBL);
+
 -- 1:1 게시판의 첨부파일을 위한 BoardTBL_Attach
 CREATE TABLE BoardTBL_Attach (
 	uuid		VARCHAR2(100)	NOT NULL, 
