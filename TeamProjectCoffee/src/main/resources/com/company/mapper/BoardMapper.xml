@@ -5,8 +5,11 @@
 	<!-- 1:1 문의 게시판 | 허 준 -->
 	<!-- CRUD -->
 	<insert id="insert">
-		insert into BaordTBL(bno, title, content, writer, regdate, updatedate) 
-		values(#{bno}, #{title}, #{content}, #{writer}, sysdate, sysdate)
+		<selectKey keyProperty="bno" order="BEFORE" resultType="int">
+			select seq_board.nextval from dual
+		</selectKey>
+			insert into BoardTBL(bno, title, content, writer, regdate, updatedate) 
+			values(#{bno}, #{title}, #{content}, #{writer}, sysdate, sysdate)
 	</insert>
 
 	<delete id="delete">
@@ -23,7 +26,7 @@
 	</select>
 	
 	<!-- 특정 조회 -->
-	<select id="read" resultType="com.company.domain.BoardVO">
+	<select id="select" resultType="com.company.domain.BoardVO">
 		select * from BoardTBL where bno = #{bno}
 	</select>
 		

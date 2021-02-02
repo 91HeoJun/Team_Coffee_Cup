@@ -11,6 +11,6 @@ public interface BoardMapper {
 	public int update(BoardVO board);
 	
 	public List<BoardVO> list();
-	public BoardVO read(int bno);
+	public BoardVO select(int bno);
 	
 }

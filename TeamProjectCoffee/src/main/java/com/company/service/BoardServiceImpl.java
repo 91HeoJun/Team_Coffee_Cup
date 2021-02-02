@@ -9,7 +9,7 @@ import com.company.domain.BoardVO;
 import com.company.mapper.BoardMapper;
 
 
-@Service("serviceBoard")
+@Service("boardService")
 public class BoardServiceImpl implements BoardService {
 	
 	@Autowired
@@ -42,7 +42,7 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public BoardVO getRow(int bno) {
 
-		return boardMapper.read(bno);
+		return boardMapper.select(bno);
 	}
 
 }

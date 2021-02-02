@@ -1,12 +1,12 @@
 
--- 1:1 게시판을 위한 BoarTBL
+-- 1:1 게시판을 위한 BoardTBL
 CREATE TABLE BoardTBL (
 	bno			NUMBER(10, 0)	NOT NULL, 
 	title		VARCHAR2(200)	NOT NULL, 
 	content		VARCHAR2(2000)	NOT NULL, 
 	writer		VARCHAR2(50)	NOT NULL, 
-	regdate		DATE			NOT NULL, 
-	updatedate	DATE			NOT NULL, 
+	regdate		DATE			DEFAULT SYSDATE, 
+	updatedate	DATE			DEFAULT SYSDATE, 
 	replyCnt	NUMBER, 
 	CONSTRAINT BoardTBL_PK PRIMARY KEY (bno)
 );
