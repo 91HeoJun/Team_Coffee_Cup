@@ -12,6 +12,6 @@
 	<!-- 고객 게시판 리스트 -->
 	<div class="container">
 		<ul class="list-group list-group-flush float-left menu">
-			<li class="list-group-item activated" id="list1"> Q & A </li>
+			<li class="list-group-item activated" id="list1"> FAQ </li>
 			<li class="list-group-item" id="list2">1:1 문의 게시판</li>
 		</ul>

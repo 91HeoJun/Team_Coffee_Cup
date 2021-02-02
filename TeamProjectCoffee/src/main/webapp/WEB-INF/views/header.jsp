@@ -97,7 +97,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link dropdown-toggle dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">고객</a>
+          <a class="nav-link dropdown-toggle dropdown-toggle" href="/ClientBoard/list" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">고객</a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="#">FAQ</a></li>
             <li><a class="dropdown-item" href="#">1:1</a></li>
