@@ -27,4 +27,19 @@ public class HomeController {
 	public void about() {
 		log.info("소개 페이지 요청");
 	}
+	
+	//장바구니 테스트 폼 호출 - 이대우
+	@GetMapping("/cart")
+	public String cartTest() {
+		log.info("장바구니 테스트 폼 출력");
+		return "/cartTest/cartTest";
+	}
+	
+	//장바구니 확인
+	@GetMapping("/confirmCart")
+	public String cartConfirm() {
+		log.info("장바구니 확인");
+		return "/cartTest/cartList";
+	}
+	
 }
