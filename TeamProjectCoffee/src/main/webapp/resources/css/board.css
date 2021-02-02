@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+.row {
+	background-color: f5c669;
+}
+
+.menu li {
+	background-color: #f5c669;
+	font-size: 0.7em;
+}
+
+.table {
+		background-color: #f7f2cd;
+}
+
+.list-group-item.activated{
+	background-color: #f7f2cd;
+}
+
+.btn btn-default {
+	background-color: skyblue;
+}

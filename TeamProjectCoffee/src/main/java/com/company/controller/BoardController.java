@@ -22,11 +22,11 @@ import lombok.extern.slf4j.Slf4j;
 public class BoardController {
 	
 	@Autowired
-	private BoardService service;
+	private BoardService boardService;
 	
-	// 게시글 작성 --------------------------------------------------------------
+	// 게시글 작성 - 완료 --------------------------------------------------------------
 	@GetMapping("/register")
-	public void registerForm() {
+	public void register() {
 		log.info("---- 게시글 작성 페이지로 이동중 ... ----");
 	}
 	
@@ -34,14 +34,14 @@ public class BoardController {
 	public String registPost(BoardVO board, RedirectAttributes rttr) {
 		log.info("---- 게시글 작성 실행중 ... ----");
 		
-		if (service.regist(board)) {
+		if (boardService.regist(board)) {
 			log.info("---- 게시글번호 : " +board.getBno()+ " 작성중 ... ----");
 			rttr.addFlashAttribute("result", board.getBno());
 			return "redirect:list";
 
 		} else {
 			log.info("***** ---- 게시글 입력 실패 ---- *****");
-			return "registerForm";
+			return "register";
 		}
 	}
 	
@@ -51,19 +51,19 @@ public class BoardController {
 	@PostMapping("/remove")
 	public String removePost(int bno, RequestAttributes rttr) {
 
-		service.remove(bno);
+		boardService.remove(bno);
 		
 		return "redirect:list";
 	}
 	
 	
 	// -----------------------------------------------------------------------
-	// 게시글 수정, 게시글 단일 조회 폼  --------------------------------------------------------------
+	// 게시글 수정, 게시글 단일 조회 폼  ----------------------------------------------
 	@GetMapping({"/select", "/update"})
 	public void selectForm(int bno, Model model) {
 		log.info("---- 게시글 "+ bno +"번 상세 페이지로 이동중 ... ----");
 		
-		BoardVO selectBoard = service.getRow(bno);
+		BoardVO selectBoard = boardService.getRow(bno);
 		
 		model.addAttribute("selectBoard", selectBoard);
 		
@@ -73,7 +73,7 @@ public class BoardController {
 	public String updatePost(BoardVO board, RedirectAttributes rttr) {
 		log.info("---- 게시글 수정 실행중 ... ----" + board);
 		
-		service.modify(board);
+		boardService.modify(board);
 
 		return"redirect:list"; // read로 갈 경우도 생각중.
 		
@@ -88,13 +88,13 @@ public class BoardController {
 	
 	
 	// -----------------------------------------------------------------------
-	// 게시글 전체 조회 -----------------------------------------------------------
+	// 게시글 전체 조회 - 1차 완료 -----------------------------------------------------------
 	
 	@GetMapping("/list")
 	public void allList(Model model) {
 		log.info("---- 전체 리스트 가져오기 ... ----");
 		
-		List<BoardVO> list = service.getList();
+		List<BoardVO> list = boardService.getList();
 		
 		model.addAttribute("list", list);
 	
