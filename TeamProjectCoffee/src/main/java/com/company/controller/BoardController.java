@@ -49,8 +49,8 @@ public class BoardController {
 	// 게시글 삭제 --------------------------------------------------------------
 	
 	@PostMapping("/remove")
-	public String removePost(int bno, RequestAttributes rttr) {
-
+	public String removePost(int bno) {
+		log.info("---- " + bno + "번 게시물 삭제 진행중... ----");
 		boardService.remove(bno);
 		
 		return "redirect:list";

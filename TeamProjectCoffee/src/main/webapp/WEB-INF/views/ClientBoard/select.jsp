@@ -44,8 +44,14 @@
                 </div>
             </div>
 
+<form action="update" id="myform">
+	<input type="hidden" name="bno" value="${selectBoard.bno}" />
+	<input type="hidden" name="pageNum" value="${cri.pageNum}" />
+	<input type="hidden" name="amount" value="${cri.amount}" />
+	<input type="hidden" name="type" value="${cri.type}" />
+	<input type="hidden" name="keyword" value="${cri.keyword}" />
+</form>
 
-
-<script> var bnoVal = ${getBoard.bno}; </script>
+<script> var bnoVal = ${selectBoard.bno}; </script>
 <script src="/resources/js/Board_js/select.js"></script>
 <%@include file="../footer.jsp" %>
