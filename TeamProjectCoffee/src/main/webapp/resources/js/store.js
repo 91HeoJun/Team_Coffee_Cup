@@ -60,39 +60,7 @@ $(function(){
 			//address 변경
 			$(".address").text("서울특별시 종로구 종로2가 종로 51");
 			
-			// 주소-좌표 변환 객체를 생성합니다
-//		var geocoder = new kakao.maps.services.Geocoder();
-		//주소값을 가져옵니다.
-		address = $(".address").text();
-		console.log("address : "+address);
-		name = $(".name").text();
-		console.log("name : "+name);
-		// 주소로 좌표를 검색합니다
-		geocoder.addressSearch(address,function(result, status) {
-														
-							// 정상적으로 검색이 완료됐으면 
-							if (status === kakao.maps.services.Status.OK) {
-								console.log("검색 완료");
-								var coords = new kakao.maps.LatLng(result[0].y,
-										result[0].x);
-
-								// 결과값으로 받은 위치를 마커로 표시합니다
-								var marker = new kakao.maps.Marker({
-									map : map,
-									position : coords
-								});
-
-								// 인포윈도우로 장소에 대한 설명을 표시합니다
-								var infowindow = new kakao.maps.InfoWindow(
-										{
-											content : '<div style="width:150px;text-align:center;padding:6px 0;">'+name+'</div>'
-										});
-								infowindow.open(map, marker);
-
-								// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-								map.setCenter(coords);
-							}
-		});
+			searchMap();
 			
 	});
 		//list2 클릭 시
@@ -108,39 +76,7 @@ $(function(){
 			//address 변경
 			$(".address").text("경기 의정부시 평화로 525");
 			
-			// 주소-좌표 변환 객체를 생성합니다
-//		var geocoder = new kakao.maps.services.Geocoder();
-		//주소값을 가져옵니다.
-		address = $(".address").text();
-		console.log("address : "+address);
-		name = $(".name").text();
-		console.log("name : "+name);
-		// 주소로 좌표를 검색합니다
-		geocoder.addressSearch(address,function(result, status) {
-														
-							// 정상적으로 검색이 완료됐으면 
-							if (status === kakao.maps.services.Status.OK) {
-								console.log("검색 완료");
-								var coords = new kakao.maps.LatLng(result[0].y,
-										result[0].x);
-
-								// 결과값으로 받은 위치를 마커로 표시합니다
-								var marker = new kakao.maps.Marker({
-									map : map,
-									position : coords
-								});
-
-								// 인포윈도우로 장소에 대한 설명을 표시합니다
-								var infowindow = new kakao.maps.InfoWindow(
-										{
-											content : '<div style="width:150px;text-align:center;padding:6px 0;">'+name+'</div>'
-										});
-								infowindow.open(map, marker);
-
-								// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-								map.setCenter(coords);
-							}
-		});
+			searchMap();
 			
 	});
 	
@@ -157,39 +93,7 @@ $(function(){
 			//address 변경
 			$(".address").text("서울 성동구 왕십리로 50");
 			
-			// 주소-좌표 변환 객체를 생성합니다
-//		var geocoder = new kakao.maps.services.Geocoder();
-		//주소값을 가져옵니다.
-		address = $(".address").text();
-		console.log("address : "+address);
-		name = $(".name").text();
-		console.log("name : "+name);
-		// 주소로 좌표를 검색합니다
-		geocoder.addressSearch(address,function(result, status) {
-														
-							// 정상적으로 검색이 완료됐으면 
-							if (status === kakao.maps.services.Status.OK) {
-								console.log("검색 완료");
-								var coords = new kakao.maps.LatLng(result[0].y,
-										result[0].x);
-
-								// 결과값으로 받은 위치를 마커로 표시합니다
-								var marker = new kakao.maps.Marker({
-									map : map,
-									position : coords
-								});
-
-								// 인포윈도우로 장소에 대한 설명을 표시합니다
-								var infowindow = new kakao.maps.InfoWindow(
-										{
-											content : '<div style="width:150px;text-align:center;padding:6px 0;">'+name+'</div>'
-										});
-								infowindow.open(map, marker);
-
-								// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-								map.setCenter(coords);
-							}
-		});
+			searchMap();
 			
 	});
 	
@@ -206,39 +110,7 @@ $(function(){
 			//address 변경
 			$(".address").text("서울 용산구 한강대로23길 55");
 			
-			// 주소-좌표 변환 객체를 생성합니다
-//		var geocoder = new kakao.maps.services.Geocoder();
-		//주소값을 가져옵니다.
-		address = $(".address").text();
-		console.log("address : "+address);
-		name = $(".name").text();
-		console.log("name : "+name);
-		// 주소로 좌표를 검색합니다
-		geocoder.addressSearch(address,function(result, status) {
-														
-							// 정상적으로 검색이 완료됐으면 
-							if (status === kakao.maps.services.Status.OK) {
-								console.log("검색 완료");
-								var coords = new kakao.maps.LatLng(result[0].y,
-										result[0].x);
-
-								// 결과값으로 받은 위치를 마커로 표시합니다
-								var marker = new kakao.maps.Marker({
-									map : map,
-									position : coords
-								});
-
-								// 인포윈도우로 장소에 대한 설명을 표시합니다
-								var infowindow = new kakao.maps.InfoWindow(
-										{
-											content : '<div style="width:150px;text-align:center;padding:6px 0;">'+name+'</div>'
-										});
-								infowindow.open(map, marker);
-
-								// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-								map.setCenter(coords);
-							}
-		});
+			searchMap();
 			
 	});
 	
@@ -255,7 +127,13 @@ $(function(){
 			//address 변경
 			$(".address").text("경기 성남시 분당구 대왕판교로606번길 58");
 			
-			// 주소-좌표 변환 객체를 생성합니다
+			searchMap();
+			
+	});
+	
+	//카카오 맵 - 검색하여 지도에 표시
+	function searchMap(){
+		// 주소-좌표 변환 객체를 생성합니다
 //		var geocoder = new kakao.maps.services.Geocoder();
 		//주소값을 가져옵니다.
 		address = $(".address").text();
@@ -288,7 +166,6 @@ $(function(){
 								map.setCenter(coords);
 							}
 		});
-			
-	});
+	}
 	
 })
