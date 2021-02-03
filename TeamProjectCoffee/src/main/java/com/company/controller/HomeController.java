@@ -32,14 +32,14 @@ public class HomeController {
 	@GetMapping("/cart")
 	public String cartTest() {
 		log.info("장바구니 테스트 폼 출력");
-		return "/cartTest/cartTest";
+		return "/cartTest";
 	}
 	
 	//장바구니 확인 - 이대우
 	@GetMapping("/confirmCart")
 	public String cartConfirm() {
 		log.info("장바구니 확인");
-		return "/cartTest/cartList";
+		return "/cartList";
 	}
 	
 }

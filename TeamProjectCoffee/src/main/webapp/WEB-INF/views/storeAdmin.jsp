@@ -4,28 +4,47 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@ include file="header.jsp"%>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
 
 <section class="page-section cta">
 	<div class="container">
-		<div class="row">
 		<p>
-			<a class="btn btn-primary" data-toggle="collapse"
-				href="#collapseExample" role="button" aria-expanded="false"
-				aria-controls="collapseExample"> Link with href </a>
-			<button class="btn btn-primary" type="button" data-toggle="collapse"
-				data-target="#collapseExample" aria-expanded="false"
-				aria-controls="collapseExample">Button with data-target</button>
-		</p>
-		<div class="collapse" id="collapseExample">
-			<div class="card card-body">Anim pariatur cliche reprehenderit,
-				enim eiusmod high life accusamus terry richardson ad squid. Nihil
-				anim keffiyeh helvetica, craft beer labore wes anderson cred
-				nesciunt sapiente ea proident.</div>
-		</div>
-		</div>
+  <button class="btn" style="background-color:#d19a3b" type="button" id="collapse" data-status="hide">매장 추가</button>
+</p>
+<div class="collapse" id="addMarket">
+  <div class="card card-body">
+    <div>
+    	<label for="">매장 이름</label>
+    	<input type="text" name="storeName" id="storeName" />
+    </div>
+    <div>
+    	<label for="">매장 주소</label>
+    	<input type="text" name="storeAddress" id="storeAddress" />
+    </div>
+    <div>
+    	<label for="">매장 사진</label>
+    	<input type="file" name="storePic" id="storePic" />
+    </div>
+  </div>
+</div>
+
+<script>
+//매장 추가 버튼의 collapse 기능을 위한 스크립트
+$(function(){
+	$("#collapse").click(function(){
+		if($("#collapse").data("status")=='hide'){
+			//console.log("show collapse");
+			$("#addMarket").collapse("show");
+			$("#collapse").data("status", "show");
+		}
+		if($("#collapse").data("status")=='show'){
+			//console.log("hide collapse");
+			$("#addMarket").collapse("hide");
+			$("#collapse").data("status", "hide");
+		}
+	})
+})
+</script>
 
 		<div class="row">
 
