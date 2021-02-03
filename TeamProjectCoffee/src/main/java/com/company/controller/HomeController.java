@@ -35,7 +35,7 @@ public class HomeController {
 		return "/cartTest/cartTest";
 	}
 	
-	//장바구니 확인
+	//장바구니 확인 - 이대우
 	@GetMapping("/confirmCart")
 	public String cartConfirm() {
 		log.info("장바구니 확인");

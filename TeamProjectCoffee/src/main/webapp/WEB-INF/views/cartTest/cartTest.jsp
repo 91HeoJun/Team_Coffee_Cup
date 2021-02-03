@@ -52,6 +52,9 @@ $(function(){
 			data:JSON.stringify(data),
 			success:function(result){
 				console.log(result);
+				if(result == "fail"){
+					alert("재고가 부족합니다.");
+				}
 			}
 		})
 	})
