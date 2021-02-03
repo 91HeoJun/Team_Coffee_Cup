@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.mapper.ReplyMapper">
+
+	<!-- 댓글 | 허준 -->
+	<!-- CRUD -->
+	<insert id="insert">
+		insert into BoardTBL_Reply(rno, bno, reply, replyer)
+		values(seq_reply.nextval, #{bno}, #{reply}, #{replyer})
+	</insert>
+
+	<delete id="delete">
+		delete from BoardTBL_Reply where rno = #{rno}
+	</delete>
+
+	<update id="update">
+		update BoardTBL_Reply set reply = #{reply}, updateDate = sysdate where rno = #{rno}
+	</update>
+	
+	<!-- 조회 및 페이지 나누기 관련 -->
+	<select id="read" resultType="com.company.domain.ReplyVO">
+		select * from BoardTBL_Reply where rno = #{rno}
+	</select>
+	
+	<select id="list" resultType="com.company.domain.ReplyVO">
+		<![CDATA[
+ 			select *
+			from(select /*+INDEX(BoardTBL_Reply idx_reply)*/ rownum rn, rno, bno, reply, replyer,
+				replyDate, updateDate from BoardTBL_Reply where bno = #{bno} and rno > 0 and 
+				rn <= (#{cri.pageNum})*#{cri.amount})
+			where rn > (#{cri.pageNum} - 1)*#{cri.amount}
+		]]>
+		</select>
+	
+	<select id="countBno" resultType="int">
+		select count(*) from BoardTBL_Reply where bno = #{bno}
+	</select>
+	
+</mapper>
