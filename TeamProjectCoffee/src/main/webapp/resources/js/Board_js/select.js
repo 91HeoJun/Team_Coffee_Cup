@@ -3,11 +3,8 @@
  */
 
 $(function() {
-
+	
 	// Hidden 폼
-	// 페이지 나누기 후 재활성화 필요
-//	showList(1);
-
 	var form = $("#myform");
 	
 	// 수정버튼 submit
