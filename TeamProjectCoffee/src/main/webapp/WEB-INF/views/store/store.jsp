@@ -2,80 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%--
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
-
-<title>Business Casual - Start Bootstrap Theme</title> Bootstrap core
-CSS
-<link href="/resources/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
-
-Custom fonts for this template
-<link
-	href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
-	rel="stylesheet">
-<link
-	href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i"
-	rel="stylesheet">
-
-Custom styles for this template
-<link href="/resources/css/business-casual.min.css" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"
-	integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-	crossorigin="anonymous"></script>
-<link rel="stylesheet" href="/resources/css/store.css" />
-
-</head>
-
-<body>
-
-	<h1 class="site-heading text-center text-white d-none d-lg-block">
-		<span class="site-heading-upper text-primary mb-3">A Free
-			Bootstrap 4 Business Theme</span> <span class="site-heading-lower">Business
-			Casual</span>
-	</h1>
-
-	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-		<!-- <nav class="navbar navbar-expand-xl navbar-dark py-xl-4" id="mainNav"> -->
-		<div class="container">
-			<a
-				class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
-				href="#">Start Bootstrap</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarResponsive" aria-controls="navbarResponsive"
-				aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav mx-auto">
-					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="index.html">Home
-							<span class="sr-only">(current)</span>
-					</a></li>
-					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="about.html">About</a>
-					</li>
-					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="products.html">Products</a>
-					</li>
-					<li class="nav-item active px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="store.html">Store</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav> --%>
-
-	<%@ include file="header.jsp" %>
+	<%@ include file="../header.jsp" %>
 	<link rel="stylesheet" href="/resources/css/store.css" />
 	<section class="page-section cta">
 		<div class="container">
@@ -85,7 +13,9 @@ Custom styles for this template
 				<li class="list-group-item" id="list3">서울숲역점</li>
 				<li class="list-group-item" id="list4">용산아이파크몰점</li>
 				<li class="list-group-item" id="list5">판교역점</li>
+				<button type="button" style="margin-top : 10px">매장 수정</button>
 			</ul>
+			
 
 			<div class="row">
 
@@ -139,9 +69,9 @@ Custom styles for this template
 	<!-- 카카오맵 api -->
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b2832706a60d412fa615315430debadd&libraries=services"></script>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b2832706a60d412fa615315430debadd"></script>
-	<script src="/resources/js/store2.js"></script>
+	<script src="/resources/js/store.js"></script>
 
-	<%@ include file="footer.jsp" %>
+	<%@ include file="../footer.jsp" %>
 
 	<!-- <footer class="footer text-faded text-center py-5">
 		<div class="container">
