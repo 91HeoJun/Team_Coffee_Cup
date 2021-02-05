@@ -12,5 +12,5 @@ public class FileAttach {
 	private String uploadPath;
 	private String fileName;
 	private boolean fileType;
-	private int bno;
+	private int code;
 }

@@ -3,8 +3,7 @@
  */
 $(function(){
 	
-	//매장 추가 버튼의 collapse 기능을 위한 스크립트
-
+	//매장 추가 버튼의 collapse 기능을 위한 스크립트(완료)
 	$("#collapse").click(function(){
 		if($("#collapse").data("status")=='hide'){
 			//console.log("show collapse");
@@ -24,7 +23,7 @@ $(function(){
 		
 		var str="";
 		//첨부파일 영역의 정보 수집
-		$(".uploadResult ul li").each(function(idx, obj){
+		$("#thumbnailPic ul li").each(function(idx, obj){
 			var job=$(obj);
 			//수집된 정보를 hidden 태그로 작성
 			str+="<input type='hidden' name='attachList["+idx+"].uuid' value='"+job.data("uuid")+"'>";
@@ -43,7 +42,7 @@ $(function(){
 		form.submit();
 	})
 	
-	//파일 버튼이 클릭되어 변화가 일어나는 경우
+	//파일 버튼이 클릭되어 변화가 일어나는 경우(완료)
 	//현재 목록의 파일을 서버로 보내 저장하기
 	$("input[type='file']").change(function(){
 		console.log("업로드 호출");
@@ -98,11 +97,10 @@ $(function(){
 				str+="<li style='list-style-type : none' data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"' ";
 				str+="data-filename='"+obj.fileName+"' data-type='"+obj.fileType+"'>";
 				str+="<a href=\"javascript:showImage(\'"+originPath+"\')\">";
-				//str+="<a href='javascript:showImage("+originPath+")'>";
-				str+="<img src='/upload/display?fileName="+fileCallPath+"'><div>"+obj.fileName+"</a>";
-				str+="<button type='button' class='btn btn-warning btn-circle' data-file='";
+				str+="<img src='/upload/display?fileName="+fileCallPath+"'></a><div>"+obj.fileName+"";
+				str+="<button type='button' style='font-size:0.5em; color:white; padding:0px' class='btn btn-warning btn-circle' data-file='";
 				str+=fileCallPath+"' data-type='image'>";
-				str+="<i class='fa fa-times'></i>";
+				str+="삭제";
 				str+="</button>"
 				str+="</div></li>";
 			}else{
@@ -112,9 +110,9 @@ $(function(){
 				str+="data-filename='"+obj.fileName+"' data-type='"+obj.fileType+"'>";
 				str+="<a href='/download?fileName="+fileCallPath+"'>";
 				str+="<img src='/resources/img/file.jpg'><div>"+obj.fileName+"</a>";
-				str+="<button type='button' class='btn btn-warning btn-circle' data-file='";
+				str+="<button type='button' style='font-size:0.5em; color:white; padding:0px' data-file='";
 				str+=fileCallPath+"' data-type='file'>";
-				str+="<i class='fa fa-times'></i>";
+				str+="<i class='bi bi-x-circle'></i>";
 				str+="</button>"
 				str+="</div></li>";
 			}
@@ -133,7 +131,7 @@ $(function(){
 		
 		//서버 폴더에서 제거
 		$.ajax({
-			url:'/deleteFile',
+			url:'/upload/deleteFile',
 			type:'post',
 			data:{
 				fileName:targetFile,
@@ -144,8 +142,7 @@ $(function(){
 				//화면 목록에서 제거
 				targetLi.remove();
 			}
-		})
-		
+		})	
 	})//x버튼 종료
 	
 	//크게 열린 이미지 다시 닫기

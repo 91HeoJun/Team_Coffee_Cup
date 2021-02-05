@@ -3,8 +3,13 @@
 <mapper namespace="com.company.mapper.StoreMapper">
 
 	<!-- 새로운 매장 등록하기 -->
-	<insert id="insert" >
-		insert into storeTBL(code, name, address, pic) values(sq_store.nextval, #{name}, #{address}, #{pic})
+	<insert id="insert">
+		<selectKey keyProperty="code" order="BEFORE" resultType="int">
+		<!-- 시퀀스를 먼저 발행함 : bno라는 값을 먼저 발행함 / keyProperty : 값을 저장하는 장소(like variable) / 값을 담을 VO와 이름 맞춤 -->
+			select sq_store.nextval from dual
+		</selectKey>
+		insert into storeTBL(code, name, address)
+		values(#{code}, #{name}, #{address})
 	</insert>
 	
 	<!-- 등록 매장 불러오기 -->

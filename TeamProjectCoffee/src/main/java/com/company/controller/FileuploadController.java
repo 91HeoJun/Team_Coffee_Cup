@@ -142,7 +142,6 @@ public class FileuploadController {
 	
 	//서버에서 파일 삭제
 	@PostMapping("/deleteFile")
-	@PreAuthorize("isAuthenticated()")
 	//fileName : 날짜폴더\파일이름.txt(jpg, png etc)
 	//type : image or file(fileName == oriName)
 	public ResponseEntity<String> deleteFile(String fileName, String type){
@@ -150,7 +149,7 @@ public class FileuploadController {
 		log.info("파일 삭제 : "+fileName+" / "+"타입 : "+type);
 		
 		try {
-			File file = new File("g:\\upload\\"+URLDecoder.decode(fileName, "utf-8"));
+			File file = new File("g:\\pictures\\"+URLDecoder.decode(fileName, "utf-8"));
 			
 			//파일(썸네일, 일반파일) 삭제
 			file.delete();

@@ -17,5 +17,6 @@ public class StoreVO {
 	private int code;
 	private String name;
 	private String address;
+	
 	private List<FileAttach> attachList;
 }
