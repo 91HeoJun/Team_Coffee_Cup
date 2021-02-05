@@ -21,11 +21,23 @@
 				</div>	
 			</div>				
 			<div class="form-group text-center">		
-				<button type="submit" class="btn btn-primary">탈퇴</button>
-			    <button type="button" class="btn btn-secondary" id="leavecancel" onclick="location.href='userInfo'">취소</button>		
+				<button type="submit" class="btn btn-danger" id="leave">탈퇴</button>
+			    <button type="button" class="btn btn-secondary" id="leavecancel" onclick="location.href='/mypage/myPageGo'">취소</button>		
 			</div>
 		</div>
 	</div>	
 		
 </form>
+<script>
+$("#leave").click(function(){
+
+	if(confirm("정말 탈퇴하시겠습니까?") == true){
+		
+		$('#leaveform').submit();
+		alert("탈퇴되었습니다. 그동안 이용해 주셔서 감사합니다.");
+	} else{
+		return false;
+	}
+});
+</script>
 <%@include file="../footer.jsp" %>

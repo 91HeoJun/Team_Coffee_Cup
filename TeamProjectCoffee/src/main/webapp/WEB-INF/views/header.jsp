@@ -21,6 +21,7 @@
 
     <!-- Custom styles for this template -->
     <link href="/resources/css/business-casual.min.css" rel="stylesheet" />
+   
   </head>
 
   <body>

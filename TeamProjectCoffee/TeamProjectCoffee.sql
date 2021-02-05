@@ -1,12 +1,14 @@
 -- 회원가입을 위한 UserTBL
 CREATE TABLE UserTBL (
-	userid		VARCHAR2(15), 
-	password	VARCHAR2(20)	NOT NULL, 
-	name		NVARCHAR2(10)	NOT NULL, 
-	addr		VARCHAR2(50)	NOT NULL, 
-	email		VARCHAR2(50)	NOT NULL, 
-	tel			VARCHAR2(20)	NOT NULL,
-    CONSTRAINT UserTBL_PK PRIMARY KEY (userid)
+	userid		VARCHAR2(15), 			--아이디
+	password	VARCHAR2(20)	NOT NULL, --비밀번호
+	name		NVARCHAR2(10)	NOT NULL, --이름
+	postcode	VARCHAR2(50)	NOT NULL,--우편번호
+	address		VARCHAR2(50)	NOT NULL,--주소
+	detailAddress    VARCHAR2(50),		--상세주소
+	email		VARCHAR2(50)	NOT NULL, --이메일
+	tel			VARCHAR2(20)	NOT NULL, --전화번호
+	CONSTRAINT UserTBL_PK PRIMARY KEY (userid) --외래키: 아이디
 );
 
 

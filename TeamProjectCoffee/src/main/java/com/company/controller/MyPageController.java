@@ -20,7 +20,7 @@ import com.company.service.MyPageService;
 
 import lombok.extern.slf4j.Slf4j;
 
-//singin(로그인)-> userInfo(회원상세정보)-> leave(탈퇴요청폼) -> 탈퇴완료
+//정보 수정 요청 : singin(로그인)-> myPageGo(마이페이지 메인)-> changeInfo(수정폼)-> 변경완료시 userInfo(회원상세정보)
 //singin(로그인)-> userInfo(회원상세정보)-> changeInfo(수정폼) -> 수정완료
 @Controller
 @Slf4j
@@ -46,10 +46,15 @@ public class MyPageController {
 		if(auth!=null) {
 			session.setAttribute("auth", auth);
 			session.setAttribute("regist", regist);
-			return "redirect:userInfo";
+			return "redirect:myPageGo";
 		}else { //userid,password가 틀려서 로그인을 못한경우
 			return "redirect:signin";
 		}
+	}
+	
+	@GetMapping("/myPageGo")
+	public void myPageGo() {
+		log.info("===마이페이지 메인요청");
 	}
 	
 	//마이 페이지 메인 보여주기-(회원상세정보)
@@ -85,7 +90,7 @@ public class MyPageController {
 	}
 	
 	@PostMapping("/changeInfo")
-	public String changePost(ChangeVO change,@SessionAttribute AuthVO auth,HttpSession session,RedirectAttributes rttr) {
+	public String changePost(ChangeVO change,@SessionAttribute AuthVO auth,LoginVO login,HttpSession session,RedirectAttributes rttr) {
 		//회원정보 수정 - change(password, new_password, confirm_password)
 		log.info("회원정보 수정"+change);
 		//userid 세션에서 가져와서 change에 담기
@@ -94,6 +99,8 @@ public class MyPageController {
 		//service에 회원정보 변경 요청
 		if(service.update(change)) {//성공 => 회원상세정보 페이지 이동
 //			session.invalidate();
+			RegisterVO regist=service.getId(login);
+			session.setAttribute("regist", regist);
 			return "redirect:userInfo";
 		}else {//실패 => 회원정보 변경 폼 보여주기
 			rttr.addFlashAttribute("error","입력한 정보가 틀립니다!!");				

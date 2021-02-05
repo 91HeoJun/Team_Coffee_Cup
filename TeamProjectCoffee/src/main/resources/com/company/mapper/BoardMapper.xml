@@ -46,10 +46,10 @@
 		select count(*) from BoardTBL where <include refid="criteria"></include> bno > 0
 	</select>
 
-
-
-
-
+	<!-- 댓글 개수 -->
+	<update id="replyCntUpdate">
+		update BoardTBL set replyCnt = replyCnt + #{amount} where bno = #{bno}
+	</update>
 
 
 	<!-- 동적 SQL -->
