@@ -14,9 +14,7 @@
             <div class="row">
                 <div class="col-lg-12">
                 	<div class="panel panel-default">
-<!--                         <div class="panel-heading">
-                           문의 글 작성
-                        </div> -->
+
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                 			<form action="/ClientBoard/select" role="form">
@@ -41,9 +39,68 @@
                 			</form>
                 		</div>
                 	</div>
+                	
+		            <!-- 댓글 리스트 -->
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<i class="bi bi-chat-right-text"></i>
+									댓글
+									<button id="addReplyBtn" class="btn btn-primary btn-xs pull-right">댓글 쓰기</button>
+								</div>
+								<div class="panel-body">
+									<ul class="chat">
+									
+									<!-- 댓글 리스트 내용 -->
+									
+									</ul>
+								</div>
+								<div class="panel-footer"></div>
+							</div>
+						</div>
+					</div> <!-- 댓글 리스트 end -->
+					
+					<!-- 댓글 등록 버튼 누르면  Modal -->
+					<!-- 댓글 등록 모달 -->
+					<div class="modal" tabindex="-1" role="dialog" id="replyModal">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					        <h5 class="modal-title">Reply</h5>
+					      </div>
+					      <div class="modal-body">
+					        <div class="form-group">
+					        	<label for="">댓글내용</label>
+					        	<input type="text" class="form-control" name="reply" value="댓글내용"/>
+					        </div>
+					        <div class="form-group">
+					        	<label for="">작성자</label>
+					        	<input type="text" class="form-control" name="replyer" value="작성자"/>
+					        </div>
+					        <div class="form-group">
+					        	<label for="">작성일</label>
+					        	<input type="text" class="form-control" name="replyDate" value="작성일"/>
+					        </div>
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-warning" id="modalRegisterBtn">등록</button>
+					        <button type="button" class="btn btn-success" id="modalModifyBtn">수정</button>
+					        <button type="button" class="btn btn-danger" id="modalRemoveBtn">삭제</button>
+					        <button type="button" class="btn btn-primary"  id="modalCloseBtn" data-dismiss="modal">닫기</button>
+					      </div>
+					    </div>
+					  </div>
+					</div><!-- 댓글 등록 Modal end -->
+					
                 </div>
             </div>
-
+     		
+    
+<!-- 이동값 히든폼 -->
 <form action="update" id="myform">
 	<input type="hidden" name="bno" value="${selectBoard.bno}" />
 	<input type="hidden" name="pageNum" value="${cri.pageNum}" />
@@ -52,6 +109,30 @@
 	<input type="hidden" name="keyword" value="${cri.keyword}" />
 </form>
 
-<script> var bnoVal = ${selectBoard.bno}; </script>
+
+<script>
+	var bnoVal = ${selectBoard.bno};
+	
+	// 댓글 리스트 가져올 영역 가져오기
+	let replyUl = $(".chat");
+	
+	// 모달 영역 가져오기
+	let modal = $(".modal");
+	
+	// 모달 내용
+	let modalInputReply = modal.find("input[name='reply']");
+	let modalInputReplyer = modal.find("input[name='replyer']");
+	let modalInputReplyDate = modal.find("input[name='replyDate']");
+
+	let modalModBtn = $("#modalModifyBtn");
+	let modalRemoveBtn = $("#modalRemoveBtn");
+	let modalRegisterBtn = $("#modalRegisterBtn");
+	
+	// 댓글 페이지 영역 가져오기
+	let replyPageFooter = $(".panel-footer");
+</script>
+
 <script src="/resources/js/Board_js/select.js"></script>
+<script src="/resources/js/Board_js/replyAction.js"></script>
+<script src="/resources/js/Board_js/reply.js"></script>
 <%@include file="../footer.jsp" %>
