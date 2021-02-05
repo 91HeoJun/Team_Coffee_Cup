@@ -54,6 +54,14 @@
                 <td>상품명</td>
                 <td><input name="product"></td>
             </tr>
+             <tr>
+                <td>상품코드</td>
+                <td><input name="pcode"></td>
+            </tr>
+             <tr>
+                <td>상품종류</td>
+                <td><input name="pcategory"></td>
+            </tr>
             <tr>
                 <td>가격</td>
                 <td><input name="price"></td>

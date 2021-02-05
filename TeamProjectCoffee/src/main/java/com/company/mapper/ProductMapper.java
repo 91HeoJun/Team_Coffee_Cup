@@ -12,5 +12,5 @@ public interface ProductMapper {
 	public int deleteProduct(int pCode);
 	public ProductVO selectProduct(int pCode);
 	public List<ProductVO> listProduct();
-	public int productCnt(Criteria cri);	
+//	public int productCnt(Criteria cri);	
 }

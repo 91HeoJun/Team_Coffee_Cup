@@ -26,13 +26,13 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public boolean removeProduct(int code) {
-		return productmapper.deleteProduct(code)>0?true:false;
+	public boolean removeProduct(int pCode) {
+		return productmapper.deleteProduct(pCode)>0?true:false;
 	}
 
 	@Override
-	public ProductVO getProduct(int code) {
-		return productmapper.selectProduct(code);
+	public ProductVO getProduct(int pCode) {
+		return productmapper.selectProduct(pCode);
 	}
 
 	@Override
@@ -40,9 +40,5 @@ public class ProductServiceImpl implements ProductService {
 		return productmapper.listProduct();
 	}
 
-	@Override
-	public int getProductCnt(Criteria cri) {
-		return productmapper.productCnt(cri);
-	}
 
 }

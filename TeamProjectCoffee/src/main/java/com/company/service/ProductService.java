@@ -11,5 +11,5 @@ public interface ProductService {
 	public boolean removeProduct(int code);
 	public ProductVO getProduct(int code);
 	public List<ProductVO> getProductList(Criteria cri);
-	public int getProductCnt(Criteria cri);
+//	public int getProductCnt(Criteria cri);
 }

@@ -19,19 +19,19 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/ClientBoard/*")
+@RequestMapping("/product/*")
 public class ProductController {
 	
 	@Autowired
 	private ProductService productService;
 	
 	// 상품 입력
-	@GetMapping("/product_register")
+	@GetMapping("/productRegister")
 	public void productInsert() {
 		log.info("---- 상품 입력 페이지로 이동중 ... ----");
 	}
 	
-	@PostMapping("/product_register")
+	@PostMapping("/productRegister")
 	public String insertProduct(ProductVO product, RedirectAttributes rttr) {
 		log.info("---- 상품 입력 실행중 ... ----");
 		
@@ -42,7 +42,7 @@ public class ProductController {
 
 		} else {
 			log.info("***** ---- 상품 입력 실패 ---- *****");
-			return "product_register";
+			return "productRegister";
 		}
 	}
 	
@@ -54,45 +54,38 @@ public class ProductController {
 		log.info("---- " + pCode + "번 상품 삭제 진행중... ----");
 		productService.removeProduct(pCode);
 		
-		return "redirect:product_list";
+		return "redirect:productList";
 	}
 	
 	
 	
 	// 상품 단일 조회, 상품 수정  
-	@GetMapping({"/select", "/update"})
-	public void selectForm(int bno, Model model) {
-		log.info("---- 게시글 "+ bno +"번 상세 페이지로 이동중 ... ----");
+	@GetMapping({"/productDetail", "/productEdit"})
+	public void selectForm(int pCode, Model model) {
+		log.info("---- 게시글 "+ pCode +"번 상세 페이지로 이동중 ... ----");
 		
-		ProductVO selectproduct = productService.getProduct(bno);
+		ProductVO selectproduct = productService.getProduct(pCode);
 		
 		model.addAttribute("selectProduct", selectproduct);
 		
 	}
 	
-	@PostMapping("/update")
+	@PostMapping("/productEdit")
 	public String updatePost(ProductVO product, RedirectAttributes rttr) {
 		log.info("---- 상품 수정 실행중 ... ----" + product);
 		
 		productService.updateProduct(product);
 
-		return"redirect:product_list";
-		
+		return"redirect:productList";
 	}
 	
 	// 상품 전체 리스트
 	
-	@GetMapping("/list")
+	@GetMapping("/productList")
 	public void allList(Model model, Criteria cri) {
-		log.info("---- 전체 리스트 가져오기 ... ----");
+		log.info("---- 상품 전체 리스트 가져오기 ... ----");
 		
 		List<ProductVO> list = productService.getProductList(cri);
-		
-		int total = productService.getProductCnt(cri);
-		model.addAttribute("list", list);
-		model.addAttribute("PageVO", new pageVO(cri, total));
 	
 	}
-	
-
 }

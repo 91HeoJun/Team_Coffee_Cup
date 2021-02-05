@@ -33,22 +33,30 @@
         <table>
             <!-- 관리자로그인을 한 후에 들어갈 수 있는 상품정보 편집정보 -->
             <!-- 해당되는 자료들은 dto에서 가져와서 보여준다. -->
-            <tr>
-                <td>상품코드</td>
-                <td><input name="pCode" value="${vo.pCode }"></td>
+             <tr>
+                <td>상품명</td>
+                <td><input name="product"></td>
             </tr>
-			<tr>
-                <td>상품이름</td>
-                <td><input name="product" value="${vo.product }"></td>
+             <tr>
+                <td>상품코드</td>
+                <td><input name="pcode"></td>
+            </tr>
+             <tr>
+                <td>상품종류</td>
+                <td><input name="pcategory"></td>
             </tr>
             <tr>
                 <td>가격</td>
-                <td><input name="price" type="number" value="${vo.price }"></td>
+                <td><input name="price"></td>
             </tr>
             <tr>
                 <td>상품설명</td>
                 <td><textarea rows="5" cols="60" name="description"
-                        id="description">${vo.pContent }</textarea></td>
+                        id="pContent"></textarea></td>
+            </tr>
+            <tr>
+                <td>상품이미지</td>
+                <td><input type="file" name="file1"></td>
             </tr>
         </table>
     </form>

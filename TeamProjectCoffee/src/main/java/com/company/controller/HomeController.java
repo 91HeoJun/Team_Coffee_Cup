@@ -28,6 +28,12 @@ public class HomeController {
 		log.info("소개 페이지 요청");
 	}
 	
+	//상품 리스트 페이지 - 예진
+	@GetMapping("/product")
+	public void product() {
+		log.info("상품 리스트 페이지 요청");
+	}
+	
 	//장바구니 테스트 폼 호출 - 이대우
 	@GetMapping("/cart")
 	public String cartTest() {
