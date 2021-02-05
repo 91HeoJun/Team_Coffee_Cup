@@ -1,26 +1,7 @@
 /**
- * 	Select 자바스크립트
+ *  
  */
 
-$(function() {
-	
-	showList(1);
-	// Hidden 폼
-	var form = $("#myform");
-	
-	// 수정버튼 submit
-	$(".btn-default").click(function() {
-		form.submit();
-	})
-	
-	// 목록으로 버튼 활성화
-	$(".btn-info").click(function() {
-		form.find("input[name='bno']").remove();
-		form.attr('action', 'list');
-
-		form.submit();
-	})
-	
 	// 댓글작성 활성화
 	$("#addReplyBtn").click(function() {
 		
@@ -139,13 +120,11 @@ $(function() {
 		showList(pageNum);
 	})
 
-	/////////////////////////////////////////// 확인중
-
 	// 댓글 삭제 - rno
 	$(modalRemoveBtn).click(function() {
 		replyService.remove(modal.data("rno"), function(result) {
-
 			if(result) {
+				//alert("result : " + result);
 				modal.modal("hide");
 				showList(1);
 			}
@@ -193,6 +172,3 @@ $(function() {
 			}
 		});
 	}) //get end
-
-	
-})
