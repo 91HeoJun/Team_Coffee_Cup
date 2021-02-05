@@ -139,8 +139,6 @@ $(function() {
 		showList(pageNum);
 	})
 
-	/////////////////////////////////////////// 확인중
-
 	// 댓글 삭제 - rno
 	$(modalRemoveBtn).click(function() {
 		replyService.remove(modal.data("rno"), function(result) {
