@@ -3,8 +3,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%@ include file="header.jsp"%>
-
+<%@ include file="../header.jsp"%>
 
 <section class="page-section cta">
 	<div class="container">
@@ -13,38 +12,33 @@
 </p>
 <div class="collapse" id="addMarket">
   <div class="card card-body">
-    <div>
-    	<label for="">매장 이름</label>
-    	<input type="text" name="storeName" id="storeName" />
-    </div>
-    <div>
-    	<label for="">매장 주소</label>
-    	<input type="text" name="storeAddress" id="storeAddress" />
-    </div>
-    <div>
-    	<label for="">매장 사진</label>
-    	<input type="file" name="storePic" id="storePic" />
-    </div>
+	  <div class="col">
+	  	<form action="/store/add" method="post">
+		    <div>
+		    	<label for="">매장 이름</label>
+		    	<input type="text" name="name" id="storeName" />
+		    </div>
+		    <div>
+		    	<label for="">매장 주소</label>
+		    	<input type="text" name="address" id="storeAddress" />
+		    </div>
+		    <div>
+		    	<label for="">매장 사진</label>
+		    	<input type="file" name="pic" id="storePic" />
+		    </div>
+		    <div>
+		    	<button class="btn btn-primary" type="button" id="addStore">입력</button>
+		    	<button class="btn" type="reset">취소</button>
+		    </div>
+	  	</form>
+	  </div>
+	  	<div id="thumbnailPic">
+	 		<ul>
+	 		</ul>
+	  	</div>
   </div>
 </div>
 
-<script>
-//매장 추가 버튼의 collapse 기능을 위한 스크립트
-$(function(){
-	$("#collapse").click(function(){
-		if($("#collapse").data("status")=='hide'){
-			//console.log("show collapse");
-			$("#addMarket").collapse("show");
-			$("#collapse").data("status", "show");
-		}
-		if($("#collapse").data("status")=='show'){
-			//console.log("hide collapse");
-			$("#addMarket").collapse("hide");
-			$("#collapse").data("status", "hide");
-		}
-	})
-})
-</script>
 
 		<div class="row">
 
@@ -86,5 +80,5 @@ $(function(){
 <section class="page-section about-heading">
 	<div class="container"></div>
 </section>
-
-<%@ include file="footer.jsp"%>
+<script src="/resources/js/storeAdmin.js"></script>
+<%@ include file="../footer.jsp"%>
