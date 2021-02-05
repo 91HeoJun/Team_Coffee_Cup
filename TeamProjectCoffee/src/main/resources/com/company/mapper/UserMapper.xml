@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.mapper.UserMapper">
+
+	<!-- 아이디 중복검사 -->
+	<select id="selectById" resultType="com.company.domain.RegisterVO">
+		select * from usertbl where userid=#{userid}
+	</select>
+	
+	<!-- 회원등록 -->
+	<insert id="register">
+		insert into usertbl(userid,password,name,postCode,email,tel,address,detailAddress) values(#{userid},#{password},#{name},#{postCode},#{email},#{tel},#{address},#{detailAddress})
+	</insert>
+
+
+</mapper>
