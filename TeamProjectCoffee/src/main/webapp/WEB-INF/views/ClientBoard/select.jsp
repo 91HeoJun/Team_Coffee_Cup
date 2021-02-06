@@ -40,7 +40,7 @@
                 		</div>
                 	</div>
                 	
-		            <!-- 댓글 리스트 -->
+            		<!-- 댓글 리스트 -->
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="panel panel-default">
@@ -60,7 +60,7 @@
 							</div>
 						</div>
 					</div> <!-- 댓글 리스트 end -->
-					
+            
 					<!-- 댓글 등록 버튼 누르면  Modal -->
 					<!-- 댓글 등록 모달 -->
 					<div class="modal" tabindex="-1" role="dialog" id="replyModal">
@@ -95,9 +95,11 @@
 					    </div>
 					  </div>
 					</div><!-- 댓글 등록 Modal end -->
-					
+	
                 </div>
             </div>
+            
+
      		
     
 <!-- 이동값 히든폼 -->
@@ -133,6 +135,6 @@
 </script>
 
 <script src="/resources/js/Board_js/select.js"></script>
-<script src="/resources/js/Board_js/replyAction.js"></script>
+<!-- <script src="/resources/js/Board_js/replyAction.js"></script> -->
 <script src="/resources/js/Board_js/reply.js"></script>
 <%@include file="../footer.jsp" %>

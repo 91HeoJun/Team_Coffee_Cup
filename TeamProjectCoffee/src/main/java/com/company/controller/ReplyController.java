@@ -20,6 +20,7 @@ import com.company.service.ReplyService;
 
 import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 @RequestMapping("/replies/*")
 public class ReplyController {
@@ -30,7 +31,7 @@ public class ReplyController {
 	// 새 댓글
 	@PostMapping("/newReply")
 	public ResponseEntity<String> replyCreate(@RequestBody ReplyVO rep) {
-		
+		log.info("---- 댓글 삽입중 ... ----" + rep);
 		return replyService.replyAdd(rep)? new ResponseEntity<String>("Add success", HttpStatus.OK):
 			new ResponseEntity<String>("Add Fail", HttpStatus.INTERNAL_SERVER_ERROR);
 	}

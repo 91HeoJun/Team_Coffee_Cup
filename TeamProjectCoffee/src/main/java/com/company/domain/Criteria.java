@@ -13,14 +13,14 @@ public class Criteria {
 	private int pageNum;	// 페이지 번호
 	private int amount;		// 페이지내 게시물 수
 	
+	public Criteria() {
+		this(1, 10);
+	}
+
 	// 페이지당 당 게시물수
 	public Criteria(int pageNum, int amount) {
 		this.pageNum = pageNum;
 		this.amount = amount;
-	}
-	
-	public Criteria() {
-		this(1, 10);
 	}
 	
 	// 검색기

@@ -5,11 +5,12 @@
 var replyService = (function() {
 	
 	function add(reply, callback) {
+		console.log("댓글 추가 메소드 호출중")
 		$.ajax({
 			type: 'post',
 			url: '/replies/newReply',
-			contentType: 'application/json;charset=utf-8',
-			data: JSON.stringify(reply),
+			contentType : 'application/json;charset=utf-8',
+			data:JSON.stringify(reply),
 			success: function(result) {
 				if(callback) {
 					callback(result);
