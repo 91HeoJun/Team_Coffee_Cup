@@ -74,7 +74,7 @@ var replyService = (function() {
 			}
 		})
 	} // remove
-
+	
 	function displayTime(timeVal) {
 		console.log(timeVal);
 		
