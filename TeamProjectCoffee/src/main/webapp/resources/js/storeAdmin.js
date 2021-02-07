@@ -3,6 +3,25 @@
  */
 $(function(){
 	
+	
+	
+	//매장 리스트에서 첨부물 보여주기
+	$(".storeRows input[type='file']").each(function(){
+		var code = $(this).data("code");
+		//첨부물 리스트 가져오기	
+		$.getJSON({
+			url:"/store/getAttachList",
+			data:{
+				code:code
+			},
+			success:function(data){
+				console.log(data);
+				showUploadedFile(data, "#thumbnailPic"+code)				
+			}
+		})
+		
+	})
+		
 	//매장 추가 버튼의 collapse 기능을 위한 스크립트(완료)
 	$("#collapse").click(function(){
 		if($("#collapse").data("status")=='hide'){
@@ -21,10 +40,13 @@ $(function(){
 	$("button[type='submit']").click(function(e){
 		e.preventDefault();
 		
+		var code = $(this).data("code");
+		
 		var str="";
 		//첨부파일 영역의 정보 수집
 		$("#thumbnailPic ul li").each(function(idx, obj){
 			var job=$(obj);
+			console.log("첨부 파일 영역 정보 : "+job);
 			//수집된 정보를 hidden 태그로 작성
 			str+="<input type='hidden' name='attachList["+idx+"].uuid' value='"+job.data("uuid")+"'>";
 			str+="<input type='hidden' name='attachList["+idx+"].uploadPath' value='"+job.data("path")+"'>";
@@ -35,7 +57,7 @@ $(function(){
 		
 		//hidden 태그를 게시글 등록 폼에 추가한 후 폼 전송하기
 		//1) 게시글 등록 폼 가져오기
-		var form = $("form");
+		var form = $("#addForm");
 		//2) 폼에 추가
 		form.append(str);
 		//3)전송
@@ -46,6 +68,9 @@ $(function(){
 	//현재 목록의 파일을 서버로 보내 저장하기
 	$("input[type='file']").change(function(){
 		console.log("업로드 호출");
+		
+		var code = $(this).data("code");
+		console.log("code : "+code);
 		
 		var inputFile=$(this);
 		
@@ -70,7 +95,7 @@ $(function(){
 //				xhr.setRequestHeader(csrfHeaderName, csrfTokenValue)
 //			},
 			success:function(result){
-				showUploadedFile(result);
+				showUploadedFile(result, "#thumbnailPic ul");
 				$(this).val("");
 			},
 			error:function(xhr,status,error){
@@ -78,9 +103,10 @@ $(function(){
 			}
 		})
 	})
-	function showUploadedFile(uploadResultArr){
+	//첨부파일 보여주기
+	function showUploadedFile(uploadResultArr, id){
 		//결과를 보여줄 영역 가져오기
-		var uploadResult = $("#thumbnailPic ul");
+		var uploadResult = $(id);
 		var str="";
 		$(uploadResultArr).each(function(idx, obj){
 			if(obj.fileType){			
@@ -96,8 +122,8 @@ $(function(){
 				
 				str+="<li style='list-style-type : none' data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"' ";
 				str+="data-filename='"+obj.fileName+"' data-type='"+obj.fileType+"'>";
-				str+="<a href=\"javascript:showImage(\'"+originPath+"\')\">";
-				str+="<img src='/upload/display?fileName="+fileCallPath+"'></a><div>"+obj.fileName+"";
+				//str+="<a href=\"javascript:showImage(\'"+originPath+"\')\">";
+				str+="<img src='/upload/display?fileName="+fileCallPath+"'><div>"+obj.fileName+"";
 				str+="<button type='button' style='font-size:0.5em; color:white; padding:0px' class='btn btn-warning btn-circle' data-file='";
 				str+=fileCallPath+"' data-type='image'>";
 				str+="삭제";
@@ -112,7 +138,7 @@ $(function(){
 				str+="<img src='/resources/img/file.jpg'><div>"+obj.fileName+"</a>";
 				str+="<button type='button' style='font-size:0.5em; color:white; padding:0px' data-file='";
 				str+=fileCallPath+"' data-type='file'>";
-				str+="<i class='bi bi-x-circle'></i>";
+				str+="삭제";
 				str+="</button>"
 				str+="</div></li>";
 			}
@@ -121,7 +147,8 @@ $(function(){
 	}//showUploadedFile close
 	
 	//x 버튼 시작
-	$("#thumbnailPic").on("click", "button", function(){
+	$("#thumbnailPic0, .thumbnailList").on("click", "button", function(){
+		console.log("첨부 파일 삭제");
 		//해당 파일 경로 가져오기
 		var targetFile=$(this).data("file");
 		//파일 타입 가져오기(image - 썸네일, 원본 삭제/file - 원본 삭제)
@@ -145,13 +172,22 @@ $(function(){
 		})	
 	})//x버튼 종료
 	
-	//크게 열린 이미지 다시 닫기
-	$(".bigPictureWrapper").click(function(){
-		$(".bigPicture").animate({width:'0%', height:'0%'}, 1000);
-		setTimeout(function(){
-			$(".bigPictureWrapper").hide();
-		}, 1000);
-	})//이미지 닫기 종료
+	//수정 버튼 누름
+	$(".modify").click(function(){
+		//수정 버튼 눌렀을 때
+		if($(this).data("status")=="modify"){			
+			$(this).text('완료');
+			$(this).data("status", "complete");
+			//readonly 속성 제거
+			$("#modifyName").attr("readonly", false);
+			$("#modifyAddress").attr("readonly", false);
+		}
+		//완료 버튼 눌렀을 때
+		if($(this).data("status")=="complete"){
+			
+		}	
+		
+	})
 	
 })
 function showImage(fileCallPath){

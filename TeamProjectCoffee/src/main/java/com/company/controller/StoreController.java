@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.company.domain.FileAttach;
 import com.company.domain.StoreVO;
 import com.company.service.StoreService;
 
@@ -54,8 +55,14 @@ public class StoreController {
 		}
 		log.info("게시글 번호 : " + store.getCode());
 		if (service.insert(store)) {
-			return "redirect:store/admin";
+			return "redirect:/store/admin";
 		}
 		return "/store/admin";
 	}
+	
+	@GetMapping("/getAttachList")
+	public ResponseEntity<List<FileAttach>> getAttachList(int code){
+		return new ResponseEntity<List<FileAttach>>(service.getAttachList(code), HttpStatus.OK);
+	}
+
 }
