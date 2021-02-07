@@ -52,7 +52,7 @@
                     </a>                  
                 </li>
                 <li >
-                    <a class="dropdown-toggle" href="/mypage/userInfo">
+                    <a class="dropdown-toggle" href="/mypage/myPageGo">
                         mypage
                     </a>
                 </li>
@@ -83,7 +83,7 @@
           <a class="nav-link dropdown-toggle active dropdown-toggle" href="/about" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">소개</a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="/about">about us</a></li>
-            <li><a class="dropdown-item" href="#">coffee story</a></li>
+            <li><a class="dropdown-item" href="/coffeeStory">coffee story</a></li>
             <li><a class="dropdown-item" href="#">recipe</a></li>
           </ul>
         </li>

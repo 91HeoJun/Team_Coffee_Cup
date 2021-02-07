@@ -71,7 +71,7 @@ img {
     
     dl.higherAravica > dd {position:relative; height:332px; padding:30px; border-bottom-left-radius:3px; border-bottom-right-radius:3px; background:#000; }
     dl.higherAravica > dd span.bigImg_bg {position:absolute; right:140px; top:-100px;  }
-    dl.higherAravica > dd div.youtube {float:left; width:550px; height:330px; }
+    dl.higherAravica > dd div.youtube {float:left; width:550px; height:300px; }
     dl.higherAravica > dd dl.text { float:left; width:450px; height:330px; text-align:center; }
     dl.higherAravica > dd dl.text > dt { font-size:18px; color:#e2d9c2; margin-bottom:15px; margin-top:145px; }
     dl.higherAravica > dd dl.text > dd { font-size:14px; color:#fff; line-height:1.6; }
