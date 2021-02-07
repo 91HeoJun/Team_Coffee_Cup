@@ -9,6 +9,7 @@
 		
 			<div>
 		 		<button class="btn" style="background-color:lightgray" type="button" id="collapse" data-status="hide">매장 추가</button>
+		 		<button class="btn float-right" id="refresh">매장 새로고침</button>
 			</div>
 			<div style="background-color:#d19a3b" class="collapse" id="addMarket">
 		  		<div class="card card-body">
@@ -42,7 +43,6 @@
 
 
 		<div class="row">
-
 			<table class="table">
 				<thead class="thead-dark">
 					<tr>
@@ -53,24 +53,14 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<th scope="row">1</th>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-					</tr>
-					<tr>
-						<th scope="row">2</th>
-						<td>Jacob</td>
-						<td>Thornton</td>
-						<td>@fat</td>
-					</tr>
-					<tr>
-						<th scope="row">3</th>
-						<td>Larry</td>
-						<td>the Bird</td>
-						<td>@twitter</td>
-					</tr>
+					<c:forEach var="vo" items="${list}">
+						<tr class="storeRows">							
+							<td>${vo.code}</td>
+							<td>${vo.name}</td>
+							<td>${vo.address}</td>
+							<td></td>
+						</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 

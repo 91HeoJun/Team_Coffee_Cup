@@ -152,6 +152,7 @@ $(function(){
 			$(".bigPictureWrapper").hide();
 		}, 1000);
 	})//이미지 닫기 종료
+	
 })
 function showImage(fileCallPath){
 	$(".bigPictureWrapper").css("display", "flex").show();

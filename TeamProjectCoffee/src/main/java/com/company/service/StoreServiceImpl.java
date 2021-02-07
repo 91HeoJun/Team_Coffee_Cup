@@ -1,5 +1,7 @@
 package com.company.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,11 @@ public class StoreServiceImpl implements StoreService {
 			attachMapper.insert(attach);
 		});
 		return result;		
+	}
+	
+	@Override
+	public List<StoreVO> getAll() {
+		return mapper.selectAll();
 	}
 
 }
