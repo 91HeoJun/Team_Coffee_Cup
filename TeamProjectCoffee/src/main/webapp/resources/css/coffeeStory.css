@@ -9,6 +9,10 @@ a{
 	font-style: bold;
 	color: #006633;
 }
+img {
+    vertical-align: top;
+    max-width: 100%;
+}
   div.zoomWindowContainer div { border:1px solid #ddd !important; }
   	.coffee_sub_tit_wrap { height:inherit; }
 	.coffee_sub_tit_wrap div.sub_tit_inner { height:inherit; padding-bottom:20px; }
@@ -18,7 +22,6 @@ a{
 	.coffee_sub_tit_wrap { height:inherit; }
 	.coffee_sub_tit_wrap div.sub_tit_inner { height:inherit; padding-bottom:20px; }
 	
-	  div.higher_enjoy_youtube { width:1100px; height:600px; margin-bottom:40px; }
 
     /* coffee_story ì»¤í”¼ì´ì•¼ê¸° íƒ­5ê°œ */
 	div.coffee_story dl.content_tabmenu { position:relative; padding-top:90px; }
@@ -62,14 +65,13 @@ a{
     
     ul.cfs01_bottom_list li dl.cfs01_text dt h4{ font-size:14px; color:#222; margin-bottom:15px; }
     ul.cfs01_bottom_list li dl.cfs01_text dd p{ font-size:14px; color:#666; line-height:1.6; }
-
-   div.higherAravica_wrap h3 { font-size:18px; font-weight:bold; color:#222; padding-bottom:20px; }
+/* coffee_story 커피이야기 3번 탭 - 최상의 아라비카 원두 */
+    div.higherAravica_wrap h3 { font-size:18px; font-weight:bold; color:#222; padding-bottom:20px; }
     dl.higherAravica { padding-bottom:60px; }
     
-    dl.higherAravica > dd {margin:0; position:relative; height:332px; padding:30px; border-bottom-left-radius:3px; border-bottom-right-radius:3px; background:#000; }
-    dlv.higherAravica > dd span.bigImg_bg {max-width:100%; position:absolute; right:140px; top:-100px;  }
-
-    dl.higherAravica > dd div.youtube { float:left; width:550px; height:330px; }
+    dl.higherAravica > dd {position:relative; height:332px; padding:30px; border-bottom-left-radius:3px; border-bottom-right-radius:3px; background:#000; }
+    dl.higherAravica > dd span.bigImg_bg {position:absolute; right:140px; top:-100px;  }
+    dl.higherAravica > dd div.youtube {float:left; width:550px; height:330px; }
     dl.higherAravica > dd dl.text { float:left; width:450px; height:330px; text-align:center; }
     dl.higherAravica > dd dl.text > dt { font-size:18px; color:#e2d9c2; margin-bottom:15px; margin-top:145px; }
     dl.higherAravica > dd dl.text > dd { font-size:14px; color:#fff; line-height:1.6; }
@@ -101,7 +103,7 @@ a{
     div.aravica_info_04 dl.text { float:left; width:550px; height:184px; padding:50px 0 0 0px; }
     div.aravica_info_04 dl.text dt { font-size:20px; color:#006633; font-style:italic; padding-bottom:20px;  }
     div.aravica_info_04 dl.text dd p { font-size:14px; color:#666; line-height:1.6; padding-left:10px; }
-
+/* coffee_story 커피이야기 4번 탭 - 한 잔의 커피가 완성되기까지 */
     div.aravica_info_05 { padding:60px 0 70px 0; }
     div.aravica_info_05:after { content:""; display:block; clear:both; }
     div.aravica_info_05 p.img { float:left; width:550px; }
@@ -138,7 +140,7 @@ a{
     div.blending_text dl.blendingInfo_text dd p.text1 { font-size:14px; color:#444; line-height:1.6; padding-bottom:15px; padding-left:10px; }
     div.blending_text dl.blendingInfo_text dd p.text2 { font-size:14px; color:#444; line-height:1.6; padding-left:10px; }
     div.blending_text dl.blendingInfo_text dd p.text3 { font-size:20px; color:#006633; padding-bottom:20px; line-height:1.4; font-style:italic;  }
-   /* coffee_story ì»¤í”¼ì´ì•¼ê¸° 4ë²ˆ íƒ­ - í•œ ìž”ì˜ ì»¤í”¼ê°€ ì™„ì„±ë˜ê¸°ê¹Œì§€ - (ì¡°ë‹¬) */
+ /* coffee_story 커피이야기 4번 탭 - 한 잔의 커피가 완성되기까지 - (조달) */
     div.coffeeObtain_wrap { padding-bottom:60px; background:#fff; }
     div.coffeeObtain_wrap h3 { font-size:18px; font-weight:bold; color:#222; padding-top:60px; padding-bottom:30px; }
     div.coffeeObtain_wrap p.t1 { font-size:14px; color:#444; line-height:1.6; padding-bottom:30px; }
@@ -151,7 +153,7 @@ a{
     div.coffeeObtain_wrap dl.obtainInfo_text dd p.text1 { font-size:14px; color:#666; line-height:1.6; padding-bottom:30px; padding-left:12px; }
     div.coffeeObtain_wrap dl.obtainInfo_text dd p.text2 { font-size:14px; color:#444; line-height:1.6; padding-bottom:30px; padding-left:12px; }
 
-    /* coffee_story ì»¤í”¼ì´ì•¼ê¸° 4ë²ˆ íƒ­ - í•œ ìž”ì˜ ì»¤í”¼ê°€ ì™„ì„±ë˜ê¸°ê¹Œì§€ - (ìž¬ë°°) */
+ /* coffee_story 커피이야기 4번 탭 - 한 잔의 커피가 완성되기까지 - (재배) */
     div.coffeeCultivation_wrap { background:#f4f4f2; padding:60px 0 70px 0; }
     div.cultivation_wrap { padding-bottom:45px; }
     div.cultivation_wrap:after { content:""; display:block; clear:both; }
@@ -169,19 +171,15 @@ a{
     div.cultivationInfo_wrap dl.cultivationInfo_text dd p.text2 { font-size:14px; color:#444; line-height:1.6; text-align: right; }
     div.cultivationInfo_wrap p.cultivationInfo_img { float:left; width:550px; }
 
-	div.higher_enjoy_youtube { width:100%; }
-    div.higher_enjoy_youtube iframe { width:100%; margin:0 auto; }
-    div.coffee_content { width:96%; margin:0 auto; left:auto; }
-
-	/* íƒ­5ê°œ */
+/* 탭5개 */
     div.coffee_story dl.content_tabmenu dt.tab { width:19%; }
     div.coffee_story dl.content_tabmenu dt.tab a { width:100%; }
     div.coffee_story dl.content_tabmenu dt.tab.on a { width:100%; }
     div.coffee_story dl.content_tabmenu dt.tab_01 { left:2%; margin:0; }
     div.coffee_story dl.content_tabmenu dt.tab_02 { left:21.2%; margin:0; }
     div.coffee_story dl.content_tabmenu dt.tab_03 { left:40.3%; margin:0; }
-    div.coffee_story dl.content_tabmenu dt.tab_04 { left:59.2%; margin:0; } /* 20170821  ìˆ˜ì •*/
-    div.coffee_story dl.content_tabmenu dt.tab_05 { left:78.4%; margin:0; } /* 20170821  ìˆ˜ì •*/
+    div.coffee_story dl.content_tabmenu dt.tab_04 { left:59.2%; margin:0; } 
+    div.coffee_story dl.content_tabmenu dt.tab_05 { left:78.4%; margin:0; } 
     
     div.cfs01_bottom ul.cfs01_bottom_list { width:100%; margin-left:-1.33%; }
     div.cfs01_bottom ul.cfs01_bottom_list li { width:32%; margin-left:1.33%; }
@@ -192,7 +190,7 @@ a{
     ul.cfs01_bottom_list li dl.cfs01_text dt h4 { letter-spacing:-1px; }
     ul.cfs01_bottom_list li dl.cfs01_text dd p { text-align:justify; }
     ul.cfs01_bottom_list li dl.cfs01_text dd p br { display:none; }
-    
+     /* (커피이야기) 탭3 */
 	dl.higherAravica > dd span.bigImg_bg { right:8%; }
     dl.higherAravica > dd div.youtube { width:50%; }
     dl.higherAravica > dd dl.text { width:48%; float:right; }
@@ -215,7 +213,7 @@ a{
     div.higherAravica_wrap dl.text { text-align:justify; }
     div.higherAravica_wrap dl.text br { display:none; }
 
-    /* 4ë²ˆ íƒ­ */
+     /* 4번 탭 */
     div.coffeeRoasting_info p.img { width:50%; height:381px; }
     div.coffeeRoasting_info dl.text { width:48%; height:381px; padding:0 0 0 2%; text-align:justify; }
     div.coffeeRoasting_info dl.text br { display:none; }
@@ -245,7 +243,7 @@ a{
     ul.coffee_info li dl.coffee_info_text dd p { text-align:justify; }
     ul.coffee_info li dl.coffee_info_text dd p br { display:none; }
 
-	/* íƒ­5ê°œ */
+/* 탭5개 */
 	div.coffee_story dl.content_tabmenu dt.tab { width:19%; }
     div.coffee_story dl.content_tabmenu dt.tab a { width:100%; }
     div.coffee_story dl.content_tabmenu dt.tab.on a { width:100%; }
@@ -266,7 +264,7 @@ a{
     ul.cfs01_bottom_list li dl.cfs01_text dt h4 { letter-spacing:-0.5px; }
     ul.cfs01_bottom_list li dl.cfs01_text dd p { text-align:justify; }
     ul.cfs01_bottom_list li dl.cfs01_text dd p br { display:none; }
-    
+      /* (커피이야기) 탭3 */
     dl.higherAravica > dd span.bigImg_bg { right:8%; }
     dl.higherAravica > dd dl.text > dt { margin-top:42%; }
     dl.higherAravica > dd div.youtube { width:50%; }
@@ -301,7 +299,7 @@ a{
     div.higherAravica_wrap dl.text { text-align:justify; }
     div.higherAravica_wrap dl.text br { display:none; }
 
-    /* 4ë²ˆ íƒ­ */
+  /* 4번 탭 */
     div.coffeeRoasting_info p.img { width:100%; height:auto; float:none; text-align:center; margin-bottom:6%; }
     div.coffeeRoasting_info dl.text { width:96%; height:auto; padding:0; text-align:justify; margin:0 auto; }
     div.coffeeRoasting_info dl.text br { display:none; }
@@ -331,166 +329,7 @@ a{
     
 	}
 	
-	@media screen and (min-width:641px) and (max-width:880px) {
-	 div.coffee_story dl.content_tabmenu dt.tab a { font-size:12px; letter-spacing:-1.5px; }
-	.reserve_info_warn { color:#666; font-size:14px; line-height:1.6; margin:0 auto 40px; }
-	.w880 { display:block; }
-	
-}
-@media screen and (min-width:641px) and (max-width:734px) {
-	div.higher_enjoy_youtube { width:100%; margin-top:40px; }
-    div.higher_enjoy_youtube iframe { width:100%; margin:0 auto; }
-    div.coffee_content { width:96%; margin:0 auto; left:auto; }
 
-	div.coffee_story dl.content_tabmenu dt.tab { width:19%; }
-    div.coffee_story dl.content_tabmenu dt.tab a { width:100%; }
-    div.coffee_story dl.content_tabmenu dt.tab.on a { width:100%; }
-    div.coffee_story dl.content_tabmenu dt.tab_01 { left:2%; margin:0; }
-    div.coffee_story dl.content_tabmenu dt.tab_02 { left:21.2%; margin:0; }
-    div.coffee_story dl.content_tabmenu dt.tab_03 { left:40.3%; margin:0; }
-    div.coffee_story dl.content_tabmenu dt.tab_04 { left:59.3%; margin:0; }  /* 20170821  ìˆ˜ì •*/
-    div.coffee_story dl.content_tabmenu dt.tab_05 { left:78.45%; margin:0; } /* 20170821  ìˆ˜ì •*/
-	div.coffee_story dl.content_tabmenu dt.tab_05 a {border-left: 1px solid #ddd; border-radius: 0 3px 3px 0; }
-
-	.reserve_bt_txt i { font-size:14px; }
-
-    div.higher_enjoy_youtube { width:100%; height:185px; }
-    div.higher_enjoy_youtube iframe { width:100%; margin:0 auto; }
-    /* (ì»¤í”¼ì´ì•¼ê¸°) */
-    div.cfs01_full_top h3.title { letter-spacing:-1px; }
-    
-    div.cfs01_bottom ul.cfs01_bottom_list { width:100%; margin:0; }
-    div.cfs01_bottom ul.cfs01_bottom_list li { width:100%; margin:0; }
-
-    ul.cfs01_bottom_list li p.img { width:96%; height:auto; margin:0 auto; }
-    ul.cfs01_bottom_list li p.img span.dim_txt1,
-    ul.cfs01_bottom_list li p.img span.dim_txt2,
-    ul.cfs01_bottom_list li p.img span.dim_txt3 { width:93.5%; height:55px; line-height:55px; padding-left:3%;}
-    ul.cfs01_bottom_list li dl { width:96%; margin:0 auto; padding:30px 0; }
-    ul.cfs01_bottom_list li dl.cfs01_text dt h4 { letter-spacing:-0.5px; }
-    ul.cfs01_bottom_list li dl.cfs01_text dd p { text-align:justify; }
-    ul.cfs01_bottom_list li dl.cfs01_text dd p br { display:none; }
-	
-	dl.higherAravica > dd span.bigImg_bg { right:auto; left:32%; top:-14%; width:35%; }
-    dl.higherAravica > dd span.bigImg_bg img { width:100%; }
-    dl.higherAravica > dd dl.text > dt { margin-top:42%; letter-spacing:-1px; }
-    dl.higherAravica > dd { height:332px; padding:23% 5% 35% 5%; }
-
-    dl.higherAravica > dd div.youtube { width:100%; margin-bottom:10%; }
-    dl.higherAravica > dd dl.text { width:90%; float:none; margin:0 auto; }
-
-    div.aravica_info_01 p.img { width:100%; float:none; text-align:center; margin-bottom:30px; }
-    div.aravica_info_01 dl.text { float:none; width:93%; height:auto; padding:0; margin:0 auto; }
-    
-    div.aravica_info_02 { position:relative; padding-bottom:38%; }
-    div.aravica_info_02 dl.text { float:none; width:93%; height:auto; padding:0; margin-left:-47%; position:absolute; top:68%; left:50%; }
-    div.aravica_info_02 p.img { width:100%; float:none; text-align:center; padding:0; padding-bottom:25%; }
-    
-    div.aravica_info_03 { padding-bottom:30%; }
-    div.aravica_info_03 p.img { width:100%; text-align:center; float:none; padding-bottom:30%; }
-    div.aravica_info_03 dl.text { float:none; width:93%; height:auto; padding:0; margin-left:-47%; position:absolute; top:78%; left:50%; }
-    
-    div.aravica_info_04 { position:relative; padding-bottom:30%; }
-    div.aravica_info_04 dl.text { float:none; width:93%; height:auto; padding:0; margin-left:-47%; position:absolute; top:68%; left:50%; }
-    div.aravica_info_04 p.img { width:100%; float:none; text-align:center; padding:0; padding-bottom:30%;  }
-    
-    div.aravica_info_05 { position:relative; }
-    div.aravica_info_05 p.img { width:100%; float:none; text-align:center; padding-bottom:30%; }
-    div.aravica_info_05 dl.text { float:none; width:93%; height:auto; padding:0; margin-left:-47%; position:absolute; top:68%; left:50%; }
-    
-    div.aravica_info_01 dl.text dt,
-    div.aravica_info_02 dl.text dt,
-    div.aravica_info_03 dl.text dt,
-    div.aravica_info_04 dl.text dt,
-    div.aravica_info_05 dl.text dt { font-size:18px; line-height:1.2; }
-    div.aravica_info_01 dl.text dd p,
-    div.aravica_info_02 dl.text dd p,
-    div.aravica_info_03 dl.text dd p,
-    div.aravica_info_04 dl.text dd p,
-    div.aravica_info_05 dl.text dd p { font-size:12px; padding-left:0; }
-    
-    div.higherAravica_wrap dl.text { text-align:justify; }
-    div.higherAravica_wrap dl.text br { display:none; }
-
-    /* 4ë²ˆ íƒ­ */
-    div.coffeeRoasting_info p.img { width:100%; height:auto; float:none; text-align:center; margin-bottom:6%; }
-    div.coffeeRoasting_info dl.text { width:96%; height:auto; padding:0; text-align:justify; margin:0 auto; }
-    div.coffeeRoasting_info dl.text br { display:none; }
-    div.coffeeRoasting_wrap h3.title { padding-left:2%; }
-    div.coffeeRoasting_wrap h3.title span { display:inline; padding-left:2%; }
-    
-    div.coffeeBlending_wrap { height:auto; position:relative;}
-    div.blending_text { float:none; width:100%; padding-bottom:8%; padding-top:80%; }
-    p.blending_img { float:none; width:100%; position:absolute; top:0; }
-    div.blending_text dl.blendingInfo_text dd p.text2 { padding-bottom:8%; }
-    div.coffeeObtain_wrap dl.obtainInfo_text { margin-left:0; text-align:justify; }
-    div.coffeeObtain_wrap dl.obtainInfo_text dt span { display:inline; }
-    div.coffeeObtain_wrap dl.obtainInfo_text dd p.text1 br { display:none; }
-	div.coffee_story dl.content_tabmenu,
-    div.coffee_higher_enjoy dl.content_tabmenu { padding-top:3%; }
-    p.cultivation_img { float:none; width:100%; text-align:center; margin-bottom:6%; }
-    div.cultivation_text { width:95%; height:auto; padding:0 0 0 2%; text-align:justify; }
-    div.cultivation_text p.t1 br { display:none; }
-    div.cultivation_text p.t2 br { display:none; }
-
-    div.cultivationInfo_wrap dl.cultivationInfo_text { float:none; width:100%; padding-bottom:0%; padding-top:44%; }
-    div.cultivationInfo_wrap dl.cultivationInfo_text dt { text-align:left; }
-    div.cultivationInfo_wrap dl.cultivationInfo_text dd p.text1{ text-align:left; }
-    div.cultivationInfo_wrap dl.cultivationInfo_text dd p.text2{ text-align:left; }
-    div.cultivationInfo_wrap p.cultivationInfo_img { float:none; width:100%; position:absolute; top:0; left:50%; margin-left:-47%; }
-
-    div.coffeeObtain_wrap p.bigImg01 span { display:none; }
-    div.cultivationInfo_wrap { position:relative; }
-    div.cultivationInfo_wrap dl.cultivationInfo_text dt { text-align:left; }
-    div.cultivationInfo_wrap dl.cultivationInfo_text dt br { display:none; }	
-	
-    div.coffee_story  dl.content_tabmenu dt.tab_01 { left:4%; top:24px; margin:0; }  /* 20170821  top  ìˆ˜ì • */
-    div.coffee_story  dl.content_tabmenu dt.tab_02 { left:4%; top:52px; margin:0; }/* 20170821  top  ìˆ˜ì • */
-    div.coffee_story  dl.content_tabmenu dt.tab_03 { left:4%; top:80px; margin:0; }/* 20170821  top  ìˆ˜ì • */
-    div.coffee_story  dl.content_tabmenu dt.tab_04 { left:4%; top:108px; margin:0; }/* 20170821  top  ìˆ˜ì • */
-    div.coffee_story  dl.content_tabmenu dt.tab_05 { left:4%; top:136px; margin:0; }/* 20170821  top  ìˆ˜ì • */
-	
-}
-@media screen and (min-width:600px) and (max-width:639px) {
-	   dl.higherAravica > dd div.youtube { width:100%; margin-bottom:10%; height:330px; }
-}
-
-	
-	@media screen and (min-width:320px) and (max-width:599px) {
-
-    div.higher_enjoy_youtube { width:100%; height:300px; margin:0 auto; }
-	ul.cfs01_bottom_list li p.img span.dim_txt1,
-    ul.cfs01_bottom_list li p.img span.dim_txt2,
-    ul.cfs01_bottom_list li p.img span.dim_txt3 { width:96.9%; height:30px; line-height:30px; font-size:12px; }
-    ul.cfs01_bottom_list li dl { width:96%; margin:0 auto; padding:30px 0; }
-    ul.cfs01_bottom_list li dl.cfs01_text dt h4 { letter-spacing:-1px; }
-    ul.cfs01_bottom_list li dl.cfs01_text dd p { text-align:justify; }
-    ul.cfs01_bottom_list li dl.cfs01_text dd p br { display:none; }
-
-    dl.higherAravica > dd div.youtube { width:100%; margin-bottom:10%; height:235px; }
-    dl.higherAravica > dd span.bigImg_bg { right:auto; left:32%; top:-8%; width:35%;}
-
-    dl.higherAravica > dd { height:320px; padding:20% 5% 40% 5%; }
-    div.blending_text p.t1 { text-align:justify; padding-left:0; padding-bottom:8%; }
-    div.blending_text p.t1 br { display:none; }
-    div.blending_text dl.blendingInfo_text { float:none; width:100%; }
-    div.blending_text dl.blendingInfo_text dt span { display:inline; padding-left:0; }
-    div.coffeeRoasting_info dl.text dd p.text1,
-    div.coffeeObtain_wrap dl.obtainInfo_text dd p.text1,
-    div.coffeeObtain_wrap dl.obtainInfo_text dd p.text2,
-    div.coffeeRoasting_wrap p.t1 ,
-    div.blending_text dl.blendingInfo_text dd p.text1,
-    div.blending_text dl.blendingInfo_text dd p.text2 { padding-left:0; text-align:justify; }
-    div.coffeeObtain_wrap dl.obtainInfo_text dd p.text2 br,
-    div.blending_text dl.blendingInfo_text dd p.text1 br,
-    div.blending_text dl.blendingInfo_text dd p.text2 br { display:none; }
-    
-    div.content_bottom div.product_list_wrap ul.product_list li dd { font-size:12px; }
-    div.content_bottom div.product_list_wrap ul.product_list li dt ul { width:100%; }
-    div.content_bottom div.product_list_wrap ul.product_list li dt ul li { width:20%; }
-    div.content_bottom div.product_list_wrap ul.product_list li dt ul li img { width:100%; }
-}
-	
 	
 	
 	
