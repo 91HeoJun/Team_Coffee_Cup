@@ -35,7 +35,7 @@ public class CartController {
 
 		//재고 유무 확인
 		//1) 재고 데이터 가져오기
-		ProductVO product =  service.getRow(cart.getPcode());
+//		ProductVO product =  service.getRow(cart.getPcode());
 		log.info("product : "+product);
 		if(cart.getAmount()>product.getPAmount()) {
 			return "fail";

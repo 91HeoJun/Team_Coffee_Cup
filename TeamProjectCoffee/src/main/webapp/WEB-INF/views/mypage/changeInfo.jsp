@@ -4,13 +4,11 @@
 <%@ include file="../header.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!DOCTYPE html>
 <fmt:requestEncoding value="utf-8"/>
-
 
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-
-
 <link rel="stylesheet" href="/resources/css/changeInfo.css">
 
 <%-- validate 코드  --%>
@@ -18,86 +16,118 @@
 <div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
 <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
 </div>
-
+<head>
+   <meta charset='utf-8'>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+</head>
 <style>
-a {
-	text-decoration:none;
-	color: #FFFFFF;
-}
-.container{
-  padding: 50px;
-}
-
-.card{
-  width: 200px;
-  height: 320px;
-  background-color: #1E2B32;
-  border-radius: 10px 10px;
-  border : 1px, #000000;
-}
-
-.header{
-  border-radius: 10px 10px 0px 0px;
-  padding: 5px;
-  background-color: #2A3942;
-}
-
-h3{
-  color: #FFFFFF;
-  font-family: 'Roboto', sans-serif;
-  margin-left: 1rem;
-}
-
-.iconM{
-  font-size: 18px;
-  margin-left: 170px;
-  color: #2f89fc;
-}
-
-.icon{
-  margin-right: 8px;
-}
-
-.body li{
-  transition: 1s all;
-  font-family: 'Roboto', sans-serif;
-  font-size: 18px;
-  padding: 15px;
-  margin-left: -40px;
-  margin-top: 0px;
-  color: #fff;
+#cssmenu,
+#cssmenu ul,
+#cssmenu li,
+#cssmenu a {
+  margin: 0;
+  padding: 0;
+  border: 0;
   list-style: none;
+  font-weight: normal;
+  text-decoration: none;
+  line-height: 1;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  position: relative;
+
+}
+#cssmenu a {
+  line-height: 1.3;
+}
+#cssmenu {
+  width: 200px;
+  background: #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding: 3px;
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+  position: relative;
+  left:200px;
+  top:100px;
+}
+#cssmenu > ul > li {
+  margin: 0 0 2px 0;
+}
+#cssmenu > ul > li:last-child {
+  margin: 0;
+}
+#cssmenu > ul > li > a {
+  font-size: 15px;
   display: block;
-  border-top-right-radius: 10px 10px;
-  border-bottom-right-radius: 10px 10px;
+  color: #ffffff;
+  text-shadow: 0 1px 1px #000;
+  background: #565656;
+  background: -moz-linear-gradient(#565656 0%, #323232 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #565656), color-stop(100%, #323232));
+  background: -webkit-linear-gradient(#565656 0%, #323232 100%);
+  background: linear-gradient(#565656 0%, #323232 100%);
+  border: 1px solid #000;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
 }
-
-li:hover{
-  transition: 1s all;
-  color: #2f89fc;
-  background-color: rgba(42, 56, 65, 0.82);
-  border-top-right-radius: 10px 10px;
-  border-bottom-right-radius: 10px 10px;
-  cursor: pointer;
+#cssmenu > ul > li > a > span {
+  display: block;
+  border: 1px solid #666666;
+  padding: 6px 10px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  font-weight: bold;
 }
-
-.body > li{
-  float: left;
+#cssmenu > ul > li > a:hover {
+  text-decoration: none;
 }
-
-.body li ul{
-  background: #1E2B32;
-  margin-left: 180px;
-  margin-top: -38px;
+#cssmenu > ul > li.active {
+  border-bottom: none;
+}
+#cssmenu > ul > li.active > a {
+  background: #97be10;
+  background: -moz-linear-gradient(#97be10 0%, #79980d 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #97be10), color-stop(100%, #79980d));
+  background: -webkit-linear-gradient(#97be10 0%, #79980d 100%);
+  background: linear-gradient(#97be10 0%, #79980d 100%);
+  color: #fff;
+  text-shadow: 0 1px 1px #000;
+  border: 1px solid #79980d;
+}
+#cssmenu > ul > li.active > a span {
+  border: 1px solid #97be10;
+}
+#cssmenu > ul > li.has-sub > a span {
+  background: url(../resources/img/icon_plus.png) 98% center no-repeat;
+}
+#cssmenu > ul > li.has-sub.active > a span {
+  background: url(../resources/img/icon_minus.png) 98% center no-repeat;
+}
+/* Sub menu */
+#cssmenu ul ul {
+  padding: 5px 12px;
   display: none;
-  position: absolute;
-  border-top-right-radius: 15px 15px;
-  border-bottom-right-radius: 15px 15px;
 }
-
-.body li:hover > ul{
-	display:block;
- 	cursor: pointer;
+#cssmenu ul ul li {
+  padding: 3px 0;
+}
+#cssmenu ul ul a {
+  display: block;
+  color: #595959;
+  font-size: 13px;
+  font-weight: bold;
+}
+#cssmenu ul ul a:hover {
+  color: #79980d;
 }
 
 .eTooltip {
@@ -136,25 +166,29 @@ a {
 
 }
 </style>
-<body>
-<div class="container">
-  <div class="card">
-    <div class="header">
-      <h3>My Page<i class="fas fa-angle-down iconM"></i></h3>
-    </div>
-    <div class="body">
+<body id="body1">
+<div id='cssmenu'>
+<ul>
+   <li class='active'><a href='../'><span>Home</span></a></li>
+   <li class='has-sub'><a href='#'><span>회원정보</span></a>
       <ul>
-        <li><a href="../index"><i class="fas fa-home icon"></i> Home</a></li>
-        <li><i class="fab fa-wpforms icon" ></i> 회원정보
-          <ul>
-            <li><a href="/mypage/changeInfo"><i class="fas fa-pencil-alt icon" ></i> 회원정보변경</a></li>
-            <li><a href="/mypage/leave"><i class="fas fa-paper-plane icon" ></i> 회원탈퇴</a></li>
-          </ul>
-        </li>
+         <li><a href='/mypage/userInfo'><span>회원정보 조회</span></a></li>
+         <li><a href='/mypage/changeInfo'><span>회원정보 수정</span></a></li>
+         <li class='last'><a href='/mypage/leave'><span>회원탈퇴</span></a></li>
       </ul>
-  </div>
+   </li>
+<!--    <li class='has-sub'><a href='#'><span>About</span></a>
+      <ul>
+         <li><a href='#'><span>Company</span></a></li>
+         <li class='last'><a href='#'><span>Contact</span></a></li>
+      </ul>
+   </li>
+   <li class='last'><a href='#'><span>Contact</span></a></li> -->
+</ul>
 </div>
-</div>
+
+</body>
+<body>
 <div id="updateMyInfo">
 	<div class="title" style="color:#ffffff;">
 		c h a n g e I n f o
@@ -233,6 +267,31 @@ a {
 	</div>
 </div>
 </body>
+<<script>
+
+$(function() {
+	$( document ).ready(function() {
+	$('#cssmenu > ul > li > a').click(function() {
+	  $('#cssmenu li').removeClass('active');
+	  $(this).closest('li').addClass('active');	
+	  var checkElement = $(this).next();
+	  if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
+	    $(this).closest('li').removeClass('active');
+	    checkElement.slideUp('normal');
+	  }
+	  if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
+	    $('#cssmenu ul ul:visible').slideUp('normal');
+	    checkElement.slideDown('normal');
+	  }
+	  if($(this).closest('li').find('ul').children().length == 0) {
+	    return true;
+	  } else {
+	    return false;	
+	  }		
+	});
+	});
+	});
+</script>
 <script src="/resources/js/changeInfo.js"></script>
 <script>
     $(function(){
@@ -365,4 +424,8 @@ $("#_btnInfo").click(function(){
         element_layer.style.left = (((window.innerWidth || document.documentElement.clientWidth) - width)/2 - borderWidth) + 'px';
         element_layer.style.top = (((window.innerHeight || document.documentElement.clientHeight) - height)/2 - borderWidth) + 'px';
     }
+
 </script>
+
+</html>
+<%@ include file="../footer.jsp" %>

@@ -52,7 +52,7 @@
                     </a>                  
                 </li>
                 <li >
-                    <a class="dropdown-toggle" href="/mypage/userInfo">
+                    <a class="dropdown-toggle" href="/mypage/myPageGo">
                         mypage
                     </a>
                 </li>
@@ -83,12 +83,17 @@
           <a class="nav-link dropdown-toggle active dropdown-toggle" href="/about" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">소개</a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="/about">about us</a></li>
-            <li><a class="dropdown-item" href="#">coffee story</a></li>
+            <li><a class="dropdown-item" href="/coffeeStory">coffee story</a></li>
             <li><a class="dropdown-item" href="#">recipe</a></li>
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">상품</a>
+          <a class="nav-link dropdown-toggle dropdown-toggle" href="/product/productList" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">상품</a>
+       	  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">싱글오리진</a></li>
+            <li><a class="dropdown-item" href="#">블렌드</a></li>
+            <li><a class="dropdown-item" href="#">드립백</a></li>
+          </ul>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/store/list">매장</a>

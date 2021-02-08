@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.company.mapper.ProductMapper">
-	<insert id="insert">
+	
+	<insert id="insertProduct">
 		insert into ProductTBL(pCode, pCategory, product, pContent, pAmount, pDate, origin)
 		values(#{pCode},#{pCategory},#{product},#{pContent},#{pAmount},#{pDate},#{origin})
 	</insert>
-	<update id="update">
+	<update id="updateProduct">
 		update ProductTBL set price=#{price} where pCode=#{pCode}
 	</update>
-	<delete id="delete">
+	<delete id="deleteProduct">
 		delete from ProductTBL where pCode=#{pCode}
 	</delete>
-	<select id="select" resultType="com.company.domain.ProductVO">
+	<select id="selectProduct" resultType="com.company.domain.ProductVO">
 		select * from ProductTBL where pCode=#{pCode}
 	</select>
-	<select id="selectAll" resultType="com.company.domain.ProductVO">
-		select * from ProductTBL
+	<select id="listProduct" resultType="com.company.domain.ProductVO">
+		select * from ProductTBL order by pCode
 	</select>
+	
+<!-- 목록을 뽑아야되므로 select SQL 구문을 추가한다. -->
+
+    
 </mapper>
+	

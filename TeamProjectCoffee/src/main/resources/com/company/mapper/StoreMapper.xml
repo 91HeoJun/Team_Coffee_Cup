@@ -14,7 +14,7 @@
 	
 	<!-- 등록 매장 불러오기 -->
 	<select id="selectAll" resultType="com.company.domain.StoreVO">
-		select * from storeTBL
+		select * from storeTBL order by code desc
 	</select>
 
 </mapper>

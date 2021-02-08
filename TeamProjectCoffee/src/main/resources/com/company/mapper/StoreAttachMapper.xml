@@ -5,4 +5,7 @@
 		insert into storeTBL_attach(uuid, uploadPath, fileName, fileType, code)
 		values(#{uuid}, #{uploadPath}, #{fileName}, #{fileType}, #{code})
 	</insert>
+	<select id="getList" resultType="com.company.domain.FileAttach">
+		select * from storeTBL_attach where code = #{code}
+	</select>
 </mapper>

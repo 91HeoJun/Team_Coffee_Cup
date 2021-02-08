@@ -32,6 +32,11 @@ MINVALUE 1
 NOMAXVALUE
 NOCYCLE;
 
+--매장 테이블 데이터 모두 삭제
+delete from storeTBL;
+--파일 첨부 테이블 데이터 모두 삭제
+delete from storeTBL_attach;
+
 select * from user_tables;
 drop table marketTBL;
 drop sequence sq_market;

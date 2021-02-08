@@ -13,7 +13,7 @@
 			<div style="background-color:#d19a3b" class="collapse" id="addMarket">
 		  		<div class="card card-body">
 				  	<div class="col">
-					  	<form action="/store/add" method="post">
+					  	<form id="addForm" action="/store/add" method="post">
 						    <div>
 						    	<label for="">매장 이름</label>
 						    	<input type="text" name="name" id="storeName" />
@@ -24,10 +24,10 @@
 						    </div>
 						    <div>
 						    	<label for="">매장 사진</label>
-						    	<input type="file" name="pic" id="storePic" />
+						    	<input type="file" name="pic" data-code="0" id="storePic" />
 						    </div>
 						    <div>
-						    	<button class="btn btn-primary" type="submit" id="addStore">입력</button>
+						    	<button data-code="0" class="btn btn-primary" type="submit" id="addStore">입력</button>
 						    	<button class="btn" type="reset">취소</button>
 						    </div>
 					  	</form>
@@ -42,35 +42,39 @@
 
 
 		<div class="row">
-
 			<table class="table">
 				<thead class="thead-dark">
 					<tr>
 						<th scope="col">code</th>
 						<th scope="col">지점</th>
 						<th scope="col">주소</th>
+						<th scope="col">사진</th>
 						<th scope="col">기타</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<th scope="row">1</th>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-					</tr>
-					<tr>
-						<th scope="row">2</th>
-						<td>Jacob</td>
-						<td>Thornton</td>
-						<td>@fat</td>
-					</tr>
-					<tr>
-						<th scope="row">3</th>
-						<td>Larry</td>
-						<td>the Bird</td>
-						<td>@twitter</td>
-					</tr>
+					<c:forEach var="vo" items="${list}">
+						<tr class="storeRows">
+							<form action="">
+								<td>${vo.code}</td>
+								<td><input value="${vo.name}" type="text" readonly/></td>
+								<td><input value="${vo.address}" type="text" readonly/></td>
+								<td>
+									<c:forEach var="attach" items="${vo.attachList}">
+										<%-- <p><a data-code="${vo.code}">${attach.fileName}</a></p> --%>
+										<p><input type="file" data-code="${vo.code}"></p>
+										<div class="thumbnailList" id="thumbnailPic${vo.code}">
+										<ul></ul>
+										</div>
+									</c:forEach>
+								</td>
+								<td>
+									<button data-status="modify" type="button" class="btn btn-primary modify">수정</button>
+									<button type="button" class="btn btn-warning delete">삭제</button>
+								</td>
+							</form>							
+						</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 

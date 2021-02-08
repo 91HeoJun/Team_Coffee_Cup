@@ -1,12 +1,19 @@
 package com.company.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.company.domain.FileAttach;
 import com.company.domain.StoreVO;
 import com.company.mapper.StoreAttachMapper;
 import com.company.mapper.StoreMapper;
+
+import lombok.extern.slf4j.Slf4j;
 @Service("StoreService")
+@Slf4j
 public class StoreServiceImpl implements StoreService {
 
 	@Autowired
@@ -26,6 +33,24 @@ public class StoreServiceImpl implements StoreService {
 			attachMapper.insert(attach);
 		});
 		return result;		
+	}
+	
+	@Override
+	public List<StoreVO> getAll() {
+		//매장 목록 가져오기
+		List<StoreVO> list =  mapper.selectAll();
+		//각 매장의 파일 첨부 목록 가져오기
+		list.forEach(store->{
+			store.setAttachList(attachMapper.getList(store.getCode()));
+			log.info("첨부 파일"+store.getAttachList());
+		});
+		
+		return list;
+	}
+	
+	@Override
+	public List<FileAttach> getAttachList(int code) {
+		return attachMapper.getList(code);
 	}
 
 }
