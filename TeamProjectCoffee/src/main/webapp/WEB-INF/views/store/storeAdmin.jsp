@@ -57,19 +57,21 @@
 						<tr class="storeRows">
 							<form action="">
 								<td>${vo.code}</td>
-								<td><input value="${vo.name}" type="text" readonly/></td>
-								<td><input value="${vo.address}" type="text" readonly/></td>
+								<td><input id="modifyName${vo.code}" value="${vo.name}" type="text" readonly/></td>
+								<td><input id="modifyAddress${vo.code}" value="${vo.address}" type="text" readonly/></td>
 								<td>
 									<c:forEach var="attach" items="${vo.attachList}">
-										<%-- <p><a data-code="${vo.code}">${attach.fileName}</a></p> --%>
-										<p><input type="file" data-code="${vo.code}"></p>
-										<div class="thumbnailList" id="thumbnailPic${vo.code}">
-										<ul></ul>
+										<p><a data-code="${vo.code}">${attach.fileName}</a></p>
+										<div id="pic${vo.code}" style="display:none">
+											<p><input type="file" data-code="${vo.code}"></p>
+											<div class="thumbnailList" id="thumbnailPic${vo.code}">
+											<ul></ul>
+										</div>
 										</div>
 									</c:forEach>
 								</td>
 								<td>
-									<button data-status="modify" type="button" class="btn btn-primary modify">수정</button>
+									<button class="btn btn-primary modify" data-status="modify" data-code="${vo.code}" type="button">수정</button>
 									<button type="button" class="btn btn-warning delete">삭제</button>
 								</td>
 							</form>							
