@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.company.domain.RegisterVO;
 import com.company.service.UserService;
@@ -22,9 +23,26 @@ public class UserController {
 	@Autowired 
 	private UserService service;
 	 
-	@GetMapping("/regist")
-	public void login() {
+	@GetMapping("/step1")
+	public void agree1() {
 		log.info("회원가입 페이지");
+	}
+	
+	@GetMapping("/regist")
+	public void regist() {
+		log.info("회원가입 페이지");
+	}
+	
+	@PostMapping("/step2")
+	public String agree2(boolean agree,RedirectAttributes rttr) {
+		log.info("step2 회원가입 페이지 요청"+agree);
+		
+		//사용자가 체크한 값이 없다면 step1 되돌려보내기
+		if(!agree) {
+			rttr.addFlashAttribute("check", "false");
+			return "redirect:/user/step1";
+		}
+		return "/user/regist";
 	}
 	
 	 //중복아이디 검사 
@@ -49,7 +67,7 @@ public class UserController {
 				return "/user/step3";
 			}else {
 				log.info("회원가입 실패");
-				return "register";
+				return "/user/register";
 			}
 		}
 	

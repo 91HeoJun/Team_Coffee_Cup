@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
+<%@include file="../header.jsp" %>
 <meta charset="UTF-8">
 <title>회원가입</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -17,7 +15,7 @@
 </head>
 <body>
 <div class="container">
-<form action="step2" method="post">	
+<form action="regist" method="post">	
 	<div class="form-group">
 	    <label for="textarea1" id="textarea1" style="font-size:18px;">개인정보 수집 및 이용 동의</label>
 	    <textarea class="form-control" id="textarea1" rows="20">
