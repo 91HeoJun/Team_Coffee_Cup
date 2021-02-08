@@ -7,9 +7,15 @@ CREATE TABLE BoardTBL (
 	writer		VARCHAR2(50)	NOT NULL, 
 	regdate		DATE			DEFAULT SYSDATE, 
 	updatedate	DATE			DEFAULT SYSDATE, 
-	replyCnt	NUMBER, 
+	replyCnt	NUMBER,
 	CONSTRAINT BoardTBL_PK PRIMARY KEY (bno)
 );
+
+-- replyCnt 기본값 0처리
+alter table BoardTBL modify replyCnt default 0;
+-- 게시글 상태확인용
+select * from boardTBL where bno = 85;
+
 
 -- 1:1 게시판의 글번호를 위한 시퀸스
 CREATE SEQUENCE seq_board START WITH 1 INCREMENT BY 1;
@@ -43,10 +49,17 @@ CREATE TABLE BoardTBL_Reply (
 );
 
 -- 1:1 게시판 댓글의 글번호를 위한 시퀸스
-CREATE SEQUENCE seq_reply START WITH 1 INCREMENT BY 1;
+create sequence seq_reply;
+
+select * from BoardTBL_Reply;
+select count(*) from BoardTBL_Reply where bno = 85
+
+update BoardTBL set replyCnt = (select count(rno) from BoardTBL_Reply where BoardTBL.bno = BoardTBL_Reply.bno);
+
 
 -- BoarTBL의 bno와 BoardTBL_Reply bno 외래키 작업 
 ALTER TABLE BoardTBL_Reply ADD CONSTRAINT FK_BoardTBL_Reply_bno_BoardTBL FOREIGN KEY (bno) REFERENCES BoardTBL (bno);
 
 -- index
 CREATE INDEX idx_reply ON BoardTBL_Reply(bno desc, rno asc);
+

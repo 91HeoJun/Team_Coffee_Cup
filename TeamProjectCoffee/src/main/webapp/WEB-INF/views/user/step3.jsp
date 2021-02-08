@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
 </head>
 <body>
-	
+	<h1>${regist.name}님 회원가입 완료</h1>
+	<a href="/mypage/signin">다시 로그인하여 주세요.</a>
 </body>
 </html>

@@ -48,7 +48,7 @@
 
 	<!-- 댓글 개수 -->
 	<update id="replyCntUpdate">
-		update BoardTBL set replyCnt = replyCnt + #{amount} where bno = #{bno}
+		update BoardTBL set replyCnt = replyCnt+#{amount} where bno=#{bno}
 	</update>
 
 

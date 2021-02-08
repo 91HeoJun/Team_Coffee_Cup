@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!-- ****** Header 위치 이동 시 경로 변경 필요 ****** -->
-<%@ include file="../header.jsp" %>
 <%@ include file="productHeader.jsp" %>
 <!-- 
 <!DOCTYPE html> -->

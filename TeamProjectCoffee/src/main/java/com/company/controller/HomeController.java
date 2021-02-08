@@ -21,17 +21,23 @@ public class HomeController {
 		return "index";
 	}
 	
-	
-	//회사 소개 페이지 추가 -은주
+	//회사 소개 페이지 추가 : about -은주
 	@GetMapping("/about")
 	public void about() {
 		log.info("소개 페이지 요청");
 	}
-	
+			
+	//회사 소개 페이지 : 커피 이야기 추가 -은주
+	@GetMapping("/coffeeStory")
+	public void coffeeStory() {
+		log.info("커피이야기 페이지 요청");
+	}
+		
 	//상품 리스트 페이지 - 예진
 	@GetMapping("/product")
-	public void product() {
+	public String product() {
 		log.info("상품 리스트 페이지 요청");
+		return "/productList";
 	}
 	
 	//장바구니 테스트 폼 호출 - 이대우

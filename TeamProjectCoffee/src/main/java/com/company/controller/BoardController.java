@@ -88,7 +88,7 @@ public class BoardController {
 
 	@GetMapping("/list")
 	public void allList(Model model, Criteria cri) {
-		log.info("---- 전체 리스트 가져오기 ... ----");
+		log.info("---- 전체 리스트 가져오기 ... ----" + cri);
 		
 		List<BoardVO> list = boardService.getList(cri);
 		

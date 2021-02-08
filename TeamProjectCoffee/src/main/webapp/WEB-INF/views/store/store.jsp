@@ -13,7 +13,7 @@
 				<li class="list-group-item" id="list3">서울숲역점</li>
 				<li class="list-group-item" id="list4">용산아이파크몰점</li>
 				<li class="list-group-item" id="list5">판교역점</li>
-				<button type="button" style="margin-top : 10px">매장 수정</button>
+				<button type="button" style="margin-top : 10px" onclick="location.href='/store/admin'">매장 관리</button>
 			</ul>
 			
 
