@@ -1,5 +1,9 @@
 package com.company.domain;
 
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,15 +16,14 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductVO {
-	private int pCode;  //상품코드
+	private int pcode;  //상품코드
 	private String pcategory;  //상품종류
 	private String product;  //상품이름
-	private String pContent; //상품 상세내용
-	private String pDate;  //상품 제조(로스팅)일자
+	private String pcontent; //상품 상세내용
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date pdate;  //상품 제조(로스팅)일자
 	private int price;  //상품가격
-	private int pAmount;  //상품 재고수량
-	private boolean image;  //상품이미지
+	private String pamount;  //상품 재고수량	
 	private String origin;  //상품원산지
-    private String picture_url;
-	
+    private String picture_url; //상품 이미지 경로 	
 }

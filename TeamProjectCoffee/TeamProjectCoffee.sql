@@ -64,23 +64,28 @@ CREATE TABLE ProductTBL
     pCategory	VARCHAR2(20)      NOT NULL, 
     product		VARCHAR2(50)      NOT NULL, 
     pContent	VARCHAR2(3000)    NOT NULL, 
-    price       VARCHAR2(20)      NOT NULL, 
+    price       NUMBER    		  NOT NULL, 
     pAmount		VARCHAR2(20)      NOT NULL, 
-    pDate		DATE,
-    origin		VARCHAR2(20),
+    pDate		DATE			  DEFAULT SYSDATE,
+    origin		VARCHAR2(50),
     
     CONSTRAINT ProductTBL_PK PRIMARY KEY (pCode)
 );
 
+select * from ProductTBL;
+
 drop table ProductTBL;
 
 -- 상품 
-insert into ProductTBL (00, "싱글오리진", "산타 테레사", "머스캣, 망고, 딸기잼, 크랜베리 주스", "45,000", "250g", sysdate, "코스타리카" );
-insert into ProductTBL (01, "블렌드", "에픽 블렌드", "산뜻한 산미, 고소하고 달콤한 여운, 굿 밸런스", "18,000", "250g", 20210202, "온두라스, 에티오피아" );
-insert into ProductTBL (02, "드립백", "실속세트", "선물상자 미포함. 드립백 실속 구성, 10개 또는 30개 선택", "15,000", "10개", 20210201, "선택가능" );
+insert into ProductTBL (pCode, pCategory, product, pContent, price, pAmount, pDate, origin) values (1, '싱글오리진', '산타 테레사', '머스캣, 망고, 딸기잼, 크랜베리 주스', 45000, '250g', sysdate, '코스타리카');
+insert into ProductTBL (pCode, pCategory, product, pContent, price, pAmount, pDate, origin) values (2, '블렌드', '에픽 블렌드', '산뜻한 산미, 고소하고 달콤한 여운, 굿 밸런스', 18000, '250g', sysdate, '온두라스, 에티오피아' );
+insert into ProductTBL (pCode, pCategory, product, pContent, price, pAmount, pDate, origin) values (3, '드립백', '실속세트', '선물상자 미포함/드립백 실속 구성/10개 또는 30개 선택', 15000, '10개', sysdate, '선택가능' );
 
--- Product 더미생성 쿼리
+-- 상품 코드를 시퀸스
+CREATE SEQUENCE seq_product START WITH 1 INCREMENT BY 1;
+
+-- 상품 더미 생성 쿼리
 insert into ProductTBL(pCode, pCategory, product, pContent, price, pAmount, pDate, origin)
-   (select seq_product.nextval, pCode, pCategory, product, pContent, price, pAmount, pDate, origin 
+   (select seq_product.nextval, pCategory, product, pContent, price, pAmount, pDate, origin 
    from ProductTBL);
 

@@ -3,17 +3,20 @@
 <mapper namespace="com.company.mapper.ProductMapper">
 	
 	<insert id="insertProduct">
-		insert into ProductTBL(pCode, pCategory, product, pContent, pAmount, pDate, origin)
-		values(#{pCode},#{pCategory},#{product},#{pContent},#{pAmount},#{pDate},#{origin})
+		<selectKey keyProperty="pcode" order="BEFORE" resultType="int">
+			select seq_board.nextval from dual
+		</selectKey>
+		insert into ProductTBL(pCode, pCategory, product, pContent, price,pAmount, pDate, origin)
+		values(#{pcode},#{pcategory},#{product},#{pcontent},#{price},#{pamount},#{pdate},#{origin})
 	</insert>
 	<update id="updateProduct">
-		update ProductTBL set price=#{price} where pCode=#{pCode}
+		update ProductTBL set price=#{price} where pCode=#{pcode}
 	</update>
 	<delete id="deleteProduct">
-		delete from ProductTBL where pCode=#{pCode}
+		delete from ProductTBL where pCode=#{pcode}
 	</delete>
 	<select id="selectProduct" resultType="com.company.domain.ProductVO">
-		select * from ProductTBL where pCode=#{pCode}
+		select * from ProductTBL where pCode=#{pcode}
 	</select>
 	<select id="listProduct" resultType="com.company.domain.ProductVO">
 		select * from ProductTBL order by pCode
