@@ -14,23 +14,18 @@
 
 	<!-- Bootstrap CDN -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-
-    <!-- Bootstrap core CSS -->
-    <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
 
     <!-- Custom styles for this template -->
-    <link href="/resources/css/business-casual.min.css" rel="stylesheet" />
+<!--     <link href="/resources/css/business-casual.min.css" rel="stylesheet" /> -->
    
   </head>
 
   <body>
-
+	<div class="all">
     <div id="wrapper">
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -48,7 +43,7 @@
             <ul class="nav navbar-top-links navbar-right">
             	<li>
             		<c:choose>
-	            		<c:when test="${sessionScope.userid==null}">
+	            		<c:when test="${sessionScope.userid eq null}">
 	            			<a class="dropdown-toggle" href="/mypage/signin">
 		                       login
 		                    </a>  
@@ -78,24 +73,24 @@
         <!-- Navigation -->
       <div id="menu">
       	<ul class="main">
-      		<li><a href="#">소개</a>
+      		<li class="toggle"><a href="#">소개</a>
       			<ul class="sub">
       				<li><a href="/about">about us</a></li>
       				<li><a href="/coffeeStory">coffee story</a></li>
       				<li><a href="#">recipe</a></li>
       			</ul>
       		</li>
-      		<li><a href="#">상품</a>
+      		<li class="toggle"><a href="#">상품</a>
       		</li>
-      		<li><a href="/store/list">매장</a>
+      		<li class="toggle"><a href="/store/list">매장</a>
       		</li>
-      		<li><a href="/news/news">소식</a>
+      		<li class="toggle"><a href="/news/news">소식</a>
       			<ul class="sub">
       				<li><a href="#">공지사항</a></li>
       				<li><a href="#">이벤트</a></li>
       			</ul>
       		</li>
-      		<li><a href="/ClientBoard/list">고객</a>
+      		<li class="toggle"><a href="/ClientBoard/list">고객</a>
       			<ul class="sub">
       				<li><a href="#">FAQ</a></li>
       				<li><a href="#">1:1</a></li>
@@ -105,4 +100,5 @@
       </div>      
    </div>
         <div id="page-wrapper">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     
+       

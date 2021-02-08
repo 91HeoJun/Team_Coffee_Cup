@@ -1,7 +1,12 @@
 @charset "UTF-8";
+*{
+ 	color: black;
+ 	font-family: sans-serif;
+ }
 
-#wrapper{
-	background: #fff;
+.all{
+	margin: 20px 0;
+	background: #eee;	
 }
 
 li{
@@ -30,9 +35,12 @@ a{
  	text-align: center;
  	background: #fff;
  	position: relative;
- 	text-decoration: none;
  }
- 
+
+.toggle{
+	font-weight: bold;
+} 
+
  #menu .main>li:hover .sub{
  	display: block;
  	text-decoration: none;
@@ -43,7 +51,6 @@ a{
  }
  
  #menu .main>li a:hover{
- 	background: #9999cc;
  	text-decoration: none;
  }
  
@@ -53,12 +60,10 @@ a{
  	left: 0;
  	width: 100%;
  	display: none;
+ 	font-weight: normal;
+ 	padding: 0 1px 0 0;
  }
  
  #menu .main .sub li a:hover{
  	background: #9999cc;
- }
- 
- *{
- 	font: black;
  }
