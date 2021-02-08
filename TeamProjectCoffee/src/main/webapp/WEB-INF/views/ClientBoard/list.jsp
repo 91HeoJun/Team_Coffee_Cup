@@ -122,7 +122,7 @@
 	        </button>
 	      </div>
 	      <div class="modal-body">
-	        <p> 처리가 완료되었습니다. </p>
+	        <p> 게시글이 등록되었습니다. </p>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal"> 확인 </button>

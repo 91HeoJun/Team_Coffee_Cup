@@ -51,6 +51,24 @@ $(function() {
 		actionForm.submit();
 	})
 	
-
-	
+	// 검색 버튼 활성화
+	$(".btn-default").click(function(){
+		var searchData = $("#searchForm");
+		
+		var type = $("select[name='type']").val();
+		var keyword = $("input[name='keyword']").val();
+		
+		if(type == '') {
+			alert("검색 타입을 지정해주세요.");
+			return false;
+		} else if(keyword == '') {
+			alert("검색어를 입력해주세요");
+			return false;
+		}
+		
+		searchData.find("input[name=pageNum]").val("1");
+		searchData.submit();
+		
+	})
+		
 })
