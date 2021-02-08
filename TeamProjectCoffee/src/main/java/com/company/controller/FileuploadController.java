@@ -49,7 +49,7 @@ public class FileuploadController {
 	public ResponseEntity<List<FileAttach>> uploadPost(MultipartFile[] uploadFile) {
 		log.info("upload 요청");
 		
-		String uploadFolder="g:\\pictures";
+		String uploadFolder="d:\\pictures";
 		String uploadFileName=null;
 		
 		//폴더 생성
@@ -105,7 +105,7 @@ public class FileuploadController {
 	
 	@GetMapping("/display")
 	public ResponseEntity<byte[]> getFile(String fileName){
-		File f = new File("g:\\pictures\\"+fileName);
+		File f = new File("d:\\pictures\\"+fileName);
 		
 		ResponseEntity<byte[]> entity = null;
 		
@@ -125,7 +125,7 @@ public class FileuploadController {
 		log.info("down load 요청 : "+ fileName);
 		
 		//파일 이름에 uuid 제거한 이름으로 다운로드하도록
-		Resource resource = new FileSystemResource("g:\\upload\\"+fileName);
+		Resource resource = new FileSystemResource("d:\\upload\\"+fileName);
 		String resourceUidName = resource.getFilename();
 		String resourceName = resourceUidName.substring(resourceUidName.indexOf("_")+1);
 		
@@ -149,7 +149,7 @@ public class FileuploadController {
 		log.info("파일 삭제 : "+fileName+" / "+"타입 : "+type);
 		
 		try {
-			File file = new File("g:\\pictures\\"+URLDecoder.decode(fileName, "utf-8"));
+			File file = new File("d:\\pictures\\"+URLDecoder.decode(fileName, "utf-8"));
 			
 			//파일(썸네일, 일반파일) 삭제
 			file.delete();

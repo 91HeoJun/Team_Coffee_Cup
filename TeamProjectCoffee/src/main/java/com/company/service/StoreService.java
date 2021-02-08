@@ -10,4 +10,8 @@ public interface StoreService {
 	public List<StoreVO> getAll();
 	//첨부 파일 목록 가져오기
 	public List<FileAttach> getAttachList(int code);
+	//매장 삭제
+	public boolean delete(int code);
+	//aowkd tnwjd
+	public boolean modify(StoreVO store);
 }

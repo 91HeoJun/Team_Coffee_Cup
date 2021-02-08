@@ -17,4 +17,15 @@
 		select * from storeTBL order by code desc
 	</select>
 
+	<!-- 매장 삭제하기 -->
+	<delete id="delete">
+		delete from storeTBL where code=#{code}
+	</delete>
+	
+	<!-- 매장 수정하기 -->
+	<update id="update">
+		update storeTBL
+		set name=#{name}, address=#{address} where code=#{code}
+	</update>
+
 </mapper>

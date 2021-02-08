@@ -16,9 +16,9 @@ $(function(){
 			},
 			success:function(data){
 				console.log(data);
-				showUploadedFile(data, "#thumbnailPic"+code)				
+				showUploadedFile(data, "#thumbnailPic"+code+" ul");				
 			}
-		})
+		});
 		
 	})
 		
@@ -46,7 +46,7 @@ $(function(){
 		
 		var str="";
 		//첨부파일 영역의 정보 수집
-		$("#thumbnailPic ul li").each(function(idx, obj){
+		$("#thumbnailPic"+code+" ul li").each(function(idx, obj){
 			var job=$(obj);
 			console.log("첨부 파일 영역 정보 : "+job);
 			//수집된 정보를 hidden 태그로 작성
@@ -59,7 +59,7 @@ $(function(){
 		
 		//hidden 태그를 게시글 등록 폼에 추가한 후 폼 전송하기
 		//1) 게시글 등록 폼 가져오기
-		var form = $("#addForm");
+		var form = $("#Form"+code);
 		//2) 폼에 추가
 		form.append(str);
 		//3)전송
@@ -97,7 +97,7 @@ $(function(){
 //				xhr.setRequestHeader(csrfHeaderName, csrfTokenValue)
 //			},
 			success:function(result){
-				showUploadedFile(result, "#thumbnailPic ul");
+				showUploadedFile(result, "#thumbnailPic"+code+" ul");
 				$(this).val("");
 			},
 			error:function(xhr,status,error){
@@ -149,7 +149,7 @@ $(function(){
 	}//showUploadedFile close
 	
 	//x 버튼 시작
-	$("#thumbnailPic0, .thumbnailList").on("click", "button", function(){
+	$("#thumbnailPic0").on("click", "button", function(){
 		console.log("첨부 파일 삭제");
 		//해당 파일 경로 가져오기
 		var targetFile=$(this).data("file");
@@ -174,6 +174,18 @@ $(function(){
 		})	
 	})//x버튼 종료
 	
+	//x 버튼 시작 - 이벤트 위임
+	$(".thumbnailList").on("click", "button", function(e){
+		//이벤트 전파 막기
+		e.stopPropagation();
+		
+		if(confirm("정말로 파일을 삭제하시겠습니까?")){			
+			//span 태그가 속한 부모 li 태그 가져오기
+			var targetLi=$(this).closest("li");
+			targetLi.remove();
+		}	
+	})//x버튼 종료
+	
 	//수정 버튼 누름
 	/*$(".modify").click(function(){
 		
@@ -189,24 +201,26 @@ $(function(){
 		//해당 버튼 위치 code값 가져오기
 		$("#pic"+code).toggle();		
 	});*/
-	
+
 	$(".modify").click(function(){
 		//현재 버튼		
 		var btn = $(this);
 		//해당 버튼 위치 code값 가져오기
 		var code = $(this).data("code");
+		console.log("modify : "+code);
 		//현재 버튼 상태
-		var status = $(this).data("status");
+		var btnTxt = $(this).text();
 		
 		//매장 데이터 영역 가져오기
 		var name = $("#modifyName"+code);
 		var address = $("#modifyAddress"+code);
 		
 		//if($("#collapse").data("status")=='hide'){
-		if(status=='modify'){
+		if(btnTxt=='수정'){
 			btn.text("완료");
 			//console.log("show collapse");
 			$("#pic"+code).toggle();
+			$("#cancel"+code).toggle();
 			btn.data("status", "complete");
 			
 			//수정 가능한 상태로 바꾸기
@@ -214,17 +228,47 @@ $(function(){
 			address.attr("readonly", false);
 		}
 		//if($("#collapse").data("status")=='show'){
-		if(status=='complete'){
-			btn.text("수정");
-			//console.log("hide collapse");
-			$("#pic"+code).toggle();
-			btn.data("status", "modify");
+		if(btnTxt=='완료'){//완료 버튼을 눌렀을 때
+			var code = $(this).data("code");
+		
+			var str="";
+			//첨부파일 영역의 정보 수집
+			$("#thumbnailPic"+code+" ul li").each(function(idx, obj){
+				var job=$(obj);
+				console.log("첨부 파일 영역 정보 : "+job);
+				//수집된 정보를 hidden 태그로 작성
+				str+="<input type='hidden' name='attachList["+idx+"].uuid' value='"+job.data("uuid")+"'>";
+				str+="<input type='hidden' name='attachList["+idx+"].uploadPath' value='"+job.data("path")+"'>";
+				str+="<input type='hidden' name='attachList["+idx+"].fileName' value='"+job.data("filename")+"'>";
+				str+="<input type='hidden' name='attachList["+idx+"].fileType' value='"+job.data("type")+"'>";
+			})
 			
-			//수정 불가능한 상태로 바꾸기
-			name.attr("readonly", true);
-			address.attr("readonly", true);
+			var form = $("#Form"+code);
+			//2) 폼에 추가
+			form.append(str);
+			//3)전송
+			form.submit();			
 		}
 				
+	})
+	
+	//게시물 삭제
+	$(".delete").click(function(){
+		//삭제할 code 가져오기
+		var code = $(this).data("code");
+		console.log("매장 삭제 버튼 클릭 : "+code);
+		
+		$.ajax({
+			url:"/store/"+code,
+			type:'delete',
+			success:function(data){
+				if(data=="success"){
+					location.href="/store/admin";
+				}else{
+					alert("delete fail");
+				}
+			}
+		})
 	})
 	
 })

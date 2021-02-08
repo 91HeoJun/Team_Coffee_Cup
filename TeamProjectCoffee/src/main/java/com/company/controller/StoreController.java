@@ -1,5 +1,9 @@
 package com.company.controller;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +12,16 @@ import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.company.domain.BoardVO;
+import com.company.domain.Criteria;
 import com.company.domain.FileAttach;
 import com.company.domain.StoreVO;
 import com.company.service.StoreService;
@@ -60,9 +70,62 @@ public class StoreController {
 		return "/store/admin";
 	}
 	
+	//첨부물 목록 보내주기
 	@GetMapping("/getAttachList")
 	public ResponseEntity<List<FileAttach>> getAttachList(int code){
 		return new ResponseEntity<List<FileAttach>>(service.getAttachList(code), HttpStatus.OK);
+	}
+	
+	//매장 삭제
+	@DeleteMapping(value = "/{code}")
+	public ResponseEntity<String> deleteStore(@PathVariable int code) {
+		
+		List<FileAttach> attachList =service.getAttachList(code);
+		// 성공하면 리스트 보여주기
+		if(service.delete(code)) {//②데이터베이스 삭제(게시물, 첨부물)
+			deleteFiles(attachList);
+			return new ResponseEntity<String>("success", HttpStatus.OK);
+		}
+		return new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
+	}
+	
+	@PostMapping("/modify")
+	public String modify(StoreVO store) {
+		log.info("매장 수정 " + store); // 동일한 경로의 post로 이동시 : get에서 받은 데이터 유지 cri != null
+
+		// 파일첨부 확인
+		if (store.getAttachList() != null) {
+			store.getAttachList().forEach(attach -> log.info("" + attach));
+		}
+
+		service.modify(store);
+		
+		return "redirect:/store/admin";
+	}
+	
+	//첨부물 삭제
+	private void deleteFiles(List<FileAttach> attachList) {
+		log.info("첨부물 삭제 : "+attachList);
+		
+		if(attachList == null || attachList.size() <=0) {
+			return;
+		}
+		for(FileAttach attach:attachList) {
+			Path path = Paths.get("d:\\pictures\\", attach.getUploadPath()+"\\"+attach.getUuid()+"_"+attach.getFileName());
+			
+			//일반 파일, 이미지 원본 파일 삭제
+			try {
+				Files.deleteIfExists(path);
+				
+				if(Files.probeContentType(path).startsWith("image")) {
+					Path thumb = Paths.get("d:\\\\pictures\\", attach.getUploadPath()+"\\s_"+attach.getUuid()+"_"+attach.getFileName());
+					Files.delete(thumb);
+				}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 
 }
