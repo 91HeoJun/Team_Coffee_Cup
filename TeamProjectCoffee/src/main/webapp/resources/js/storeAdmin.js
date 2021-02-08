@@ -24,15 +24,17 @@ $(function(){
 		
 	//매장 추가 버튼의 collapse 기능을 위한 스크립트(완료)
 	$("#collapse").click(function(){
-		if($("#collapse").data("status")=='hide'){
+		//if($("#collapse").data("status")=='hide'){
+		if($(this).data("status")=='hide'){
 			//console.log("show collapse");
 			$("#addMarket").collapse("show");
-			$("#collapse").data("status", "show");
+			$(this).data("status", "show");
 		}
-		if($("#collapse").data("status")=='show'){
+		//if($("#collapse").data("status")=='show'){
+		if($(this).data("status")=='show'){
 			//console.log("hide collapse");
 			$("#addMarket").collapse("hide");
-			$("#collapse").data("status", "hide");
+			$(this).data("status", "hide");
 		}
 	})
 	
@@ -173,20 +175,56 @@ $(function(){
 	})//x버튼 종료
 	
 	//수정 버튼 누름
-	$(".modify").click(function(){
-		//수정 버튼 눌렀을 때
-		if($(this).data("status")=="modify"){			
+	/*$(".modify").click(function(){
+		
+		var code = $(this).data("code");
+		var btnText = $(this).text();
+		
+		if(btnText=='수정'){
 			$(this).text('완료');
-			$(this).data("status", "complete");
-			//readonly 속성 제거
-			$("#modifyName").attr("readonly", false);
-			$("#modifyAddress").attr("readonly", false);
-		}
-		//완료 버튼 눌렀을 때
-		if($(this).data("status")=="complete"){
-			
+		}else{
+			$(this).text('수정');			
 		}	
 		
+		//해당 버튼 위치 code값 가져오기
+		$("#pic"+code).toggle();		
+	});*/
+	
+	$(".modify").click(function(){
+		//현재 버튼		
+		var btn = $(this);
+		//해당 버튼 위치 code값 가져오기
+		var code = $(this).data("code");
+		//현재 버튼 상태
+		var status = $(this).data("status");
+		
+		//매장 데이터 영역 가져오기
+		var name = $("#modifyName"+code);
+		var address = $("#modifyAddress"+code);
+		
+		//if($("#collapse").data("status")=='hide'){
+		if(status=='modify'){
+			btn.text("완료");
+			//console.log("show collapse");
+			$("#pic"+code).toggle();
+			btn.data("status", "complete");
+			
+			//수정 가능한 상태로 바꾸기
+			name.attr("readonly", false).focus();
+			address.attr("readonly", false);
+		}
+		//if($("#collapse").data("status")=='show'){
+		if(status=='complete'){
+			btn.text("수정");
+			//console.log("hide collapse");
+			$("#pic"+code).toggle();
+			btn.data("status", "modify");
+			
+			//수정 불가능한 상태로 바꾸기
+			name.attr("readonly", true);
+			address.attr("readonly", true);
+		}
+				
 	})
 	
 })
