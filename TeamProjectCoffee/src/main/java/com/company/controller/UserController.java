@@ -1,5 +1,7 @@
 package com.company.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,8 +26,6 @@ public class UserController {
 	public void login() {
 		log.info("회원가입 페이지");
 	}
-	
-
 	
 	 //중복아이디 검사 
 	 @ResponseBody //보내는 리턴값은 실제 값임
@@ -53,4 +53,12 @@ public class UserController {
 			}
 		}
 	
+	 @GetMapping("/logout")
+	 public String logout(HttpSession session) {
+		 log.info("로그아웃-----------");
+		 
+		 service.logout(session);
+
+		 return "/";
+	 }
 }
