@@ -21,5 +21,6 @@ public class ProductVO {
 	private int pAmount;  //상품 재고수량
 	private boolean image;  //상품이미지
 	private String origin;  //상품원산지
+    private String picture_url;
 	
 }

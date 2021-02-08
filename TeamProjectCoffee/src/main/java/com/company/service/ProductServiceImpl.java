@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.company.domain.Criteria;
 import com.company.domain.ProductVO;
 import com.company.mapper.ProductMapper;
 
@@ -12,31 +13,32 @@ import com.company.mapper.ProductMapper;
 public class ProductServiceImpl implements ProductService {
 
 	@Autowired
-	private ProductMapper mapper;
+	private ProductMapper productmapper;
 	
 	@Override
 	public boolean insertProduct(ProductVO vo) {
-		return mapper.insert(vo)>0?true:false;
+		return productmapper.insertProduct(vo)>0?true:false;
 	}
 
 	@Override
 	public boolean updateProduct(ProductVO vo) {
-		return mapper.update(vo)>0?true:false;
+		return productmapper.updateProduct(vo)>0?true:false;
 	}
 
 	@Override
-	public boolean deleteProduct(int code) {
-		return mapper.delete(code)>0?true:false;
+	public boolean removeProduct(int pCode) {
+		return productmapper.deleteProduct(pCode)>0?true:false;
 	}
 
 	@Override
-	public ProductVO getRow(int code) {
-		return mapper.select(code);
+	public ProductVO getProduct(int pCode) {
+		return productmapper.selectProduct(pCode);
 	}
 
 	@Override
-	public List<ProductVO> getList() {
-		return mapper.selectAll();
+	public List<ProductVO> getProductList(Criteria cri) {
+		return productmapper.listProduct();
 	}
+
 
 }

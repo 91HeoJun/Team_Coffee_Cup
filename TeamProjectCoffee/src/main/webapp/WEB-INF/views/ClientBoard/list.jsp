@@ -36,8 +36,8 @@
 											<td>${vo.bno}</td>
 											<td><a href="${vo.bno}" class="move">${vo.title}</a>[${vo.replyCnt}]</td>
 											<td>${vo.writer}</td>
-											<td><fmt:formatDate value="${vo.regDate}" pattern="yyyy-MM-dd HH:mm"/></td>
-											<td><fmt:formatDate value="${vo.updateDate}" pattern="yyyy-MM-dd HH:mm"/></td>
+											<td><fmt:formatDate value="${vo.regDate}" pattern="yyyy-MM-dd"/></td>
+											<td><fmt:formatDate value="${vo.updateDate}" pattern="yyyy-MM-dd"/></td>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -122,7 +122,7 @@
 	        </button>
 	      </div>
 	      <div class="modal-body">
-	        <p> 처리가 완료되었습니다. </p>
+	        <p> 게시글이 등록되었습니다. </p>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal"> 확인 </button>
