@@ -8,4 +8,7 @@
 	<select id="getList" resultType="com.company.domain.FileAttach">
 		select * from storeTBL_attach where code = #{code}
 	</select>
+	<delete id="deleteList">
+		delete from storeTBL_attach where code=#{code}
+	</delete>
 </mapper>

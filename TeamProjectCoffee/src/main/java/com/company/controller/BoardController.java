@@ -97,5 +97,10 @@ public class BoardController {
 		model.addAttribute("pageVO", new pageVO(cri, total));
 	
 	}
+	
+	@GetMapping("/PG_Test")
+	public void PGTest() {
+		log.info("PG_Test 호출중 ....");
+	};
 
 }

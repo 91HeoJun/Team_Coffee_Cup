@@ -15,5 +15,5 @@ public interface NewsService {
 
 	// 게시글 조회 - 전체/단일
 	public List<NewsVO> newsList();
-	public NewsVO getRow(int newsno);
+	public NewsVO read(int newsno);
 }
