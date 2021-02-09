@@ -10,11 +10,11 @@
 		
 			<!-- <div class="col-lg-12"> -->
 			<div class="col-lg-12">
-				<h2 class="page-header">1:1문의 게시판</h2>
+				<h2 class="page-header">1:1 문의 게시판</h2>
 			</div>
 			<div class="panel panel-default">
 			<div class="panel-heading">
-				<button id='regBtn' type="button" class="btn btn-warning" onclick="location.href='register'">문의글 작성</button>
+				<button id='regBtn' type="button" class="btn btn-outline-success" onclick="location.href='register'">문의글 작성</button>
 			</div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
