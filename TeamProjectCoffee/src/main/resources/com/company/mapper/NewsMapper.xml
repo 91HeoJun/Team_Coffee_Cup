@@ -4,7 +4,8 @@
 <!-- 새소식 - 은엽 -->
 	<!-- 새소식 게시판 추가 -->
 	<insert id="insertNews">
-		insert into NewsTBL (newsno, newsname, newscontent) values(#{newsno},#{newsname},#{newscontent})
+		insert into NewsTBL (newsno, newsname, newscontent, newsregdate, newsviewcnt) 
+		values(#{newsno},#{newsname},#{newscontent},#{newsregdate},#{newsviewcnt})
 	</insert>
 
 	<!-- 새소식 게시판 리스트보기 -->

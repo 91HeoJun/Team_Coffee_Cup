@@ -12,37 +12,37 @@ import com.company.mapper.NewsMapper;
 public class NewsServiceImpl implements NewsService {
 	
 	@Autowired
-	private NewsMapper mapper;
+	private NewsMapper newsMapper;
 	
 	
 	//게시글등록
 	@Override
 	public void regist(NewsVO news) {
-		mapper.insert(news);
+		newsMapper.insert(news);
 	}
 	
 	//삭제
 	@Override
 	public void remove(int newsno) {
-		mapper.delete(newsno);
+		newsMapper.delete(newsno);
 	}
 	
 	//수정
 	@Override
 	public void modify(NewsVO news) {
-		mapper.update(news);
+		newsMapper.update(news);
 	}
 	
 	//전체게시글
 	@Override
 	public List<NewsVO> newsList() {
-		return mapper.newsList();
+		return newsMapper.newsList();
 	}
 	
 	//단일게시글 읽기
 	@Override
-	public NewsVO getRow(int newsno) {
-		return mapper.read(newsno);
+	public NewsVO read(int newsno) {
+		return newsMapper.read(newsno);
 	}
 
 }
