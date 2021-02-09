@@ -9,21 +9,24 @@
 		insert into ProductTBL(pCode, pCategory, product, pContent, price,pAmount, pDate, origin)
 		values(#{pcode},#{pcategory},#{product},#{pcontent},#{price},#{pamount},#{pdate},#{origin})
 	</insert>
+	
 	<update id="updateProduct">
 		update ProductTBL set price=#{price} where pCode=#{pcode}
 	</update>
+	
 	<delete id="deleteProduct">
 		delete from ProductTBL where pCode=#{pcode}
 	</delete>
+	
 	<select id="selectProduct" resultType="com.company.domain.ProductVO">
 		select * from ProductTBL where pCode=#{pcode}
 	</select>
+	
 	<select id="listProduct" resultType="com.company.domain.ProductVO">
 		select * from ProductTBL order by pCode
 	</select>
 	
 <!-- 목록을 뽑아야되므로 select SQL 구문을 추가한다. -->
 
-    
 </mapper>
 	
