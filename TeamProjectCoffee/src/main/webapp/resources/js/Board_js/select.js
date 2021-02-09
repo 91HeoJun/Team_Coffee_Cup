@@ -192,5 +192,51 @@ $(function() {
 		});
 	}) //get end
 
-	
+	//첨부물
+	// .read == 문서가 준비가 되면 이후 function 진행 
+	$(document).ready(function() {
+		
+		var uploadResult = $(".uploadResult ul");
+		
+		$.getJSON({
+			url: '/ClientBoard/getAttachList',
+			data: {
+				bno: bnoVal
+				},
+			success: function(data) {
+				console.log(data);
+
+				var str ="";
+				
+				$(data).each(function(idx,obj){
+					if(obj.fileType) {
+						//썸네일 이미지 경로
+						var fileCallPath= encodeURIComponent(obj.uploadPath +"\\s_"+obj.uuid+"_"+obj.fileName);
+						
+						str+= "<li data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"' data-filename='"+obj.fileName+"' data-type='"+obj.fileType+"'>";
+						str+= "<img src='/boardAttach/upload/boardDisplay?fileName="+fileCallPath+"'><div>"+obj.fileName;
+						str+= "</div></li>";
+						
+					} else {						
+
+						str+= "<li data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"' data-filename='"+obj.fileName+"' data-type='"+obj.fileType+"'>";
+        				str+= "<img src='/resources/img/file.jpg'><div>"+obj.fileName+"</a>";
+						str+= "</div></li>";
+
+					}
+				}) // each문 종료
+				uploadResult.append(str)
+			}
+		}) // getJSON 종료
+		
+		// 이미지 클릭 시 원본 이미지 보여주기, 일반파일은 다운로드
+		$(uploadResult).on("click", "li", function() {
+			var liObj = $(this);
+			var path = encodeURIComponent(liObj.data("path")+"\\"+liObj.data("uuid")+"_"+liObj.data("filename"));
+
+				location.href = "/boardAttach/upload/boardDownload?fileName="+path;
+		})
+		
+	})
+
 })

@@ -39,8 +39,29 @@
                 			</form>
                 		</div>
                 	</div>
+                	
+                	<!-- 첨부파일 -->            
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="panel panel-default">
+								<div class="panel-heading"><i class="fa fas fa-file"></i> 첨부파일 </div>
+								<div class="panel-body">
+									<div class="form-group uploadDiv">
+										<input type="file" name="uploadFile" id="" />
+									</div>
+									<div class="uploadResult">
+										<ul></ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
                 </div>
             </div>
+
+
+
 
 <!-- 페이지 나누기를 위한 세팅값 -->
 <form action="" id="myform" method="post">

@@ -1,6 +1,69 @@
 @charset "UTF-8";
+*{
+ 	color: black;
+ 	font-family: sans-serif;
+ }
 
-.container{
-	background: #fff;
+.all{
+	background: #eee;	
 }
 
+li{
+	list-style: none;
+}
+
+a{
+	color: #000 !important;
+	text-decoration: none;
+}
+
+ #menu{
+ 	background: #fff;
+ 	height: 50px;
+	margin: 10px auto;
+ }
+ 
+ #menu ul{
+ 	text-decoration: none;
+ }
+
+ #menu .main>li{
+ 	float: left;
+ 	width: 20%;
+ 	height: 50px;
+ 	line-height: 50px;
+ 	text-align: center;
+ 	background: #fff;
+ 	position: relative;
+ }
+
+.toggle{
+	font-weight: bold;
+} 
+
+ #menu .main>li:hover .sub{
+ 	display: block;
+ 	text-decoration: none;
+ }
+ 
+ #menu .main>li a{
+ 	display: block;
+ }
+ 
+ #menu .main>li a:hover{
+ 	text-decoration: none;
+ }
+ 
+ #menu .main .sub{
+ 	position: absoulute;
+ 	top: 50px;
+ 	left: 0;
+ 	width: 100%;
+ 	display: none;
+ 	font-weight: normal;
+ 	padding: 0 1px 0 0;
+ }
+ 
+ #menu .main .sub li a:hover{
+ 	background: #9999cc;
+ }

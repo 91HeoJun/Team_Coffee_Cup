@@ -20,6 +20,7 @@ $(function() {
 			str+= "<input type='hidden' name='attachList["+idx+"].fileName' value='"+job.data("filename")+"'>"
 			str+= "<input type='hidden' name='attachList["+idx+"].fileType' value='"+job.data("type")+"'>"
 		})
+		console.log(str);
 		
 		// 1. 게시글 등록 후 폼 가져오기
 		var form = $("form");
@@ -49,14 +50,11 @@ $(function() {
 		}
 
 		$.ajax({
-			url: "/boardAttach/upload/" ,
+			url: "/boardAttach/upload/boardFiles",
 			type: "post",
 			processData: false,         //데이터를 query string 형태로 보낼 것인지. 결정(기본 application/x-www-form-urlencoded임)
 			contentType: false,        //기본값은 application/x-www-form-urlencoded(파일 첨부 이므로 multipart/form-data 로 보내야함)
 			data:formData,
-			beforeSend:function(xhr) {
-				xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
-			},
 			success: function(result) {
 				console.log(result);
 				showUploadedFile(result);
@@ -74,40 +72,41 @@ $(function() {
 		var uploadResult = $(".uploadResult ul");
 		var str= "";
 		$(uploadResultArr).each(function(idx,obj) {  //idx ==index  obj 행
-			if(obj.fileType) {
-				// 썰네일 이미지 경로
-				var fileCallPath= encodeURIComponent(obj.uploadPath +"\\s_"+obj.uuid+"_"+obj.fileName);
-	            
-				// 원본 이미지 경로
-				var originPath= obj.uploadPath +"\\"+obj.uuid+"_"+obj.fileName;
-				originPath= originPath.replace(new RegExp(/\\/g),"/");
-	
-				str+= "<li data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"' data-filename='"+obj.fileName+"' data-type='"+obj.fileType+"'>";
-				str+= "<a href=\"javascript:showImage(\'"+originPath+"\')\">";
-				str+= "<img src='/display?fileName="+fileCallPath+"'><div>"
-				str+= obj.fileName+"</a>";
-				str+= "<button type='button' class='btn btn-warning btn-circle' data-file='";
-				str+= fileCallPath+"' data-type='image'>";
-				str+= "<i class='fa fa-times'></i>";
-				str+= "</button>";
-				str+= "</div></li>";
-
-        	}else{
-        		// 일반 파일 경로 
-        		var fileCallPath=encodeURIComponent(obj.uploadPath+"\\"+obj.uuid+"_"+obj.fileName);
-
-				str+= "<li data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"' data-filename='"+obj.fileName+"' data-type='"+obj.fileType+"'>";
-				str+= "<a href='/download?fileName="+fileCallPath+"' >";
-        		str+= "<img src='/resources/img/attach.png'><div>"+obj.fileName+"</a>";
-        		str+= "<button type='button' class='btn btn-warning btn-circle' data-file='";
-        		str+= fileCallPath+"' data-type='file'>";
-        		str+= "<i class='fa fa-times'></i>";
-        		str+= "</button>";
-        		str+= "</div></li>";
-               
-        	}
-        });
-	uploadResult.append(str);
+			if(obj.fileType){			
+				//썸네일 이미지 경로
+				//자바스크립트 : 인코딩함수 - encodeURIComponent();
+				//경로 생성 시 (한글 포함 가능) 인코딩 필요
+				var fileCallPath = encodeURIComponent(obj.uploadPath+"\\s_"+obj.uuid+"_"+obj.fileName);
+				//원본 이미지 경로
+				var originPath = obj.uploadPath+"\\"+obj.uuid+"_"+obj.fileName;
+				
+				//???
+				originPath = originPath.replace(new RegExp(/\\/g), "/");
+				
+				str+="<li style='list-style-type : none' data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"' ";
+				str+="data-filename='"+obj.fileName+"' data-type='"+obj.fileType+"'>";
+				//str+="<a href=\"javascript:showImage(\'"+originPath+"\')\">";
+				str+="<img src='/boardAttach/upload/boardDisplay?fileName="+fileCallPath+"'><div>"+obj.fileName+"";
+				str+="<button type='button' style='font-size:0.5em; color:white; padding:0px' class='btn btn-warning btn-circle' data-file='";
+				str+=fileCallPath+"' data-type='image'>";
+				str+="삭제";
+				str+="</button>"
+				str+="</div></li>";
+			}else{
+				//일반 파일 경로
+				var fileCallPath = encodeURIComponent(obj.uploadPath+"\\"+obj.uuid+"_"+obj.fileName);
+				str+="<li style='list-style-type : none' data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"' ";
+				str+="data-filename='"+obj.fileName+"' data-type='"+obj.fileType+"'>";
+				str+="<a href='/boardAttach/upload/boardDownload?fileName="+fileCallPath+"'>";
+				str+="<img src='/resources/img/file.jpg'><div>"+obj.fileName+"</a>";
+				str+="<button type='button' style='font-size:0.5em; color:white; padding:0px' data-file='";
+				str+=fileCallPath+"' data-type='file'>";
+				str+="삭제";
+				str+="</button>"
+				str+="</div></li>";
+			}
+		});
+		uploadResult.append(str);
 	} // 첨부파일 가져오기 종료
 
 	$(".uploadResult").on("click", "button", function() {
@@ -121,7 +120,7 @@ $(function() {
 
 		// 화면 목록에서 제거 / 서버 폴더에서 제거
 		$.ajax({
-			url: '/deleteFile',
+			url: '/boardAttach/upload/boardDeleteFile',
 			type: 'post',
 			data: {
 				fileName: targetFile,
@@ -133,17 +132,4 @@ $(function() {
 			}
 		})
 	}) // x버튼 종료
-	
-	// 열린 이미지 닫기
-	$(".bigPictureWrapper").click(function() {
-		$(".bigPicture").animate({width: '0%', height: '0%'}, 1000);
-		setTimeout(function() {
-			$(".bigPictureWrapper").hide();
-		}, 1000);
-	})
 })
-
-function showImage(fileCallPath){
-	$(".bigPictureWrapper").css("display","flex").show();
-	$(".bigPicture").html("<img src='/display?fileName="+fileCallPath+"'>").animate({width:'100%', height:'100%'},1000);  
-}

@@ -14,4 +14,6 @@ public interface StoreMapper {
 	public int delete(int code);
 	//매장 수정
 	public int update(StoreVO store);
+	//매장 정보 가져오기
+	public StoreVO select(int code);
 }

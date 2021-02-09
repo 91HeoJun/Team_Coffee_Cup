@@ -11,7 +11,6 @@ CREATE TABLE UserTBL (
 	CONSTRAINT UserTBL_PK PRIMARY KEY (userid) --외래키: 아이디
 );
 
-
 -- 1:1 게시판을 위한 BoarTBL
 CREATE TABLE BoardTBL (
 	bno			NUMBER(10, 0)	NOT NULL, 
@@ -88,4 +87,14 @@ CREATE SEQUENCE seq_product START WITH 1 INCREMENT BY 1;
 insert into ProductTBL(pCode, pCategory, product, pContent, price, pAmount, pDate, origin)
    (select seq_product.nextval, pCategory, product, pContent, price, pAmount, pDate, origin 
    from ProductTBL);
+
+
+-- Auth 추가 (id:admin pw:admin123!)
+create table UserTBL_auth(
+	userid varchar2(50) not null,
+	auth varchar2(50) not null,
+	constraint fk_user_auth foreign key(userid) references UserTBL(userid)
+);
+
+insert into UserTBL_auth values('admin', 'ROLE_ADMIN');
 

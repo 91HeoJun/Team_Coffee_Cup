@@ -3,7 +3,68 @@
  */
 
 $(function(){
-	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+		//페이지 불러올 때 페이지 리스트 가져오기
+		$.getJSON({
+			url:"/store/storeList",
+			success:function(data){
+				
+				console.log(data);
+				
+				var str="";
+				
+				$(data).each(function(idx, obj){
+					str+="<li id='list"+idx+"' class='list-group-item' data-code='"+obj.code+"'>"+obj.name+"</li>";
+				})
+				$(".menu").append(str);
+				
+				$("#list0").attr("class", "list-group-item activated");
+				var code = $("#list0").data("code");
+				console.log("code : "+code);
+				setStoreInfo(code);
+			}
+		})
+		
+		function setStoreInfo(code){
+		
+		$.getJSON({
+			url:"/store/getStore",
+			data:{
+				code:code
+			},
+			success:function(data){
+				
+				console.log("data : "+data);
+				
+				var str = "";
+				
+				$(data.attachList).each(function(idx, obj){
+					var fileCallPath = encodeURIComponent(obj.uploadPath+"\\"+obj.uuid+"_"+obj.fileName);
+					str+="<img class='rounded store-img' alt='' src='/upload/display?fileName="+fileCallPath+"' style='width: 100%; height: auto'>"
+				})
+				
+				str+="<h3 class='name' style='font-size: 1em; margin-top: 1em'>"+data.name+"</h3>"	
+				str+="<h3 class='address' style='font-size: 1em; margin-top: 1em'>"+data.address+"</h3>"
+				
+				$(".storeInfo").html(str);
+				
+				searchMap();
+			}
+		})
+	}
+		
+		//리스트 클릭 시 해당 매장 정보 보여주기
+		//이벤트(리스트 클릭 시)
+		$(".menu").on("click", "li",function(){
+			//리스트 activated
+			$(".list-group-item").attr("class", "list-group-item");
+			$(this).attr("class", "list-group-item activated");
+			//해당 매장의 정보 보여주기
+			var code = $(this).data("code");
+			setStoreInfo(code);
+		})
+	
+		//카카오맵 api	
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 		mapOption = {
 			center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
 			level : 3
@@ -46,6 +107,8 @@ $(function(){
 								map.setCenter(coords);
 							}
 		});
+		
+		
 		
 		//list1 클릭 시
 		$("#list1").click(function(){
@@ -130,6 +193,12 @@ $(function(){
 			searchMap();
 			
 	});
+	
+	//1) 코드를 받아 작동하는 메서드
+	//2) 매장 정보를 받아옴
+	//3) 매장 정보를 화면에 기입함
+	//4) 기입한 정보를 기반으로 맵을 보여줌
+	
 	
 	//카카오 맵 - 검색하여 지도에 표시
 	function searchMap(){

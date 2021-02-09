@@ -13,7 +13,7 @@
 	</delete>
 	
 	<!-- 태스크용 오래된 1일 전 첨부리스트 불러오기 -->
-	<select id="oldFileList">
+	<select id="oldFileList" resultType="com.company.domain.BoardFileAttach">
 		select * from BoardTBL_Attach where uploadPath = to_char(sysdate-1, 'yyyy\mm\dd')
 	</select>
 

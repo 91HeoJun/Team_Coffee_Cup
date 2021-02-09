@@ -37,28 +37,34 @@
                 			</form>
                 		</div>
                 	</div>
+                	
+					<%-- 파일 등록 --%>
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="panel panel-default">
+								<div class="panel-heading"> 파일 첨부하기</div>
+								<div class="panel-body">
+									<div class="form-group uploadDiv">
+										<input type="file" name="uploadFile" id="" multiple />
+									</div>
+									<div class="uploadResult">
+										<ul></ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>                	
+                	
                 </div>
             </div>
 <<<<<<< HEAD
 =======
             
-			<%-- 파일 등록 --%>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="panel panel-default">
-						<div class="panel-heading">File Attach</div>
-						<div class="panel-body">
-							<div class="form-group uploadDiv">
-								<input type="file" name="uploadFile" id="" multiple />
-							</div>
-							<div class="uploadResult">
-								<ul></ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 
 
+<<<<<<< HEAD
+>>>>>>> branch 'master' of https://github.com/91HeoJun/Team_Coffee_Cup.git
+=======
+<script src="/resources/js/Board_js/register.js"></script>
 >>>>>>> branch 'master' of https://github.com/91HeoJun/Team_Coffee_Cup.git
 <%@include file="../footer.jsp" %>

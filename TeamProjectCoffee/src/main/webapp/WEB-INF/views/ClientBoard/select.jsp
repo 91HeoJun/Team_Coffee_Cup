@@ -40,6 +40,20 @@
                 		</div>
                 	</div>
                 	
+                	<%-- 첨부파일 --%>					
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="panel panel-default">
+								<div class="panel-heading"><i class="fa fas fa-file"></i> 첨부 파일</div>
+								<div class="panel-body">
+									<div class="uploadResult">
+										<ul></ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+                	
             		<!-- 댓글 리스트 -->
 					<div class="row">
 						<div class="col-lg-12">
@@ -95,7 +109,7 @@
 					    </div>
 					  </div>
 					</div><!-- 댓글 등록 Modal end -->
-	
+						
                 </div>
             </div>
             
@@ -135,6 +149,5 @@
 </script>
 
 <script src="/resources/js/Board_js/select.js"></script>
-<!-- <script src="/resources/js/Board_js/replyAction.js"></script> -->
 <script src="/resources/js/Board_js/reply.js"></script>
 <%@include file="../footer.jsp" %>

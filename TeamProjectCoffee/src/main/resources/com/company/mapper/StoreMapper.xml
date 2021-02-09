@@ -12,9 +12,13 @@
 		values(#{code}, #{name}, #{address})
 	</insert>
 	
-	<!-- 등록 매장 불러오기 -->
+	<!-- 등록 매장 리스트 불러오기 -->
 	<select id="selectAll" resultType="com.company.domain.StoreVO">
 		select * from storeTBL order by code desc
+	</select>
+	
+	<select id="select" resultType="com.company.domain.StoreVO">
+		select * from storeTBL where code=#{code}
 	</select>
 
 	<!-- 매장 삭제하기 -->
