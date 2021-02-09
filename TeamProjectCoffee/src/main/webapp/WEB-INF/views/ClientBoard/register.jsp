@@ -39,6 +39,23 @@
                 	</div>
                 </div>
             </div>
+            
+			<%-- 파일 등록 --%>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">File Attach</div>
+						<div class="panel-body">
+							<div class="form-group uploadDiv">
+								<input type="file" name="uploadFile" id="" multiple />
+							</div>
+							<div class="uploadResult">
+								<ul></ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
 
 <%@include file="../footer.jsp" %>

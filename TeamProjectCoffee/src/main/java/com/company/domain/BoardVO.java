@@ -1,6 +1,7 @@
 package com.company.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,6 +24,8 @@ public class BoardVO {
 	private Date regDate;
 	private Date updateDate;
 	private int replyCnt;
+	
+	private List<BoardFileAttach> attachList;
 	
 	
 }

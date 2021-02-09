@@ -22,7 +22,7 @@ import com.company.service.NewsService;
 import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
-@RequestMapping("/adminnews")
+@RequestMapping
 public class AdminNewsController {
 
 	@Autowired
@@ -36,7 +36,7 @@ public class AdminNewsController {
 	@PostMapping("/adminnews/regist")
 	public String registPost(NewsVO news, RedirectAttributes rttr) {
 		log.info("----admin뉴스 등록----");
-		newsService.regist(news);
+		newsService.insertNews(news);
 		rttr.addFlashAttribute("result","regSuccess");
 		
 		return "redirect:/adminnews";
@@ -47,7 +47,7 @@ public class AdminNewsController {
 	public String removePost(int newsno,  RedirectAttributes rttr) {
 		log.info("----" + newsno + "번 게시물 삭제----");
 		
-		newsService.remove(newsno);
+		newsService.deleteNews(newsno);
 		rttr.addAttribute("result", "modSuccess");
 		
 		return "redirect:/adminnews";
@@ -57,7 +57,7 @@ public class AdminNewsController {
 	public String modifyGet(@RequestParam("newsno") int newsno, Model model) {
 		log.info("----게시글"+ newsno +"번 상세 페이지로 이동중----");
 				
-		model.addAttribute("result",newsService.read(newsno));
+		model.addAttribute("result",newsService.detailNews(newsno));
 		return "/adminnews/modify";
 		
 	}
@@ -66,7 +66,7 @@ public class AdminNewsController {
 	public String updatePost(NewsVO news, RedirectAttributes rttr) {
 		log.info("---- 게시글 수정 실행중 ... ----" );
 		
-		newsService.modify(news);
+		newsService.updateNews(news);
 
 		rttr.addFlashAttribute("result", "modSuccess");		
 		return"redirect:/adminnews";

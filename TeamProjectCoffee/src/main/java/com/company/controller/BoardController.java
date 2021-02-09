@@ -1,8 +1,15 @@
 package com.company.controller;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.company.domain.BoardFileAttach;
 import com.company.domain.BoardVO;
 import com.company.domain.Criteria;
 import com.company.domain.pageVO;
@@ -49,7 +57,10 @@ public class BoardController {
 	public String removePost(int bno, Criteria cri, RedirectAttributes rttr) {
 		log.info("---- " + bno + "번 게시물 삭제 진행중... ----");
 		
+		List<BoardFileAttach> attachList = boardService.AttachList(bno);
+		
 		if (boardService.remove(bno)) {
+			fileDelete(attachList);
 			rttr.addFlashAttribute("result", "success");
 		}
 		
@@ -97,6 +108,34 @@ public class BoardController {
 		model.addAttribute("pageVO", new pageVO(cri, total));
 	
 	}
+	
+	private void fileDelete(List<BoardFileAttach> attachList) {
+		if (attachList == null || attachList.size() <= 0) {
+			return;
+		}
+		
+		for (BoardFileAttach attach : attachList) {
+			Path path = Paths.get("c:\\ClientUpload\\" + attach.getUploadPath() + "\\" + attach.getUuid() + "_" + attach.getFileName());
+	
+			try {
+				Files.deleteIfExists(path);
+				if (Files.probeContentType(path).startsWith("image")) {
+					Path thumb = Paths.get("c:\\ClientUpload\\", attach.getUploadPath() + "\\s_" + attach.getUuid() + "_" + attach.getFileName());
+				
+					Files.delete(thumb);
+				}
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}	
+		}
+	} // fileDelete
+	
+	@GetMapping(value = "/getAttachList", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<List<BoardFileAttach>> getAttachList(int bno){
+		return new ResponseEntity<List<BoardFileAttach>>(boardService.AttachList(bno), HttpStatus.OK);
+	}
+	
 	
 	@GetMapping("/PG_Test")
 	public void PGTest() {

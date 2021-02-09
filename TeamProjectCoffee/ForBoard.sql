@@ -34,6 +34,8 @@ CREATE TABLE BoardTBL_Attach (
     CONSTRAINT BoardTBL_Attach_PK PRIMARY KEY (uuid)
 );
 
+select * from BoardTBL_Attach;
+
 -- BoarTBL의 bno와 BoardTBL_Attach의 bno 외래키 작업 
 ALTER TABLE BoardTBL_Attach ADD CONSTRAINT FK_BoardTBL_Attach_bno_BoardTB FOREIGN KEY (bno) REFERENCES BoardTBL (bno);
 
