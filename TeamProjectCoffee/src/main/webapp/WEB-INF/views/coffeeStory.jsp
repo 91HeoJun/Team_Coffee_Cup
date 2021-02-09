@@ -69,7 +69,7 @@ ul.tabs li.current{
 							<div class="coffee_content">								
 								<div class="cfs01_full_top">
 									<h3>로스트 스팩트럼</h3>
-									<p class="big_img"><img src="../resources/Storyimg/coffee_story_bigImg01.jpg" alt="로스트 스팩트럼"></p>
+									<p class="big_img"><img src="../resources/storyimg/coffee_story_bigImg01.jpg" alt="로스트 스팩트럼"></p>
 									<h3 class="title">“로스트 스팩트럼은 다년 간의 연구와 장인정신으로 탄생했습니다.”</h3><!-- 150710 DOM 수정 - 문구수정 -->
 									<p class="t1">모든 원두는 온도와 시간이 균형을 이루어야 그 향과 청량감, 바디와 풍미가 최고 수준에 이릅니다.<br>우리의 커피는 세 가지 로스팅으로 분류됩니다. - 블론드 로스트, 미디엄 로스트, 다크 로스트. <br>그래서 당신에게 맞는 풍미와 강도를 쉽게 찾을 수 있습니다.</p>			
 

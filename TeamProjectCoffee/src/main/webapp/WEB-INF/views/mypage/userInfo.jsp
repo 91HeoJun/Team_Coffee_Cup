@@ -3,34 +3,38 @@
 <%@ include file="../header.jsp" %>
 <!DOCTYPE html>
 <style>
-.menu li {
-	background-color: #f5c669;
-	font-size: 0.8em;
+#left_bar{
+border: 2px solid;
+border-radius: 10px;
 }
-
-.list-group-item.activated{
-	background-color: #f7f2cd;
-}
-.menu li a{
-	color: #000;
-	text-decoration: none;
+#left_bar > li{
+border-bottom: 1px solid;
 }
 </style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-	<link rel="stylesheet" href="/resources/css/store.css" />
+<div></br></div>
     <div class="container">
         <!-- Stack the columns on mobile by making one full-width and the other half-width -->
         <div class="row">
-          <div class="col-md-2" style="background-color: none;">
-            <ul class="list-group list-group-flush float-left menu">
-				<li class="list-group-item activated" id="list1"><a href="../">HOME</a></li>
-				<li class="list-group-item" id="list2"><a href="/mypage/userInfo">회원정보 조회</a></li>
-				<li class="list-group-item" id="list3"><a href="/mypage/changeInfo">회원정보 수정</a></li>
-				<li class="list-group-item" id="list4"><a href="/mypage/leave">회원탈퇴</a></li>
+		<div class="col-md-2">
+			<ul class="nav flex-column" id="left_bar">
+				<li class="nav-item"><a class="nav-link active" href="../">HOME</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="../calendar">출석체크</a>
+				</li>
+				<li class="nav-item"><a class="nav-link"
+					href="/mypage/userInfo">회원정보 조회</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="/mypage/changeInfo">회원정보 수정</a></li>
+				<li class="nav-item"><a class="nav-link" href="/mypage/leave">회원탈퇴</a>
+				</li>
 			</ul>
-        </div>
+		</div>
+		
           <div class="col-3 col-md-9" >
+          	<div class="title">
+		<h1 class="form-group row justify-content-center">u s e r  I n f o</h1>
+	</div>
             <form id="userInfo" action="">
 
                 <div class="form-group row justify-content-center">
@@ -84,7 +88,14 @@
                         <small id="detailAddress" class="text-info"></small>
                     </div>
                 </div> 
-                <div></div>
+                 <div class="form-group row justify-content-center">
+                    <label for="point" class="col-sm-2 col-form-label">적립된 포인트 </label>
+                    <div class="col-sm-4">
+                        <input type="text" name="point" id="point" class="form-control" value="${regist.point}" readonly/>
+                        <small id="point" class="text-info"></small>
+                    </div>
+                </div> 
+                <div></br></div>
                  <div class="form-group text-center">
 				<button type="submit" class="btn btn-primary" onclick="location.href='/mypage/changeInfo'">정보변경하기</button>
 				<!-- <button type="submit" class="btn btn-danger" onclick="location.href='/mypage/leave'">탈퇴하기</button>	 -->
