@@ -32,10 +32,11 @@ MINVALUE 1
 NOMAXVALUE
 NOCYCLE;
 
---매장 테이블 데이터 모두 삭제
-delete from storeTBL;
+---자식 레코드 안지우면 테이블 삭제 불가능
 --파일 첨부 테이블 데이터 모두 삭제
 delete from storeTBL_attach;
+--매장 테이블 데이터 모두 삭제
+delete from storeTBL;
 
 select * from user_tables;
 drop table marketTBL;

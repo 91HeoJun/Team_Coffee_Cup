@@ -52,5 +52,33 @@ public class StoreServiceImpl implements StoreService {
 	public List<FileAttach> getAttachList(int code) {
 		return attachMapper.getList(code);
 	}
+	
+	@Override
+	public boolean delete(int code) {
+		
+		attachMapper.deleteList(code);
+		
+		return mapper.delete(code)>0?true:false;
+	}
+
+	@Override
+	public boolean modify(StoreVO store) {
+		// 첨부물 전체 삭제
+		attachMapper.deleteList(store.getCode());
+		//게시물 수정
+		boolean result = mapper.update(store) > 0 ? true : false;
+
+		// 첨부파일이 null이거나 size()가 0이라면
+		// return false - 그 이후 명령문을 수행하지 않는다.
+		if (store.getAttachList() == null || store.getAttachList().size() <= 0) {
+			return result;
+		}
+		//첨부물 삽입
+		store.getAttachList().forEach(attach -> {
+			attach.setCode(store.getCode());
+			attachMapper.insert(attach);
+		});
+		return result;
+	}
 
 }

@@ -40,15 +40,15 @@
 <c:forEach var="vo" items="${listProduct}">
  <div class="col mb-4">
     <div class="card">
-      <img src="..." class="card-img-top" alt="...">
+      <a href="/product/productDetail"> <img src="..." class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">${vo.product}</h5>
         <p class="card-text">
         ${vo.pcontent} <br/>
         ${vo.origin } <br/>
-		<fmt:formatDate value="${vo.pdate}" pattern="yyyy-MM-dd"/> <br/>
+		로스팅(제조)일: <fmt:formatDate value="${vo.pdate}" pattern="yyyy-MM-dd"/> <br/>
 		${vo.price} <br/>
-		</p>
+		</p> </a>
 		<button type="button" class="btn btn-outline-primary">장바구니 담기</button>
       </div>
     </div>

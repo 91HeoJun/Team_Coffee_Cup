@@ -34,6 +34,8 @@ CREATE TABLE BoardTBL_Attach (
     CONSTRAINT BoardTBL_Attach_PK PRIMARY KEY (uuid)
 );
 
+select * from BoardTBL_Attach;
+
 -- BoarTBL의 bno와 BoardTBL_Attach의 bno 외래키 작업 
 ALTER TABLE BoardTBL_Attach ADD CONSTRAINT FK_BoardTBL_Attach_bno_BoardTB FOREIGN KEY (bno) REFERENCES BoardTBL (bno);
 
@@ -63,3 +65,22 @@ ALTER TABLE BoardTBL_Reply ADD CONSTRAINT FK_BoardTBL_Reply_bno_BoardTBL FOREIGN
 -- index
 CREATE INDEX idx_reply ON BoardTBL_Reply(bno desc, rno asc);
 
+
+CREATE TABLE ProductTBL
+(
+    pCode       NUMBER(20, 0)        NOT NULL, 
+    pCategory	VARCHAR2(20)      NOT NULL, 
+    product		VARCHAR2(50)      NOT NULL, 
+    pContent	VARCHAR2(3000)    NOT NULL, 
+    price       NUMBER(20)        NOT NULL, 
+    pAmount		NUMBER(20)        NOT NULL, 
+    pDate		DATE,
+    origin		VARCHAR2(20),
+    
+    CONSTRAINT ProductTBL_PK PRIMARY KEY (pCode)
+);
+
+
+select * from productTBL
+
+insert into productTBL (pcode, pcategory, product, pcontent, price, pamount, origin) values (1111, "카테고리", "프로덕트", "카운트", 45000, "어마운트", "오리진");

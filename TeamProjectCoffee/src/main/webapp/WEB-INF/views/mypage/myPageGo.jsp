@@ -3,172 +3,98 @@
 <%@ include file="../header.jsp" %>
 <!DOCTYPE html>
 <html>
-<head>
 <meta charset="UTF-8">
-<head>
-   <meta charset='utf-8'>
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-</head>
 <style>
-#cssmenu,
-#cssmenu ul,
-#cssmenu li,
-#cssmenu a {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  list-style: none;
-  font-weight: normal;
-  text-decoration: none;
-  line-height: 1;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  position: relative;
-
-}
-#cssmenu a {
-  line-height: 1.3;
-}
-#cssmenu {
-  width: 200px;
-  background: #fff;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  padding: 3px;
-  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
-  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
-  position: relative;
-  left:200px;
-  top:100px;
-}
-#cssmenu > ul > li {
-  margin: 0 0 2px 0;
-}
-#cssmenu > ul > li:last-child {
-  margin: 0;
-}
-#cssmenu > ul > li > a {
-  font-size: 15px;
-  display: block;
-  color: #ffffff;
-  text-shadow: 0 1px 1px #000;
-  background: #565656;
-  background: -moz-linear-gradient(#565656 0%, #323232 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #565656), color-stop(100%, #323232));
-  background: -webkit-linear-gradient(#565656 0%, #323232 100%);
-  background: linear-gradient(#565656 0%, #323232 100%);
-  border: 1px solid #000;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-}
-#cssmenu > ul > li > a > span {
-  display: block;
-  border: 1px solid #666666;
-  padding: 6px 10px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  font-weight: bold;
-}
-#cssmenu > ul > li > a:hover {
-  text-decoration: none;
-}
-#cssmenu > ul > li.active {
-  border-bottom: none;
-}
-#cssmenu > ul > li.active > a {
-  background: #97be10;
-  background: -moz-linear-gradient(#97be10 0%, #79980d 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #97be10), color-stop(100%, #79980d));
-  background: -webkit-linear-gradient(#97be10 0%, #79980d 100%);
-  background: linear-gradient(#97be10 0%, #79980d 100%);
-  color: #fff;
-  text-shadow: 0 1px 1px #000;
-  border: 1px solid #79980d;
-}
-#cssmenu > ul > li.active > a span {
-  border: 1px solid #97be10;
-}
-#cssmenu > ul > li.has-sub > a span {
-  background: url(../resources/img/icon_plus.png) 98% center no-repeat;
-}
-#cssmenu > ul > li.has-sub.active > a span {
-  background: url(../resources/img/icon_minus.png) 98% center no-repeat;
-}
-/* Sub menu */
-#cssmenu ul ul {
-  padding: 5px 12px;
-  display: none;
-}
-#cssmenu ul ul li {
-  padding: 3px 0;
-}
-#cssmenu ul ul a {
-  display: block;
-  color: #595959;
-  font-size: 13px;
-  font-weight: bold;
-}
-#cssmenu ul ul a:hover {
-  color: #79980d;
+.menu li {
+	background-color: #f5c669;
+	font-size: 0.8em;
 }
 
+.list-group-item.activated{
+	background-color: #f7f2cd;
+}
+.menu li a{
+	color: #000;
+	text-decoration: none;
+}
 </style>
-<div class="form-group text-center" style="margin-top:40px">
-<h1 style="color:#ffffff;">${auth.name}님 환영합니다.</h1>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<link rel="stylesheet" href="/resources/css/store.css" />
+    <div class="container">
+<div class="row">
+          <div class="col-md-2" style="background-color: none;">
+            <ul class="list-group list-group-flush float-left menu">
+				<li class="list-group-item activated" id="list1"><a href="../">HOME</a></li>
+				<li class="list-group-item" id="list2"><a href="/mypage/userInfo">회원정보 조회</a></li>
+				<li class="list-group-item" id="list3"><a href="/mypage/changeInfo">회원정보 수정</a></li>
+				<li class="list-group-item" id="list4"><a href="/mypage/leave">회원탈퇴</a></li>
+			</ul>
+        </div>
+          <div class="col-3 col-md-9" >
+            <form id="mypageGO" action="">
+	<div class="title" style="color:#000;">
+		mypage main
+	</div>
+                <div class="form-group row justify-content-center">
+                    <label for="userid" class="col-sm-2 col-form-label" >미정</label>
+                    <div class="col-sm-4">
+                        <input type="text" name="userid" id="userid" class="form-control" value="${regist.userid}" readonly/>
+                         <small id="userid" class="text-info"></small>
+                    </div>
+                </div>
+                <div class="form-group row justify-content-center">
+                    <label for="name" class="col-sm-2 col-form-label">미정 </label>
+                    <div class="col-sm-4">
+                        <input type="text" name="name" id="name" class="form-control" value="${regist.name}" readonly/>
+                        <small id="name" class="text-info"></small>
+                    </div>
+                </div>
+                <div class="form-group row justify-content-center">
+                    <label for = "email" class="col-sm-2 col-form-label" >미정 </label>
+                    <div class="col-sm-4">
+                        <input type="email" name="email" id="email" class="form-control" value="${regist.email}"readonly/>
+                        <small id="email" class="text-info"></small>
+                    </div>
+                </div>
+                
+                <div class="form-group row justify-content-center">
+                    <label for="tel" class="col-sm-2 col-form-label">미정  </label>
+                    <div class="col-sm-4">
+                        <input type="text" name="tel" id="tel" class="form-control" value="${regist.tel}" readonly/>
+                        <small id="tel" class="text-info"></small>
+                    </div>
+                </div>
+                <div class="form-group row justify-content-center">
+                    <label for="addr" class="col-sm-2 col-form-label">미정  </label>
+                    <div class="col-sm-4">
+                        <input type="text" name="postCode" id="postCode" class="form-control" value="${regist.postCode}" readonly/>
+                        <small id="postCode" class="text-info"></small>
+                </div>
+                </div>
+                <div class="form-group row justify-content-center">
+                    <label for="addr" class="col-sm-2 col-form-label">미정  </label>
+                    <div class="col-sm-4">
+                        <input type="text" name="address" id="address" class="form-control" value="${regist.address}" readonly/>
+                        <small id="address" class="text-info"></small>
+                    </div>
+                </div>
+                
+                <div class="form-group row justify-content-center">
+                    <label for="addr" class="col-sm-2 col-form-label">미정  </label>
+                    <div class="col-sm-4">
+                        <input type="text" name="detailAddress" id="detailAddress" class="form-control" value="${regist.detailAddress}" readonly/>
+                        <small id="detailAddress" class="text-info"></small>
+                    </div>
+                </div> 
+                <div></div>
+<!--                  <div class="form-group text-center">
+				<button type="submit" class="btn btn-primary" onclick="location.href='/mypage/changeInfo'">정보변경하기</button>
+				<button type="submit" class="btn btn-danger" onclick="location.href='/mypage/leave'">탈퇴하기</button>	
+					</div>  -->
+            </form>
 </div>
-<body id="body1">
-<div id='cssmenu'>
-<ul>
-   <li class='active'><a href='../'><span>Home</span></a></li>
-   <li class='has-sub'><a href='#'><span>회원정보</span></a>
-      <ul>
-         <li><a href='/mypage/userInfo'><span>회원정보 조회</span></a></li>
-         <li><a href='/mypage/changeInfo'><span>회원정보 수정</span></a></li>
-         <li class='last'><a href='/mypage/leave'><span>회원탈퇴</span></a></li>
-      </ul>
-   </li>
-<!--    <li class='has-sub'><a href='#'><span>About</span></a>
-      <ul>
-         <li><a href='#'><span>Company</span></a></li>
-         <li class='last'><a href='#'><span>Contact</span></a></li>
-      </ul>
-   </li>
-   <li class='last'><a href='#'><span>Contact</span></a></li> -->
-</ul>
 </div>
-
-</body>
-<script>
-$(function() {
-	$( document ).ready(function() {
-	$('#cssmenu > ul > li > a').click(function() {
-	  $('#cssmenu li').removeClass('active');
-	  $(this).closest('li').addClass('active');	
-	  var checkElement = $(this).next();
-	  if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
-	    $(this).closest('li').removeClass('active');
-	    checkElement.slideUp('normal');
-	  }
-	  if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
-	    $('#cssmenu ul ul:visible').slideUp('normal');
-	    checkElement.slideDown('normal');
-	  }
-	  if($(this).closest('li').find('ul').children().length == 0) {
-	    return true;
-	  } else {
-	    return false;	
-	  }		
-	});
-	});
-	});
-
-</script>
+</div>
 </html>
 <%@ include file="../footer.jsp" %>

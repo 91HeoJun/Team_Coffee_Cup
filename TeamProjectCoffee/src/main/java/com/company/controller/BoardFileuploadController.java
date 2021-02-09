@@ -37,19 +37,19 @@ import net.coobird.thumbnailator.Thumbnailator;
 
 @Controller
 @Slf4j
-@RequestMapping("/upload/*")
-public class FileuploadController {
+@RequestMapping("/boardAttach/upload/*")
+public class BoardFileuploadController {
 
 	/*
-	 * 파일 업로드 접근 경로 : /upload/* 
+	 * 파일 업로드 접근 경로 : /board/upload/* 
 	 * 서버 파일 루트 경로 : g:\\pictures로 설정되어 있음 이후 수정
 	 */
 	
-	@PostMapping(value = "/files", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@PostMapping(value = "/boardFiles", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<List<FileAttach>> uploadPost(MultipartFile[] uploadFile) {
 		log.info("upload 요청");
 		
-		String uploadFolder="d:\\pictures";
+		String uploadFolder="c:\\ClientUpload";
 		String uploadFileName=null;
 		
 		//폴더 생성
@@ -84,7 +84,7 @@ public class FileuploadController {
 				if(checkImageType(saveFile)) {
 					attach.setFileType(true);
 					//이미지라면 썸네일로 한번 더 저장
-					// g:\\upload\\날짜 폴더, s_uuid_원본파일명.jpg
+					// c:\\ClientUpload\\날짜 폴더, s_uuid_원본파일명.jpg
 					FileOutputStream thumbnail = new FileOutputStream(new File(uploadPath, "s_"+uploadFileName));
 					InputStream in = f.getInputStream();
 					Thumbnailator.createThumbnail(in, thumbnail, 100, 100);
@@ -103,9 +103,9 @@ public class FileuploadController {
 		return new ResponseEntity<List<FileAttach>>(attachList, HttpStatus.OK);
 	}
 	
-	@GetMapping("/display")
+	@GetMapping("/boardDisplay")
 	public ResponseEntity<byte[]> getFile(String fileName){
-		File f = new File("d:\\pictures\\"+fileName);
+		File f = new File("c:\\ClientUpload\\"+fileName);
 		
 		ResponseEntity<byte[]> entity = null;
 		
@@ -120,12 +120,12 @@ public class FileuploadController {
 		return entity;
 	}
 	//다운로드
-	@GetMapping(value = "/download", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+	@GetMapping(value = "/boardDownload", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
 	public ResponseEntity<Resource> download(String fileName) {
 		log.info("down load 요청 : "+ fileName);
 		
 		//파일 이름에 uuid 제거한 이름으로 다운로드하도록
-		Resource resource = new FileSystemResource("d:\\upload\\"+fileName);
+		Resource resource = new FileSystemResource("c:\\ClientUpload\\"+fileName);
 		String resourceUidName = resource.getFilename();
 		String resourceName = resourceUidName.substring(resourceUidName.indexOf("_")+1);
 		
@@ -141,7 +141,7 @@ public class FileuploadController {
 	}
 	
 	//서버에서 파일 삭제
-	@PostMapping("/deleteFile")
+	@PostMapping("/boardDeleteFile")
 	//fileName : 날짜폴더\파일이름.txt(jpg, png etc)
 	//type : image or file(fileName == oriName)
 	public ResponseEntity<String> deleteFile(String fileName, String type){
@@ -149,7 +149,7 @@ public class FileuploadController {
 		log.info("파일 삭제 : "+fileName+" / "+"타입 : "+type);
 		
 		try {
-			File file = new File("d:\\pictures\\"+URLDecoder.decode(fileName, "utf-8"));
+			File file = new File("c:\\ClientUpload\\"+URLDecoder.decode(fileName, "utf-8"));
 			
 			//파일(썸네일, 일반파일) 삭제
 			file.delete();
