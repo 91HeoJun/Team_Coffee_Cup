@@ -8,11 +8,14 @@
 	<section class="page-section cta">
 		<div class="container">
 			<ul class="list-group list-group-flush float-left menu">
-				<li class="list-group-item activated" id="list1">더종로R점</li>
+				<!-- <li class="list-group-item activated" id="list1">더종로R점</li>
 				<li class="list-group-item" id="list2">신세계의정부점</li>
 				<li class="list-group-item" id="list3">서울숲역점</li>
 				<li class="list-group-item" id="list4">용산아이파크몰점</li>
-				<li class="list-group-item" id="list5">판교역점</li>
+				<li class="list-group-item" id="list5">판교역점</li> -->
+				<%-- <c:forEach var="store" items="${list}" varStatus="status">
+					<li data-code="${store.code}" class="list-group-item" id="list${status.count}">${store.name}</li>
+				</c:forEach> --%>
 				<button type="button" style="margin-top : 10px" onclick="location.href='/store/admin'">매장 관리</button>
 			</ul>
 			
@@ -22,12 +25,11 @@
 				<!-- <div class="row"> -->
 
 				<div class="col-xl-12 mx-auto" style="margin-bottom: 1em;">
-					<div class="cta-inner text-center rounded">
-						<img class="rounded store-img" alt="" src="/resources/store_img/jong-ro.jpg"
+					<div class="cta-inner text-center rounded storeInfo">
+						<!-- <img class="rounded store-img" alt="" src=""
 							style="width: 100%; height: auto">
-						<h3 class="name" style="font-size: 1em; margin-top: 1em">스타벅스 더종로R점</h3>
-						<h3 class="address" style="font-size: 1em; margin-top: 1em">서울특별시
-							종로구 종로2가 종로 51</h3>
+						<h3 class="name" style="font-size: 1em; margin-top: 1em">매장 이름</h3>
+						<h3 class="address" style="font-size: 1em; margin-top: 1em">매장 주소</h3> -->
 					</div>
 				</div>
 

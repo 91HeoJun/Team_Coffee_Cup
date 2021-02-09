@@ -49,6 +49,14 @@ public class StoreServiceImpl implements StoreService {
 	}
 	
 	@Override
+	public StoreVO getRow(int code) {
+		StoreVO store = mapper.select(code);
+		store.setAttachList(attachMapper.getList(code));
+		
+		return store;
+	}
+	
+	@Override
 	public List<FileAttach> getAttachList(int code) {
 		return attachMapper.getList(code);
 	}

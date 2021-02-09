@@ -58,7 +58,7 @@
 							<form id="Form${vo.code}" method="post" action="/store/modify">
 								<td>${vo.code}</td>
 								<td><input name="name" id="modifyName${vo.code}" value="${vo.name}" type="text" readonly/></td>
-								<td><input name="address" id="modifyAddress${vo.code}" value="${vo.address}" type="text" readonly/></td>
+								<td><input name="address" id="modifyAddress${vo.code}" value="${vo.address}" size="35" type="text" readonly/></td>
 								<td>
 									<c:forEach var="attach" items="${vo.attachList}">
 										<p><a data-code="${vo.code}">${attach.fileName}</a></p>
@@ -73,7 +73,7 @@
 								<td>
 									<input type="hidden" name="code" value="${vo.code}"/>
 									<button class="btn btn-primary modify" data-status="modify" data-code="${vo.code}" type="button">수정</button>
-									<button id="cancel${vo.code}" style="display:none" class="btn btn-warning" data-code="${vo.code}">취소</button>
+									<button id="cancel${vo.code}" style="display:none" class="btn btn-warning" type="reset" onclick="location.href='/store/admin'">취소</button>
 									<button type="button" class="btn btn-danger delete" data-code="${vo.code}">삭제</button>
 								</td>
 							</form>							
