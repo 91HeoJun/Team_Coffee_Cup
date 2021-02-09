@@ -13,6 +13,7 @@
 	</delete>
 	<select id="getOldFiles" resultType="com.company.domain.FileAttach">
 		select * from storeTBL_attach
-		where uploadPath = to_char(sysdate-1, 'yyyy\mm\dd')
+		where uploadPath = to_char(sysdate, 'yyyy\mm\dd')
+		<!-- where uploadPath = to_char(sysdate-1, 'yyyy\mm\dd') -->
 	</select>
 </mapper>

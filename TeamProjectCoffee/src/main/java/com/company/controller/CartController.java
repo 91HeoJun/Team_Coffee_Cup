@@ -37,9 +37,9 @@ public class CartController {
 		//1) 재고 데이터 가져오기
 		ProductVO product =  service.getProduct(cart.getPcode());
 		log.info("product : "+product);
-		if(cart.getAmount()>product.getPAmount()) {
-			return "fail";
-		}
+//		if(cart.getAmount()>product.getPAmount()) {
+//			return "fail";
+//		}
 		
 		//session에 cartList가 없는 경우
 		if(session.getAttribute("cartList")==null) {
