@@ -17,19 +17,19 @@ public class NewsServiceImpl implements NewsService {
 	
 	//게시글등록
 	@Override
-	public void regist(NewsVO news) {
+	public void insertNews(NewsVO news) {
 		newsMapper.insert(news);
 	}
 	
 	//삭제
 	@Override
-	public void remove(int newsno) {
+	public void deleteNews(int newsno) {
 		newsMapper.delete(newsno);
 	}
 	
 	//수정
 	@Override
-	public void modify(NewsVO news) {
+	public void updateNews(NewsVO news) {
 		newsMapper.update(news);
 	}
 	
@@ -41,7 +41,7 @@ public class NewsServiceImpl implements NewsService {
 	
 	//단일게시글 읽기
 	@Override
-	public NewsVO read(int newsno) {
+	public NewsVO detailNews(int newsno) {
 		return newsMapper.read(newsno);
 	}
 

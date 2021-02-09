@@ -85,7 +85,7 @@ $(function(){
 		for(var i=0; i<files.length;i++){
 			formData.append("uploadFile",files[i]);
 		}
-	
+		$(this).val("");
 		//게시물 등록 전 : 첨부 파일은 먼저 서버에 저장된다.
 		$.ajax({
 			url:'/upload/files',
@@ -98,7 +98,7 @@ $(function(){
 //			},
 			success:function(result){
 				showUploadedFile(result, "#thumbnailPic"+code+" ul");
-				$(this).val("");
+				
 			},
 			error:function(xhr,status,error){
 				console.log(status);

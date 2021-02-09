@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -38,9 +39,20 @@ public class StoreController {
 	private StoreService service;
 
 	@GetMapping("/list")
-	public String storeGet() {
+	public String storeGet(Model model) {
 		log.info("매장 페이지 요청");
+		
+		//매장 페이지 불러올 때 매장 리스트 가져오기
+//		List<StoreVO> list = service.getAll();
+//		model.addAttribute("list", list);
+		
 		return "/store/store";
+	}
+	
+	@GetMapping("/getStore")
+	public ResponseEntity<StoreVO> getStoreInfo(int code) {
+		log.info("개별 매장 정보 요청");
+		return new ResponseEntity<StoreVO>(service.getRow(code), HttpStatus.OK);
 	}
 
 	@GetMapping("/admin")
@@ -49,6 +61,8 @@ public class StoreController {
 		
 		List<StoreVO> list = service.getAll();
 		model.addAttribute("list", list);
+		
+		
 		
 		return "/store/storeAdmin";
 	}
@@ -127,5 +141,15 @@ public class StoreController {
 			}
 		}
 	}
-
+	
+	//ajax : 매장 리스트 가져오기
+	
+	  @GetMapping(value = "/storeList", produces =
+	  MediaType.APPLICATION_JSON_UTF8_VALUE) public ResponseEntity<List<StoreVO>>
+	  getStoreList() {
+	  
+	  List<StoreVO> list = service.getAll();
+	  
+	  return new ResponseEntity<List<StoreVO>>(list, HttpStatus.OK); }
+	 
 }

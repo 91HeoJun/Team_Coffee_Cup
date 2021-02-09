@@ -12,6 +12,8 @@ public interface StoreService {
 	public List<FileAttach> getAttachList(int code);
 	//매장 삭제
 	public boolean delete(int code);
-	//aowkd tnwjd
+	//매장 수정
 	public boolean modify(StoreVO store);
+	//매장 가져오기
+	public StoreVO getRow(int code);
 }
