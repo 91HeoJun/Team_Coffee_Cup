@@ -33,12 +33,14 @@ public class ProductController {
 	
 	@PostMapping("/productRegister")
 	public String insertProduct(ProductVO product, RedirectAttributes rttr) {
-		log.info("---- 상품 입력 실행중 ... ----");
+		log.info("---- 상품 입력 실행중 ... ----"+product);
+		
+		
 		
 		if (productService.insertProduct(product)) {
-			log.info("---- 상품 코드 : " +product.getPCode()+ " 입력중 ... ----");
-			rttr.addFlashAttribute("result", product.getPCode());
-			return "redirect:product_list";
+			log.info("---- 상품 코드 : " +product.getPcode()+ " 입력중 ... ----");
+			rttr.addFlashAttribute("result", product.getPcode());
+			return "redirect:productList";
 
 		} else {
 			log.info("***** ---- 상품 입력 실패 ---- *****");
@@ -46,13 +48,11 @@ public class ProductController {
 		}
 	}
 	
-	
-	// 상품 삭제 
-	
+	// 상품 삭제 	
 	@PostMapping("/remove")
-	public String removeProduct(int pCode) {
-		log.info("---- " + pCode + "번 상품 삭제 진행중... ----");
-		productService.removeProduct(pCode);
+	public String removeProduct(int pcode) {
+		log.info("---- " + pcode + "번 상품 삭제 진행중... ----");
+		productService.removeProduct(pcode);
 		
 		return "redirect:productList";
 	}
@@ -61,13 +61,12 @@ public class ProductController {
 	
 	// 상품 단일 조회, 상품 수정  
 	@GetMapping({"/productDetail", "/productEdit"})
-	public void selectForm(int pCode, Model model) {
-		log.info("---- 게시글 "+ pCode +"번 상세 페이지로 이동중 ... ----");
+	public void selectForm(int pcode, Model model) {
+		log.info("---- 게시글 "+ pcode +"번 상세 페이지로 이동중 ... ----");
 		
-		ProductVO selectproduct = productService.getProduct(pCode);
+		ProductVO selectproduct = productService.getProduct(pcode);
 		
 		model.addAttribute("selectProduct", selectproduct);
-		
 	}
 	
 	@PostMapping("/productEdit")
@@ -86,6 +85,6 @@ public class ProductController {
 		log.info("---- 상품 전체 리스트 가져오기 ... ----");
 		
 		List<ProductVO> list = productService.getProductList(cri);
-	
+		model.addAttribute("listProduct", list);
 	}
 }

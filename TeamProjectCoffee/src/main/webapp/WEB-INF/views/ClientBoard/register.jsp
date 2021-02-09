@@ -57,8 +57,14 @@
                 	
                 </div>
             </div>
+<<<<<<< HEAD
+=======
             
 
 
+<<<<<<< HEAD
+>>>>>>> branch 'master' of https://github.com/91HeoJun/Team_Coffee_Cup.git
+=======
 <script src="/resources/js/Board_js/register.js"></script>
+>>>>>>> branch 'master' of https://github.com/91HeoJun/Team_Coffee_Cup.git
 <%@include file="../footer.jsp" %>
