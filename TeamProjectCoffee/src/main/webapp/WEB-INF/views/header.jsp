@@ -70,61 +70,7 @@
             </ul>
             <!-- /.navbar-static-side -->
         </nav>
-        <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-      <div class="container">
-        
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link dropdown-toggle active dropdown-toggle" href="/about" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">소개</a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="/about">about us</a></li>
-            <li><a class="dropdown-item" href="/coffeeStory">coffee story</a></li>
-            <li><a class="dropdown-item" href="#">recipe</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link dropdown-toggle dropdown-toggle" href="/product/productList" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">상품</a>
-       	  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">싱글오리진</a></li>
-            <li><a class="dropdown-item" href="#">블렌드</a></li>
-            <li><a class="dropdown-item" href="#">드립백</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/store/list">매장</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle dropdown-toggle" href="/news/news" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            소식
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">공지사항</a></li>
-            <li><a class="dropdown-item" href="#">이벤트</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link dropdown-toggle dropdown-toggle" href="/ClientBoard/list" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">고객</a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">FAQ</a></li>
-            <li><a class="dropdown-item" href="#">1:1</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-        </div>
-      </div>
-    </nav>
-        
+        <!-- Navigation -->      
       <div id="menu">
       	<ul class="main">
       		<li class="toggle"><a href="#">소개</a>
@@ -135,6 +81,11 @@
       			</ul>
       		</li>
       		<li class="toggle"><a href="#">상품</a>
+      			<ul class="sub">
+      				<li><a href="#">싱글오리진</a></li>
+      				<li><a href="#">블렌드</a></li>
+      				<li><a href="#">드립백</a></li>
+      			</ul>
       		</li>
       		<li class="toggle"><a href="/store/list">매장</a>
       		</li>
