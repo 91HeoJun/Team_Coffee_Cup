@@ -17,6 +17,8 @@ body {
 img, fieldset {
     border: none;
     vertical-align: top;
+    max-width: 100%; 
+    height: auto;
 }
 .notoserif, .notoserif * {
     font-family: 'Noto Serif KR',MBatang,serif;
@@ -174,19 +176,17 @@ p {
                 <div class="sub-title">
                 <div>
                   <h3>
-                    테라로사는<br />
                     스페셜티 문화를<br />
-                    창조하는 회사입니다.
+                    창조하는 회사
                   </h3>
                   <p class="notoserif">
-                    테라로사의 이름으로 만들어지는 모든 것들의 진가를<br />
-                    시작점에서부터 발견하고 우리의 열정과 노력으로 그 가치가<br />
+                    우리의 열정과 노력으로 그 가치가<br />
                     빛날 수 있도록 최선을 다합니다.
                   </p>
                 </div>
                 </div>
                 <span
-                  ><img src="/resources/SkinImg/about_img01.jpg" class="w100" alt=""
+                  ><img src="/resources/SkinImg/about_img01.jpg" class="w100" alt="" width="100%"
                 /></span>
               </div>
               <div class="content02">
@@ -207,8 +207,7 @@ p {
               <div>
                 <p class="notoserif">
                   이 모두가 품질에 대한 열정과 집념으로 만들어지는<br />
-                  최상급 ‘스페셜티’이며 테라로사라는<br />
-                  공간에서 하나의 새로운 문화로 완성됩니다.
+                  최상급 ‘스페셜티’이며 하나의 공간에서 새로운 문화로 완성됩니다.
                 </p>
                 <div>
                   <span
@@ -216,7 +215,7 @@ p {
                   /></span>
                   <div>
                   <p>
-                    테라로사는 공간의 미학과 식음(食飮) 문화의 융합을 바탕으로
+                    저희는 공간의 미학과 식음(食飮) 문화의 융합을 바탕으로
                     새로운 가치와 문화를 만들어 가는 회사입니다.
                   </p>
                   </div>

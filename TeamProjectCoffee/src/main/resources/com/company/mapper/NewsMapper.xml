@@ -9,7 +9,7 @@
 	</insert>
 
 	<!-- 새소식 게시판 리스트보기 -->
-	<select id="listNews" resultType="com.company.domain.NewsVO">
+	<select id="newsList" resultType="com.company.domain.NewsVO">
 	<![CDATA[
 		select * from NewsTBL order by newsno DESC
 	]]>
