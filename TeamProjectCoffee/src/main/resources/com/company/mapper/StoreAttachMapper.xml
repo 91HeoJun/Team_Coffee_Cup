@@ -11,4 +11,8 @@
 	<delete id="deleteList">
 		delete from storeTBL_attach where code=#{code}
 	</delete>
+	<select id="getOldFiles" resultType="com.company.domain.FileAttach">
+		select * from storeTBL_attach
+		where uploadPath = to_char(sysdate-1, 'yyyy\mm\dd')
+	</select>
 </mapper>

@@ -49,9 +49,12 @@ $(function(){
                 required: true,
                 tel: true
             },
-            agree1,agree2:{
+            address:{
                 required: true
             }
+           /* agree1,agree2:{
+                required: true
+            }*/
         },
         //규칙에 대한 메세지 정의
         messages:{
@@ -77,30 +80,29 @@ $(function(){
                 required:"모바일은 필수 속성입니다.",
             },
             postCode:{
-                required:"주소는 필수 속성입니다.",
+                required:"우편번호는 필수 속성입니다.",
             },
-            agree1,agree2:{
-                required:"동의하여주세요.",
+            address:{
+                required:"주소는 필수 속성입니다.",
             }
+          /*  agree1,agree2:{
+                required:"동의하여주세요.",
+            }*/
         },
 		errorPlacement:function(error,element){
 			$(element).closest("form").find("small[id='"+element.attr('id')+"']").append(error);
 		},
 		success: function(label){
 			var name=label.attr('for');
-			label.text(name+' is ok!');
+			label.text('확인되었습니다.');
 		}
     });
 })
-$.validator.setDefaults({
-	debug:true,
-	success: "valid"
-});
 //사용자 검증 메소드 추가
 $.validator.addMethod("validId",function(value){
-    var regId = /(?=.*[A-Za-z])(?=.*[!@#$%^*])[A-Za-z\d!@#$%^*]{5,12}$/;
+    var regId = /(?=.*[A-Za-z])[A-Za-z\d!@#$%^*]{5,12}$/;
     return regId.test(value); //true or false return
-},"아이디를 영대소문자, 숫자, 특수문자 조합으로 5~12자리로 만들어 주세요"); //false면 자동으로 메세지
+},"아이디를 영대소문자, 숫자으로 5~12자리로 만들어 주세요"); //false면 자동으로 메세지
 $.validator.addMethod("validPwd",function(value){
     var regPw = /(?=.*[A-Za-z])(?=.*[!@#$%^*])[A-Za-z\d!@#$%^*]{8,15}$/;
     return regPw.test(value); //true or false return

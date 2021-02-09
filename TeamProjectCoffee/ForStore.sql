@@ -15,7 +15,17 @@ create table storeTBL_attach(
 	code number(10)
 )
 
-alter table spring_attach drop constraint pk_attach;
+alter table storeTBL add (regDate Date default sysdate);
+alter table storeTBL add (updateDate Date default sysdate);
+
+alter table storeTBL drop column regDate; 
+alter table storeTBL drop column updateDate; 
+
+alter table storeTBL_attach add(updateDate Date default sysdate);
+
+alter table storeTBL_attach drop column updateDate;
+
+-- alter table spring_attach drop constraint pk_attach;
 alter table storeTBL_attach add constraint pk_attach primary key(uuid);
 alter table storeTBL_attach
 add constraint fk_board_attach foreign key(code) references storeTBL(code);
