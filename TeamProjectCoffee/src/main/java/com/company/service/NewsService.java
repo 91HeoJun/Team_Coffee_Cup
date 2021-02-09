@@ -9,11 +9,11 @@ import com.company.domain.NewsVO;
 public interface NewsService {
 
 	// 게시글 등록/삭제/수정
-	public void regist(NewsVO news);
-	public void remove(int newsno);
-	public void modify(NewsVO news);
+	public void insertNews(NewsVO news);
+	public void deleteNews(int newsno);
+	public void updateNews(NewsVO news);
 
 	// 게시글 조회 - 전체/단일
 	public List<NewsVO> newsList();
-	public NewsVO read(int newsno);
+	public NewsVO detailNews(int newsno);
 }
