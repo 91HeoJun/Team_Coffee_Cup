@@ -2,6 +2,7 @@ package com.company.service;
 
 import java.util.List;
 
+import com.company.domain.BoardFileAttach;
 import com.company.domain.BoardVO;
 import com.company.domain.Criteria;
 
@@ -15,6 +16,8 @@ public interface BoardService {
 	public BoardVO getRow(int bno);
 	
 	public int getTotalCnt(Criteria cri);
+	
+	public List<BoardFileAttach> AttachList(int bno);
 	
 	
 }
