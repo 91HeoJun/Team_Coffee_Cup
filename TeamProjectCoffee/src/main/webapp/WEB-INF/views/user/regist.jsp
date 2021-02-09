@@ -161,14 +161,6 @@
         }).open();
     }
 </script>  
-	<script>
-	$(document).ready(function(){
-		/* $(".btn-primary").click(function(){
-			$("#regist").attr("action", "/user/signin");
-			$("#regist").submit();
-		}); */
-	});
-	</script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
  	<!-- <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script> -->

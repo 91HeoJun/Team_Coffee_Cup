@@ -25,24 +25,33 @@ public class UserController {
 	 
 	@GetMapping("/step1")
 	public void agree1() {
-		log.info("회원가입 페이지");
+		log.info("step1 이용약관---------");
 	}
-	
-	@GetMapping("/regist")
-	public void regist() {
-		log.info("회원가입 페이지");
-	}
-	
-	@PostMapping("/step2")
-	public String agree2(boolean agree,RedirectAttributes rttr) {
-		log.info("step2 회원가입 페이지 요청"+agree);
+	@PostMapping("/step1")
+	public String goStep2(boolean agree,RedirectAttributes rttr) {
+		log.info("step2 이동------------");
 		
 		//사용자가 체크한 값이 없다면 step1 되돌려보내기
 		if(!agree) {
 			rttr.addFlashAttribute("check", "false");
 			return "redirect:/user/step1";
 		}
-		return "/user/regist";
+		return "/user/step2";
+	}
+	
+	@GetMapping("/step2")
+	public void agree2() {
+		log.info("step2 이용약관---------");
+	}
+	@PostMapping("/step2")
+	public String agree2(boolean agree,RedirectAttributes rttr) {
+		log.info("step2 회원가입 페이지 요청"+agree);
+		
+		if(!agree) {
+			rttr.addFlashAttribute("check", "false");
+			return "redirect:/user/step2";
+		}
+		return "redirect:/user/regist";
 	}
 	
 	 //중복아이디 검사 
@@ -58,7 +67,12 @@ public class UserController {
 		 return "true"; 
 	}
 	 
-	 @PostMapping("/signin")
+	 @GetMapping("/regist")
+	 public void regist() {
+		 log.info("회원가입 페이지");
+	 }
+	 
+	 @PostMapping("/regist")
 		public String signin(@ModelAttribute("regist")RegisterVO regist) {
 			log.info("회원가입 요청"+regist);
 			
@@ -70,7 +84,7 @@ public class UserController {
 				return "/user/register";
 			}
 		}
-	
+
 	 @GetMapping("/logout")
 	 public String logout(HttpSession session) {
 		 log.info("로그아웃-----------");
@@ -79,4 +93,5 @@ public class UserController {
 
 		 return "/";
 	 }
+	 
 }

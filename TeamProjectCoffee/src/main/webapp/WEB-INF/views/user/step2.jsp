@@ -15,7 +15,7 @@
 </head>
 <body>
 <div class="container">
-<form action="regist" method="post">	
+<form action="step2" method="post">	
 	<div class="form-group">
 	    <label for="textarea1" id="textarea1" style="font-size:18px;">개인정보 수집 및 이용 동의</label>
 	    <textarea class="form-control" id="textarea1" rows="20">
@@ -52,16 +52,17 @@
 </textarea>
 </div>
 <label id="textarea1" style="font-size:16px;">
-<input type="checkbox" id="agree2" name="agree2" value="true"> 약관동의
+<input type="checkbox" id="agree" name="agree" value="true"> 약관동의
 </label>
+<input type="submit" class="btn btn-primary btn-sm" value="다음단계">
 </form>	
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.js" integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
 <script>
 $(function(){
-	var check=$("#agree2");
+	var check=$("#agree").value;
 	if(!check){
-		alert("우리의 약관에 동의를 해주세요");
+		alert("약관에 동의를 해주세요");
 		return;
 	}
 })

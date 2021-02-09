@@ -50,12 +50,7 @@ $(function(){
                 tel: true
             },
             address:{
-                required: true,
-                tel: true
-            },
-            detailAddress:{
-                required: true,
-                tel: true
+                required: true
             }
            /* agree1,agree2:{
                 required: true
@@ -103,11 +98,6 @@ $(function(){
 		}
     });
 })
-/*
-$.validator.setDefaults({
-	debug:true,
-	success: "valid"
-});*/
 //사용자 검증 메소드 추가
 $.validator.addMethod("validId",function(value){
     var regId = /(?=.*[A-Za-z])[A-Za-z\d!@#$%^*]{5,12}$/;
