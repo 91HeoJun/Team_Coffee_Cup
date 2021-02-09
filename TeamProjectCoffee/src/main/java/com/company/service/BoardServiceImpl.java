@@ -91,8 +91,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<BoardFileAttach> AttachList(int bno) {
-		
-		return attachMapper.oldFileList();
+		return boardMapper.attachList(bno);
 	}
 
 }

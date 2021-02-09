@@ -39,11 +39,6 @@ import net.coobird.thumbnailator.Thumbnailator;
 @Slf4j
 @RequestMapping("/boardAttach/upload/*")
 public class BoardFileuploadController {
-
-	/*
-	 * 파일 업로드 접근 경로 : /board/upload/* 
-	 * 서버 파일 루트 경로 : g:\\pictures로 설정되어 있음 이후 수정
-	 */
 	
 	@PostMapping(value = "/boardFiles", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<List<FileAttach>> uploadPost(MultipartFile[] uploadFile) {

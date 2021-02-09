@@ -51,6 +51,10 @@
 		update BoardTBL set replyCnt = replyCnt+#{amount} where bno=#{bno}
 	</update>
 
+	<!-- 첨부물 가져오기 -->
+	<select id="attachList" resultType="com.company.domain.BoardFileAttach">
+		select * from BoardTBL_Attach where bno=#{bno}
+	</select>
 
 	<!-- 동적 SQL -->
 	<sql id="criteria">
