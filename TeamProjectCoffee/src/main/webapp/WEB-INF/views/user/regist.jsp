@@ -2,17 +2,20 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="../header.jsp" %>
-    <link
+<link href="/resources/css/signin.css" rel="stylesheet" />
+    <!-- <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
-    />
-
-    <div class="container" style="margin-top:40px">
-      <form id="regist" method="post">
+    /> -->
+	<div class="title">
+	    <label for="textarea1" id="textarea1">Join</label>
+	</div>
+      <form class="regist" id="regist" method="post">
+    	<div class="input">
         <div class="form-group row justify-content-center">
-          <label for="userid" class="col-sm-2 col-form-label">아이디</label>
+          <label id="label" for="userid" class="col-sm-2 col-form-label">아이디</label>
           <div class="col-sm-6">
             <input
               type="text"
@@ -25,7 +28,7 @@
           </div>
         </div>
         <div class="form-group row justify-content-center">
-          <label for="pass1" class="col-sm-2 col-form-label">비밀번호</label>
+          <label id="label" for="pass1" class="col-sm-2 col-form-label">비밀번호</label>
           <div class="col-sm-6">
             <input
               type="password"
@@ -38,7 +41,7 @@
           </div>
         </div>
         <div class="form-group row justify-content-center">
-          <label for="pass2" class="col-sm-2 col-form-label"
+          <label id="label" for="pass2" class="col-sm-2 col-form-label"
             >비밀번호 확인
           </label>
           <div class="col-sm-6">
@@ -53,7 +56,7 @@
           </div>
         </div>
         <div class="form-group row justify-content-center">
-          <label for="username" class="col-sm-2 col-form-label">이름 </label>
+          <label id="label" for="username" class="col-sm-2 col-form-label">이름 </label>
           <div class="col-sm-6">
             <input
               type="text"
@@ -66,19 +69,20 @@
           </div>
           </div>
           <div class="form-group row justify-content-center">
-          <label for="addr" class="col-sm-2 col-form-label">주소 </label>
+          <label id="label" for="addr" class="col-sm-2 col-form-label">주소 </label>
           	<div class="col-sm-6">
 				<input type="text" name="postCode" id="sample6_postcode" placeholder="우편번호">
-				<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+				<input type="button" class="postbtn" onclick="sample6_execDaumPostcode()" value="우편번호"><br>
 				<small id="postCode" class="text-info"></small>
 				<input type="text" name="address" id="sample6_address" class="form-control" placeholder="주소"><br>
 				<small id="address" class="text-info"></small>
 				<input type="text" name="detailAddress" id="sample6_detailAddress" class="form-control" placeholder="상세주소">
+				<br/>
 				<input type="text" id="sample6_extraAddress" class="form-control" placeholder="참고항목">
 			</div>
           </div>		
         <div class="form-group row justify-content-center">
-          <label for="email" class="col-sm-2 col-form-label">이메일</label>
+          <label id="label" for="email" class="col-sm-2 col-form-label">이메일</label>
           <div class="col-sm-6">
             <input
               type="email"
@@ -91,7 +95,7 @@
           </div>
         </div>
         <div class="form-group row justify-content-center">
-          <label for="tel" class="col-sm-2 col-form-label">모바일 </label>
+          <label id="label" for="tel" class="col-sm-2 col-form-label">모바일 </label>
           <div class="col-sm-6">
             <input
               type="text"
@@ -105,11 +109,11 @@
         </div>
 
         <div class="form-group text-center">
-          <button type="submit" class="btn btn-primary">입력</button>
+          <button type="submit" class="btn btn-primary">회원가입</button>
           <button type="reset" class="btn btn-secondary">취소</button>
         </div>
+    	</div>
       </form>
-    </div>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
     function sample6_execDaumPostcode() {
@@ -164,5 +168,6 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
  	<!-- <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script> -->
 	<script src="/resources/js/join.js"></script>
+<%@include file="../footer.jsp" %>
 </body>
 </html>

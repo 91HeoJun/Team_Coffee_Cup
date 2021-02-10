@@ -3,9 +3,15 @@
  	color: black;
  	font-family: sans-serif;
  }
+#page-wrapper {
+	width:100%;
+	min-height: 450px;
+	overflow: hidden;
+	position:relative;
+}
 
 .all{
-	background: #eee;	
+	background: #fff;	
 }
 
 li{

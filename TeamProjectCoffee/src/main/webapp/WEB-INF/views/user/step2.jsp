@@ -2,22 +2,17 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="../header.jsp" %>
-<meta charset="UTF-8">
-<title>회원가입</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
-<style>
-	#textarea1{
-		font-family: 'Noto Sans KR', sans-serif;
-		font-size:14px;
-	}
-</style>
+<link href="/resources/css/signin.css" rel="stylesheet" />
 </head>
 <body>
 <div class="container">
 <form action="step2" method="post">	
 	<div class="form-group">
-	    <label for="textarea1" id="textarea1" style="font-size:18px;">개인정보 수집 및 이용 동의</label>
+		<div class="title">
+	    	<label for="textarea1" id="textarea1">개인정보 수집 및 이용 동의</label>
+	    </div>
 	    <textarea class="form-control" id="textarea1" rows="20">
 수집하는 개인정보 항목
 
@@ -60,16 +55,20 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.js" integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
 <script>
 $(function(){
-	var check=$("#agree").value;
-	$('.btn').click(function(){
-		if(check==null){
+	$('.btn').click(function(e){
+		e.preventDefault();
+		var check=$("#agree").is(":checked");
+		if(!check){
 			alert("약관에 동의를 해주세요");
 			return;
+		}else{
+			$("form").submit();
 		}
 	})
 	
 })
 </script>
+<%@include file="../footer.jsp" %>
 </body>
 </html>
 

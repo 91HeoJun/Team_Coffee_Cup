@@ -13,6 +13,7 @@
 		
 			<div>
 		 		<button class="btn" style="background-color:lightgray" type="button" id="collapse" data-status="hide">매장 추가</button>
+		 		<button class="btn" style="background-color:lightgray" type="button" onclick="location.href='/store/list'">매장 페이지</button>		 		
 			</div>
 			<div style="background-color:#d19a3b" class="collapse" id="addMarket">
 		  		<div class="card card-body">

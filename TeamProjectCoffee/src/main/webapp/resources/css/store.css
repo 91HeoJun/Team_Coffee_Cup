@@ -2,9 +2,22 @@
 
 .storemenu{
 	background-color: #f2f8fa;
-	font-size: 0.7em;
+	font-size: 0.9em;
 }
 
 .storemenu.activated{
 	background-color: #cff1fc;
+}
+
+.container{
+	display:block;
+	justify-content: space-around;
+}
+
+section{
+
+}
+
+.row{
+	width: 80%;
 }

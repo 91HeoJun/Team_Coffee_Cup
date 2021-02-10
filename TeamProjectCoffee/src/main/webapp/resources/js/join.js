@@ -94,9 +94,9 @@ $(function(){
 })
 //사용자 검증 메소드 추가
 $.validator.addMethod("validId",function(value){
-    var regId = /(?=.*[A-Za-z])(?=.*[!@#$%^*])[A-Za-z\d!@#$%^*]{5,12}$/;
+    var regId = /(?=.*[A-Za-z])[A-Za-z\d]{5,12}$/;
     return regId.test(value); //true or false return
-},"아이디를 영대소문자, 숫자, 특수문자 조합으로 5~12자리로 만들어 주세요"); //false면 자동으로 메세지
+},"아이디를 영대소문자, 숫자 조합으로 5~12자리로 만들어 주세요"); //false면 자동으로 메세지
 $.validator.addMethod("validPwd",function(value){
     var regPw = /(?=.*[A-Za-z])(?=.*[!@#$%^*])[A-Za-z\d!@#$%^*]{8,15}$/;
     return regPw.test(value); //true or false return
