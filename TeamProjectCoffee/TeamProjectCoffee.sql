@@ -61,7 +61,7 @@ ALTER TABLE BoardTBL_Reply ADD CONSTRAINT FK_BoardTBL_Reply_bno_BoardTBL FOREIGN
 -- ProductTBL 부터 반영 예정
 CREATE TABLE ProductTBL
 (
-    pCode       NUMBER(20)        NOT NULL, 
+    pCode       NUMBER(20)        NOT NULL,
     pCategory	VARCHAR2(20)      NOT NULL, 
     product		VARCHAR2(50)      NOT NULL, 
     pContent	VARCHAR2(3000)    NOT NULL, 
@@ -73,7 +73,7 @@ CREATE TABLE ProductTBL
     CONSTRAINT ProductTBL_PK PRIMARY KEY (pCode)
 );
 
-select * from ProductTBL;
+select * from ProductTBL where pcode = 2;
 
 drop table ProductTBL;
 

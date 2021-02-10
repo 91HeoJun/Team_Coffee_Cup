@@ -26,13 +26,13 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public boolean removeProduct(int pCode) {
-		return productmapper.deleteProduct(pCode)>0?true:false;
+	public boolean removeProduct(int pcode) {
+		return productmapper.deleteProduct(pcode)>0?true:false;
 	}
 
 	@Override
-	public ProductVO getProduct(int pCode) {
-		return productmapper.selectProduct(pCode);
+	public ProductVO getProduct(int pcode) {
+		return productmapper.selectProduct(pcode);
 	}
 
 	@Override

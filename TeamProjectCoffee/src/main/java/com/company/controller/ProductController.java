@@ -37,8 +37,8 @@ public class ProductController {
 		
 		
 		if (productService.insertProduct(product)) {
-			log.info("---- 상품 코드 : " +product.getPCode()+ " 입력중 ... ----");
-			rttr.addFlashAttribute("result", product.getPCode());
+			log.info("---- 상품 코드 : " +product.getPcode()+ " 입력중 ... ----");
+			rttr.addFlashAttribute("result", product.getPcode());
 			return "redirect:productList";
 
 		} else {
@@ -49,9 +49,9 @@ public class ProductController {
 	
 	// 상품 삭제 	
 	@PostMapping("/remove")
-	public String removeProduct(int pCode) {
-		log.info("---- " + pCode + "번 상품 삭제 진행중... ----");
-		productService.removeProduct(pCode);
+	public String removeProduct(int pcode) {
+		log.info("---- " + pcode + "번 상품 삭제 진행중... ----");
+		productService.removeProduct(pcode);
 		
 		return "redirect:productList";
 	}
@@ -60,10 +60,10 @@ public class ProductController {
 	
 	// 상품 단일 조회, 상품 수정  
 	@GetMapping({"/productDetail", "/productEdit"})
-	public void productSelect(int pCode, Model model) {
-		log.info("---- 게시글 "+ pCode +"번 상세 페이지로 이동중 ... ----");
+	public void productSelect(int pcode, Model model) {
+		log.info("---- 게시글 "+ pcode +"번 상세 페이지로 이동중 ... ----");
 		
-		ProductVO selectProduct = productService.getProduct(pCode);
+		ProductVO selectProduct = productService.getProduct(pcode);
 		
 		model.addAttribute("selectProduct", selectProduct);
 	}

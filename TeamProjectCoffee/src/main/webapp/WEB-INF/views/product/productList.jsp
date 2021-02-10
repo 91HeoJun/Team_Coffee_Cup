@@ -36,7 +36,8 @@
 <c:forEach var="vo" items="${listProduct}">
  <div class="col mb-4">
     <div class="card">
-      <a href="/product/productDetail"> <img src="..." class="card-img-top" alt="...">
+    	<!-- 수정 예정 -->
+      <a href="/product/productDetail?pcode=${vo.pcode}"> <img src="..." class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">${vo.product}</h5>
         <p class="card-text">
@@ -52,71 +53,16 @@
 </c:forEach>
 </div>
 
-<%-- <div class="row row-cols-1 row-cols-md-2">
-  <div class="col mb-4">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">${vo.product}</h5>
-        <p class="card-text">
-        ${vo.pContent}
-		${vo.pDate}
-		${vo.price}
-		<button type="button" class="btn btn-outline-primary">장바구니 담기</button></p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="col mb-4">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">${vo.product}</h5>
-        <p class="card-text">
-        ${vo.pContent}
-		${vo.pDate}
-		${vo.price}
-		<button type="button" class="btn btn-outline-primary">장바구니 담기</button></p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="col mb-4">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">${vo.product}</h5>
-        <p class="card-text"> 
-        ${vo.pContent}
-		${vo.pDate}
-		${vo.price}
-		<button type="button" class="btn btn-outline-primary">장바구니 담기</button></p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="col mb-4">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">${vo.product}</h5>
-        <p class="card-text">
-        ${vo.pContent}
-		${vo.pDate}
-		${vo.price}
-		<button type="button" class="btn btn-outline-primary">장바구니 담기</button></p>
-      </div>
-    </div>
-  </div>
-  
-</div> --%>
 
 
-<!--   <footer class="footer text-faded text-center py-5">
-    <div class="container">
-      <p class="m-0 small">Copyright &copy; Your Website 2020</p>
-    </div>
-  </footer> -->
+<!-- 페이지 링크 값을 넘기기 위한 폼 -->
+	<form action="" id="actionForm">
+		<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum}" />
+		<input type="hidden" name="amount" value="${pageVO.cri.amount}" />
+		<input type="hidden" name="type" value="${pageVO.cri.type}" />
+		<input type="hidden" name="keyword" value="${pageVO.cri.keyword}" />
+	</form>
+
 
 <%@include file="../footer.jsp" %>
 

@@ -17,7 +17,7 @@ import lombok.ToString;
 @AllArgsConstructor
 public class ProductVO {
 	
-	private int pCode;  //상품코드
+	private int pcode;  //상품코드 됏나여? 잠깐만요~
 	private String pcategory;  //상품종류
 	private String product;  //상품이름
 	private String pcontent; //상품 상세내용

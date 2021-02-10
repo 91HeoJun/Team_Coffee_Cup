@@ -6,24 +6,24 @@
 		<selectKey keyProperty="pcode" order="BEFORE" resultType="int">
 			select seq_board.nextval from dual
 		</selectKey>
-		insert into ProductTBL(pCode, pCategory, product, pContent, price,pAmount, pDate, origin)
-		values(#{pCode},#{pcategory},#{product},#{pcontent},#{price},#{pamount},#{pdate},#{origin})
+		insert into ProductTBL(pcode, pCategory, product, pContent, price,pAmount, pDate, origin)
+		values(#{pcode},#{pcategory},#{product},#{pcontent},#{price},#{pamount},#{pdate},#{origin})
 	</insert>
 	
 	<update id="updateProduct">
-		update ProductTBL set price=#{price} where pCode=#{pCode}
+		update ProductTBL set price=#{price} where pcode=#{pcode}
 	</update>
 	
 	<delete id="deleteProduct">
-		delete from ProductTBL where pCode=#{pCode}
+		delete from ProductTBL where pcode=#{pcode}
 	</delete>
 	
 	<select id="selectProduct" resultType="com.company.domain.ProductVO">
-		select * from ProductTBL where pCode=#{pCode}
+		select * from ProductTBL where pcode=#{pcode}
 	</select>
 	
 	<select id="listProduct" resultType="com.company.domain.ProductVO">
-		select * from ProductTBL order by pCode
+		select * from ProductTBL order by pcode
 	</select>
 	
 <!-- 목록을 뽑아야되므로 select SQL 구문을 추가한다. -->
