@@ -61,7 +61,8 @@ a{
  }
  
  #menu .main .sub{
- 	position: absoulute;
+ 	position: absolute;
+ 	z-index:1;
  	top: 50px;
  	left: 0;
  	width: 100%;

@@ -36,7 +36,7 @@ $(function() {
 	})
 	
 	// 페이지 번호 클릭 submit
-	$(".paginate_button a").click(function(e){
+	$(".page-item a").click(function(e){
 		e.preventDefault();
 		
 		actionForm.find("input[name='pageNum']").val($(this).attr("href"));

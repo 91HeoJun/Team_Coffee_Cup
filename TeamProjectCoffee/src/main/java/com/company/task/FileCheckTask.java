@@ -40,7 +40,7 @@ public class FileCheckTask {
 	}
 	
 	
-	@Scheduled(cron = "10 * * * * *")
+	@Scheduled(cron = "* * 2 * * *")
 	public void checkFiles() {
 		log.warn("File Check Task run....");
 		
@@ -53,7 +53,13 @@ public class FileCheckTask {
 		Stream<Path> filePath = stream.map(vo -> Paths.get("d:\\pictures", vo.getUploadPath(), vo.getUuid()+"_"+vo.getFileName()));
 		//Path stream -> Path list
 		List<Path> fileListPath = filePath.collect(Collectors.toList());
-		
+		filePath.close();
+		stream.close();
+		//일단 보이는 Stream 다 닫기 -> 새로 생성 -> 썸네일 주소 입력
+		// -> fileListPath에 합쳐주기
+		Stream<FileAttach> stream1 = fileList.stream();
+		Stream<Path> filePath1 = stream1.map(vo -> Paths.get("d:\\pictures", vo.getUploadPath(), "s_"+vo.getUuid()+"_"+vo.getFileName()));
+		fileListPath.addAll(filePath1.collect(Collectors.toList()));
 		//map() : 스트림의 요소에 저장된 값 중에서 원하는 필드만 추출하거나 특정 형태로 변환시 사용
 		//List 구조를 stream 으로 변경(병렬 처리(빠른 속도) / 필터링 / 합계, 평균, 매핑과 같은 중간 집계)
 		//결론 : list -> Path list / stream 사용 :속도면 이점 

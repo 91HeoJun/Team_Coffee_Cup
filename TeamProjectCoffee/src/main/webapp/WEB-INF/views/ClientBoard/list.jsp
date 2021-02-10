@@ -4,11 +4,10 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!-- 추후 Header 위치 이동시 수정 필요 -->
 <%@include file="boardHeader.jsp" %>
+	
 
-		<!-- <div class="row"> -->
 		<div class="row">
 		
-			<!-- <div class="col-lg-12"> -->
 			<div class="col-lg-12">
 				<h2 class="page-header">1:1 문의 게시판</h2>
 			</div>
@@ -24,8 +23,8 @@
                                         <th>문의 번호</th>
                                         <th>제 목</th>
                                         <th>작성자</th>
-                                        <th>작성일</th>
-                                        <th>수정일</th>
+                                        <th class="date-blank">작성일</th>
+                                        <th class="date-blank">수정일</th>
                                     </tr>									
                                 </thead>
 
@@ -79,25 +78,24 @@
 								</div>
 							</div><!-- end search -->
 		
-							<!-- start Pagination -->
+							<!-- 페이지나누기 -->
 							<div class="text-center">
 								<ul class="pagination">
 									<c:if test="${pageVO.previous}">
-										<li class="paginate_button previous"><a href="${pageVO.startPage-1}">Previous</a>
+										<li class="page-item"><a class="page-link" href="${pageVO.startPage-1}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
 									</c:if>
 									<c:forEach var="idx" begin="${pageVO.startPage}" end="${pageVO.endPage}">
-										<li class="paginate_button ${pageVO.cri.pageNum==idx?'active':''}"><a href="${idx}">${idx}</a>
+										<li class="page-item ${pageVO.cri.pageNum==idx?'active':''}"><a class="page-link" href="${idx}">${idx}</a></li>
 									</c:forEach>
 									<c:if test="${pageVO.next}">
-										<li class="paginate_button next"><a href="${pageVO.endPage+1}">Next</a>
+										<li class="page-item"><a class="page-link" href="${pageVO.endPage+1}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
 									</c:if>
 								</ul>
 							</div>
-							<!-- end Pagination -->   
 
                         </div>
-			</div><!-- end panel-body -->
-		</div><!-- end panel -->		
+			</div>
+		</div>	
 
 
 
@@ -128,6 +126,8 @@
 	    </div>
 	  </div>
 	</div>
+
+
 
 <script> var result = '${result}';</script>
 <script src="/resources/js/Board_js/list.js"></script>

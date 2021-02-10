@@ -31,6 +31,6 @@ public class pageVO {
 		
 		// 다음 / 이전
 		this.previous = this.startPage > 1;
-		this.next = this.endPage >realEnd;	
+		this.next = this.endPage < realEnd;	
 	}
 }
