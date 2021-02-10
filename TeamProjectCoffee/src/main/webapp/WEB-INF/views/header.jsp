@@ -81,11 +81,11 @@
       				<li><a href="#">recipe</a></li>
       			</ul>
       		</li>
-      		<li class="toggle"><a href="#">상품</a>
+      		<li class="toggle"><a href="/product/productList">상품</a>
       			<ul class="sub">
-      				<li><a href="#">싱글오리진</a></li>
-      				<li><a href="#">블렌드</a></li>
-      				<li><a href="#">드립백</a></li>
+      				<li><a href="#">라이트</a></li>
+      				<li><a href="#">미디엄</a></li>
+      				<li><a href="#">다크</a></li>
       			</ul>
       		</li>
       		<li class="toggle"><a href="/store/list">매장</a>
