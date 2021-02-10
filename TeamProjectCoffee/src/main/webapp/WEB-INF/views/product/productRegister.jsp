@@ -60,7 +60,6 @@
  
         var product = document.form1.product.value; // document는 웹페이지에 접근하기위한 객체.. form1에 있는 상품이름을 반환해서 name에 저장함
         var price = document.form1.price.value; // document는 웹페이지에 접근하기위한 객체.. form1에 있는 상품의 값을 반환해서 price에 저장함
-
  
         var description = document.form1.description.value; // document는 웹페이지에 접근하기위한 객체.. form1에 있는 상품의 정보를 반환해서 description에 저장함
         
@@ -84,7 +83,6 @@
         // input 태그를 마우스로 클릭하여 입력상태로 만든것을 포커스를 얻었다고 한다.
        // 그리고 입력상태를 떠난 것을 포커스가 벗어났다고 한다.
         
-
         document.form1.action = ""; //insert.do 페이지로 form1에 저장된 자료를 전송함
         document.form1.submit();
     }    

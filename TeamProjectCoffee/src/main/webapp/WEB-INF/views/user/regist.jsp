@@ -23,7 +23,6 @@
             />
             <small id="userid" class="text-info"></small>
           </div>
-         <!--  <input type="button" value="중복확인" id="checkId"/> -->
         </div>
         <div class="form-group row justify-content-center">
           <label for="pass1" class="col-sm-2 col-form-label">비밀번호</label>
