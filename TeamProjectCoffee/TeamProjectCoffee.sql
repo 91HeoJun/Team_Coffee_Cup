@@ -1,16 +1,18 @@
 -- 회원가입을 위한 UserTBL
 CREATE TABLE UserTBL (
-	userid		VARCHAR2(15), 			--아이디
-	password	VARCHAR2(20)	NOT NULL, --비밀번호
-	name		NVARCHAR2(10)	NOT NULL, --이름
-	postcode	VARCHAR2(50)	NOT NULL,--우편번호
-	address		VARCHAR2(50)	NOT NULL,--주소
-	detailAddress    VARCHAR2(50),		--상세주소
+	userid		VARCHAR2(15),  --아이디
+	password	VARCHAR2(20)	NOT NULL, --비밀번호 
+	name		NVARCHAR2(10)	NOT NULL,  --이름
+	postcode	VARCHAR2(50)	NOT NULL, --우편번호
+	address		VARCHAR2(50)	NOT NULL, --주소
+	detailAddress    VARCHAR2(50),        --상세주소
 	email		VARCHAR2(50)	NOT NULL, --이메일
 	tel			VARCHAR2(20)	NOT NULL, --전화번호
-	CONSTRAINT UserTBL_PK PRIMARY KEY (userid) --외래키: 아이디
+	point 		number(20) not null,      --포인트
+	CONSTRAINT UserTBL_PK PRIMARY KEY (userid)
 );
 
+select * from USERTBL;
 -- 1:1 게시판을 위한 BoarTBL
 CREATE TABLE BoardTBL (
 	bno			NUMBER(10, 0)	NOT NULL, 
@@ -98,3 +100,26 @@ create table UserTBL_auth(
 
 insert into UserTBL_auth values('admin', 'ROLE_ADMIN');
 
+--출석체크 tbl
+DROP TABLE CALENDAR
+CASCADE CONSTRAINTS;
+
+DROP SEQUENCE SEQ_CAL;
+
+CREATE TABLE CALENDAR(
+CAL_SEQ NUMBER(8) PRIMARY KEY,
+userid VARCHAR2(50) NOT NULL,
+RDATE VARCHAR2(30) NOT NULL
+);
+
+CREATE SEQUENCE SEQ_CAL
+START WITH 1
+INCREMENT BY 1;
+
+--userid 탈퇴시 calendar userid도 같이 삭제됨
+ALTER TABLE CALENDAR
+ADD CONSTRAINT FK_CAL_userid FOREIGN KEY(userid)
+REFERENCES usertbl(userid) on delete cascade;
+
+select * from usertbl;
+select * from CALENDAR;

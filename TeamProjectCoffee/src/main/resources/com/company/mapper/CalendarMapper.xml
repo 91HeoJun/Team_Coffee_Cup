@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.mapper.CalendarMapper"> 
+
+<!-- // db 오늘날짜값 넣어주기  -->
+<insert id="calwrite" parameterType="com.company.domain.CalendarVO">
+		INSERT INTO CALENDAR(CAL_SEQ, userid, rdate)
+		VALUES(SEQ_CAL.NEXTVAL, #{userid}, #{rdate})
+</insert>
+
+<!-- 출석출력 -->
+<select id="getCalendarList"  resultType="com.company.domain.CalendarVO">
+	SELECT CAL_SEQ, userid, rdate
+	FROM CALENDAR
+	WHERE userid=#{userid}
+</select>	
+
+<!-- 같은 ID 몇개인지 찾기  -->
+<select id="getIdCount" resultType="java.lang.Integer">
+	SELECT COUNT(userid) 
+	FROM CALENDAR WHERE userid=#{userid}
+</select>
+
+<!-- 포인트 지급  -->
+<update id="upPoint" parameterType="com.company.domain.RegisterVO">
+	UPDATE usertbl SET point=point+3000
+	WHERE userid=#{userid}
+</update>
+
+<!-- today -->
+<select id="gettoday" resultType="com.company.domain.CalendarVO">
+	SELECT CAL_SEQ, userid, rdate
+	FROM CALENDAR
+	WHERE userid=#{userid} AND rdate=#{rdate}
+</select>
+
+</mapper>
+
