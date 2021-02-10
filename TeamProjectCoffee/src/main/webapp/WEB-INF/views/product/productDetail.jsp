@@ -48,7 +48,6 @@
                 					<label>Price</label>
                 					<textarea class="form-control" rows="3" name="price" readonly="readonly">${product.price}</textarea>               				
                 				</div> 
-      
                 				<sec:authentication property="principal" var="info"/>
                 				<sec:authorize access="isAuthenticated()">
                 					<c:if test="${info.username == product.admin}">

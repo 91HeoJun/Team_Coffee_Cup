@@ -80,7 +80,6 @@ CREATE TABLE ProductTBL
     CONSTRAINT ProductTBL_PK PRIMARY KEY (pCode)
 );
 
-
 select * from UserTBL;
 
 select * from productTBL

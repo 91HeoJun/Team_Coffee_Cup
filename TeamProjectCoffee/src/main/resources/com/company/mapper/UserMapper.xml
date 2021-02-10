@@ -9,7 +9,7 @@
 	
 	<!-- 회원등록 -->
 	<insert id="register">
-		insert into usertbl(userid,password,name,postCode,email,tel,address,detailAddress) values(#{userid},#{password},#{name},#{postCode},#{email},#{tel},#{address},#{detailAddress})
+		insert into usertbl(userid,password,name,postCode,email,tel,address,detailAddress,point) values(#{userid},#{password},#{name},#{postCode},#{email},#{tel},#{address},#{detailAddress},1000)
 	</insert>
 
 
