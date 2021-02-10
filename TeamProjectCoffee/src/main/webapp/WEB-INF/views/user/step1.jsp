@@ -154,11 +154,14 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.js" integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
 <script>
 $(function(){
-	var check=$("#agree").value;
-	$('.btn').click(function(){
+	$('.btn').click(function(e){
+		e.preventDefault();
+		var check=$("#agree").is(":checked");
 		if(!check){
 			alert("약관에 동의를 해주세요");
 			return;
+		}else{
+			$("form").submit();
 		}
 	})
 	
