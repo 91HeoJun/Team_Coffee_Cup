@@ -86,12 +86,8 @@ public class UserController {
 		}
 
 	 @GetMapping("/logout")
-	 public String logout(HttpSession session) {
+	 public void logout(HttpSession session) {
 		 log.info("로그아웃-----------");
-		 
-		 service.logout(session);
-
-		 return "/";
 	 }
 	 
 }
