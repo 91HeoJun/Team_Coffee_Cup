@@ -86,6 +86,11 @@ public class BoardController {
 	public String updatePost(BoardVO board, Criteria cri, RedirectAttributes rttr) {
 		log.info("---- 게시글 수정 실행중 ... ----" + board);
 		
+		// 파일 첨부 확인
+		if (board.getAttachList() != null) {
+			board.getAttachList().forEach(attach -> log.info(""+attach));
+		}
+		
 		boardService.modify(board);
 
 		rttr.addFlashAttribute("result", "success");

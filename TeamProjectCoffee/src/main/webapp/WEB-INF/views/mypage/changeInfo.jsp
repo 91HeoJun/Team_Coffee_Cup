@@ -5,30 +5,25 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
-
+<head>
 <fmt:requestEncoding value="utf-8"/>
-
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<link rel="stylesheet" href="/resources/css/changeInfo.css">
+<!--  <link rel="stylesheet" href="/resources/css/changeInfo.css">-->
 
 <%-- validate 코드  --%>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
 <div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
 <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
 </div>
+</head>
 <style>
-.menu li {
-	background-color: #f5c669;
-	font-size: 0.8em;
+#left_bar{
+border: 2px solid;
+border-radius: 10px;
 }
-
-.list-group-item.activated{
-	background-color: #f7f2cd;
-}
-.menu li a{
-	color: #000;
-	text-decoration: none;
+#left_bar > li{
+border-bottom: 1px solid;
 }
 
 .eTooltip {
@@ -63,42 +58,49 @@
 
 
 </style>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<div></br></div>
     <div class="container">
-        <!-- Stack the columns on mobile by making one full-width and the other half-width -->
         <div class="row">
-          <div class="col-md-2" style="background-color: none;">
-            <ul class="list-group list-group-flush float-left menu">
-				<li class="list-group-item activated" id="list1"><a href="../">HOME</a></li>
-				<li class="list-group-item" id="list2"><a href="/mypage/userInfo">회원정보 조회</a></li>
-				<li class="list-group-item" id="list3"><a href="/mypage/changeInfo">회원정보 수정</a></li>
-				<li class="list-group-item" id="list4"><a href="/mypage/leave">회원탈퇴</a></li>
+		<div class="col-md-2">
+			<ul class="nav flex-column" id="left_bar">
+				<li class="nav-item"><a class="nav-link active" href="../">HOME</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="../calendar">출석체크</a>
+				</li>
+				<li class="nav-item"><a class="nav-link"
+					href="/mypage/userInfo">회원정보 조회</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="/mypage/changeInfo">회원정보 수정</a></li>
+				<li class="nav-item"><a class="nav-link" href="/mypage/leave">회원탈퇴</a>
+				</li>
 			</ul>
-        </div>
-<div id="updateMyInfo" class="col-3 col-md-9" >
-	<div class="title" style="color:#000;">
-		c h a n g e I n f o
+		</div>
+        <div class="col-3 col-md-9" >
+	<div class="title">
+		<h1 class="form-group row justify-content-center">c h a n g e I n f o</h1>
 	</div>
-	<div class="container_c">
-		<div class="head">
-		<div class="body">
 			<form action="changeInfo" name="frmForm" id="_frmForm" method="post">
-				<div class="insert">
-					<div class="name">
-						<input type="text" name="userid" id="id" value="${auth.userid}" readonly="readonly"> <!-- ${auth.userid} -->
-						<input type="text" name="name" id="name" value="${auth.name}" readonly="readonly"><!-- ${auth.name} -->
-					</div>
-					<div class="pwd">
-					<div>
-						<input type="password" name="password" id="password" value="${regist.password}" class="form-control" placeholder="현재 비밀번호" style="width: 403px;"/>
-						<small id="password" class="text-info"></small>
-					</div>
+					<div class="form-group row justify-content-center">
+                    <label for="userid" class="col-sm-2 col-form-label" >아이디</label>
+                    <div class="col-sm-4">
+                        <input type="text" name="userid" id="userid" class="form-control" value="${regist.userid}" readonly/>
+                         <small id="userid" class="text-info"></small>
+                    </div>
+                </div>
+                <div class="form-group row justify-content-center">
+                    <label for="name" class="col-sm-2 col-form-label">이름 </label>
+                    <div class="col-sm-4">
+                        <input type="text" name="name" id="name" class="form-control" value="${regist.name}" readonly/>
+                        <small id="name" class="text-info"></small>
+                    </div>
+                </div>
+   			<input type="hidden" name="password" id="password" value="${regist.password}">
+           <div class="form-group row justify-content-center">
+           <label for="name" class="col-sm-2 col-form-label">새 비밀번호 </label>
+           <div class="col-sm-4">
 					<div class="eTooltip">
-	
-						<input type="password" name="new_password" id = "new_password" class="form-control" placeholder="새 비밀번호" style="width: 403px;"/>
+						<input type="password" name="new_password" id = "new_password" class="form-control" placeholder="새 비밀번호" style="width:253px;"/>
 						<small id="new_password" class="text-info"></small>
-
                       <div class="ec-base-tooltip typeUpper" style="display:none;">
                             <div class="content">
                                 <strong class="txtWarn">※ 비밀번호 입력 조건</strong>
@@ -113,49 +115,66 @@
                         </div>
                     </div>
 					</div>
+					 </div>
+                </div>
 
-					<div>
-						<input type="password" name="confirm_password" id = "confirm_password" class="form-control" placeholder="새 비밀번호 확인" style="width: 403px;"/>
-						<small id="confirm_password" class="text-info"></small>
+				<div class="form-group row justify-content-center">
+					<label for="email" class="col-sm-2 col-form-label">비밀번호
+						확인</label>
+					<div class="col-sm-4">
+						<input type="password" name="confirm_password"
+							id="confirm_password" class="form-control"
+							placeholder="새 비밀번호 확인" style="width:253px;"/> <small id="confirm_password"
+							class="text-info"></small>
 					</div>
-					</div>
-					<div class="email">
-					<div>
-						<input type="text" name="email" id="email"  class="form-control" value="${regist.email}" placeholder="이메일 입력" style="width: 403px;"/>
-						<small id="email" class="text-info"></small>
-					</div>
-					</div>
-					<div class="tel">
-					<div>
-						<input type="text" name="tel" id="tel"  class="form-control" value="${regist.tel}" style="width: 403px;"/>
-						<small id="tel" class="text-info"></small>
-					</div>
-					</div>
-				<!-- 주소API-->
-						<div class="addr">
-						<input type="text" name="postCode" id="sample2_postcode" placeholder="우편번호" style="width: 295px; margin: 15px 0 9px 0px;" value="${regist.postCode}">
-						<input type="button" class="btn_s_gray btn_100_41" onclick="sample2_execDaumPostcode()" value="주소검색" size="10" style="padding-left: 0 !important;"><br>
-						<input type="text" name="address" id="sample2_address" placeholder="주소" size="50" value="${regist.address}" data-msg="주소" style="width: 295px; margin: 0 0 9px 0px;">
-						<input type="text" name="detailAddress" id="sample2_detailAddress" placeholder="상세주소" size="25" value="${regist.detailAddress}" data-msg="상세주소">
-						<input type="text" id="sample2_extraAddress" placeholder="참고항목" size="20">
-					</div> 
-<%-- 					<div class="point">
-						<p>포인트</p>
-						<input type="text" name="point" value="${regist.point}" readonly="readonly">
-					</div> --%>
 				</div>
-			</form>
-			<div class="button_r">
-				<button type="submit" class="joinButton btn_s_blue btn_205" id="_btnInfo">확인</button>
-				<button class="joinButton btn_s_gray btn_205" onclick="location.href='/mypage/myPageGo'">취소</button>
+
+				<div class="form-group row justify-content-center">
+                    <label for = "email" class="col-sm-2 col-form-label" >이메일</label>
+                    <div class="col-sm-4">
+                        <input type="email" name="email" id="email" class="form-control" value="${regist.email}"/>
+                        <small id="email" class="text-info"></small>
+                    </div>
+                </div>
+                
+                <div class="form-group row justify-content-center">
+                    <label for="tel" class="col-sm-2 col-form-label">전화번호 </label>
+                    <div class="col-sm-4">
+                        <input type="text" name="tel" id="tel" class="form-control" value="${regist.tel}" />
+                        <small id="tel" class="text-info"></small>
+                    </div>
+                </div>
+				<!-- 주소API-->
+					<div class="form-group row justify-content-center">
+					<label for="addr" class="col-sm-2 col-form-label">우편번호 </label>
+     	
+						<input type="text" name="postCode" id="sample2_postcode" placeholder="우편번호" value="${regist.postCode}" style="width:150px;">&nbsp;&nbsp;&nbsp;&nbsp;<br>
+						<input type="button" class="btn_s_gray btn_100_41" onclick="sample2_execDaumPostcode()" value="주소검색" size="10" style="padding-left: 0 !important;"><br>
+	                </div>
+               
+                    <div class="form-group row justify-content-center">
+                    <label for="addr" class="col-sm-2 col-form-label">주소 </label>
+                    <div class="col-sm-4">
+						<input type="text" name="address" id="sample2_address"   class="form-control" placeholder="주소" value="${regist.address}" data-msg="주소" >
+				</div> 
+				</div>
+				  <div class="form-group row justify-content-center">
+                    <label for="addr" class="col-sm-2 col-form-label">상세주소 </label>
+                    <div class="col-sm-4">
+					<input type="text" name="detailAddress" id="sample2_detailAddress"  class="form-control" placeholder="상세주소" value="${regist.detailAddress}" >
+				</div> 
+				</div>
+			
+			<div class="form-group text-center">
+				<button type="submit" class="btn btn-primary" id="_btnInfo">확인</button>
+				<button type="button" class="btn btn-secondary" id="changecancel" onclick="location.href='/mypage/myPageGo'">취소</button>
 			</div>
+		</form>
 			</div>
 		</div>
-	</div>
+	
 </div>
-</div>
-</div>
-
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script src="/resources/js/changeInfo.js"></script>
 <script>
     $(function(){

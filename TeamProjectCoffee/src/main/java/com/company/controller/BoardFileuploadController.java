@@ -1,7 +1,6 @@
 package com.company.controller;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,7 +21,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +28,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.company.domain.FileAttach;
+import com.company.domain.BoardFileAttach;
 
 import lombok.extern.slf4j.Slf4j;
 import net.coobird.thumbnailator.Thumbnailator;
@@ -41,7 +39,7 @@ import net.coobird.thumbnailator.Thumbnailator;
 public class BoardFileuploadController {
 	
 	@PostMapping(value = "/boardFiles", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<List<FileAttach>> uploadPost(MultipartFile[] uploadFile) {
+	public ResponseEntity<List<BoardFileAttach>> uploadPost(MultipartFile[] uploadFile) {
 		log.info("upload 요청");
 		
 		String uploadFolder="c:\\ClientUpload";
@@ -56,7 +54,7 @@ public class BoardFileuploadController {
 		}
 		
 		//첨부파일에 대한 정보를 담을 객체 생성
-		List<FileAttach> attachList = new ArrayList<>();
+		List<BoardFileAttach> attachList = new ArrayList<>();
 		
 		for(MultipartFile f:uploadFile) {
 			log.info("-----------------------");
@@ -67,7 +65,7 @@ public class BoardFileuploadController {
 			UUID uuid = UUID.randomUUID();
 			uploadFileName = uuid.toString()+"_"+f.getOriginalFilename();
 			
-			FileAttach attach = new FileAttach();
+			BoardFileAttach attach = new BoardFileAttach();
 			attach.setFileName(f.getOriginalFilename());
 			attach.setUploadPath(uploadFolderPath);
 			attach.setUuid(uuid.toString());
@@ -95,7 +93,7 @@ public class BoardFileuploadController {
 				e.printStackTrace();
 			}
 		}
-		return new ResponseEntity<List<FileAttach>>(attachList, HttpStatus.OK);
+		return new ResponseEntity<List<BoardFileAttach>>(attachList, HttpStatus.OK);
 	}
 	
 	@GetMapping("/boardDisplay")

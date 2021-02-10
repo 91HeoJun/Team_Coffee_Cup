@@ -17,7 +17,7 @@ body {
 img, fieldset {
     border: none;
     vertical-align: top;
-    max-width: 100%; 
+    max-width: 90%; 
     height: auto;
 }
 .notoserif, .notoserif * {
@@ -34,7 +34,7 @@ p {
     position: relative;
 }
 .about .sub-top > span img {
-    width: 100%;
+    width: 50%;
 }
 .about .content01 {
     padding: 0 0 348px;
@@ -42,7 +42,7 @@ p {
 .about .sub-title {
     padding: 100px 0 140px 0;
     color: #535353;
-    width: 1240px;
+    width: 100%;
     margin: 0 auto;
 }
 .about .sub-title > div {
@@ -102,12 +102,10 @@ p {
     position: relative;
     margin: 0 0 300px 0;
 }
-.about .content02 span img {
-    width: 100%;
-}
+
 .about .content02 > div {
     display: block;
-    width: 100%;
+    width: 80%;
     height: 100%;
     position: absolute;
     top: 0;
@@ -137,7 +135,7 @@ p {
     padding: 0 0;
 }
 .about .content03 > div {
-    width: 100%;
+    width: 95%;
 }
 .about .content03 > div > p {
     height: 340px;
@@ -169,7 +167,7 @@ p {
 <body>
           <div class="sub-page about">
             <div class="sub-top">
-              <img src="/resources/SkinImg/about_img_top.jpg" class="w100" alt="" />
+              <img src="/resources/aboutimg/about_img_top.jpg" class="w100" alt="" />
             </div>
             <div class="sub-contents">
               <div class="content01">
@@ -186,12 +184,12 @@ p {
                 </div>
                 </div>
                 <span
-                  ><img src="/resources/SkinImg/about_img01.jpg" class="w100" alt="" width="100%"
+                  ><img src="/resources/aboutimg/about_img01.jpg" class="w100" alt="" width="150%"
                 /></span>
               </div>
               <div class="content02">
                 <span
-                  ><img src="/resources/SkinImg/about_img02.jpg" class="w100" alt=""
+                  ><img src="/resources/aboutimg/about_img02.jpg" class="w100" alt=""
                 /></span>
                 <div>
                 <div>
@@ -211,10 +209,10 @@ p {
                 </p>
                 <div>
                   <span
-                    ><img src="/resources/SkinImg/about_img03.jpg" class="w100" alt=""
+                    ><img src="/resources/aboutimg/about_img03.jpg" class="w100" alt=""
                   /></span>
                   <div>
-                  <p>
+                  <p style="color:#FFFFFF;">
                     저희는 공간의 미학과 식음(食飮) 문화의 융합을 바탕으로
                     새로운 가치와 문화를 만들어 가는 회사입니다.
                   </p>
