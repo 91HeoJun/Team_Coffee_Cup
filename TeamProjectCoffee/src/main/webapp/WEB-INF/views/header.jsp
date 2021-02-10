@@ -93,9 +93,9 @@
         <li class="nav-item">
           <a class="nav-link dropdown-toggle dropdown-toggle" href="/product/productList" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">상품</a>
        	  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">싱글오리진</a></li>
-            <li><a class="dropdown-item" href="#">블렌드</a></li>
-            <li><a class="dropdown-item" href="#">드립백</a></li>
+            <li><a class="dropdown-item" href="#">라이트 </a></li>
+            <li><a class="dropdown-item" href="#">미디엄 </a></li>
+            <li><a class="dropdown-item" href="#">다크</a></li>
           </ul>
         </li>
         <li class="nav-item">
@@ -134,7 +134,7 @@
       				<li><a href="#">recipe</a></li>
       			</ul>
       		</li>
-      		<li class="toggle"><a href="#">상품</a>
+      		<li class="toggle"><a href="#">상품</a>	
       		</li>
       		<li class="toggle"><a href="/store/list">매장</a>
       		</li>

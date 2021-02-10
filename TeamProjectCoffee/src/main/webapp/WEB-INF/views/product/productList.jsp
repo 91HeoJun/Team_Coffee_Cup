@@ -50,9 +50,9 @@
 		${vo.price} <br/>
 		</p> </a>
 		<button type="button" class="btn btn-outline-primary">장바구니 담기</button>
-      </div>
-    </div>
-  </div>
+       </div>
+     </div>
+   </div>
 </c:forEach>
 </div>
 
