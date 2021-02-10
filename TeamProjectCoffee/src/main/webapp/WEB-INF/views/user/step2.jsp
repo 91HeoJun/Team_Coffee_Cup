@@ -61,10 +61,13 @@
 <script>
 $(function(){
 	var check=$("#agree").value;
-	if(!check){
-		alert("약관에 동의를 해주세요");
-		return;
-	}
+	$('.btn').click(function(){
+		if(check==null){
+			alert("약관에 동의를 해주세요");
+			return;
+		}
+	})
+	
 })
 </script>
 </body>

@@ -43,14 +43,15 @@
             <ul class="nav navbar-top-links navbar-right">
             	<li>
             		<c:choose>
-	            		<c:when test="${sessionScope.userid eq null}">
+	            		<c:when test="$(empty sessionScope.userid)">
 	            			<a class="dropdown-toggle" href="/mypage/signin">
-		                       login
+		                      login
 		                    </a>  
 	            		</c:when>
 	            		<c:otherwise>
+	            		 	 ${regist.userid}님
 	            			<a class="dropdown-toggle" href="/user/logout">
-		                       logout
+		                    	logout
 		                    </a>  
 	            		</c:otherwise>
             		</c:choose>

@@ -4,7 +4,7 @@
 <%@include file="../header.jsp" %>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
-<title>회원가입</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
 	#textarea1{
 		font-family: 'Noto Sans KR', sans-serif;
@@ -155,10 +155,13 @@
 <script>
 $(function(){
 	var check=$("#agree").value;
-	if(!check){
-		alert("약관에 동의를 해주세요");
-		return;
-	}
+	$('.btn').click(function(){
+		if(!check){
+			alert("약관에 동의를 해주세요");
+			return;
+		}
+	})
+	
 })
 </script>
 </body>
