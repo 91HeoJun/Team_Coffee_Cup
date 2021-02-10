@@ -1,12 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-</head>
-<body>
-	<h1>${regist.name}님 회원가입 완료</h1>
-	<a href="/mypage/signin">다시 로그인하여 주세요.</a>
+<%@include file="../header.jsp" %>
+<link href="/resources/css/signin.css" rel="stylesheet" />
+	<div class="title">
+		<h1>${regist.name}님 환영합니다.</h1>
+	</div>
+	<div class="login">
+		<button class="btn btn-primary" onclick="location.href='/mypage/signin'">
+	        로그인
+	    </button>
+	</div>
+	
+
+<%@include file="../footer.jsp" %>
 </body>
 </html>

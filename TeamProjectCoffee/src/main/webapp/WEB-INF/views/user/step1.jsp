@@ -5,16 +5,13 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<style>
-	#textarea1{
-		font-family: 'Noto Sans KR', sans-serif;
-		font-size:14px;
-	}
-</style>
+<link href="/resources/css/signin.css" rel="stylesheet" />
 <div class="container">
 <form action="step1" method="post">	
 	<div class="form-group">
-	    <label for="textarea1" id="textarea1" style="font-size:18px;">회원가입약관</label>
+		<div class="title">
+	    	<label for="textarea1" id="textarea1">회원가입약관</label>
+		</div>
 	    <textarea class="form-control" id="textarea1" rows="20">
 제 1 장 총칙
 
@@ -167,6 +164,7 @@ $(function(){
 	
 })
 </script>
+<%@include file="../footer.jsp" %>
 </body>
 </html>
 
