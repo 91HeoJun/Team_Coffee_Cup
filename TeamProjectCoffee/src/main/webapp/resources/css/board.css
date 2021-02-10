@@ -2,49 +2,74 @@
 
 /*전체*/
 
-.container{
+.container {
 	width: 100%;
-	background-color: black;
-}
-
-.row {
- 	width: 100%;
-	max-width: 100%;
-	background-color: green;
-}
+} 
 
 /*타이틀*/
-.col-lg-12 {
-	background-color: yellow;
+.page-header {	
+	float: left;
+} 
+
+/*작성버튼 라인*/
+ .panel-heading {
+	text-align: right;
 }
 
 /*작성버튼 + 내용전체 + 하단 +@*/
-.panel-default{ 
-	background-color: red;
+ .panel-default{ 
+	/* background-color: red; */
 }
 
-/*작성버튼 라인*/
-.panel-heading {
-	background-color: blue;
+
+.col-md-8 {
+	/*float: left;*/
 }
 
-/*내용 전체*/
+/*
+내용 전체
 .panel-body {
+	width: 100%;
 	background-color: orange;
+	table-layout: fixed;
 }
 
-/*게시판 내용*/
-.table {
+게시판 내용
+ .table table-striped table-bordered table-hover {
+	width: 700px;
+	table-layout: fixed;
 	background-color: skyblue;
 }
 
-/*게시판 행*/
+.table-Title{
+	width: 200px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+작성자
+.table-Writer {
+	width: 140px;
+}
+
+작성일
+.table-Date{
+	text-align: center;
+	width: 140px;
+}
+
+게시판 행
 tr {
 	background-color: gray;
 }
-/*날짜칸 상단*/
+날짜칸 상단
 .date-blank {
 	background-color: pink;
+}
+
+#searchForm {
+	text-align: right;
 }
 
 .col-md-8 {
@@ -58,7 +83,7 @@ tr {
 .pagination {
 	background-color: aqua;
 	
-}
+} */
 
 
 /* body {

@@ -4,10 +4,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!-- 추후 Header 위치 이동시 수정 필요 -->
 <%@include file="boardHeader.jsp" %>
-	
 
-		<div class="row">
-		
 			<div class="col-lg-12">
 				<h2 class="page-header">1:1 문의 게시판</h2>
 			</div>
@@ -21,10 +18,10 @@
                                 <thead>
                                     <tr>
                                         <th>문의 번호</th>
-                                        <th>제 목</th>
-                                        <th>작성자</th>
-                                        <th class="date-blank">작성일</th>
-                                        <th class="date-blank">수정일</th>
+                                        <th class="table-Title">제 목</th>
+                                        <th class="table-Writer">작성자</th>
+                                        <th class="table-Date">작성일</th>
+                                        <th class="table-Date">수정일</th>
                                     </tr>									
                                 </thead>
 
@@ -41,9 +38,8 @@
 									</c:forEach>
 								</tbody>
                             </table>
-                            
-							<div class="row"> <!-- start search -->
-								<div class="col-md-12">
+
+								<div class="col-md-12"> <!-- start search -->
 									<div class="col-md-8">
 		
 										<!--search Form-->
@@ -75,8 +71,7 @@
 			                            </select>
 		
 									</div>
-								</div>
-							</div><!-- end search -->
+								</div> <!-- end search -->
 		
 							<!-- 페이지나누기 -->
 							<div class="text-center">
@@ -95,7 +90,6 @@
 
                         </div>
 			</div>
-		</div>	
 
 
 
