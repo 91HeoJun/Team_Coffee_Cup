@@ -7,19 +7,19 @@
 			select seq_board.nextval from dual
 		</selectKey>
 		insert into ProductTBL(pCode, pCategory, product, pContent, price,pAmount, pDate, origin)
-		values(#{pcode},#{pcategory},#{product},#{pcontent},#{price},#{pamount},#{pdate},#{origin})
+		values(#{pCode},#{pcategory},#{product},#{pcontent},#{price},#{pamount},#{pdate},#{origin})
 	</insert>
 	
 	<update id="updateProduct">
-		update ProductTBL set price=#{price} where pCode=#{pcode}
+		update ProductTBL set price=#{price} where pCode=#{pCode}
 	</update>
 	
 	<delete id="deleteProduct">
-		delete from ProductTBL where pCode=#{pcode}
+		delete from ProductTBL where pCode=#{pCode}
 	</delete>
 	
 	<select id="selectProduct" resultType="com.company.domain.ProductVO">
-		select * from ProductTBL where pCode=#{pcode}
+		select * from ProductTBL where pCode=#{pCode}
 	</select>
 	
 	<select id="listProduct" resultType="com.company.domain.ProductVO">

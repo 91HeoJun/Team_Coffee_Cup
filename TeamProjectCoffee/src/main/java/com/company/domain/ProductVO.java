@@ -16,7 +16,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductVO {
-	private int pcode;  //상품코드
+	
+	private int pCode;  //상품코드
 	private String pcategory;  //상품종류
 	private String product;  //상품이름
 	private String pcontent; //상품 상세내용
@@ -25,5 +26,5 @@ public class ProductVO {
 	private int price;  //상품가격
 	private String pamount;  //상품 재고수량	
 	private String origin;  //상품원산지
-    private String picture_url; //상품 이미지 경로 	
+   // private String picture_url; //상품 이미지 경로 	
 }

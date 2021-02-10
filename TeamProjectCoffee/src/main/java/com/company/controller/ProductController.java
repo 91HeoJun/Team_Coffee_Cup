@@ -12,7 +12,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.company.domain.Criteria;
 import com.company.domain.ProductVO;
-import com.company.domain.pageVO;
 import com.company.service.ProductService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -38,8 +37,8 @@ public class ProductController {
 		
 		
 		if (productService.insertProduct(product)) {
-			log.info("---- 상품 코드 : " +product.getPcode()+ " 입력중 ... ----");
-			rttr.addFlashAttribute("result", product.getPcode());
+			log.info("---- 상품 코드 : " +product.getPCode()+ " 입력중 ... ----");
+			rttr.addFlashAttribute("result", product.getPCode());
 			return "redirect:productList";
 
 		} else {
@@ -50,9 +49,9 @@ public class ProductController {
 	
 	// 상품 삭제 	
 	@PostMapping("/remove")
-	public String removeProduct(int pcode) {
-		log.info("---- " + pcode + "번 상품 삭제 진행중... ----");
-		productService.removeProduct(pcode);
+	public String removeProduct(int pCode) {
+		log.info("---- " + pCode + "번 상품 삭제 진행중... ----");
+		productService.removeProduct(pCode);
 		
 		return "redirect:productList";
 	}
@@ -61,12 +60,12 @@ public class ProductController {
 	
 	// 상품 단일 조회, 상품 수정  
 	@GetMapping({"/productDetail", "/productEdit"})
-	public void selectForm(int pcode, Model model) {
-		log.info("---- 게시글 "+ pcode +"번 상세 페이지로 이동중 ... ----");
+	public void productSelect(int pCode, Model model) {
+		log.info("---- 게시글 "+ pCode +"번 상세 페이지로 이동중 ... ----");
 		
-		ProductVO selectproduct = productService.getProduct(pcode);
+		ProductVO selectProduct = productService.getProduct(pCode);
 		
-		model.addAttribute("selectProduct", selectproduct);
+		model.addAttribute("selectProduct", selectProduct);
 	}
 	
 	@PostMapping("/productEdit")
