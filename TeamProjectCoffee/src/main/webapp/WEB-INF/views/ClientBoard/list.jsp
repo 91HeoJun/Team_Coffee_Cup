@@ -23,8 +23,8 @@
                                         <th>문의 번호</th>
                                         <th>제 목</th>
                                         <th>작성자</th>
-                                        <th>작성일</th>
-                                        <th>수정일</th>
+                                        <th class="date-blank">작성일</th>
+                                        <th class="date-blank">수정일</th>
                                     </tr>									
                                 </thead>
 
@@ -127,7 +127,7 @@
 	  </div>
 	</div>
 
-</div>
+
 
 <script> var result = '${result}';</script>
 <script src="/resources/js/Board_js/list.js"></script>

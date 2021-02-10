@@ -1,6 +1,67 @@
 @charset "UTF-8";
 
-body {
+/*전체*/
+
+.container{
+	width: 100%;
+	background-color: black;
+}
+
+.row {
+ 	width: 100%;
+	max-width: 100%;
+	background-color: green;
+}
+
+/*타이틀*/
+.col-lg-12 {
+	background-color: yellow;
+}
+
+/*작성버튼 + 내용전체 + 하단 +@*/
+.panel-default{ 
+	background-color: red;
+}
+
+/*작성버튼 라인*/
+.panel-heading {
+	background-color: blue;
+}
+
+/*내용 전체*/
+.panel-body {
+	background-color: orange;
+}
+
+/*게시판 내용*/
+.table {
+	background-color: skyblue;
+}
+
+/*게시판 행*/
+tr {
+	background-color: gray;
+}
+/*날짜칸 상단*/
+.date-blank {
+	background-color: pink;
+}
+
+.col-md-8 {
+	background-color: blueviolet;
+}
+
+.col-md-offset-2 {
+	background-color: midnightblue;
+}
+
+.pagination {
+	background-color: aqua;
+	
+}
+
+
+/* body {
 	background-color: black;
 	
 }
@@ -30,4 +91,4 @@ body h1 {
 .uploadResult ul li {
 	list-style: none;
 	padding: 10px;
-}
+} */
