@@ -32,7 +32,7 @@ public class HomeController {
 	public void coffeeStory() {
 		log.info("커피이야기 페이지 요청");
 	}
-		
+
 	//상품 리스트 페이지 - 예진
 	@GetMapping("/product")
 	public String product() {
