@@ -19,8 +19,8 @@ border-radius: 10px;
 border-bottom: 1px solid;
 }
 </style>
-<div></br></div>
-<div></br></div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
     <div class="container">
         <div class="row">
 		<div class="col-md-2">
@@ -32,7 +32,7 @@ border-bottom: 1px solid;
 				<li class="nav-item"><a class="nav-link"
 					href="/mypage/userInfo">회원정보 조회</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="/mypage/changeInfo">회원정보 수정</a></li>
+					href="/mypage/changeInfo">회원정보 변경</a></li>
 				<li class="nav-item"><a class="nav-link" href="/mypage/leave">회원탈퇴</a>
 				</li>
 			</ul>
