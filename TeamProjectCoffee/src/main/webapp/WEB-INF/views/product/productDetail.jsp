@@ -81,7 +81,7 @@ $(function(){
 	})
 	
 	$("#modify").click(function(){
-		
+		location.href='/product/productEdit';
 	})
 	
 	$("#list").click(function(){

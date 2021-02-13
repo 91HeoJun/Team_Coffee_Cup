@@ -1,6 +1,7 @@
 package com.company.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -26,5 +27,7 @@ public class ProductVO {
 	private int price;  //상품가격
 	private String pamount;  //상품 재고수량	
 	private String origin;  //상품원산지
-   // private String picture_url; //상품 이미지 경로 	
+   // private String picture_url; //상품 이미지 경로 
+	
+	private List<FileAttach> attachList;
 }

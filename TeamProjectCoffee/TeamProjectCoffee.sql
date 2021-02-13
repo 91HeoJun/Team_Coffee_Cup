@@ -94,8 +94,22 @@ insert into ProductTBL (pCode, pCategory, product, pContent, price, pAmount, pDa
 insert into ProductTBL(pCode, pCategory, product, pContent, price, pAmount, pDate, origin)
    (select seq_product.nextval, pCategory, product, pContent, price, pAmount, pDate, origin 
    from ProductTBL);
+--상품 이미지 첨부 테이블
+CREATE TABLE ProductTBL_Attach (
+	uuid		VARCHAR2(100)	NOT NULL, 
+	uploadPath	VARCHAR2(200)	NOT NULL, 
+	fileName	VARCHAR2(100)	NOT NULL, 
+	fileType	CHAR(1), 
+	pcode			NUMBER(10)		NOT NULL, 
+    CONSTRAINT ProductTBL_Attach_PK PRIMARY KEY (uuid)
+);
 
+select * from ProductTBL_Attach;
 
+-- productTBL의 pcode와 productTBL_Attach의 pcode 외래키 작업 
+ALTER TABLE ProductTBL_Attach ADD CONSTRAINT FK_ProductTBL_Attach_pcode_ProductTBL FOREIGN KEY (pcode) REFERENCES ProductTBL (pcode);
+
+   
 -- Auth 추가 (id:admin pw:admin123!)
 create table UserTBL_auth(
 	userid varchar2(50) not null,

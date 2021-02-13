@@ -8,7 +8,9 @@
 
 
 <div class="panel-heading">
-	<button id='regBtn' type="button" class="btn btn-warning" onclick="location.href='productRegister'">상품 등록</button>
+
+	<button id='regBtn' type="button" class="btn btn-default" onclick="location.href='productRegister'">상품 등록</button>
+ 
 </div>
 <div class="row row-cols-1 row-cols-md-2">
 <c:forEach var="vo" items="${listProduct }">
@@ -31,6 +33,52 @@
 </c:forEach>
 </div>
 
+<div class="col-md-12"> <!-- start search -->
+	<div class="col-md-8">
+		
+				<!--search Form-->
+			<form action="" id="searchForm">
+					<select name="type" id="">
+						<option value=""> ----- </option>
+						<option value="T"<c:out value="${pageVO.cri.type=='P'?'selected':''}"/>> 상품 </option>
+						<option value="C"<c:out value="${pageVO.cri.type=='C'?'selected':''}"/>> 내용 </option>
+					</select>
+											
+				    	<input type="text" id="keyword" name=keyword value="${pageVO.cri.keyword}" />
+						<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum}" />
+						<input type="hidden" name="amount" value="${pageVO.cri.amount}" />
+		
+						<button type="button" class="btn btn-default">검색</button>       		
+			</form>
+		
+	</div>
+		
+			                            <!--페이지 목록 갯수 지정하는 폼-->
+			                            <select class="form-control" id="amount">
+			                            	<option value="10" <c:out value="${pageVO.cri.amount==10?'selected':''}"/>>10</option>
+			                            	<option value="20" <c:out value="${pageVO.cri.amount==20?'selected':''}"/>>20</option>
+			                            	<option value="30" <c:out value="${pageVO.cri.amount==30?'selected':''}"/>>30</option>
+			                            	<option value="40" <c:out value="${pageVO.cri.amount==40?'selected':''}"/>>40</option>
+			                            </select>
+		
+									</div>
+								 <!-- end search -->
+		
+							<!-- 페이지나누기 -->
+							<div class="text-center">
+								<ul class="pagination">
+									<c:if test="${pageVO.previous}">
+										<li class="page-item"><a class="page-link" href="${pageVO.startPage-1}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+									</c:if>
+									<c:forEach var="idx" begin="${pageVO.startPage}" end="${pageVO.endPage}">
+										<li class="page-item ${pageVO.cri.pageNum==idx?'active':''}"><a class="page-link" href="${idx}">${idx}</a></li>
+									</c:forEach>
+									<c:if test="${pageVO.next}">
+										<li class="page-item"><a class="page-link" href="${pageVO.endPage+1}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+									</c:if>
+								</ul>
+                        </div>
+			</div>
 
 
 <!-- 페이지 링크 값을 넘기기 위한 폼 -->

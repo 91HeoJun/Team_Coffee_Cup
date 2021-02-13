@@ -13,4 +13,5 @@ public class FileAttach {
 	private String fileName;
 	private boolean fileType;
 	private int code;
+	private int pcode;
 }
