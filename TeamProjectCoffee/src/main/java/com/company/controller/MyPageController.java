@@ -33,12 +33,12 @@ public class MyPageController {
 	//로그인 - siginin 보여주기
 	@GetMapping("/signin")
 	public void login() {
-		log.info("login 페이지 요청");
+		log.info("===login 페이지 요청");
 	}
 	//로그인 정보(아이디, 비밀번호)를 가져오는 컨트롤러
 	@PostMapping("/signin")
 	public String loginPost(LoginVO login, HttpSession session) {
-		log.info("로그인 페이지 요청..."+login);
+		log.info("===로그인 페이지 요청..."+login);
 		
 		AuthVO auth=service.isLogin(login); //LoginVO AuthVO에 담기
 		RegisterVO regist=service.getId(login);
@@ -46,7 +46,7 @@ public class MyPageController {
 		if(auth!=null) {
 			session.setAttribute("auth", auth);
 			session.setAttribute("regist", regist);
-			return "redirect:myPageGo";
+			return "redirect:/mypage/myPageGo";
 		}else { //userid,password가 틀려서 로그인을 못한경우
 			return "redirect:signin";
 		}
@@ -54,13 +54,13 @@ public class MyPageController {
 	
 	@GetMapping("/myPageGo")
 	public void myPageGo() {
-		log.info("===마이페이지 메인요청");
+		log.info("===마이페이지 요청");
 	}
 	
 	//마이 페이지 메인 보여주기-(회원상세정보)
 	@GetMapping("/userInfo")
 	public void userInfo() {
-		log.info("회원상세 폼 보여주기");
+		log.info("===회원정보페이지 보여주기");
 	}
 	
 
@@ -80,7 +80,7 @@ public class MyPageController {
 			session.invalidate();
 			return "redirect:/";
 		}else { //비밀번호가 틀린경우
-			return "redirect:/mypage/leave";
+			return "redirect:leave";
 		}
 	}
 	//회원정보 수정 폼 보여주기
@@ -107,7 +107,5 @@ public class MyPageController {
 		} return "redirect:changeInfo";	
 	}
 	
-
-
 	
 }

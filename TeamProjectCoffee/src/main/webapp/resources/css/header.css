@@ -3,9 +3,15 @@
  	color: black;
  	font-family: sans-serif;
  }
+#page-wrapper {
+	width:100%;
+	min-height: 450px;
+	overflow: hidden;
+	position:relative;
+}
 
 .all{
-	background: #eee;	
+	background: #fff;	
 }
 
 li{
@@ -55,7 +61,8 @@ a{
  }
  
  #menu .main .sub{
- 	position: absoulute;
+ 	position: absolute;
+ 	z-index:1;
  	top: 50px;
  	left: 0;
  	width: 100%;

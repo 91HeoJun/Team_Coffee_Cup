@@ -7,14 +7,16 @@
 <!DOCTYPE html>
 <head>
 <fmt:requestEncoding value="utf-8"/>
-<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <!--  <link rel="stylesheet" href="/resources/css/changeInfo.css">-->
 
 <%-- validate 코드  --%>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
+<script src="/resources/js/changeInfo.js"></script>
 <div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
 <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
+
 </div>
 </head>
 <style>
@@ -58,7 +60,8 @@ border-bottom: 1px solid;
 
 
 </style>
-<div></br></div>
+<body>
+<div>&nbsp;</div>
     <div class="container">
         <div class="row">
 		<div class="col-md-2">
@@ -70,7 +73,7 @@ border-bottom: 1px solid;
 				<li class="nav-item"><a class="nav-link"
 					href="/mypage/userInfo">회원정보 조회</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="/mypage/changeInfo">회원정보 수정</a></li>
+					href="/mypage/changeInfo">회원정보 변경</a></li>
 				<li class="nav-item"><a class="nav-link" href="/mypage/leave">회원탈퇴</a>
 				</li>
 			</ul>
@@ -79,28 +82,35 @@ border-bottom: 1px solid;
 	<div class="title">
 		<h1 class="form-group row justify-content-center">c h a n g e I n f o</h1>
 	</div>
-			<form action="changeInfo" name="frmForm" id="_frmForm" method="post">
+			<form action="changeInfo" name="_frmForm" id="_frmForm" method="post">
 					<div class="form-group row justify-content-center">
                     <label for="userid" class="col-sm-2 col-form-label" >아이디</label>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <input type="text" name="userid" id="userid" class="form-control" value="${regist.userid}" readonly/>
                          <small id="userid" class="text-info"></small>
                     </div>
                 </div>
                 <div class="form-group row justify-content-center">
                     <label for="name" class="col-sm-2 col-form-label">이름 </label>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <input type="text" name="name" id="name" class="form-control" value="${regist.name}" readonly/>
                         <small id="name" class="text-info"></small>
                     </div>
                 </div>
-   			<input type="hidden" name="password" id="password" value="${regist.password}">
+				<div class="form-group row justify-content-center">
+					<label for="password" class="col-sm-2 col-form-label">현재 비밀번호</label>
+					<div class="col-sm-6">
+						<input type="password" name="password"
+							id="password" class="form-control"
+							value="${regist.password}"/> <small id="password"
+							class="text-info"></small>
+					</div>
+				</div>
            <div class="form-group row justify-content-center">
-           <label for="name" class="col-sm-2 col-form-label">새 비밀번호 </label>
-           <div class="col-sm-4">
+           <label for="name" class="col-sm-2 col-form-label">새 비밀번호</label>
+           <div class="col-sm-6">
 					<div class="eTooltip">
-						<input type="password" name="new_password" id = "new_password" class="form-control" placeholder="새 비밀번호" style="width:253px;"/>
-						<small id="new_password" class="text-info"></small>
+						<input type="password" name="new_password" id = "new_password" class="form-control" placeholder="새 비밀번호 입력" style="width: 400px;"/>
                       <div class="ec-base-tooltip typeUpper" style="display:none;">
                             <div class="content">
                                 <strong class="txtWarn">※ 비밀번호 입력 조건</strong>
@@ -121,17 +131,17 @@ border-bottom: 1px solid;
 				<div class="form-group row justify-content-center">
 					<label for="email" class="col-sm-2 col-form-label">비밀번호
 						확인</label>
-					<div class="col-sm-4">
+					<div class="col-sm-6">
 						<input type="password" name="confirm_password"
 							id="confirm_password" class="form-control"
-							placeholder="새 비밀번호 확인" style="width:253px;"/> <small id="confirm_password"
+							placeholder="새 비밀번호 확인" /> <small id="confirm_password"
 							class="text-info"></small>
 					</div>
 				</div>
 
 				<div class="form-group row justify-content-center">
                     <label for = "email" class="col-sm-2 col-form-label" >이메일</label>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <input type="email" name="email" id="email" class="form-control" value="${regist.email}"/>
                         <small id="email" class="text-info"></small>
                     </div>
@@ -139,43 +149,43 @@ border-bottom: 1px solid;
                 
                 <div class="form-group row justify-content-center">
                     <label for="tel" class="col-sm-2 col-form-label">전화번호 </label>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <input type="text" name="tel" id="tel" class="form-control" value="${regist.tel}" />
                         <small id="tel" class="text-info"></small>
                     </div>
                 </div>
 				<!-- 주소API-->
 					<div class="form-group row justify-content-center">
-					<label for="addr" class="col-sm-2 col-form-label">우편번호 </label>
+					<label for="addr" class="col-sm-2 col-form-label" style="width:200px; padding-left:0;">우편번호 </label>
      	
-						<input type="text" name="postCode" id="sample2_postcode" placeholder="우편번호" value="${regist.postCode}" style="width:150px;">&nbsp;&nbsp;&nbsp;&nbsp;<br>
+						<input type="text" name="postCode" id="sample2_postcode" placeholder="우편번호" value="${regist.postCode}" style="width:310px; padding-left: 10px !important;">&nbsp;&nbsp;<br>
 						<input type="button" class="btn_s_gray btn_100_41" onclick="sample2_execDaumPostcode()" value="주소검색" size="10" style="padding-left: 0 !important;"><br>
 	                </div>
                
                     <div class="form-group row justify-content-center">
                     <label for="addr" class="col-sm-2 col-form-label">주소 </label>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
 						<input type="text" name="address" id="sample2_address"   class="form-control" placeholder="주소" value="${regist.address}" data-msg="주소" >
 				</div> 
 				</div>
 				  <div class="form-group row justify-content-center">
                     <label for="addr" class="col-sm-2 col-form-label">상세주소 </label>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
 					<input type="text" name="detailAddress" id="sample2_detailAddress"  class="form-control" placeholder="상세주소" value="${regist.detailAddress}" >
+					<input type="hidden" id="sample2_extraAddress" placeholder="참고항목" size="20">				
 				</div> 
 				</div>
-			
 			<div class="form-group text-center">
 				<button type="submit" class="btn btn-primary" id="_btnInfo">확인</button>
 				<button type="button" class="btn btn-secondary" id="changecancel" onclick="location.href='/mypage/myPageGo'">취소</button>
 			</div>
-		</form>
+			</form>
+	
 			</div>
 		</div>
 	
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-<script src="/resources/js/changeInfo.js"></script>
+
 <script>
     $(function(){
     	var error ='${error}';
@@ -203,13 +213,10 @@ border-bottom: 1px solid;
         return targetName;
     }
 </script>
-<script>
+ <script>
 $("#_btnInfo").click(function(){
-
 	if(confirm("회원정보를 수정하시겠습니까?") == true){
-		
 		$('#_frmForm').submit();
-		alert("수정완료되었습니다.");
 	} else{
 		return false;
 	}
@@ -307,6 +314,6 @@ $("#_btnInfo").click(function(){
     }
 
 </script>
+</body>
 
-</html>
-<%@ include file="../footer.jsp" %>
+<%@ include file="../footer.jsp" %> 

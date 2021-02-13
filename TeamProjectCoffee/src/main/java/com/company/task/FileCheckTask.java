@@ -55,6 +55,8 @@ public class FileCheckTask {
 		List<Path> fileListPath = filePath.collect(Collectors.toList());
 		filePath.close();
 		stream.close();
+		//일단 보이는 Stream 다 닫기 -> 새로 생성 -> 썸네일 주소 입력
+		// -> fileListPath에 합쳐주기
 		Stream<FileAttach> stream1 = fileList.stream();
 		Stream<Path> filePath1 = stream1.map(vo -> Paths.get("d:\\pictures", vo.getUploadPath(), "s_"+vo.getUuid()+"_"+vo.getFileName()));
 		fileListPath.addAll(filePath1.collect(Collectors.toList()));

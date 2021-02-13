@@ -1,3 +1,6 @@
+<%@page import="com.company.domain.ChangeVO"%>
+<%@page import="com.company.domain.RegisterVO"%>
+<%@page import="com.company.domain.LoginVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
@@ -30,7 +33,7 @@ border-bottom: 1px solid;
 				<li class="nav-item"><a class="nav-link"
 					href="/mypage/userInfo">회원정보 조회</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="/mypage/changeInfo">회원정보 수정</a></li>
+					href="/mypage/changeInfo">회원정보 변경</a></li>
 				<li class="nav-item"><a class="nav-link" href="/mypage/leave">회원탈퇴</a>
 				</li>
 			</ul>
@@ -65,7 +68,7 @@ border-bottom: 1px solid;
 					</br>
 				</div>
 				<div class="form-group text-center">
-					<button type="submit" class="btn btn-primary"
+					<button type="button" class="btn btn-primary"
 						onclick="location.href='/mypage/changeInfo'">회원 정보 수정하기</button>
 					<!-- 	<button type="submit" class="btn btn-danger" onclick="location.href='/mypage/leave'">탈퇴하기</button>	 -->
 				</div>

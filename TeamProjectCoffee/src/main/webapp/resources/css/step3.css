@@ -1,0 +1,22 @@
+.title{
+	display: flex;
+	justify-content: center;
+	margin: 40px auto;
+	font-size: 3em;
+	font-weight: bold;
+}
+
+.login{
+	display: flex;
+	justify-content: center;
+}
+
+.btn{
+	background: #9999cc;
+	margin: auto;
+}
+
+button:focus{
+	outline:none;
+	-webkit-tap-highlight-color: transparent;
+}

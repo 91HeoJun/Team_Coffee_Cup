@@ -1,10 +1,23 @@
 @charset "UTF-8";
 
-.menu li {
-	background-color: #f5c669;
-	font-size: 0.7em;
+.storemenu{
+	background-color: #f2f8fa;
+	font-size: 0.9em;
 }
 
-.list-group-item.activated{
-	background-color: #f7f2cd;
+.storemenu.activated{
+	background-color: #cff1fc;
+}
+
+.container{
+	display:block;
+	justify-content: space-around;
+}
+
+section{
+
+}
+
+.row{
+	width: 80%;
 }

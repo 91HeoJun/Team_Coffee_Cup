@@ -43,7 +43,7 @@
             <ul class="nav navbar-top-links navbar-right">
             	<li>
             		<c:choose>
-	            		<c:when test="$(empty sessionScope.userid)">
+	            		<c:when test="${empty sessionScope.regist}">
 	            			<a class="dropdown-toggle" href="/mypage/signin">
 		                      login
 		                    </a>  
@@ -83,9 +83,9 @@
       		</li>
       		<li class="toggle"><a href="/product/productList">상품</a>
       			<ul class="sub">
-      				<li><a href="#">라이트</a></li>
-      				<li><a href="#">미디엄</a></li>
-      				<li><a href="#">다크</a></li>
+      				<li><a href="#">싱글오리진</a></li>
+      				<li><a href="#">블렌드</a></li>
+      				<li><a href="#">드립백</a></li>
       			</ul>
       		</li>
       		<li class="toggle"><a href="/store/list">매장</a>
@@ -105,5 +105,9 @@
       	</ul>
       </div>      
    </div>
+<<<<<<< HEAD
         <div id="page-wrapper">
         
+=======
+        <div id="page-wrapper">   
+>>>>>>> branch 'master' of https://github.com/91HeoJun/Team_Coffee_Cup.git

@@ -1,7 +1,5 @@
 package com.company.service;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,11 +20,6 @@ public class UseServiceImpl implements UserService {
 	@Override
 	public boolean register(RegisterVO regist) {
 		return userMapper.register(regist)>0?true:false;
-	}
-
-	@Override
-	public void logout(HttpSession session) {
-		session.invalidate();
 	}
 
 }
