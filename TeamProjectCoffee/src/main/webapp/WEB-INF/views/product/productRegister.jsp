@@ -4,7 +4,7 @@
  <html>
  <head>
  <meta charset="UTF-8">
- <title>Insert title here</title>
+ <title>Product Register</title>
 <%@ include file="../header.jsp" %>
 
  </head>
@@ -53,6 +53,22 @@
                 </td>
             </tr>
         </table>
+        <%-- 파일 등록 --%>
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="panel panel-default">
+								<div class="panel-heading"> 파일 첨부하기</div>
+								<div class="panel-body">
+									<div class="form-group uploadDiv">
+										<input type="file" name="uploadFile" id="" multiple />
+									</div>
+									<div class="uploadResult">
+										<ul></ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>                	
     </form>
  <script>
     //상품을 추가하기위한 정보를 담아 insert.do로 보내는 자바스크립트 함수

@@ -60,6 +60,7 @@
 								<div class="col-md-12">
 								
 									<div class="col-md-2 col-md-offset-2">
+
 			                            <!--페이지 목록 갯수 지정하는 폼-->
 			                            <select class="form-control" id="amount">
 			                            	<option value="10" <c:out value="${pageVO.cri.amount==10?'selected':''}"/>>10</option>

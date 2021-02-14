@@ -6,27 +6,55 @@
 		<selectKey keyProperty="pcode" order="BEFORE" resultType="int">
 			select seq_board.nextval from dual
 		</selectKey>
-		insert into ProductTBL(pCode, pCategory, product, pContent, price,pAmount, pDate, origin)
-		values(#{pCode},#{pcategory},#{product},#{pcontent},#{price},#{pamount},#{pdate},#{origin})
+		insert into ProductTBL(pcode, pCategory, product, pContent, price,pAmount, pDate, origin)
+		values(#{pcode},#{pcategory},#{product},#{pcontent},#{price},#{pamount},#{pdate},#{origin})
 	</insert>
 	
 	<update id="updateProduct">
-		update ProductTBL set price=#{price} where pCode=#{pCode}
+		update ProductTBL set price=#{price} where pcode=#{pcode}
 	</update>
 	
 	<delete id="deleteProduct">
-		delete from ProductTBL where pCode=#{pCode}
+		delete from ProductTBL where pcode=#{pcode}
 	</delete>
 	
 	<select id="selectProduct" resultType="com.company.domain.ProductVO">
-		select * from ProductTBL where pCode=#{pCode}
+		select * from ProductTBL where pcode=#{pcode}
 	</select>
 	
 	<select id="listProduct" resultType="com.company.domain.ProductVO">
-		select * from ProductTBL order by pCode
+		select * from ProductTBL order by pcode
 	</select>
 	
-<!-- 목록을 뽑아야되므로 select SQL 구문을 추가한다. -->
+	<!-- 전체 게시물 수 -->
+ 	<select id="productCnt" resultType="int">
+		select count(*) from ProductTBL where <include refid="criteria"></include> pcode > 0
+	</select>
+	
+	<!-- 첨부물 가져오기 -->
+	<select id="attachList" resultType="com.company.domain.FileAttach">
+		select * from ProdctTBL_Attach where pcode=#{pcode}
+	</select>
+	
+	
+<!-- 동적 SQL -->
+	<sql id="criteria">
+		<trim prefix="(" suffix=") AND" prefixOverrides="OR">
+			<foreach collection="typeArr" item="type">
+				<trim prefix="OR">
+					<choose>
+						<when test="type=='P'.toString()">
+							product like '%'||#{keyword}||'%'
+						</when>
+						<when test="type=='C'.toString()">
+							pcontent like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+
 
 </mapper>
 	

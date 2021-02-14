@@ -82,6 +82,6 @@ CREATE TABLE ProductTBL
 
 select * from UserTBL;
 
-select * from productTBL
+select * from productTBL where pcode = 2
 
 insert into productTBL (pcode, pcategory, product, pcontent, price, pamount, origin) values (1111, "카테고리", "프로덕트", "카운트", 45000, "어마운트", "오리진");

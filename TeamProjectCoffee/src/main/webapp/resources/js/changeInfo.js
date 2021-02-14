@@ -14,7 +14,6 @@ $(function(){
         new_password:{
 			required:true,
             validPwd : true
-
         },
          confirm_password:{
 			required:true,
@@ -31,6 +30,7 @@ $(function(){
 			required:true,			
 		}
 },
+
 	messages:{
 		password :{ 
 			required:"현재 비밀번호를 입력해 주세요.",
@@ -56,6 +56,7 @@ $(function(){
   },//에러 메시지가 나올 위치 잡기: small 아이디 뒤로
 	errorPlacement:function(error,element){
 		$(element).closest("form").find("small[id='"+element.attr('id')+"']").append(error);
+		$(error).css('color', 'red');
 	}
 })
 });

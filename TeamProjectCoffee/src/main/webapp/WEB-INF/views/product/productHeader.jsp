@@ -12,7 +12,7 @@
 	<!-- 상품 종류별 리스트 -->
 	<div class="btn-group btn-group-toggle" data-toggle="buttons">
 	  <label class="btn btn-secondary active">
-	    <input type="radio" name="options" id="option1" checked> 싱글오리진
+	    <input type="radio" name="options" id="option1" checked> 싱글 오리진
 	  </label>
 	  <label class="btn btn-secondary">
 	    <input type="radio" name="options" id="option2"> 블렌드

@@ -22,52 +22,72 @@
                 			<form action="" role="form">
                 				<div class="form-group">
                 					<label>Code</label>
-                					<input class="form-control" name="pcode" readonly="readonly" value="${product.pcode}" >                				
+                					<input class="form-control" name="pcode" readonly="readonly" value="${selectProduct.pcode}" >                				
                 				</div> 
                 				<div class="form-group">
                 					<label>Category</label>
-                					<input class="form-control" name="pcategory" readonly="readonly" value="${product.pcatecory}" >                				
+                					<input class="form-control" name="pcategory" readonly="readonly" value="${selectProduct.pcategory}" >                				
                 				</div>  
                 				<div class="form-group">
                 					<label>Product</label>
-                					<textarea class="form-control" rows="3" name="product" readonly="readonly">${product.product}</textarea>               				
+                					<textarea class="form-control" rows="3" name="product" readonly="readonly">${selectProduct.product}</textarea>               				
                 				</div> 
                 				<div class="form-group">
                 					<label>Pdate</label>
-                					<textarea class="form-control" rows="3" name="pdate" readonly="readonly">${product.pdate}</textarea>               				
+                					<textarea class="form-control" rows="3" name="pdate" readonly="readonly"> <fmt:formatDate value="${selectProduct.pdate}" pattern="yyyy-MM-dd"/></textarea>               				
                 				</div> 
                 				<div class="form-group">
                 					<label>Amount</label>
-                					<textarea class="form-control" rows="3" name="pdate" readonly="readonly">${product.pamount}</textarea>               				
+                					<textarea class="form-control" rows="3" name="pamount" readonly="readonly">${selectProduct.pamount}</textarea>               				
                 				</div> 
                 				<div class="form-group">
                 					<label>Content</label>
-                					<textarea class="form-control" rows="3" name="pcontent" readonly="readonly">${product.pcontent}</textarea>               				
+                					<textarea class="form-control" rows="3" name="pcontent" readonly="readonly">${selectProduct.pcontent}</textarea>               				
                 				</div> 
                 				<div class="form-group">
                 					<label>Price</label>
-                					<textarea class="form-control" rows="3" name="price" readonly="readonly">${product.price}</textarea>               				
+                					<textarea class="form-control" rows="3" name="price" readonly="readonly">${selectProduct.price}</textarea>               				
                 				</div> 
-                				<sec:authentication property="principal" var="info"/>
-                				<sec:authorize access="isAuthenticated()">
-                					<c:if test="${info.username == product.admin}">
-                					<button type="button" class="btn btn-default" >Modify</button>
-                					</c:if>
-                				</sec:authorize> 
-                			 	<button type="reset" class="btn btn-info">List</button>          			
+                					<button type="button" class="btn btn-outline-primary" id="order">구매하기</button>
+                					<button type="button" class="btn btn-outline-primary"  id="addcart">장바구니</button>
+                					<sec:authentication property="principal" var="info"/>
+                					<sec:authorize access="isAuthenticated()">
+	                					<c:if test="${info.username == 'admin'}">
+		                					<button type="button" class="btn btn-default" id="modify">Modify</button>
+		                				</c:if>
+	                				</sec:authorize>
+	                			 	<button type="button" class="btn btn-info" id="list">List</button>          			
                 			</form>
                 		</div>
                 	</div>
                 </div>
             </div>
-   
-  
+<form action="actionForm">
+	<input type="hidden" name="pageNum" value="" />	
+</form>
 
-
+<!-- Bootstrap core JavaScript -->
+  <script src="/resources/vendor/jquery/jquery.min.js"></script>
+  <script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script>
+$(function(){
+	
+	$("#order").click(function(){
+		
+	})
+	
+	$("#addcart").click(function(){
+		
+	})
+	
+	$("#modify").click(function(){
+		location.href='/product/productEdit';
+	})
+	
+	$("#list").click(function(){
+		location.href='/product/productList';
+	})	
+})
+</script>
 <%@include file="../footer.jsp" %>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-</html>
