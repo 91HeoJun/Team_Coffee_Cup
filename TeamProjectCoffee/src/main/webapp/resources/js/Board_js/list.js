@@ -52,7 +52,7 @@ $(function() {
 	})
 	
 	// 검색 버튼 활성화
-	$(".btn-default").click(function(){
+	$("#board-finder").click(function(){
 		var searchData = $("#searchForm");
 		
 		var type = $("select[name='type']").val();
