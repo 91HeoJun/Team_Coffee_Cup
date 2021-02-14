@@ -4,7 +4,7 @@
 	
 	<insert id="insertProduct">
 		<selectKey keyProperty="pcode" order="BEFORE" resultType="int">
-			select seq_board.nextval from dual
+			select seq_product.nextval from dual
 		</selectKey>
 		insert into ProductTBL(pcode, pCategory, product, pContent, price,pAmount, pDate, origin)
 		values(#{pcode},#{pcategory},#{product},#{pcontent},#{price},#{pamount},#{pdate},#{origin})
@@ -32,7 +32,7 @@
 	</select>
 	
 	<!-- 첨부물 가져오기 -->
-	<select id="attachList" resultType="com.company.domain.FileAttach">
+	<select id="attachList" resultType="com.company.domain.ProductFileAttach">
 		select * from ProdctTBL_Attach where pcode=#{pcode}
 	</select>
 	

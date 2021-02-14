@@ -17,7 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.company.domain.BoardFileAttach;
 import com.company.domain.Criteria;
-import com.company.domain.FileAttach;
+import com.company.domain.ProductFileAttach;
 import com.company.domain.ProductVO;
 import com.company.domain.pageVO;
 import com.company.service.ProductService;
@@ -59,7 +59,7 @@ public class ProductController {
 	public String removeProduct(int pcode, Criteria cri, RedirectAttributes rttr) {
 		log.info("---- " + pcode + "번 상품 삭제 진행중... ----");
 
-		List<FileAttach> attachList = productService.AttachList(pcode);
+		List<ProductFileAttach> attachList = productService.AttachList(pcode);
 		
 		if (productService.removeProduct(pcode)) {
 			fileDelete(attachList);
@@ -119,12 +119,12 @@ public class ProductController {
 		model.addAttribute("pageVO", new pageVO(cri, total));
 	}
 	
-	private void fileDelete(List<FileAttach> attachList) {
+	private void fileDelete(List<ProductFileAttach> attachList) {
 		if (attachList == null || attachList.size() <= 0) {
 			return;
 		}
 		
-		for (FileAttach attach : attachList) {
+		for (ProductFileAttach attach : attachList) {
 			Path path = Paths.get("c:\\ProductUpload\\" + attach.getUploadPath() + "\\" + attach.getUuid() + "_" + attach.getFileName());
 	
 			try {

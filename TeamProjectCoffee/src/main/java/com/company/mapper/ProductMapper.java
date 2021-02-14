@@ -2,7 +2,7 @@ package com.company.mapper;
 
 import java.util.List;
 
-import com.company.domain.FileAttach;
+import com.company.domain.ProductFileAttach;
 import com.company.domain.Criteria;
 import com.company.domain.ProductVO;
 
@@ -17,5 +17,5 @@ public interface ProductMapper {
 	
 	public int productCnt(Criteria cri);	
 	
-	public List<FileAttach> attachList(int pcode);
+	public List<ProductFileAttach> attachList(int pcode);
 }

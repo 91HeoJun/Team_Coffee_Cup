@@ -29,5 +29,5 @@ public class ProductVO {
 	private String origin;  //상품원산지
    // private String picture_url; //상품 이미지 경로 
 	
-	private List<FileAttach> attachList;
+	private List<ProductFileAttach> attachList;
 }

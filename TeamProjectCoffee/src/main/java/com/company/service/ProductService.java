@@ -3,7 +3,7 @@ package com.company.service;
 import java.util.List;
 
 import com.company.domain.Criteria;
-import com.company.domain.FileAttach;
+import com.company.domain.ProductFileAttach;
 import com.company.domain.ProductVO;
 
 public interface ProductService {
@@ -17,6 +17,6 @@ public interface ProductService {
 	
 	public int getProductCnt(Criteria cri);
 	
-	public List<FileAttach> AttachList(int bno);
+	public List<ProductFileAttach> AttachList(int pcode);
 
 }

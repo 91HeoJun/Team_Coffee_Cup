@@ -9,7 +9,6 @@
 
  </head>
  <body>
-     <!-- 관리자용 메뉴는 일반 회원의 메뉴와 다르기 때문에 일부러 관리자용 메뉴를 만들고 그 메뉴를 출력한다. -->
     <h2>상품 등록</h2>
    	<form action="/product/productRegister" method="post" role="form">
         <table>
