@@ -5,19 +5,15 @@
 <!-- 추후 Header 위치 이동시 수정 필요 -->
 <%@include file="boardHeader.jsp" %>
 
-           <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="page-header">1:1문의 게시판</h2>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>            
-            <div class="row">
-                <div class="col-lg-12">
+			<div class="col-lg-12">
+				<h2 class="page-header">1:1 문의 게시판</h2>
+			</div>
+
                 	<div class="panel panel-default">
-                        <div class="panel-heading">
+                        <div class="panel-heading-register">
                            문의 글 작성
                         </div>
-                        <!-- /.panel-heading -->
+                        
                         <div class="panel-body">
                 			<form action="/ClientBoard/register" method="post" role="form">
                 				<div class="form-group">
@@ -54,9 +50,5 @@
 							</div>
 						</div>
 					</div>                	
-                	
-                </div>
-            </div>
-
 <script src="/resources/js/Board_js/register.js"></script>
 <%@include file="../footer.jsp" %>
