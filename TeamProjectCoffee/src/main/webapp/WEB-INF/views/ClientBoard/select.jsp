@@ -7,8 +7,12 @@
 
 		<div class="col-lg-12">
 			<h2 class="page-header-detail">1:1 문의 게시판 - 문의글 작성</h2>
-		</div>
-	
+		
+			<div class="regist-buttons">
+			    <button type="button" class="btn btn-outline-dark" id="modify-button"> 수정 </button>
+	            <button type="reset" class="btn btn-outline-dark" id="gotolist-button"> 목록으로 </button>
+	        </div>
+	    </div>
 		<div class="accordion" id="accordionExample">
 			<form action="/ClientBoard/register" method="post" role="form">
 				<div class="card">
@@ -44,9 +48,6 @@
 					</div>
 						
 					<div class="card-body">
-	 					<div class="form-group uploadDiv">
-							<input type="file" name="uploadFile" id="" multiple />
-						</div>
 						<div class="uploadResult">
 							<ul class="attach-position"></ul>
 						</div>
@@ -54,13 +55,6 @@
 					</div>
 				</div>
 
-				<div class="regist-buttons">
-			    	<!-- <button type="button" class="btn btn-default" > 수정 </button> -->
-			    	<button type="button" class="btn btn-outline-warning" > 수정 </button>   
-			    	
-	                <button type="reset" class="btn btn-outline-danger"> 목록으로 </button>
-	                <!-- <button type="reset" class="btn btn-info"> 목록으로 </button>   -->
-	            </div>
 			</form>
 			
  			<div class="card">
@@ -74,7 +68,7 @@
 					<div class="panel-footer"></div>
 				</div>
 			</div>
-			<button id="addReplyBtn" class="btn btn-outline-success">댓글 쓰기</button>
+			<button id="addReplyBtn" class="btn btn-outline-dark">댓글 쓰기</button>
 		</div>			
 
 			<!-- 이동값 히든폼 -->
@@ -112,10 +106,10 @@
 					        </div>
 					      </div>
 					      <div class="modal-footer">
-					        <button type="button" class="btn btn-warning" id="modalRegisterBtn">등록</button>
-					        <button type="button" class="btn btn-success" id="modalModifyBtn">수정</button>
-					        <button type="button" class="btn btn-danger" id="modalRemoveBtn">삭제</button>
-					        <button type="button" class="btn btn-primary"  id="modalCloseBtn" data-dismiss="modal">닫기</button>
+					        <button type="button" class="btn btn-outline-dark" id="modalRegisterBtn">등록</button>
+					        <button type="button" class="btn btn-outline-dark" id="modalModifyBtn">수정</button>
+					        <button type="button" class="btn btn-outline-dark" id="modalRemoveBtn">삭제</button>
+					        <button type="button" class="btn btn-outline-dark"  id="modalCloseBtn" data-dismiss="modal">닫기</button>
 					      </div>
 					    </div>
 					  </div>

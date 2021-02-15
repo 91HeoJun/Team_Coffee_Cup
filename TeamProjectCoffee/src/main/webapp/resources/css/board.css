@@ -96,7 +96,18 @@
 
 /* Register CSS */
 .page-header-detail {
+	text-align: left;
 	line-height: normal;
+}
+
+.regist-buttons {
+ 	padding-bottom: 0px;
+	text-align: right;
+}
+
+.accordion {
+	width: 100%;
+	table-layout: fixed;
 }
 
 .mb-0 {
@@ -111,8 +122,6 @@
 	table-layout: fixed;
 }
 
-.btn btn-outline-success {
-	text-align: right;
-}
+
 
 

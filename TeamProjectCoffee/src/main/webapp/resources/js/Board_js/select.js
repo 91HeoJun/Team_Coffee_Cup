@@ -9,12 +9,12 @@ $(function() {
 	var form = $("#myform");
 	
 	// 수정버튼 submit
-	$(".btn-outline-warning").click(function() {
+	$("#modify-button").click(function() {
 		form.submit();
 	})
 	
 	// 목록으로 버튼 활성화
-	$(".btn-outline-danger").click(function() {
+	$("#gotolist-button").click(function() {
 		form.find("input[name='bno']").remove();
 		form.attr('action', 'list');
 
