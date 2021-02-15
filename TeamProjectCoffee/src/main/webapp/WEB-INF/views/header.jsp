@@ -41,7 +41,7 @@
                     <span class="icon-bar"></span>
                 </button> -->
                 <a href="/"><img src="/resources/Logo/blackbeanlogo4.jpg" style="width:200px; hieght:100px;"></a>
-            </div> -->
+            </div>
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
