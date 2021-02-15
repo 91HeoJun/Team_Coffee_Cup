@@ -57,7 +57,12 @@ border-bottom: 1px solid;
     max-width: 100% !important;
     height: auto !important;
 }
-
+.btn-primary {
+	background-color: #9999cc;
+}
+.btn-primary:hover{
+	background-color: #9999dd;
+}
 
 </style>
 <body>
@@ -72,8 +77,6 @@ border-bottom: 1px solid;
 				</li>
 				<li class="nav-item"><a class="nav-link"
 					href="/mypage/userInfo">회원정보 조회</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="/mypage/changeInfo">회원정보 변경</a></li>
 				<li class="nav-item"><a class="nav-link" href="/mypage/leave">회원탈퇴</a>
 				</li>
 			</ul>
@@ -187,13 +190,7 @@ border-bottom: 1px solid;
 </div>
 
 <script>
-    $(function(){
-    	var error ='${error}';
-    	if(error!=''){
-    		alert(error);
-    	}
-    })
-    
+ 
     $(".eTooltip").find('input').focus(function(){
     	 var targetName = returnTagetName(this);
     	    targetName.siblings('.ec-base-tooltip').show();
