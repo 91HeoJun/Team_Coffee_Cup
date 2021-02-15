@@ -6,7 +6,7 @@ import com.company.domain.NewsVO;
 
 public interface NewsMapper {
 	public void insert(NewsVO news);
-	public List<NewsVO> newsList();
+	public List<NewsVO> listNews();
 	public NewsVO read(int newsno);
 	public void delete(int newsno);
 	public void update(NewsVO news);

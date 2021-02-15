@@ -84,10 +84,12 @@ public class ProductServiceImpl implements ProductService {
 		return productmapper.listProduct(cri);
 	}
 
-	@Override
-	public int getProductCnt(Criteria cri) {
-		return productmapper.productCnt(cri);
+	
+	  @Override 
+	  public int getProductCnt(Criteria cri) { 
+		  return productmapper.productCnt(cri); 
 	}
+	 
 
 	@Override
 	public List<ProductFileAttach> AttachList(int pcode) {

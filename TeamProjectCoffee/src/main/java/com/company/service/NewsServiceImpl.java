@@ -35,8 +35,8 @@ public class NewsServiceImpl implements NewsService {
 	
 	//전체게시글
 	@Override
-	public List<NewsVO> newsList() {
-		return newsMapper.newsList();
+	public List<NewsVO> listNews() {
+		return newsMapper.listNews();
 	}
 	
 	//단일게시글 읽기

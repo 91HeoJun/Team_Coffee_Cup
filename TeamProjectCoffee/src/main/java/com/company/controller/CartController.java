@@ -47,10 +47,14 @@ public class CartController {
 			cartList.add(cart);
 			session.setAttribute("cartList", cartList);
 		}else {//session에 cartList가 있는 경우
+			//장바구니 리스트를 가져옴
 			List<CartVO> cartList = (List<CartVO>) session.getAttribute("cartList");
+			//장바구니 리스트에 CartVO를 추가함
 			cartList.add(cart);
 			session.setAttribute("cartList", cartList);
 		}	
 		return "success";
 	}
+	
+	
 }

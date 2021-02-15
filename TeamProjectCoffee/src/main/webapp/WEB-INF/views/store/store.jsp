@@ -8,52 +8,65 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
 	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
 	crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
 	crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/resources/css/store.css" />
+<!-- font awesome -->
+ <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
 
-<div class="container">
 	<section class="page-section ">
-		<ul class="list-group list-group-flush float-left menu">
-			<!-- <li class="list-group-item activated" id="list1">더종로R점</li>
-					<li class="list-group-item" id="list2">신세계의정부점</li>
-					<li class="list-group-item" id="list3">서울숲역점</li>
-					<li class="list-group-item" id="list4">용산아이파크몰점</li>
-					<li class="list-group-item" id="list5">판교역점</li> -->
-			<%-- <c:forEach var="store" items="${list}" varStatus="status">
-						<li data-code="${store.code}" class="list-group-item" id="list${status.count}">${store.name}</li>
-					</c:forEach> --%>
-			<button type="button" style="margin-top: 10px"
-				onclick="location.href='/store/admin'">매장 관리</button>
-		</ul>
+<div class="wrapper">
+		<nav id="sidebar">
+			<ul class="components menu">
+				<!-- <li class="list-group-item activated" id="list1">더종로R점</li>
+						<li class="list-group-item" id="list2">신세계의정부점</li>
+						<li class="list-group-item" id="list3">서울숲역점</li>
+						<li class="list-group-item" id="list4">용산아이파크몰점</li>
+						<li class="list-group-item" id="list5">판교역점</li> -->
+				<%-- <c:forEach var="store" items="${list}" varStatus="status">
+							<li data-code="${store.code}" class="list-group-item" id="list${status.count}">${store.name}</li>
+						</c:forEach> --%>
+				<button type="button" style="margin-top: 10px"
+					onclick="location.href='/store/admin'">매장 관리</button>
+			</ul>
+		</nav>
 
-		<div class="row">
-
-
-			<!-- <div class="row"> -->
-
-			<div class="col-xl-12" style="margin-bottom: 1em;">
-				<div class="cta-inner text-center rounded storeInfo">
-					<!-- <img class="rounded store-img" alt="" src=""
-								style="width: 100%; height: auto">
-							<h3 class="name" style="font-size: 1em; margin-top: 1em">매장 이름</h3>
-							<h3 class="address" style="font-size: 1em; margin-top: 1em">매장 주소</h3> -->
+		<div class="container-fluid">
+			<button type="button" id="sidebarCollapse" class="btn btn-info">
+              <i class="fas fa-align-left"></i>
+            </button>
+            <hr />
+			<div class="row">
+	
+	
+				<!-- <div class="row"> -->
+	
+				<div class="col-xl-12" style="margin-bottom: 1em;">
+					<div class="cta-inner text-center rounded storeInfo">
+						<!-- <img class="rounded store-img" alt="" src=""
+									style="width: 100%; height: auto">
+								<h3 class="name" style="font-size: 1em; margin-top: 1em">매장 이름</h3>
+								<h3 class="address" style="font-size: 1em; margin-top: 1em">매장 주소</h3> -->
+					</div>
 				</div>
-			</div>
-
-			<div class="col-xl-12">
-				<div class="cta-inner text-center rounded">
-					<div id="map" style="width: 100%; height: 300px;"></div>
+	
+				<div class="col-xl-12">
+					<div class="cta-inner text-center rounded">
+						<div id="map" style="width: 100%; height: 300px;"></div>
+					</div>
 				</div>
 			</div>
 		</div>
-	</section>
 </div>
+	</section>
 
 
 <!-- <section class="page-section about-heading">
