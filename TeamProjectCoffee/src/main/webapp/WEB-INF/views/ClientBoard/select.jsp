@@ -5,7 +5,75 @@
 <!-- 추후 Header 위치 이동시 수정 필요 -->
 <%@include file="boardHeader.jsp" %>
 
-           <div class="row">
+		<div class="col-lg-12">
+			<h2 class="page-header-detail">1:1 문의 게시판 - 문의글 작성</h2>
+		</div>
+
+		<div class="accordion" id="accordionExample">
+			<form action="/ClientBoard/register" method="post" role="form">
+				<div class="card">
+					<div class="card-header" id="headingOne">
+						<p class="mb-0">${selectBoard.bno}번 글 제목</p>
+					</div>
+					<div class="card-body">
+						<input class="form-control" name="title" readonly="readonly" value="${selectBoard.title}"> 
+					</div>
+				</div>
+			  
+				<div class="card">
+					<div class="card-header" id="headingTwo">
+						<p class="mb-0">내용</p>
+					</div>
+					<div class="card-body">
+						<textarea class="form-control" rows="5" name="content" readonly="readonly">${selectBoard.content}</textarea> 
+					</div>
+				</div>
+			  
+				<div class="card">
+					<div class="card-header" id="headingThree">
+						<p class="mb-0">작성자</p>
+					</div>
+					<div class="card-body">
+						<input class="form-control" name="writer" readonly="readonly"  value="${selectBoard.writer}">
+					</div>
+				</div>
+				
+				<div class="card">
+					<div class="card-header" id="headingOne">
+						<p class="mb-0"> 파일 첨부 </p>
+					</div>
+						
+					<div class="card-body">
+	 					<div class="form-group uploadDiv">
+							<input type="file" name="uploadFile" id="" multiple />
+						</div>
+						<div class="uploadResult">
+							<ul class="attach-position"></ul>
+						</div>
+	
+					</div>
+				</div>
+
+				<div class="regist-buttons">
+			    	<button type="submit" class="btn btn-outline-success">작성</button>              			
+	                <button type="reset" class="btn btn-outline-danger" onclick="location.href='list'">취소</button>       
+	            </div>
+			</form>
+			
+ 			<div class="card">
+				<div class="card-header" id="headingThree">
+					<p class="mb-0">댓글</p>
+				</div>
+				<div class="card-body">
+					<ul class="chat">			
+					<!-- 댓글 리스트 내용 -->				
+					</ul>
+				</div>
+			</div>
+			<button id="addReplyBtn" class="btn btn-outline-success">댓글 쓰기</button>
+		</div>			
+
+ <%--           <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header"> 1:1문의 게시판 </h1>
                 </div>
@@ -40,7 +108,7 @@
                 		</div>
                 	</div>
                 	
-                	<%-- 첨부파일 --%>					
+                	첨부파일					
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="panel panel-default">
@@ -52,9 +120,9 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> --%>
                 	
-            		<!-- 댓글 리스트 -->
+             		<!-- 댓글 리스트 -->
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="panel panel-default">
@@ -110,8 +178,8 @@
 					  </div>
 					</div><!-- 댓글 등록 Modal end -->
 						
-                </div>
-            </div>
+                <!-- </div>
+            </div> -->
             
 
      		
