@@ -14,7 +14,7 @@
 <link rel="shortcut icon" href="/resources/Logo/bean.ico" type="image/x-icon">
 <link rel="icon" href="/resources/Logo/img/bean.ico" type="image/x-icon">
 
-    <title>Business Casual - Start Bootstrap Theme</title>
+	<title>Business Casual - Start Bootstrap Theme</title>
 
 	<!-- Bootstrap CDN -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
@@ -32,53 +32,42 @@
 	<div class="all">
     <div id="wrapper">
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-             <div class="navbar-header">
-           <!--     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button> -->
-                <a href="/"><img src="/resources/Logo/blackbeanlogo4.jpg" style="width:200px; hieght:100px;"></a>
-            </div>
-            <!-- /.navbar-header -->
-
+        <nav class="navbar-static-top" role="navigation" >
             <ul class="nav navbar-top-links navbar-right">
             	<li>
             		<c:choose>
 	            		<c:when test="${empty sessionScope.regist}">
-	            			<a class="dropdown-toggle" href="/mypage/signin">
+	            			<a class="nav-toggle" href="/mypage/signin">
 		                      login
 		                    </a>  
 	            		</c:when>
 	            		<c:otherwise>
 	            		 	 ${regist.userid}님
-	            			<a class="dropdown-toggle" href="/user/logout">
+	            			<a class="nav-toggle" href="/user/logout">
 		                    	logout
 		                    </a>  
 	            		</c:otherwise>
             		</c:choose>
             	</li>
-                <li >
-                    <a class="dropdown-toggle" href="/mypage/myPageGo">
+                <li>
+                    <a class="nav-toggle" href="/mypage/myPageGo">
                         mypage
                     </a>
                 </li>
-                
-                <li >
-                    <a class="dropdown-toggle" href="#">
+                <li>
+                    <a class="nav-toggle" href="/cart">
                         cart
-                    </a>
-                   
+                    </a>              
                 </li>
             </ul>
-            <!-- /.navbar-static-side -->
         </nav>
+        <div class="navbar-header">
+        	<a href="/"><img class="logo" src="/resources/Logo/blackbeanlogo4.jpg" style="width:200px; hieght:100px;"></a>
+        </div>
         <!-- Navigation -->      
       <div id="menu">
       	<ul class="main">
-      		<li class="toggle"><a href="#">소개</a>
+      		<li class="toggle"><a href="/about">소개</a>
       			<ul class="sub">
       				<li><a href="/about">about us</a></li>
       				<li><a href="/coffeeStory">coffee story</a></li>

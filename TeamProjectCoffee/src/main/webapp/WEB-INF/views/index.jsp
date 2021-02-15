@@ -44,6 +44,12 @@
 #topBtn:hover {
     background-color: #f00; /*마우스 올렸을 때 버튼 색상*/
 }
+
+.carousel-control-prev, .carousel-control-next{
+	height: 50%;
+	margin: auto 0;
+}
+
   </style>
 
 </head>
