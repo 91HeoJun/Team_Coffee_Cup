@@ -13,11 +13,11 @@ $(function(){
 				var str="";
 				
 				$(data).each(function(idx, obj){
-					str+="<li id='list"+idx+"' class='list-group-item storemenu' data-code='"+obj.code+"'>"+obj.name+"</li>";
+					str+="<li id='list"+idx+"' class='storemenu' data-code='"+obj.code+"'><a>"+obj.name+"</a></li>";
 				})
 				$(".menu").append(str);
 				
-				$("#list0").attr("class", "list-group-item storemenu activated");
+				$("#list0").attr("class", "storemenu activated");
 				var code = $("#list0").data("code");
 				console.log("code : "+code);
 				setStoreInfo(code);
@@ -56,8 +56,8 @@ $(function(){
 		//이벤트(리스트 클릭 시)
 		$(".menu").on("click", "li",function(){
 			//리스트 activated
-			$(".storemenu").attr("class", "list-group-item storemenu");
-			$(this).attr("class", "list-group-item storemenu activated");
+			$(".storemenu").attr("class", "storemenu");
+			$(this).attr("class", "storemenu activated");
 			//해당 매장의 정보 보여주기
 			var code = $(this).data("code");
 			setStoreInfo(code);
