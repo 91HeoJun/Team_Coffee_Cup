@@ -55,8 +55,8 @@
 				</div>
 
 				<div class="regist-buttons">
-			    	<button type="submit" class="btn btn-outline-success">작성</button>              			
-	                <button type="reset" class="btn btn-outline-danger" onclick="location.href='list'">취소</button>       
+			    	<button type="button" class="btn btn-default" > 수정 </button>          			
+	                <button type="reset" class="btn btn-info"> 목록으로 </button>       
 	            </div>
 			</form>
 			
