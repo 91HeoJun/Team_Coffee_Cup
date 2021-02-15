@@ -37,48 +37,48 @@
       <!-- Blog Entries Column -->
       <div class="col-md-8">
 
-        <h1 class="my-4">새소식
-          <small>새소식</small>
+        <h1 class="my-4">블랙빈 뉴스
+          <small></small>
         </h1>
 
         <!-- Blog Post -->
         <div class="card mb-4">
-          <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+          <img class="news" src="/resources/img/news/no48.jpg" style="width:400px; hieght:200px;" alt="Card image cap">
           <div class="card-body">
-            <h2 class="card-title">새소식</h2>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-            <a href="#" class="btn btn-primary">Read More &rarr;</a>
+            <h2 class="card-title">NO.3</h2>
+            <p class="card-text"></p>
+            <a href="/resources/img/news/no48_newsletter.jpg" class="btn btn-primary">뉴스 읽기 &rarr;</a>
           </div>
           <div class="card-footer text-muted">
-            Posted on January 1, 2020 by
+            2021년 1~2월 뉴스레터 3호
             <a href="#">새소식</a>
           </div>
         </div>
 
         <!-- Blog Post -->
         <div class="card mb-4">
-          <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+          <img class="news" src="/resources/img/news/no47.jpg" style="width:400px; hieght:200px;" alt="Card image cap">
           <div class="card-body">
-            <h2 class="card-title">새소식</h2>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-            <a href="#" class="btn btn-primary">Read More &rarr;</a>
+            <h2 class="card-title">NO.2</h2>
+            <p class="card-text"></p>
+            <a href="/resources/img/news/no47_newsletter.jpg" class="btn btn-primary">뉴스 읽기 &rarr;</a>
           </div>
           <div class="card-footer text-muted">
-            Posted on January 1, 2020 by
+            2020년 11~12월 뉴스레터 2호
             <a href="#">새소식</a>
           </div>
         </div>
 
         <!-- Blog Post -->
         <div class="card mb-4">
-          <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+          <img class="news" src="/resources/img/news/no46.jpg" style="width:400px; hieght:200px;" alt="Card image cap">
           <div class="card-body">
-            <h2 class="card-title">새소식</h2>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-            <a href="#" class="btn btn-primary">Read More &rarr;</a>
+            <h2 class="card-title">NO.1</h2>
+            <p class="card-text"></p>
+            <a href="/resources/img/news/no46_newsletter.jpg" class="btn btn-primary">뉴스 읽기 &rarr;</a>
           </div>
           <div class="card-footer text-muted">
-            Posted on January 1, 2020 by
+            2020년 9~10월 뉴스레터 1호
             <a href="#">새소식</a>
           </div>
         </div>
@@ -98,61 +98,13 @@
       <!-- Sidebar Widgets Column -->
       <div class="col-md-4">
 
-        <!-- Search Widget -->
-        <div class="card my-4">
-          <h5 class="card-header">검색</h5>
-          <div class="card-body">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for...">
-              <span class="input-group-append">
-                <button class="btn btn-secondary" type="button">Go!</button>
-              </span>
-            </div>
-          </div>
-        </div>
+
 
         <!-- Categories Widget -->
-        <div class="card my-4">
-          <h5 class="card-header">카테고리</h5>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-lg-6">
-                <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="#">새소식</a>
-                  </li>
-                  <li>
-                    <a href="#">~~~~</a>
-                  </li>
-                  <li>
-                    <a href="#">~~~~</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="#">~~~~</a>
-                  </li>
-                  <li>
-                    <a href="#">~~~~</a>
-                  </li>
-                  <li>
-                    <a href="#">~~~~</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+
 
         <!-- Side Widget -->
-        <div class="card my-4">
-          <h5 class="card-header">Side Widget</h5>
-          <div class="card-body">
-            You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
-          </div>
-        </div>
+
 
       </div>
 
