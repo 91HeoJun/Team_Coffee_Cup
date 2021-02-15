@@ -17,7 +17,7 @@ body {
 img, fieldset {
     border: none;
     vertical-align: top;
-    max-width: 90%; 
+    max-width: 100%; 
     height: auto;
 }
 .notoserif, .notoserif * {
@@ -105,7 +105,7 @@ p {
 
 .about .content02 > div {
     display: block;
-    width: 80%;
+    width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
@@ -135,7 +135,7 @@ p {
     padding: 0 0;
 }
 .about .content03 > div {
-    width: 95%;
+    width: 100%;
 }
 .about .content03 > div > p {
     height: 340px;
@@ -162,8 +162,33 @@ p {
     padding: 40px 0;
     background: #040404;
 }
+#topBtn {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #fff;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 10px;
+    background-color: #555; /*버튼 색상*/
+    transition: background 0.2s;
+    cursor: pointer;
+}
+
+#topBtn:hover {
+    background-color: #f00; /*마우스 올렸을 때 버튼 색상*/
+}
 </style>
 </head>
+  <script>
+    $('.carousel').carousel({
+      interval: 1000 //1초
+    })
+  </script>
 <body>
           <div class="sub-page about">
             <div class="sub-top">
@@ -222,7 +247,29 @@ p {
               </div>
             </div>
           </div>
-
+  <!-- top 버튼 -->
+  <div id="topBtn">TOP</div>
   </body>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!-- TOP 버튼 시작 -->
+<script>
+    $(document).ready(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $('#topBtn').fadeIn();
+            } else {
+                $('#topBtn').fadeOut();
+            }
+        });
+
+        $("#topBtn").click(function() {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 500);
+            return false;
+        });
+    });
+</script>
+<!-- TOP 버튼 끝 -->
 </html>
 <%@include file="footer.jsp" %>

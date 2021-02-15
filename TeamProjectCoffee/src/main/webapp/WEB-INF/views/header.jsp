@@ -10,6 +10,10 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
+<!-- 파비콘 -->
+<link rel="shortcut icon" href="/resources/Logo/bean.ico" type="image/x-icon">
+<link rel="icon" href="/resources/Logo/img/bean.ico" type="image/x-icon">
+
     <title>Business Casual - Start Bootstrap Theme</title>
 
 	<!-- Bootstrap CDN -->
@@ -29,14 +33,14 @@
     <div id="wrapper">
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+             <div class="navbar-header">
+           <!--     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
-                <a href="/">Logo</a>
+                </button> -->
+                <a href="/"><img src="/resources/Logo/blackbeanlogo4.jpg" style="width:200px; hieght:100px;"></a>
             </div>
             <!-- /.navbar-header -->
 
@@ -78,7 +82,6 @@
       			<ul class="sub">
       				<li><a href="/about">about us</a></li>
       				<li><a href="/coffeeStory">coffee story</a></li>
-      				<li><a href="#">recipe</a></li>
       			</ul>
       		</li>
       		<li class="toggle"><a href="/product/productList">상품</a>
@@ -90,7 +93,7 @@
       		</li>
       		<li class="toggle"><a href="/store/list">매장</a>
       		</li>
-      		<li class="toggle"><a href="/news/news">소식</a>
+      		<li class="toggle"><a href="/news/clientnews">소식</a>
       			<ul class="sub">
       				<li><a href="#">공지사항</a></li>
       				<li><a href="#">이벤트</a></li>
