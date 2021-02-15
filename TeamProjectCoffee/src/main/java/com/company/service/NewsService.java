@@ -14,6 +14,6 @@ public interface NewsService {
 	public void updateNews(NewsVO news);
 
 	// 게시글 조회 - 전체/단일
-	public List<NewsVO> newsList();
+	public List<NewsVO> listNews();
 	public NewsVO detailNews(int newsno);
 }
