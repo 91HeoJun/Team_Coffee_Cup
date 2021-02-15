@@ -5,10 +5,6 @@
 	font-size: 0.9em;
 }
 
-.storemenu.activated{
-	background-color: #cff1fc;
-}
-
 .container{
 	display:block;
 	justify-content: space-around;
@@ -20,4 +16,42 @@ section{
 
 .row{
 	width: 80%;
+}
+
+/* Side Bar */
+.wrapper{
+	display:flex;
+	text-decoration: none;
+	transition: all 0.3s;
+}
+
+#sidebar {
+  min-width: 200px;
+  max-width: 200px;
+  background: #d8a7d7;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+#sidebar li{
+	background: #d8a7d7;
+	padding: 10px;
+ 	font-size: 1.1em;
+ 	display: block;
+}
+
+#sidebarCollapse{
+	background: #d8a7d7;
+	boarder: 0;
+	outline: 0;
+}
+
+
+
+#sidebar ul li:hover {
+  background: #fff;
+}
+
+#sidebar .activated{
+	background-color: #e9cde8;
 }
