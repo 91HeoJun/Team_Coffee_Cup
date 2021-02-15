@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+	
+	<!-- DB 정보를 담을 객체 -->
+	<bean id="userDetail" class="com.company.service.CustomUserDetailService" />
+	
+	
+	<!-- 패스워드 인코더 -->
+	<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+	
+	<!-- 로그인 성공 시 동작하는 핸들러 객체 생성 -->
+	<bean id="customLoginHandler" class="com.company.handler.CustomLoginSuccessHandler" />
+	
+	<!-- board/list는 시큐리티를 적용하지 않음 -->
+	<!-- <security:http pattern="/board/list" security="none"/> -->
+	
+	<!-- http로 들어오는 요청에 대해 접근통제를 위한 필터 기록 -->
+	<security:http>
+		<!-- <security:intercept-url pattern="/board/*" access="hasAnyRole('ROLE_MEMBER', 'ROLE_MANAGER', 'ROLE_ADMIN')"/> -->
+		
+		<!-- 권한이 없는 사용자가 접근이 제한된 URI에 접근하는 경우 동작 
+			default 상태 : 403 페이지를 보여줌, 관리자가 원하는 페이지로 이동하기 -->
+		<security:access-denied-handler error-page="/accessError"/>
+		
+		<!-- 사용자가 원하는 로그인 폼을 띄우기 위헤 login-page 옵션 사용 -->
+		<security:form-login login-page="/member/login" authentication-success-handler-ref="customLoginHandler"/>
+		
+		<!-- 시큐리티가 제공하는 기본 로그아웃 : 성공하면 로그인 페이지로 이동되고 logout 파라미터 따라감 -->
+		<!-- <security:logout/> -->
+		<security:logout logout-url="/member/logout" invalidate-session="true" logout-success-url="/" delete-cookies="remember-me, JSESSION_ID" />
+		
+		<!-- Remember Me -->
+		<security:remember-me data-source-ref="ds" token-validity-seconds="604800"/>
+		
+	</security:http>
+	
+	<!-- 인증을 어떤 방식으로 할 것인지 기록 -->
+	<security:authentication-manager>
+      <security:authentication-provider user-service-ref="userDetail">
+	         <security:password-encoder ref="bcryptPasswordEncoder"/>
+	      </security:authentication-provider>
+	   </security:authentication-manager>
+
+</beans>

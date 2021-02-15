@@ -104,7 +104,7 @@
 	</form>
 
 <!-- Modal 추가 -->
-	<div class="modal" tabindex="-1" id="myModal">
+<!-- 	<div class="modal" tabindex="-1" id="myModal">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	      <div class="modal-header">
@@ -121,7 +121,7 @@
 	      </div>
 	    </div>
 	  </div>
-	</div>
+	</div> -->
 
 
 
