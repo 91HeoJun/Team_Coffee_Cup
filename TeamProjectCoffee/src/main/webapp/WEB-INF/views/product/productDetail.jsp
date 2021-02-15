@@ -50,12 +50,12 @@
                 				</div> 
                 					<button type="button" class="btn btn-outline-primary" id="order">구매하기</button>
                 					<button type="button" class="btn btn-outline-primary"  id="addcart">장바구니</button>
-                					<sec:authentication property="principal" var="info"/>
+                					<%-- <sec:authentication property="principal" var="info"/>
                 					<sec:authorize access="isAuthenticated()">
-	                					<c:if test="${info.username == 'admin'}">
+	                					<c:if test="${info.username == 'admin'}"> --%>
 		                					<button type="button" class="btn btn-default" id="modify">Modify</button>
-		                				</c:if>
-	                				</sec:authorize>
+		                			<%-- 	</c:if>
+	                				</sec:authorize> --%>
 	                			 	<button type="button" class="btn btn-info" id="list">List</button>          			
                 			</form>
                 		</div>

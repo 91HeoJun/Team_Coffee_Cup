@@ -4,11 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.company.domain.Criteria;
 import com.company.domain.FileAttach;
+import com.company.domain.ProductFileAttach;
 import com.company.domain.ProductVO;
-import com.company.mapper.BoardAttachMapper;
 import com.company.mapper.ProductAttachMapper;
 import com.company.mapper.ProductMapper;
 
@@ -22,7 +23,7 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private ProductAttachMapper attachMapper;
 
-	
+	@Transactional
 	@Override
 	public boolean insertProduct(ProductVO product) {
 			
@@ -64,7 +65,8 @@ public class ProductServiceImpl implements ProductService {
 
 		return result;
 	}
-
+	
+	@Transactional
 	@Override
 	public boolean removeProduct(int pcode) {
 		
@@ -88,7 +90,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<FileAttach> AttachList(int pcode) {
+	public List<ProductFileAttach> AttachList(int pcode) {
 		return productmapper.attachList(pcode);
 	}
 

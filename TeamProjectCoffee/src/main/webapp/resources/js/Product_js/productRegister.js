@@ -87,7 +87,7 @@ $(function() {
 				str+="<li style='list-style-type : none' data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"' ";
 				str+="data-filename='"+obj.fileName+"' data-type='"+obj.fileType+"'>";
 				//str+="<a href=\"javascript:showImage(\'"+originPath+"\')\">";
-				str+="<img src='/boardAttach/upload/boardDisplay?fileName="+fileCallPath+"'><div>"+obj.fileName+"";
+				str+="<img src='/productAttach/upload/productDisplay?fileName="+fileCallPath+"'><div>"+obj.fileName+"";
 				str+="<button type='button' style='font-size:0.5em; color:white; padding:0px' class='btn btn-warning btn-circle' data-file='";
 				str+=fileCallPath+"' data-type='image'>";
 				str+="삭제";
@@ -98,7 +98,7 @@ $(function() {
 				var fileCallPath = encodeURIComponent(obj.uploadPath+"\\"+obj.uuid+"_"+obj.fileName);
 				str+="<li style='list-style-type : none' data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"' ";
 				str+="data-filename='"+obj.fileName+"' data-type='"+obj.fileType+"'>";
-				str+="<a href='/boardAttach/upload/boardDownload?fileName="+fileCallPath+"'>";
+				str+="<a href='/productAttach/upload/productDownload?fileName="+fileCallPath+"'>";
 				str+="<img src='/resources/img/file.jpg'><div>"+obj.fileName+"</a>";
 				str+="<button type='button' style='font-size:0.5em; color:white; padding:0px' data-file='";
 				str+=fileCallPath+"' data-type='file'>";
@@ -121,7 +121,7 @@ $(function() {
 
 		// 화면 목록에서 제거 / 서버 폴더에서 제거
 		$.ajax({
-			url: '/boardAttach/upload/boardDeleteFile',
+			url: '/productAttach/upload/productDeleteFile',
 			type: 'post',
 			data: {
 				fileName: targetFile,
