@@ -4,12 +4,12 @@
 
 $(function() {
 	
-	checkModal(result);
+	//checkModal(result);
 	
 	// history 재지정
 	history.replaceState({}, null, null);
 	
-	// 작성완료 모달
+/*	// 작성완료 모달
 	function checkModal(result) {
 		if(result == '' || history.state) {
 			return;
@@ -20,7 +20,7 @@ $(function() {
 		}
 		
 		$("#myModal").modal("show");
-	}
+	}*/
 	
 	// 페이지 이동시 사용할 폼
 	var actionForm = $("#actionForm");
