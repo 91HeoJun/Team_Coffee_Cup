@@ -37,7 +37,7 @@ public class MyPageController {
 	}
 	//로그인 정보(아이디, 비밀번호)를 가져오는 컨트롤러
 	@PostMapping("/signin")
-	public String loginPost(LoginVO login, HttpSession session) {
+	public String loginPost(LoginVO login, HttpSession session, RedirectAttributes rttr) {
 		log.info("===로그인 페이지 요청..."+login);
 		
 		AuthVO auth=service.isLogin(login); //LoginVO AuthVO에 담기
@@ -48,13 +48,21 @@ public class MyPageController {
 			session.setAttribute("regist", regist);
 			return "redirect:/mypage/myPageGo";
 		}else { //userid,password가 틀려서 로그인을 못한경우
+			rttr.addFlashAttribute("error","입력한 정보가 일치 하지 않습니다.\n 다시 시도해주세요.");	
 			return "redirect:signin";
 		}
 	}
 	
 	@GetMapping("/myPageGo")
-	public void myPageGo() {
-		log.info("===마이페이지 요청");
+	public String myPageGo(HttpSession session) {
+		log.info("===마이페이지 요청...");
+
+		RegisterVO regist =(RegisterVO) session.getAttribute("regist");
+		if(regist!=null) { //로그인 정보가 있을경우 마이페이지 메인
+			return "/mypage/myPageGo";
+		}else { //로그인 정보가 없을경우 로그인페이지로 이동
+			return "redirect:signin";
+		}
 	}
 	
 	//마이 페이지 메인 보여주기-(회원상세정보)

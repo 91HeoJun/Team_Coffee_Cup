@@ -18,6 +18,9 @@
 <html>
 <head>
 <style>
+.col-md-2{
+margin-top: 100px;
+}
 #left_bar{
 border: 2px solid;
 border-radius: 10px;
@@ -80,8 +83,6 @@ td {
 				</li>
 				<li class="nav-item"><a class="nav-link"
 					href="/mypage/userInfo">회원정보 조회</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="/mypage/changeInfo">회원정보 수정</a></li>
 				<li class="nav-item"><a class="nav-link" href="/mypage/leave">회원탈퇴</a>
 				</li>
 			</ul>
@@ -328,7 +329,7 @@ function btncheck() {
 <!-- // 포인트 지급  -->
 <script type="text/javascript">
 
-$("#_btnGetId").click(function () {   
+/* $("#_btnGetId").click(function () {   
   // alert("포인트 지급 테스트");
    
    $.ajax({
@@ -350,7 +351,30 @@ $("#_btnGetId").click(function () {
       
    });
 
-});
+}); */
+$("#_btnGetId").one("click",function () {   
+	  // alert("포인트 지급 테스트");
+	   
+	   $.ajax({
+	      type:"post",
+	      url:"/getIdCount",      
+	      data:{ userid:$("#userid").val() },
+	      async:true,
+	      success:function(msg){   
+	         
+	         if(msg== 'YES'){            
+	            alert("포인트 지급완료.");
+	         }else{
+	            alert("출석일수가 모자랍니다.");
+	         }      
+	      },
+	      error:function(){
+	         alert("error");   
+	      }      
+	      
+	   });
+
+	});
 </script>
 
 </body>
