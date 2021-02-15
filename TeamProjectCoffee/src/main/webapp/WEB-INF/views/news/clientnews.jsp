@@ -37,8 +37,8 @@
       <!-- Blog Entries Column -->
       <div class="col-md-8">
 
-        <h1 class="my-4">blackbean
-          <small>뉴스레터</small>
+        <h1 class="my-4">블랙빈 뉴스
+          <small></small>
         </h1>
 
         <!-- Blog Post -->
