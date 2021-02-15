@@ -9,7 +9,7 @@
 			<h2 class="page-header-detail">1:1 문의 게시판 - 문의글 작성</h2>
 		</div>
 
-		<div class="accordion" id="accordionExample">
+		<div class="" id="accordionExample">
 			<form action="/ClientBoard/register" method="post" role="form">
 				<div class="card">
 					<div class="card-header" id="headingOne">
