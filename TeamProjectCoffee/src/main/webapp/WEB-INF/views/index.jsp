@@ -9,18 +9,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
   <title>부트스트랩Carousel</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <style>
+  body{
+      z-index:-1;
+  }
 .carousel-inner > .carousel-item > img{
     overflow: hidden;
     width: 80%;
     height: 700px;
+    
+}
+#topBtn {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #fff;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 10px;
+    background-color: #555; /*버튼 색상*/
+    transition: background 0.2s;
+    cursor: pointer;
 }
 
+#topBtn:hover {
+    background-color: #f00; /*마우스 올렸을 때 버튼 색상*/
+}
   </style>
+
 </head>
 
 <body>
@@ -76,6 +101,29 @@
     <!-- 인디케이터 끝 -->
   </div>
   </div>
+  <!-- top 버튼 -->
+  <div id="topBtn">TOP</div>
 </body>
 </html>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!-- TOP 버튼 시작 -->
+<script>
+    $(document).ready(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $('#topBtn').fadeIn();
+            } else {
+                $('#topBtn').fadeOut();
+            }
+        });
+
+        $("#topBtn").click(function() {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 500);
+            return false;
+        });
+    });
+</script>
+<!-- TOP 버튼 끝 -->
 <%@ include file="footer.jsp" %>
