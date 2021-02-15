@@ -1,12 +1,6 @@
- </div>
- </div>
-        <!-- /#page-wrapper -->
-            <footer class="footer text-faded text-center py-5">
-      <div class="container">
-        <p class="m-0 small">Copyright &copy; Team Coffee Cup published Website by 2021</p>
-      </div>
-    </footer>
-    </div>
+
+<%@include file="../footer.jsp" %>
+
     <!-- /#wrapper -->
     <!-- jQuery --> 
     <script src="/resources/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -18,5 +12,3 @@
    <!-- Bootstrap core JavaScript -->
     <script src="/resources/vendor/jquery/jquery.min.js"></script>
     <script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  </body>
-</html>

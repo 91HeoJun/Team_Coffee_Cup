@@ -8,7 +8,7 @@
 		<div class="col-lg-12">
 			<h2 class="page-header-detail">1:1 문의 게시판 - 문의글 작성</h2>
 		</div>
-
+	
 		<div class="accordion" id="accordionExample">
 			<form action="/ClientBoard/register" method="post" role="form">
 				<div class="card">
@@ -55,8 +55,11 @@
 				</div>
 
 				<div class="regist-buttons">
-			    	<button type="button" class="btn btn-default" > 수정 </button>          			
-	                <button type="reset" class="btn btn-info"> 목록으로 </button>       
+			    	<!-- <button type="button" class="btn btn-default" > 수정 </button> -->
+			    	<button type="button" class="btn btn-outline-warning" > 수정 </button>   
+			    	
+	                <button type="reset" class="btn btn-outline-danger"> 목록으로 </button>
+	                <!-- <button type="reset" class="btn btn-info"> 목록으로 </button>   -->
 	            </div>
 			</form>
 			
@@ -68,81 +71,21 @@
 					<ul class="chat">			
 					<!-- 댓글 리스트 내용 -->				
 					</ul>
+					<div class="panel-footer"></div>
 				</div>
 			</div>
 			<button id="addReplyBtn" class="btn btn-outline-success">댓글 쓰기</button>
 		</div>			
 
- <%--           <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header"> 1:1문의 게시판 </h1>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>            
-            <div class="row">
-                <div class="col-lg-12">
-                	<div class="panel panel-default">
+			<!-- 이동값 히든폼 -->
+			<form action="update" id="myform">
+				<input type="hidden" name="bno" value="${selectBoard.bno}" />
+				<input type="hidden" name="pageNum" value="${cri.pageNum}" />
+				<input type="hidden" name="amount" value="${cri.amount}" />
+				<input type="hidden" name="type" value="${cri.type}" />
+				<input type="hidden" name="keyword" value="${cri.keyword}" />
+			</form>
 
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                			<form action="/ClientBoard/select" role="form">
-                				<div class="form-group">
-                					<label> 번호 </label>
-                					<input class="form-control" name="bno" readonly="readonly" value="${selectBoard.bno}">                				
-                				</div> 
-                				<div class="form-group">
-                					<label> 제목 </label>
-                					<input class="form-control" name="title" readonly="readonly" value="${selectBoard.title}">                				
-                				</div>  
-                				<div class="form-group">
-                					<label> 내용 </label>
-                					<textarea class="form-control" rows="3" name="content" readonly="readonly">${selectBoard.content}</textarea>               				
-                				</div> 
-                				<div class="form-group">
-                					<label> 작성자 </label>
-                					<input class="form-control" name="writer" readonly="readonly"  value="${selectBoard.writer}">                				
-                				</div>  
-                				<button type="button" class="btn btn-default" > 수정 </button>     			
-                				<button type="reset" class="btn btn-info"> 목록으로 </button>
-                			</form>
-                		</div>
-                	</div>
-                	
-                	첨부파일					
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="panel panel-default">
-								<div class="panel-heading"><i class="fa fas fa-file"></i> 첨부 파일</div>
-								<div class="panel-body">
-									<div class="uploadResult">
-										<ul></ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div> --%>
-                	
-             		<!-- 댓글 리스트 -->
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<i class="bi bi-chat-right-text"></i>
-									댓글
-									<button id="addReplyBtn" class="btn btn-primary btn-xs pull-right">댓글 쓰기</button>
-								</div>
-								<div class="panel-body">
-									<ul class="chat">
-									
-									<!-- 댓글 리스트 내용 -->
-									
-									</ul>
-								</div>
-								<div class="panel-footer"></div>
-							</div>
-						</div>
-					</div> <!-- 댓글 리스트 end -->
-            
 					<!-- 댓글 등록 버튼 누르면  Modal -->
 					<!-- 댓글 등록 모달 -->
 					<div class="modal" tabindex="-1" role="dialog" id="replyModal">
@@ -177,22 +120,6 @@
 					    </div>
 					  </div>
 					</div><!-- 댓글 등록 Modal end -->
-						
-                <!-- </div>
-            </div> -->
-            
-
-     		
-    
-<!-- 이동값 히든폼 -->
-<form action="update" id="myform">
-	<input type="hidden" name="bno" value="${selectBoard.bno}" />
-	<input type="hidden" name="pageNum" value="${cri.pageNum}" />
-	<input type="hidden" name="amount" value="${cri.amount}" />
-	<input type="hidden" name="type" value="${cri.type}" />
-	<input type="hidden" name="keyword" value="${cri.keyword}" />
-</form>
-
 
 <script>
 	var bnoVal = ${selectBoard.bno};
@@ -218,4 +145,4 @@
 
 <script src="/resources/js/Board_js/select.js"></script>
 <script src="/resources/js/Board_js/reply.js"></script>
-<%@include file="../footer.jsp" %>
+<%@include file="../ClientBoard/boardFooter.jsp" %>
