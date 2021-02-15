@@ -47,7 +47,7 @@
             <ul class="nav navbar-top-links navbar-right">
             	<li>
             		<c:choose>
-	            		<c:when test="$(empty sessionScope.userid)">
+	            		<c:when test="${empty sessionScope.regist}">
 	            			<a class="dropdown-toggle" href="/mypage/signin">
 		                      login
 		                    </a>  
