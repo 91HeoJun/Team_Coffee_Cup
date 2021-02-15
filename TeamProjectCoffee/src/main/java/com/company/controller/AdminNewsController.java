@@ -76,7 +76,7 @@ public class AdminNewsController {
 	public String newsList(Model model) {
 		log.info("----admin 뉴스 리스트----");
 				
-		model.addAttribute("list", newsService.newsList());
+		model.addAttribute("list", newsService.listNews());
 		return "/adminnews/list";
 	
 	}
