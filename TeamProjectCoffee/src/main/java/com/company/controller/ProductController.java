@@ -1,10 +1,14 @@
 package com.company.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.UUID;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.company.domain.BoardFileAttach;
@@ -39,12 +44,40 @@ public class ProductController {
 	}
 	
 	@PostMapping("/productRegister")
-	public String insertProduct(ProductVO product, RedirectAttributes rttr) {
-		log.info("---- 상품 입력 실행중 ... ----"+product);
+	public String insertProduct(ProductVO product,MultipartFile image, RedirectAttributes rttr,HttpServletRequest req) {
+		
+		log.info("---- 상품 입력 실행중 ... ----"+product);	
+		log.info("상품 이미지 "+image.getOriginalFilename());
+		
+		
+		//이미지 저장
+		String uploadPath=req.getServletContext().getRealPath("/resources/productimg/");
+		UUID uuid = UUID.randomUUID();
+		String uploadFileName = uuid.toString()+"_"+image.getOriginalFilename();		
+		
+		File saveFile = new File(uploadPath,uploadFileName);	
+		try {
+			image.transferTo(saveFile);
+		} catch (IllegalStateException e) {			
+			e.printStackTrace();
+		} catch (IOException e) {		
+			e.printStackTrace();
+		}
+		
 	
+		//제품 정보 및 이미지 정보 저장
+		ProductFileAttach attach=new ProductFileAttach();
+		attach.setUuid(uuid.toString());
+		attach.setFileName(image.getOriginalFilename());
+		attach.setUploadPath(uploadPath);
+		
+		product.setAttach(attach);
 		
 		if (productService.insertProduct(product)) {
-			log.info("---- 상품 코드 : " +product.getPcode()+ " 입력중 ... ----");
+			log.info("---- 상품 코드 : " +product.getPcode()+ " 입력중 ... ----");		
+			
+						
+			
 			rttr.addFlashAttribute("result", product.getPcode());
 			return "redirect:productList";
 
@@ -91,8 +124,8 @@ public class ProductController {
 		log.info("---- 상품 수정 실행중 ... ----" + product);
 		
 		// 파일 첨부 확인
-		if (product.getAttachList() != null) {
-			product.getAttachList().forEach(attach -> log.info(""+attach));
+		if (product.getAttach() != null) {
+			product.getAttach();
 		}
 				
 		productService.updateProduct(product);
@@ -110,14 +143,17 @@ public class ProductController {
 	
 	@GetMapping("/productList")
 	public void allList(Model model, Criteria cri) {
-		log.info("---- 상품 전체 리스트 가져오기 ... ----");
+		log.info("---- 상품 전체 리스트 가져오기 ... ----"+cri);
 		
 		List<ProductVO> list = productService.getProductList(cri);
+		
+		log.info("상품 정보"+list);
 		
 		int total = productService.getProductCnt(cri);
 		model.addAttribute("listProduct", list);
 		model.addAttribute("pageVO", new pageVO(cri, total));
 	}
+	
 	
 	private void fileDelete(List<ProductFileAttach> attachList) {
 		if (attachList == null || attachList.size() <= 0) {

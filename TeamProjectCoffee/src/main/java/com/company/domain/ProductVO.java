@@ -30,5 +30,5 @@ public class ProductVO {
    // private String picture_url; //상품 이미지 경로 
 	
 	//첨부파일 목록
-	private List<ProductFileAttach> attachList;
+	private ProductFileAttach attach;
 }

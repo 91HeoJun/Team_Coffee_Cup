@@ -4,7 +4,8 @@
 
 	<!-- 파일 첨부 -->
 	<insert id="insert">
-		 insert into ProductTBL_Attach values(#{uuid}, #{uploadPath}, #{fileName}, #{fileType}, #{pcode})
+		 insert into ProductTBL_Attach(uuid,uploadPath,fileName,pcode) 
+		 values(#{uuid}, #{uploadPath}, #{fileName}, #{pcode})
 	</insert>
 	
 	<!-- 파일 삭제 -->

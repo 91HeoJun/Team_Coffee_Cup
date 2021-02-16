@@ -9,14 +9,25 @@
 	crossorigin="anonymous"></script>
 
 	<!-- 상품 종류별 리스트 -->
+<div class="" style="margin-left: 5px;">
 	<div class="btn-group btn-group-toggle" data-toggle="buttons">
-	  <label class="btn btn-secondary active">
-	    <input type="radio" name="options" id="option1" checked> 싱글 오리진
+	  <label class="btn btn-secondary ${pageVO.cri.keyword==''?'active':''}">
+	    <input type="radio" name="options" id="option1" value=""> 전체
 	  </label>
-	  <label class="btn btn-secondary">
-	    <input type="radio" name="options" id="option2"> 블렌드
+	  <label class="btn btn-secondary ${pageVO.cri.keyword=='싱글 오리진'?'active':''}">
+	    <input type="radio" name="options" id="option1" value="싱글 오리진"> 싱글 오리진
 	  </label>
-	  <label class="btn btn-secondary">
-	    <input type="radio" name="options" id="option3"> 드립백
+	  <label class="btn btn-secondary ${pageVO.cri.keyword=='블렌드'?'active':''}">
+	    <input type="radio" name="options" id="option2" value="블렌드"> 블렌드
 	  </label>
-	</div>
+	  <label class="btn btn-secondary ${pageVO.cri.keyword=='드립백'?'active':''}">
+	    <input type="radio" name="options" id="option3" value="드립백"> 드립백
+	  </label>
+	 </div>
+	 <sec:authentication property="principal" var="info"/>
+	 <sec:authorize access="isAuthenticated()">
+		<c:if test="${info.username == 'admin'}">	
+			<button id='regBtn' type="button" class="btn btn-danger" onclick="location.href='productRegister'">상품 등록</button> 
+		</c:if>
+	 </sec:authorize>
+</div>

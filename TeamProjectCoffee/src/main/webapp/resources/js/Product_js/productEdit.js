@@ -3,6 +3,44 @@
  */
 
 $(function() {
+	
+	//pcode를 이용한 이미지 가져오기
+	
+	$.getJSON({
+		url:'/productAttach/upload/getAttach',
+		data: {
+			pcode:pcode
+		},
+		success:function(data){
+			console.log(data);
+			
+			var str="";
+		}
+	});
+});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	var form = $("#myform");
 	
 	$("button").click(function(e){
