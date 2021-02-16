@@ -3,10 +3,10 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!-- 추후 Header 위치 이동시 수정 필요 -->
-<%@include file="FAQHeader.jsp" %>
+<%@include file="../ClientBoard/boardHeader.jsp" %>
 
 		<div class="col-lg-12">
-			<h2 class="page-header-detail">FAQ 작성</h2>
+			<h2 class="page-header-detail">자주하는 질문 작성</h2>
 		</div>
 
 		<div class="" id="accordionExample">
@@ -45,5 +45,5 @@
 			</form>
 		</div>			
 					
-<script src="/resources/js/Board_js/register.js"></script>
-<%@include file="FAQFooter.jsp" %>
+<script src="/resources/js/FAQ_js/register.js"></script>
+<%@include file="../ClientBoard/boardFooter.jsp" %>
