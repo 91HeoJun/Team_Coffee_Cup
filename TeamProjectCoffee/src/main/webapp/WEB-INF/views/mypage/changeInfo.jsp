@@ -45,7 +45,7 @@ border-bottom: 1px solid;
 }
 .ec-base-tooltip .txtWarn {
     font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
-    color: #f65b54;
+    color: #f65b54 !important;
 }
 
 .ec-base-tooltip .btnClose {

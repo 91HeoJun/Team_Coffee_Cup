@@ -40,7 +40,7 @@
 	        </label>
 	      </div>
 	      <div>
-	        <p style="color: red;">${error}</p>
+	        <p style="color: red !important;">${error}</p>
 	      </div>
 	      <button class="btn btn-lg btn-primary btn-block" type="submit">
 	        로그인
