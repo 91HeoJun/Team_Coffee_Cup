@@ -82,13 +82,11 @@ li{
 }
 
 .navbar-right li{
-	display: block;
 	padding: 5px 10px 0 0;
 	position: relative;
 }
 
 .nav-toggle{
-	display: block;
 	margin-left: 10px;	
 }
 

@@ -11,6 +11,21 @@ CREATE TABLE BoardTBL (
 	CONSTRAINT BoardTBL_PK PRIMARY KEY (bno)
 );
 
+-- FAQ를 위한 테이블
+CREATE TABLE FAQ_BoardTBL (
+	bno			NUMBER(10, 0)	NOT NULL, 
+	title		VARCHAR2(200)	NOT NULL, 
+	content		VARCHAR2(2000)	NOT NULL, 
+	writer		VARCHAR2(50)	NOT NULL, 
+	regdate		DATE			DEFAULT SYSDATE, 
+	updatedate	DATE			DEFAULT SYSDATE, 
+
+	CONSTRAINT FAQ_BoardTBL_PK PRIMARY KEY (bno)
+);
+
+-- FAQ를 위한 시퀸스
+CREATE SEQUENCE seq_FAQ START WITH 1 INCREMENT BY 1;
+
 -- replyCnt 기본값 0처리
 alter table BoardTBL modify replyCnt default 0;
 -- 게시글 상태확인용
@@ -49,6 +64,10 @@ CREATE TABLE BoardTBL_Reply (
     updateDate	DATE DEFAULT SYSDATE, 
     CONSTRAINT BoardTBL_Reply_FK FOREIGN KEY(bno) REFERENCES BoardTBL(bno)
 );
+
+alter table boardtbl_reply drop constraint BoardTBL_Reply_FK;
+
+alter table boardtbl_reply add constraint BoardTBL_Reply_FK FOREIGN KEY(bno) REFERENCES BoardTBL(bno) on delete cascade;
 
 -- 1:1 게시판 댓글의 글번호를 위한 시퀸스
 create sequence seq_reply;

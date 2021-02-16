@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.mapper.FAQMapper">
+
+	<!-- FAQ 게시판 | 허 준 -->
+	<!-- CRUD -->
+	<insert id="insert">
+		<selectKey keyProperty="bno" order="BEFORE" resultType="int">
+			select seq_FAQ.nextval from dual
+		</selectKey>
+			insert into FAQ_BoardTBL(bno, title, content, writer, regdate, updatedate) 
+			values(#{bno}, #{title}, #{content}, #{writer}, sysdate, sysdate)
+	</insert>
+
+	<delete id="delete">
+		delete from FAQ_BoardTBL where bno = #{bno}
+	</delete>
+
+	<update id="update">
+		update FAQ_BoardTBL set title = #{title}, content = #{content}, updatedate = sysdate where bno = #{bno}
+	</update>
+
+	<!-- 전체 조회 -->
+	<select id="list" resultType="com.company.domain.BoardVO">		
+		<![CDATA[
+			select *
+			from(select /*+INDEX_DESC(FAQ_BoardTBL FAQ_BoardTBL_PK) */ 
+				rownum rn, bno, title, writer, regdate, updatedate 
+				from FAQ_BoardTBL
+				where
+		]]>
+			<include refid="criteria"></include>
+		<![CDATA[
+				rownum <= (#{pageNum} * #{amount}))
+				where rn > (#{pageNum} - 1) * #{amount}
+		]]>
+	</select>
+	
+	<!-- 특정 조회 -->
+	<select id="select" resultType="com.company.domain.BoardVO">
+		select * from FAQ_BoardTBL where bno = #{bno}
+	</select>
+		
+	<!-- 전체 게시물 수 -->
+ 	<select id="totalCnt" resultType="int">
+		select count(*) from FAQ_BoardTBL where <include refid="criteria"></include> bno > 0
+	</select>
+
+	<!-- 동적 SQL -->
+	<sql id="criteria">
+		<trim prefix="(" suffix=") AND" prefixOverrides="OR">
+			<foreach collection="typeArr" item="type">
+				<trim prefix="OR">
+					<choose>
+						<when test="type=='T'.toString()">
+							title like '%'||#{keyword}||'%'
+						</when>
+						<when test="type=='C'.toString()">
+							content like '%'||#{keyword}||'%'
+						</when>
+						<when test="type=='W'.toString()">
+							writer like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+
+
+</mapper>
