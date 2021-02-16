@@ -51,4 +51,12 @@
     </form>
   </body>
 </html>
+<script>
+$(function(){
+	var error ='${error}';
+	if(error!=''){
+		alert(error);
+	}
+})
+</script>
 <%@include file="../footer.jsp" %>

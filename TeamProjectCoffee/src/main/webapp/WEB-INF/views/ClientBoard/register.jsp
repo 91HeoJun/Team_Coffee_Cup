@@ -158,4 +158,4 @@
 					</div> -->				
 					
 <script src="/resources/js/Board_js/register.js"></script>
-<%@include file="../footer.jsp" %>
+<%@include file="../ClientBoard/boardFooter.jsp" %>

@@ -8,6 +8,9 @@
 <html>
 <meta charset="UTF-8">
 <style>
+.container{
+margin-top: 100px;
+}
 #left_bar{
 border: 2px solid;
 border-radius: 10px;
@@ -15,12 +18,9 @@ border-radius: 10px;
 #left_bar > li{
 border-bottom: 1px solid;
 }
+
 </style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<div></br></div>
-<div></br></div>
-<div></br></div>
-<div></br></div>
 
 <div class="container">
 	<div class="row">
@@ -32,21 +32,19 @@ border-bottom: 1px solid;
 				</li>
 				<li class="nav-item"><a class="nav-link"
 					href="/mypage/userInfo">회원정보 조회</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="/mypage/changeInfo">회원정보 변경</a></li>
 				<li class="nav-item"><a class="nav-link" href="/mypage/leave">회원탈퇴</a>
 				</li>
 			</ul>
 		</div>
 		<div class="col-3 col-md-9">
-			<form id="mypageGO" action="">
+			<form id="myPageGO" action="">
 
 				<div class="form-group row justify-content-center">
-					</br>
-					<h1>********* ${regist.name}님 반갑습니다.*********</h1>
+
+					<h1>*** ${regist.name}님 반갑습니다.***</h1>
 				</div>
 				<div>
-					</br>
+
 				</div>
 
 
@@ -69,7 +67,7 @@ border-bottom: 1px solid;
 				</div>
 				<div class="form-group text-center">
 					<button type="button" class="btn btn-primary"
-						onclick="location.href='/mypage/changeInfo'">회원 정보 수정하기</button>
+						onclick="location.href='/mypage/changeInfo'" style="background-color: #9999cc;">회원 정보 수정하기</button>
 					<!-- 	<button type="submit" class="btn btn-danger" onclick="location.href='/mypage/leave'">탈퇴하기</button>	 -->
 				</div>
 			</form>

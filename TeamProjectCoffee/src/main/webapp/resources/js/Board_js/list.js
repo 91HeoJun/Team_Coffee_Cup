@@ -45,7 +45,7 @@ $(function() {
 	})
 	
 	// 글 개수 반영
-	$(".form-control").change(function(){
+	$(".amount-form-control").change(function(){
 		actionForm.find("input[name='amount']").val($(this).val());
 		
 		actionForm.submit();

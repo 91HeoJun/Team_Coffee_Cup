@@ -26,8 +26,6 @@ border-bottom: 1px solid;
 				</li>
 				<li class="nav-item"><a class="nav-link"
 					href="/mypage/userInfo">회원정보 조회</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="/mypage/changeInfo">회원정보 변경</a></li>
 				<li class="nav-item"><a class="nav-link" href="/mypage/leave">회원탈퇴</a>
 				</li>
 			</ul>
