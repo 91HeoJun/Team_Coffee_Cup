@@ -68,7 +68,9 @@
 					<div class="panel-footer"></div>
 				</div>
 			</div>
-			<button id="addReplyBtn" class="btn btn-outline-dark">댓글 쓰기</button>
+			<div class="reply-button">
+				<button id="addReplyBtn" class="btn btn-outline-dark">댓글 쓰기</button>
+			</div>
 		</div>			
 
 			<!-- 이동값 히든폼 -->
@@ -89,7 +91,7 @@
 					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					          <span aria-hidden="true">&times;</span>
 					        </button>
-					        <h5 class="modal-title">Reply</h5>
+					        <h5 class="modal-title">댓글 입력</h5>
 					      </div>
 					      <div class="modal-body">
 					        <div class="form-group">

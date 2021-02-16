@@ -114,6 +114,10 @@
 	font-weight: bold;
 }
 
+.reply-button{
+	text-align: right;
+}
+
 .attach-position {
 	float: none;
 	margin: auto;

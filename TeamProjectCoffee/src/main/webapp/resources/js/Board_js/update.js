@@ -75,7 +75,7 @@ $(function() {
 						str+= "</button>";
 						str+= "</div></li>";
 						
-					} else {						
+					} else {
 
 						str+= "<li data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"' data-filename='"+obj.fileName+"' data-type='"+obj.fileType+"'>";
         				str+= "<img src='/resources/img/file.jpg'><div>"+obj.fileName+"</a>";
