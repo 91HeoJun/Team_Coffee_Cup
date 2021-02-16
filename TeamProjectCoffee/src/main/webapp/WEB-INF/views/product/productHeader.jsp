@@ -8,7 +8,7 @@
 	integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
 	crossorigin="anonymous"></script>
 
-	<!-- 상품 종류별 리스트 -->
+<!-- 상품 종류별 리스트 -->
 <div class="" style="margin-left: 5px;">
 	<div class="btn-group btn-group-toggle" data-toggle="buttons">
 	  <label class="btn btn-secondary ${pageVO.cri.keyword==''?'active':''}">
