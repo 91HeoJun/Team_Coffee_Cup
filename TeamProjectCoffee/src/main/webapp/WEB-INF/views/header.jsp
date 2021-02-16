@@ -84,14 +84,14 @@
       		</li>
       		<li class="toggle"><a href="/news/clientnews">소식</a>
       			<ul class="sub">
-      				<li><a href="#">공지사항</a></li>
-      				<li><a href="#">이벤트</a></li>
+      				<li><a href="/adminnews">공지사항</a></li>
+      				<li><a href="/news/clientnews">이벤트</a></li>
       			</ul>
       		</li>
       		<li class="toggle"><a href="/ClientBoard/list">고객</a>
       			<ul class="sub">
       				<li><a href="#">FAQ</a></li>
-      				<li><a href="#">1:1</a></li>
+      				<li><a href="/ClientBoard/list">1:1</a></li>
       			</ul>
       		</li>
       	</ul>
