@@ -24,7 +24,7 @@ body {
 .carousel-inner>.carousel-item>img {
 	overflow: hidden;
 	width: 80%;
-	height: 500px;
+	height: 600px;
 }
 
 #topBtn {
@@ -58,7 +58,20 @@ body {
 .btn-primary:hover{
 	background-color: #9999dd; !important;
 }
-
+ul.mov-ar1{
+text-align:center;
+}
+ul.mov-ar1 > li{
+display:inline-block;
+margin : 0 100px 0 0;
+}
+ul.mov-ar2{
+text-align:center;
+}
+ul.mov-ar2 > li{
+display:inline-block;
+margin : 0 100px 0 0;
+}
 </style>
 </head>
 <body>
@@ -73,6 +86,8 @@ body {
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
+		<!-- <script src="http://caffebene.com/common/js/imagesloaded.pkgd.js"></script> -->
+<script src="http://caffebene.com/common/js/imagesloaded.pkgd.min.js"></script>
 	<script>
 		$('.carousel').carousel({
 			interval : 1000
@@ -129,6 +144,17 @@ body {
 		<a class="btn btn-primary btn-lg" href="/about" role="button" >Our Story</a>
 	</div>
 		<!-- 점보트론 끝 -->
+		<!-- 이미지 이거나 동영상 -->
+			<div class="mov-ar">
+					<ul class="mov-ar1">
+					<li><img src="/resources/img/espreso1.gif" alt="배너1"></li>
+					<li><img src="/resources/img/hotlatte.gif" alt="배너2"></li>
+					</ul>
+					<ul class="mov-ar2">
+					<li><img src="/resources/img/coldbrew.gif" alt="배너3"></li>
+					<li><img src="/resources/img/icelatte.gif" alt="배너4"></li>
+					</ul>														
+			</div>
 	<!-- top 버튼 -->
 	<div id="topBtn">TOP</div>
 </body>
