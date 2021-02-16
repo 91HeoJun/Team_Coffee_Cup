@@ -50,6 +50,10 @@ CREATE TABLE BoardTBL_Reply (
     CONSTRAINT BoardTBL_Reply_FK FOREIGN KEY(bno) REFERENCES BoardTBL(bno)
 );
 
+alter table boardtbl_reply drop constraint BoardTBL_Reply_FK;
+
+alter table boardtbl_reply add constraint BoardTBL_Reply_FK FOREIGN KEY(bno) REFERENCES BoardTBL(bno) on delete cascade;
+
 -- 1:1 게시판 댓글의 글번호를 위한 시퀸스
 create sequence seq_reply;
 
