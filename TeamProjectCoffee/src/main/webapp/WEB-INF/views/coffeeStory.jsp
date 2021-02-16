@@ -47,18 +47,18 @@ ul.tabs li.current{
     right: 10px;
     width: 50px;
     height: 50px;
-    border: 1px solid #fff;
-    color: #fff;
+    border: 1px solid #9999cc;
+    color: #9999cc;
     text-align: center;
     line-height: 50px;
     border-radius: 10px;
-    background-color: #555; /*버튼 색상*/
+    background-color: #9999cc; /*버튼 색상*/
     transition: background 0.2s;
     cursor: pointer;
 }
 
 #topBtn:hover {
-    background-color: #f00; /*마우스 올렸을 때 버튼 색상*/
+    background-color: #9999dd; /*마우스 올렸을 때 버튼 색상*/
 }
 </style>
 </head>

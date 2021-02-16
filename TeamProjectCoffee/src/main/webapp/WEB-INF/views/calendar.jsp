@@ -63,6 +63,26 @@ td {
   padding: 0;
   vertical-align: top;
 }
+#topBtn {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #9999cc;
+    color: #9999cc;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 10px;
+    background-color: #9999cc; /*버튼 색상*/
+    transition: background 0.2s;
+    cursor: pointer;
+}
+
+#topBtn:hover {
+    background-color: #9999dd; /*마우스 올렸을 때 버튼 색상*/
+}
 </style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -316,7 +336,8 @@ int tmin = cal.get(Calendar.MINUTE);
 </div>
 </div>
 </div>
-
+ <!-- top 버튼 -->
+  <div id="topBtn">TOP</div>
 <script type="text/javascript">
 function btncheck() {
 	
@@ -328,8 +349,7 @@ function btncheck() {
 
 <!-- // 포인트 지급  -->
 <script type="text/javascript">
-
-/* $("#_btnGetId").click(function () {   
+ $("#_btnGetId").click(function () {   
   // alert("포인트 지급 테스트");
    
    $.ajax({
@@ -351,32 +371,28 @@ function btncheck() {
       
    });
 
-}); */
-$("#_btnGetId").one("click",function () {   
-	  // alert("포인트 지급 테스트");
-	   
-	   $.ajax({
-	      type:"post",
-	      url:"/getIdCount",      
-	      data:{ userid:$("#userid").val() },
-	      async:true,
-	      success:function(msg){   
-	         
-	         if(msg== 'YES'){            
-	            alert("포인트 지급완료.");
-	         }else{
-	            alert("출석일수가 모자랍니다.");
-	         }      
-	      },
-	      error:function(){
-	         alert("error");   
-	      }      
-	      
-	   });
-
-	});
+});
 </script>
+<!-- TOP 버튼 시작 -->
+<script>
+    $(document).ready(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $('#topBtn').fadeIn();
+            } else {
+                $('#topBtn').fadeOut();
+            }
+        });
 
+        $("#topBtn").click(function() {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 500);
+            return false;
+        });
+    });
+</script>
+<!-- TOP 버튼 끝 -->
 </body>
 </html>
 <%@ include file="footer.jsp" %>

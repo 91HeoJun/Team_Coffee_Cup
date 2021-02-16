@@ -169,18 +169,18 @@ p {
     right: 10px;
     width: 50px;
     height: 50px;
-    border: 1px solid #fff;
-    color: #fff;
+    border: 1px solid #9999cc;
+    color: #9999cc;
     text-align: center;
     line-height: 50px;
     border-radius: 10px;
-    background-color: #555; /*버튼 색상*/
+    background-color: #9999cc; /*버튼 색상*/
     transition: background 0.2s;
     cursor: pointer;
 }
 
 #topBtn:hover {
-    background-color: #f00; /*마우스 올렸을 때 버튼 색상*/
+    background-color: #9999dd; /*마우스 올렸을 때 버튼 색상*/
 }
 </style>
 </head>
@@ -218,7 +218,7 @@ p {
                 /></span>
                 <div>
                 <div>
-                <p class="notoserif">
+                <p class="notoserif" style="color:#FFFFFF !important;">
                   우리가 완성하려는 한 잔의 커피<br />
                   우리가 완성하려는 한 조각의 빵<br />
                   우리가 완성하려는 한 그릇의 음식
@@ -237,8 +237,8 @@ p {
                     ><img src="/resources/aboutimg/about_img03.jpg" class="w100" alt=""
                   /></span>
                   <div>
-                  <p style="color:#FFFFFF;">
-                    저희는 공간의 미학과 식음(食飮) 문화의 융합을 바탕으로
+                  <p style="color:#FFFFFF !important;text-align: center;">
+                    저희는 공간의 미학과 식음(食飮) 문화의 융합을 바탕으로<br>
                     새로운 가치와 문화를 만들어 가는 회사입니다.
                   </p>
                   </div>
