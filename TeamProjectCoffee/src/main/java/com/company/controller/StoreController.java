@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -55,6 +56,7 @@ public class StoreController {
 		return new ResponseEntity<StoreVO>(service.getRow(code), HttpStatus.OK);
 	}
 
+	/* @Secured("ROLE_ADMIN") */
 	@GetMapping("/admin")
 	public String storeAdminPage(Model model) {
 		log.info("매장 관리 페이지 요청");

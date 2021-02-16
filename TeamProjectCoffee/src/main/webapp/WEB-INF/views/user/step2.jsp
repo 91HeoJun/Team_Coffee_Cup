@@ -49,6 +49,8 @@
 <label id="textarea1" style="font-size:16px;">
 <input type="checkbox" id="agree" name="agree" value="true"> 약관동의
 </label>
+<!-- security : 이대우 -->
+      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 <input type="submit" class="btn btn-primary btn-sm" value="다음단계">
 </form>	
 </div>

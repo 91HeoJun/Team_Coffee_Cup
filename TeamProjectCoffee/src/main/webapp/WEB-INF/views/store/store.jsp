@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <%@ include file="../header.jsp"%>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
@@ -34,8 +34,11 @@
 				<%-- <c:forEach var="store" items="${list}" varStatus="status">
 							<li data-code="${store.code}" class="list-group-item" id="list${status.count}">${store.name}</li>
 						</c:forEach> --%>
+				<sec:authentication property="principal" var="info"/>
+				<sec:authorize access="hasRole('ROLE_ADMIN')">
 				<button type="button" style="margin-top: 10px"
 					onclick="location.href='/store/admin'">매장 관리</button>
+				</sec:authorize>
 			</ul>
 		</nav>
 

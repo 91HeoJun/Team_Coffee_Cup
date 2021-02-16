@@ -61,13 +61,13 @@
 
    <!-- 시큐리티 추가내용 임시 어노테이션 처리 - 20210215 허준 -->
 	<!-- 시큐리티 필터 -->
-<!-- 	<filter>
+	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping> -->
+	</filter-mapping>
 
 </web-app>

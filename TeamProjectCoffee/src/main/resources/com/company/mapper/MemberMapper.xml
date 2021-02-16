@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.company.mapper.MemberMapper">
+<!-- ResultSet에 담긴 데이터를 객체에 로드 -->
+<resultMap type="com.company.domain.AuthVO" id="authMap">
+	<result property="userid" column="userid"/>
+	<result property="auth" column="auth"/>
+</resultMap>
 
+<resultMap type="com.company.domain.MemberVO" id="memberMap">
+	<id property="userid" column="userid"/>
+	<result property="userid" column="userid"/>
+	<result property="userpw" column="password"/>
+	<result property="userName" column="name"/>	
+	<collection property="authList" resultMap="authMap"/>
+</resultMap>
 
+<select id="read" resultMap="memberMap">
+	select mem.userid, password, name, auth
+	from userTBL mem left outer join userTBL_auth auth
+	on mem.userid = auth.userid
+	where mem.userid=#{userid}
+</select>
 
 </mapper>

@@ -3,11 +3,11 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!-- 추후 Header 위치 이동시 수정 필요 -->
-<%@include file="boardHeader.jsp" %>
+<%@include file="../ClientBoard/boardHeader.jsp" %>
 
 
  		<div class="col-lg-12">
-			<h2 class="page-header-detail">1:1 문의 게시판 - 문의글 수정</h2>
+			<h2 class="page-header-detail">자주하는 질문</h2>
 		
 			<div class="regist-buttons">
                 <button type="submit" data-oper='update' class="btn btn-outline-dark">수정하기</button>              			
@@ -44,21 +44,7 @@
 					</div>
 				</div>
 			</form>
-				
-				<div class="card">
-					<div class="card-header" id="headingOne">
-						<p class="mb-0"> 파일 첨부 </p>
-					</div>
-						
-					<div class="card-body">
-						<div class="form-group uploadDiv">
-							<input type="file" name="uploadFile" id="" />
-						</div>
-						<div class="uploadResult">
-							<ul class="attach-position"></ul>
-						</div>
-					</div>
-				</div>
+
 		</div>
 
 <!-- 페이지 나누기를 위한 세팅값 -->
@@ -71,5 +57,5 @@
 </form>
 
 <script> let bnoVal = ${selectBoard.bno}; </script>
-<script src="/resources/js/Board_js/update.js"></script>
+<script src="/resources/js/FAQ_js/update.js"></script>
 <%@include file="../ClientBoard/boardFooter.jsp" %>
