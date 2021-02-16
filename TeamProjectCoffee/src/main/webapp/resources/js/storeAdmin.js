@@ -75,9 +75,11 @@ $(function(){
 		console.log("code : "+code);
 		
 		var inputFile=$(this);
+		console.log(inputFile);
 		
 		//첨부파일 목록
 		var files = inputFile[0].files;
+		console.log(files);
 		
 		//ajax로 서버에 첨부파일 목록을 보내줌 : <form>~</form>을 대체
 		var formData = new FormData();

@@ -36,7 +36,7 @@ public class MyPageController {
 		log.info("===login 페이지 요청");
 	}
 	//로그인 정보(아이디, 비밀번호)를 가져오는 컨트롤러
-	@PostMapping("/signin")
+	//@PostMapping("/signin")
 	public String loginPost(LoginVO login, HttpSession session, RedirectAttributes rttr) {
 		log.info("===로그인 페이지 요청..."+login);
 		

@@ -2,6 +2,8 @@ package com.company.controller;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -76,6 +78,18 @@ public class UserController {
 		public String signin(@ModelAttribute("regist")RegisterVO regist) {
 			log.info("회원가입 요청"+regist);
 			
+//			if(service.register(regist)) {
+//				log.info("회원가입 완료");
+//				return "/user/step3";
+//			}else {
+//				log.info("회원가입 실패");
+//				return "/user/register";
+//			}
+			//security 적용
+			BCryptPasswordEncoder encorder = new BCryptPasswordEncoder();
+			String password_encoded = encorder.encode(regist.getPassword());
+			log.info("비밀번호 인코딩 : "+password_encoded);
+			regist.setPassword(password_encoded);
 			if(service.register(regist)) {
 				log.info("회원가입 완료");
 				return "/user/step3";

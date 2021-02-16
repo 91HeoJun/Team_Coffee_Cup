@@ -12,6 +12,9 @@ CREATE TABLE UserTBL (
 	CONSTRAINT UserTBL_PK PRIMARY KEY (userid)
 );
 
+--UserTBL 컬럼 수정 : password varchar2(20->60)
+alter table userTBL modify(password VARCHAR2(60));
+
 select * from USERTBL;
 -- 1:1 게시판을 위한 BoarTBL
 CREATE TABLE BoardTBL (

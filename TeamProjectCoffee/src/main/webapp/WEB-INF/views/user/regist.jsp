@@ -113,6 +113,8 @@
           <button type="reset" class="btn btn-secondary">취소</button>
         </div>
     	</div>
+    	<!-- security : 이대우 -->
+      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
       </form>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>

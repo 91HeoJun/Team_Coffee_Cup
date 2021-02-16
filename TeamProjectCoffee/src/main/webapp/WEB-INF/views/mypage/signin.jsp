@@ -8,16 +8,17 @@
       crossorigin="anonymous"
     /> -->
     <link href="/resources/css/signin.css" rel="stylesheet" />
-    <form class="form-signin" method="post">
+    <form class="form-signin" method="post" action="/login">
 		<div class="title">
 	    	<h1 class="h3 mb-3 font-weight-normal">Login</h1>
 	    </div>
       <div class="input">
 	      <label for="inputId" class="sr-only">아이디</label>
+	      <!-- 이대우 : name : userid -> username -->
 	      <input
 	        type="text"
 	        id="inputId"
-	        name="userid"
+	        name="username"
 	        class="form-control"
 	        placeholder="아이디"
 	        required
@@ -47,6 +48,8 @@
 	      <button class="btn btn-lg btn-secondary btn-block" onclick ="location.href='/user/step1'">
 	        회원가입
 	      </button>
+	     <!-- security - 이대우 --> 
+	     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
       </div>
     </form>
   </body>
