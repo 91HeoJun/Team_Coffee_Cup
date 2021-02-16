@@ -88,9 +88,9 @@
       				<li><a href="/news/clientnews">이벤트</a></li>
       			</ul>
       		</li>
-      		<li class="toggle"><a href="/ClientBoard/list">고객</a>
+      		<li class="toggle"><a href="/FAQ/list">고객</a>
       			<ul class="sub">
-      				<li><a href="#">FAQ</a></li>
+      				<li><a href="/FAQ/list">FAQ</a></li>
       				<li><a href="/ClientBoard/list">1:1</a></li>
       			</ul>
       		</li>

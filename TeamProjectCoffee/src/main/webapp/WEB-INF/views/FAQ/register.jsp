@@ -13,7 +13,7 @@
 			<form action="/FAQ/register" method="post" role="form">
 				<div class="card">
 					<div class="card-header" id="headingOne">
-						<p class="mb-0">글 제목</p>
+						<p class="mb-0">자주하는 질문 내용</p>
 					</div>
 					<div class="card-body">
 						<input class="form-control" name="title"> 
@@ -22,7 +22,7 @@
 			  
 				<div class="card">
 					<div class="card-header" id="headingTwo">
-						<p class="mb-0">내용</p>
+						<p class="mb-0">질문 답변</p>
 					</div>
 					<div class="card-body">
 						<textarea class="form-control" rows="5" name="content"></textarea> 

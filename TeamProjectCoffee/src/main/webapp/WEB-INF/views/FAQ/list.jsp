@@ -84,7 +84,7 @@
 									</div>	
 								
 									<div class="col-md-8">
-										<button id='regBtn' type="button" class="btn btn-outline-dark" onclick="location.href='register'">문의글 작성</button>
+										<button id='regBtn' type="button" class="btn btn-outline-dark" onclick="location.href='register'">자주하는 질문 작성</button>
 									</div>
 	
 								</div> <!-- end search -->
