@@ -46,7 +46,7 @@ public class MyPageController {
 		if(auth!=null) {
 			session.setAttribute("auth", auth);
 			session.setAttribute("regist", regist);
-			return "redirect:/mypage/myPageGo";
+			return "redirect:/";
 		}else { //userid,password가 틀려서 로그인을 못한경우
 			rttr.addFlashAttribute("error","입력한 정보가 일치 하지 않습니다.\n 다시 시도해주세요.");	
 			return "redirect:signin";

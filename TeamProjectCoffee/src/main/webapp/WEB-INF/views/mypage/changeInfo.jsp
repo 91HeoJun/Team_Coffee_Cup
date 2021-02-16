@@ -61,7 +61,7 @@ border-bottom: 1px solid;
 	background-color: #9999cc;
 }
 .btn-primary:hover{
-	background-color: #9999dd;
+	background-color: #9999dd; !important;
 }
 
 </style>
