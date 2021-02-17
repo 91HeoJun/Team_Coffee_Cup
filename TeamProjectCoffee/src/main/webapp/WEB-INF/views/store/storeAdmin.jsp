@@ -31,10 +31,13 @@
 						    	<label for="">매장 사진</label>
 						    	<input type="file" name="pic" data-code="0" id="storePic" />
 						    </div>
+						    
 						    <div>
 						    	<button data-code="0" class="btn btn-primary" type="submit" id="addStore">입력</button>
 						    	<button class="btn" type="reset">취소</button>
 						    </div>
+						    <!-- security : 이대우 -->
+    						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					  	</form>
 					</div>
 				  	<div id="thumbnailPic0">
@@ -81,6 +84,8 @@
 									<button id="cancel${vo.code}" style="display:none" class="btn btn-warning" type="reset" onclick="location.href='/store/admin'">취소</button>
 									<button type="button" class="btn btn-danger delete" data-code="${vo.code}">삭제</button>
 								</td>
+							<!-- security : 이대우 -->
+    						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 							</form>							
 						</tr>
 					</c:forEach>
@@ -94,5 +99,10 @@
 <section class="page-section about-heading">
 	<div class="container"></div>
 </section>
+<script>
+//토큰값 생성
+var csrfHeaderName = "${_csrf.headerName}";
+var csrfTokenValue = "${_csrf.token}";
+</script>
 <script src="/resources/js/storeAdmin.js"></script>
 <%@ include file="../footer.jsp"%>

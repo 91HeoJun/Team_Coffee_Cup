@@ -31,7 +31,10 @@ public class MyPageServiceImpl implements MyPageService {
 		return mapper.updateMember(change)>0?true:false;
 	}
 
-	public RegisterVO getId(LoginVO login) {
-		return mapper.getId(login);
+	@Override
+	public RegisterVO getId(String userid) {
+		return mapper.getId(userid);
 	}
+
+	
 }

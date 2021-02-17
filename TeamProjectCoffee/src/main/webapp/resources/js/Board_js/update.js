@@ -136,6 +136,9 @@ $(function() {
 			processData: false,         //데이터를 query string 형태로 보낼 것인지. 결정(기본 application/x-www-form-urlencoded임)
 			contentType: false,        //기본값은 application/x-www-form-urlencoded(파일 첨부 이므로 multipart/form-data 로 보내야함)
 			data: formData,
+			beforeSend:function(xhr) {
+				xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+			},
 			success: function(result) {
 				console.log(result);
 				showUploadedFile(result);

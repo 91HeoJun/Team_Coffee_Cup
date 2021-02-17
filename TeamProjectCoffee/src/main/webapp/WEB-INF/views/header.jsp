@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <link rel="stylesheet" type="text/css" href="/resources/css/header.css">
 <html lang="kr">
   <head>
@@ -35,7 +36,13 @@
         <nav class="navbar-static-top" role="navigation" >
             <ul class="nav navbar-top-links navbar-right">
             	<li>
-            		<c:choose>
+            		<sec:authorize access="isAnonymous()">
+						<a class="nav-toggle" href="/mypage/signin">login</a>
+					</sec:authorize>
+					<sec:authorize access="isAuthenticated()">
+						<a class="nav-toggle" href="/user/logout">logout</a>
+					</sec:authorize>
+            		<%-- <c:choose>
 	            		<c:when test="${empty sessionScope.regist}">
 	            			<a class="nav-toggle" href="/mypage/signin">
 		                      login
@@ -47,7 +54,7 @@
 		                    	logout
 		                    </a>  
 	            		</c:otherwise>
-            		</c:choose>
+            		</c:choose> --%>
             	</li>
                 <li>
                     <a class="nav-toggle" href="/mypage/myPageGo">
@@ -96,5 +103,5 @@
       		</li>
       	</ul>
       </div>      
-   </div>
+   </div><!-- wrapper end -->
         <div id="page-wrapper">   

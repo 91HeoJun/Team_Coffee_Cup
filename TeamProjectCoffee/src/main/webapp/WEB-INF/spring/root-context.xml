@@ -17,6 +17,7 @@
 	<!-- [bean] 에서의 에러는 pom.xml 내용의 문제 -->
 
 	<context:component-scan base-package="com.company.service"/>
+	<context:component-scan base-package="com.company.handler"/>
 	<!-- @ControllerAdvice 활성화 -->
 	<context:component-scan base-package="com.company.except"/>
 	<mybatis-spring:scan base-package="com.company.mapper"/>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!-- 추후 Header 위치 이동시 수정 필요 -->
 <%@include file="../ClientBoard/boardHeader.jsp" %>
@@ -9,7 +10,12 @@
 			<h2 class="page-header-detail">자주하는 질문</h2>
 		
 			<div class="regist-buttons">
+			<sec:authentication property="principal" var="info"/>
+			<sec:authorize access="isAuthenticated()">
+				<c:if test="${info.username == selectBoard.writer}">
 			    <button type="button" class="btn btn-outline-dark" id="modify-button"> 수정 </button>
+				</c:if>    
+			</sec:authorize>
 	            <button type="reset" class="btn btn-outline-dark" id="gotolist-button"> 목록으로 </button>
 	        </div>
 	    </div>
@@ -57,6 +63,9 @@
 
 <script>
 	var bnoVal = ${selectBoard.bno};
+	var csrfHeaderName = "${_csrf.headerName}";
+	var csrfTokenValue = "${_csrf.token}";	
+	
 </script>
 
 <script src="/resources/js/FAQ_js/select.js"></script>

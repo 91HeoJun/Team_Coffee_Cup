@@ -1,29 +1,25 @@
 @charset "UTF-8";
 *{
- 	color: black;
+ 	color: #000 !important;
  	font-family: 'Noto Sans KR', sans-serif;
  }
+
 #page-wrapper {
-	width:100%;
 	min-height: 450px;
 	overflow: hidden;
 	position:relative;
 	border-top: 1px solid #e2e2e2;
+	padding-top: 50px;
 }
 
 li{
 	list-style: none;
 }
 
-*{
-	color: #000 !important;
-	text-decoration: none;
-}
-
 #menu{
  	background: #fff;
  	height: 50px;
-	margin: 20px auto;
+	margin: 0 auto;
 }
  
 #menu ul{
@@ -93,4 +89,8 @@ li{
 .navbar-header{
 	display: block;
 	padding: 20px 0 0 20px;
+}
+
+.all{
+	margin: 0 120px;
 }

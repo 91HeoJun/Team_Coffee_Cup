@@ -1,9 +1,12 @@
 package com.company.controller;
 //MyPage- 회원정보 수정, 회원탈퇴 관련 컨트롤러-은주
 
+import java.security.Principal;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,12 +39,13 @@ public class MyPageController {
 		log.info("===login 페이지 요청");
 	}
 	//로그인 정보(아이디, 비밀번호)를 가져오는 컨트롤러
+	//수정 : 시큐리티 적용 - PostMapping
 	//@PostMapping("/signin")
 	public String loginPost(LoginVO login, HttpSession session, RedirectAttributes rttr) {
 		log.info("===로그인 페이지 요청..."+login);
 		
 		AuthVO auth=service.isLogin(login); //LoginVO AuthVO에 담기
-		RegisterVO regist=service.getId(login);
+		RegisterVO regist=service.getId(login.getUserid());
 		
 		if(auth!=null) {
 			session.setAttribute("auth", auth);
@@ -53,16 +57,22 @@ public class MyPageController {
 		}
 	}
 	
+	@Secured({"ROLE_MEMBER", "ROLE_ADMIN"})
 	@GetMapping("/myPageGo")
 	public String myPageGo(HttpSession session) {
 		log.info("===마이페이지 요청...");
 
-		RegisterVO regist =(RegisterVO) session.getAttribute("regist");
-		if(regist!=null) { //로그인 정보가 있을경우 마이페이지 메인
-			return "/mypage/myPageGo";
-		}else { //로그인 정보가 없을경우 로그인페이지로 이동
-			return "redirect:signin";
-		}
+		//String name = principal.getName();
+		//log.info("principal name : "+ name);
+		
+		//RegisterVO vo = service.getId(name);
+//		RegisterVO regist =(RegisterVO) session.getAttribute("regist");
+//		if(regist!=null) { //로그인 정보가 있을경우 마이페이지 메인
+//			return "/mypage/myPageGo";
+//		}else { //로그인 정보가 없을경우 로그인페이지로 이동
+//			return "redirect:signin";
+//		}
+		return "/mypage/myPageGo";
 	}
 	
 	//마이 페이지 메인 보여주기-(회원상세정보)
@@ -107,7 +117,7 @@ public class MyPageController {
 		//service에 회원정보 변경 요청
 		if(service.update(change)) {//성공 => 회원상세정보 페이지 이동
 //			session.invalidate();
-			RegisterVO regist=service.getId(login);
+			RegisterVO regist=service.getId(login.getUserid());
 			session.setAttribute("regist", regist);
 			return "redirect:userInfo";
 		}else {//실패 => 회원정보 변경 폼 보여주기
