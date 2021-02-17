@@ -45,7 +45,7 @@ public class MyPageController {
 		log.info("===로그인 페이지 요청..."+login);
 		
 		AuthVO auth=service.isLogin(login); //LoginVO AuthVO에 담기
-		RegisterVO regist=service.getId(login);
+		RegisterVO regist=service.getId(login.getUserid());
 		
 		if(auth!=null) {
 			session.setAttribute("auth", auth);
@@ -59,9 +59,13 @@ public class MyPageController {
 	
 	@Secured({"ROLE_MEMBER", "ROLE_ADMIN"})
 	@GetMapping("/myPageGo")
-	public String myPageGo() {
+	public String myPageGo(HttpSession session) {
 		log.info("===마이페이지 요청...");
 
+		//String name = principal.getName();
+		//log.info("principal name : "+ name);
+		
+		//RegisterVO vo = service.getId(name);
 //		RegisterVO regist =(RegisterVO) session.getAttribute("regist");
 //		if(regist!=null) { //로그인 정보가 있을경우 마이페이지 메인
 //			return "/mypage/myPageGo";
@@ -113,7 +117,7 @@ public class MyPageController {
 		//service에 회원정보 변경 요청
 		if(service.update(change)) {//성공 => 회원상세정보 페이지 이동
 //			session.invalidate();
-			RegisterVO regist=service.getId(login);
+			RegisterVO regist=service.getId(login.getUserid());
 			session.setAttribute("regist", regist);
 			return "redirect:userInfo";
 		}else {//실패 => 회원정보 변경 폼 보여주기
