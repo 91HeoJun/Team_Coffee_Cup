@@ -88,10 +88,10 @@ drop SEQUENCE seq_product;
 -- 상품 
 insert into ProductTBL (pCode, pCategory, product, pContent, price, pAmount, pDate, origin) values (seq_product.nextval, '라이트', '산타 테레사', '싱글 오리진 / 머스캣, 망고, 딸기잼, 크랜베리 주스', 45000, '250g', sysdate, '코스타리카');
 insert into ProductTBL (pCode, pCategory, product, pContent, price, pAmount, pDate, origin) values (seq_product.nextval, '다크', '에픽 블렌드', '블렌드 / 산뜻한 산미, 고소하고 달콤한 여운, 굿 밸런스', 18000, '250g', sysdate, '온두라스, 에티오피아' );
-insert into ProductTBL (pCode, pCategory, product, pContent, price, pAmount, pDate, origin) values (seq_product.nextval, '미디엄', '실속세트', '드립백 실속 구성/10개 또는 30개 선택/선물포장 미포함 ', 15000, '10개', sysdate, '선택가능' );
+insert into ProductTBL (pCode, pCategory, product, pContent, price, pAmount, pDate, origin) values (seq_product.nextval, '미디엄', '실속세트', '드립백 실속 구성/10개 또는 30개 선택/선물포장 미포함 ', 15000, '10개', sysdate, '베트남' );
 insert into ProductTBL (pCode, pCategory, product, pContent, price, pAmount, pDate, origin) values (seq_product.nextval, '라이트', '호세 게이샤', '싱글 오리진 / 재스민, 살구, 오렌지, 복숭아, 허니듀 멜론', 38000, '250g', sysdate, '파나마');
 insert into ProductTBL (pCode, pCategory, product, pContent, price, pAmount, pDate, origin) values (seq_product.nextval, '미디엄', '강릉 블렌드', '블렌드 / 잘 익은 과일의 산미, 농축된 단맛, 부드러운 촉감, 깊은 여운', 22000, '250g', sysdate, '르완다, 과테말라, 그 외' );
-insert into ProductTBL (pCode, pCategory, product, pContent, price, pAmount, pDate, origin) values (seq_product.nextval, '다크', '프리미엄세트', '드립백 선물 구성/20개 또는 40개 선택/선물포장 포함 ', 28000, '10개', sysdate, '선택가능' );
+insert into ProductTBL (pCode, pCategory, product, pContent, price, pAmount, pDate, origin) values (seq_product.nextval, '다크', '프리미엄세트', '드립백 선물 구성/20개 또는 40개 선택/선물포장 포함 ', 28000, '10개', sysdate, '에티오피아' );
 
 -- 상품 더미 생성 쿼리
 insert into ProductTBL(pCode, pCategory, product, pContent, price, pAmount, pDate, origin)
@@ -108,6 +108,7 @@ CREATE TABLE ProductTBL_Attach (
 
 alter table ProductTBL_Attach drop column filetype;
 select * from ProductTBL_Attach;
+drop table ProductTBL_Attach;
 
 -- productTBL의 pcode와 productTBL_Attach의 pcode 외래키 작업 
 ALTER TABLE ProductTBL_Attach ADD CONSTRAINT FK_ProductTBL_Attach_pcode_ProductTBL FOREIGN KEY (pcode) REFERENCES ProductTBL (pcode);
