@@ -94,8 +94,9 @@ public class ProductServiceImpl implements ProductService {
 	 
 
 	@Override
-	public List<ProductFileAttach> AttachList(int pcode) {
-		return productmapper.attachList(pcode);
+	public ProductFileAttach getAttach(int pcode) {
+		
+		return attachMapper.attach(pcode);
 	}
 
 

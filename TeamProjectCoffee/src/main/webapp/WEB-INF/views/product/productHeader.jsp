@@ -26,7 +26,7 @@
 	 </div>
 	 <sec:authentication property="principal" var="info"/>
 	 <sec:authorize access="isAuthenticated()">
-		<c:if test="${info.username == 'admin'}">	
+		<c:if test="${info.username == 'testadmin'}">	
 			<button id='regBtn' type="button" class="btn btn-danger" onclick="location.href='productRegister'">상품 등록</button> 
 		</c:if>
 	 </sec:authorize>

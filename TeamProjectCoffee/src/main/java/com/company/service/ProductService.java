@@ -17,6 +17,6 @@ public interface ProductService {
 	
 	public int getProductCnt(Criteria cri);
 	
-	public List<ProductFileAttach> AttachList(int pcode);
+	public ProductFileAttach getAttach(int pcode);
 
 }

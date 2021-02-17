@@ -16,6 +16,7 @@ import java.util.UUID;
 
 import javax.activation.MimetypesFileTypeMap;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -31,6 +32,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.company.domain.ProductFileAttach;
+import com.company.service.ProductService;
 
 import lombok.extern.slf4j.Slf4j;
 import net.coobird.thumbnailator.Thumbnailator;
@@ -40,6 +42,21 @@ import net.coobird.thumbnailator.Thumbnailator;
 @RequestMapping("/productAttach/upload/*")
 public class ProductFileuploadController {
 
+	@Autowired
+	private ProductService service;
+	
+	
+	@GetMapping(value="/getAttach",produces = "application/json")
+	public ResponseEntity<ProductFileAttach> getAttach(int pcode){
+		
+		log.info("파일 가져오기 "+pcode);
+		ProductFileAttach attachVo=service.getAttach(pcode);
+		
+		return new ResponseEntity<ProductFileAttach>(attachVo, HttpStatus.OK);
+	}
+	
+	
+	
 	
 	@PostMapping(value = "/productfiles", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<List<ProductFileAttach>> uploadPost(MultipartFile[] uploadFile) {
