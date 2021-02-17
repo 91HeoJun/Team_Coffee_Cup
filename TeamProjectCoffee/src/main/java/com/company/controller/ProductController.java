@@ -126,24 +126,58 @@ public class ProductController {
 	
 	@PostMapping("/productEdit")
 	@PreAuthorize("isAuthenticated()")
-	public String updatePost(ProductVO product,MultipartFile image, Criteria cri, RedirectAttributes rttr) {
+	public String updatePost(ProductVO product,MultipartFile image, Criteria cri, HttpServletRequest req,RedirectAttributes rttr) {
+		
 		log.info("---- 상품 수정 실행중 ... ----" + product);
-		log.info("---- 이미지 ... ----" + image);
+		log.info("상품 이미지 "+image.getOriginalFilename());
+	
 		
 		// 파일 첨부 확인
-		if (product.getAttach() != null) {
-			product.getAttach();
-		}
-				
-		productService.updateProduct(product);
+		if (image.getSize() > 0) {//새로운 파일을 첨부하는 경우
+					
+			//이미지 저장
+			String uploadPath=req.getServletContext().getRealPath("/resources/productimg/");
+			UUID uuid = UUID.randomUUID();
+			String uploadFileName = uuid.toString()+"_"+image.getOriginalFilename();		
+			
+			File saveFile = new File(uploadPath,uploadFileName);		
 		
-		rttr.addFlashAttribute("result", "success");
-		rttr.addAttribute("pageNum", cri.getPageNum());
-		rttr.addAttribute("amount", cri.getAmount());
-		rttr.addAttribute("keyword", cri.getKeyword());
-		rttr.addAttribute("type", cri.getType());
+			try {
+				image.transferTo(saveFile);
+			} catch (IllegalStateException e) {				
+				e.printStackTrace();
+			} catch (IOException e) {				
+				e.printStackTrace();
+			}			
+		
+			//제품 정보 및 이미지 정보 저장
+			ProductFileAttach attach=new ProductFileAttach();
+			attach.setUuid(uuid.toString());
+			attach.setFileName(image.getOriginalFilename());
+			attach.setUploadPath(uploadPath);
+			
+			product.setAttach(attach);		
+		}
+		
+		
+		
+		if (productService.updateProduct(product)) {
+			log.info("---- 상품 코드 : " +product.getPcode()+ " 수정 ... ----");						
+			
+			rttr.addFlashAttribute("result", "success");
+			rttr.addAttribute("pageNum", cri.getPageNum());
+			rttr.addAttribute("amount", cri.getAmount());
+			rttr.addAttribute("keyword", cri.getKeyword());
+			rttr.addAttribute("type", cri.getType());
+			
+			rttr.addAttribute("pcode", product.getPcode());
+			return"redirect:productDetail";
 
-		return"redirect:productList";
+		} else {
+			log.info("***** ---- 상품 수정 실패 ---- *****");
+			return "productEdit";
+		}	
+
 	}
 	
 	// 상품 전체 리스트
@@ -161,26 +195,4 @@ public class ProductController {
 		model.addAttribute("pageVO", new pageVO(cri, total));
 	}
 	
-	
-	private void fileDelete(List<ProductFileAttach> attachList) {
-		if (attachList == null || attachList.size() <= 0) {
-			return;
-		}
-		
-		for (ProductFileAttach attach : attachList) {
-			Path path = Paths.get("c:\\ProductUpload\\" + attach.getUploadPath() + "\\" + attach.getUuid() + "_" + attach.getFileName());
-	
-			try {
-				Files.deleteIfExists(path);
-				if (Files.probeContentType(path).startsWith("image")) {
-					Path thumb = Paths.get("c:\\ProductUpload\\", attach.getUploadPath() + "\\s_" + attach.getUuid() + "_" + attach.getFileName());
-				
-					Files.delete(thumb);
-				}
-				
-			} catch (IOException e) {
-				e.printStackTrace();
-			}	
-		}
-	}
 }

@@ -92,4 +92,9 @@ $(function(){
 	})	
 })
 </script>
+<script>
+
+var pcode= ${selectProduct.pcode};	
+</script>
+<script src="/resources/js/Product_js/productEdit.js"></script>
 <%@include file="../footer.jsp" %>

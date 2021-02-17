@@ -50,21 +50,21 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public boolean updateProduct(ProductVO product) {
 		
-		// 첨부파일 우선 전체삭제 후 재삽입
-		attachMapper.delete(product.getPcode());
 		
 		boolean result = productmapper.updateProduct(product)>0?true:false;
 		
 		// 첨부파일 없을 시
 		if (product.getAttach() == null) {
 			return result;
-		}
+		}else {
 		
+		// 첨부파일 우선 전체삭제 후 재삽입
+		attachMapper.delete(product.getPcode());
 		// 첨부파일 있을 시
 		ProductFileAttach attach=product.getAttach();	
 		attach.setPcode(product.getPcode());
 		attachMapper.insert(attach);
-		
+		}
 		return result;
 	}
 	
@@ -97,6 +97,11 @@ public class ProductServiceImpl implements ProductService {
 	public ProductFileAttach getAttach(int pcode) {
 		
 		return attachMapper.attach(pcode);
+	}
+
+	@Override
+	public int deleteFile(int pcode) {		
+		return attachMapper.delete(pcode);
 	}
 
 

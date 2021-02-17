@@ -11,7 +11,7 @@
 	</insert>
 	
 	<update id="updateProduct">
-		update ProductTBL set price=#{price} where pcode=#{pcode}
+		update ProductTBL set price=#{price}, pcontent=#{pcontent} where pcode=#{pcode}
 	</update>
 	
 	<delete id="deleteProduct">

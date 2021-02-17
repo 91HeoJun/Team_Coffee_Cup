@@ -30,8 +30,6 @@ public class ProductVO {
 	private String origin;  //상품원산지
    // private String picture_url; //상품 이미지 경로 
 	
-	private MultipartFile image;
-	
 	//첨부파일 목록
 	private ProductFileAttach attach;
 }
