@@ -51,6 +51,11 @@ $(function(){
 			}
 		})
 	}
+		//sidebar toggle
+		$("#sidebarCollapse").click(function(){
+			$("#sidebar").toggle();
+		})
+		
 		
 		//리스트 클릭 시 해당 매장 정보 보여주기
 		//이벤트(리스트 클릭 시)
