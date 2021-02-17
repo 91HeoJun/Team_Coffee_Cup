@@ -37,7 +37,7 @@ import net.coobird.thumbnailator.Thumbnailator;
 
 @Controller
 @Slf4j
-@RequestMapping("productAttach/upload/*")
+@RequestMapping("/productAttach/upload/*")
 public class ProductFileuploadController {
 
 	
@@ -77,8 +77,7 @@ public class ProductFileuploadController {
 			
 			try {
 				//이미지인지 일반 파일인지 확인
-				if(checkImageType(saveFile)) {
-					attach.setFileType(true);
+				if(checkImageType(saveFile)) {					
 					//이미지라면 썸네일로 한번 더 저장
 					// c:\\productUpload\\날짜 폴더, s_uuid_원본파일명.jpg
 					FileOutputStream thumbnail = new FileOutputStream(new File(uploadPath, "s_"+uploadFileName));

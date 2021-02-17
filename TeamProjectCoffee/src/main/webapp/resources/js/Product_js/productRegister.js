@@ -41,6 +41,7 @@ $(function() {
 
 		// 첨부 파일 목록
 		var files= inputFile[0].files;
+		console.log(files);
       
 		// <form> ~ </form> 대체로 ajax로 데이터를 쉽게 전송할 수 있도록 해줌
 		var formData= new FormData();
@@ -51,7 +52,7 @@ $(function() {
 		}
 
 		$.ajax({
-			url: "/boardAttach/upload/boardFiles",
+			url: "/productAttach/upload/files",
 			type: "post",
 			processData: false,         //데이터를 query string 형태로 보낼 것인지. 결정(기본 application/x-www-form-urlencoded임)
 			contentType: false,        //기본값은 application/x-www-form-urlencoded(파일 첨부 이므로 multipart/form-data 로 보내야함)
@@ -99,7 +100,7 @@ $(function() {
 				str+="<li style='list-style-type : none' data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"' ";
 				str+="data-filename='"+obj.fileName+"' data-type='"+obj.fileType+"'>";
 				str+="<a href='/productAttach/upload/productDownload?fileName="+fileCallPath+"'>";
-				str+="<img src='/resources/img/file.jpg'><div>"+obj.fileName+"</a>";
+				str+="<img src='/resources/img/product/file.jpg'><div>"+obj.fileName+"</a>";
 				str+="<button type='button' style='font-size:0.5em; color:white; padding:0px' data-file='";
 				str+=fileCallPath+"' data-type='file'>";
 				str+="삭제";

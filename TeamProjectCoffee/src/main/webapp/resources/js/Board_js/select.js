@@ -141,8 +141,26 @@ $(function() {
 
 	// 댓글 삭제 - rno
 	$(modalRemoveBtn).click(function() {
+		
+		// 로그인 여부 확인
+		if(!replyer) {
+			alert("로그인이 필요합니다.");
+			modal.modal("hide");
+			
+			return;
+		}
+		
+		// 로그인이 되었다면 로그인한 사용자와 모당창에 있는 사용자가 같은지 확인
+		var originalReplyer = modalInputReplyer.val();
+		
+		if(originalReplyer != replyer) {
+			alert("자신이 작성한 댓글만 삭제 가능합니다.")
+			modal.modal("hide");
+			
+			return;
+		}
+		
 		replyService.remove(modal.data("rno"), function(result) {
-
 			if(result) {
 				modal.modal("hide");
 				showList(1);
@@ -153,7 +171,31 @@ $(function() {
 	// 댓글 수정
 	$(modalModBtn).click(function() {
 		
-		var modReply = {rno:modal.data("rno"), reply:modalInputReply.val()};
+		var modReply = {
+			
+			rno:modal.data("rno"), 
+			reply:modalInputReply.val(), 
+			replyer:modalInputReplyer.val()
+			
+			};
+			
+		// 로그인 여부 확인
+		if(!replyer) {
+			alert("로그인이 필요합니다.");
+			modal.modal("hide");
+			
+			return;
+		}
+		
+		// 로그인이 되었다면 로그인한 사용자와 모당창에 있는 사용자가 같은지 확인
+		var originalReplyer = modalInputReplyer.val();
+		
+		if(originalReplyer != replyer) {
+			alert("자신이 작성한 댓글만 수정이 가능합니다.")
+			modal.modal("hide");
+			
+			return;
+		}
 		
 		replyService.update(modReply, function(result) {
 			if(result){

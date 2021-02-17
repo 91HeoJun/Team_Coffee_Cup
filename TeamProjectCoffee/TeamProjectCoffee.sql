@@ -101,12 +101,12 @@ insert into ProductTBL(pCode, pCategory, product, pContent, price, pAmount, pDat
 CREATE TABLE ProductTBL_Attach (
 	uuid		VARCHAR2(100)	NOT NULL, 
 	uploadPath	VARCHAR2(200)	NOT NULL, 
-	fileName	VARCHAR2(100)	NOT NULL, 
-	fileType	CHAR(1), 
+	fileName	VARCHAR2(100)	NOT NULL,	
 	pcode			NUMBER(10)		NOT NULL, 
     CONSTRAINT ProductTBL_Attach_PK PRIMARY KEY (uuid)
 );
 
+alter table ProductTBL_Attach drop column filetype;
 select * from ProductTBL_Attach;
 
 -- productTBL의 pcode와 productTBL_Attach의 pcode 외래키 작업 

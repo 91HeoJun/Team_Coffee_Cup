@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,6 +31,7 @@ public class ReplyController {
 
 	// 새 댓글
 	@PostMapping("/newReply")
+	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<String> replyCreate(@RequestBody ReplyVO rep) {
 		log.info("---- 댓글 삽입중 ... ----" + rep);
 		return replyService.replyAdd(rep)? new ResponseEntity<String>("Add success", HttpStatus.OK):
@@ -53,6 +55,7 @@ public class ReplyController {
 	
 	// 댓글 수정
 	@PutMapping("/{rno}")
+	@PreAuthorize("principal.username == #rep.replyer")
 	public ResponseEntity<String> replyModify(@PathVariable("rno") int rno, @RequestBody ReplyVO rep){
 		
 		rep.setRno(rno);
@@ -63,7 +66,8 @@ public class ReplyController {
 	
 	// 댓글 삭제
 	@DeleteMapping("/{rno}")
-	public ResponseEntity<String> replyRemove(@PathVariable("rno") int rno) {
+	@PreAuthorize("principal.username == #vo.replyer")
+	public ResponseEntity<String> replyRemove(@PathVariable("rno") int rno, @RequestBody ReplyVO vo) {
 		
 		return replyService.replyDelete(rno)? new ResponseEntity<String>("Remove Success", HttpStatus.OK):
 			new ResponseEntity<String>("Remove Fail", HttpStatus.INTERNAL_SERVER_ERROR);

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,11 +35,13 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 	
+	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/register")
 	public void register() {
 		log.info("---- 게시글 작성 페이지로 이동중 ... ----");
 	}
 	
+	@PreAuthorize("isAuthenticated()")
 	@PostMapping("/register")
 	public String registPost(BoardVO board, RedirectAttributes rttr) {
 		log.info("---- 게시글 작성 실행중 ... ----");
@@ -54,6 +57,7 @@ public class BoardController {
 	}
 
 	@PostMapping("/remove")
+	@PreAuthorize("#writer == principal.username")
 	public String removePost(int bno, Criteria cri, RedirectAttributes rttr) {
 		log.info("---- " + bno + "번 게시물 삭제 진행중... ----");
 		
@@ -83,6 +87,7 @@ public class BoardController {
 	}
 	
 	@PostMapping("/update")
+	@PreAuthorize("#board.writer == principal.username")
 	public String updatePost(BoardVO board, Criteria cri, RedirectAttributes rttr) {
 		log.info("---- 게시글 수정 실행중 ... ----" + board);
 		

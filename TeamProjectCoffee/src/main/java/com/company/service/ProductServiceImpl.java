@@ -13,6 +13,9 @@ import com.company.domain.ProductVO;
 import com.company.mapper.ProductAttachMapper;
 import com.company.mapper.ProductMapper;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service("productService")
 public class ProductServiceImpl implements ProductService {
 
@@ -26,20 +29,20 @@ public class ProductServiceImpl implements ProductService {
 	@Transactional
 	@Override
 	public boolean insertProduct(ProductVO product) {
+		log.info("첨부파일 "+product.getAttach());
 			
 		boolean result = productmapper.insertProduct(product)>0?true:false;
 		
 		// 첨부파일 없을 시 
-		if (product.getAttachList() == null || product.getAttachList().size() <= 0) {
+		if (product.getAttach() == null) {
 			return result;
 		}
 				
 		// 첨부파일 있을 시 
-		product.getAttachList().forEach(attach -> {
-			attach.setPcode(product.getPcode());
-			attachMapper.insert(attach);
-		});
-				
+		ProductFileAttach attach=product.getAttach();		
+		attach.setPcode(product.getPcode());
+		attachMapper.insert(attach);
+		
 				
 		return result;
 	}
@@ -53,16 +56,15 @@ public class ProductServiceImpl implements ProductService {
 		boolean result = productmapper.updateProduct(product)>0?true:false;
 		
 		// 첨부파일 없을 시
-		if (product.getAttachList() == null || product.getAttachList().size() <= 0) {
+		if (product.getAttach() == null) {
 			return result;
 		}
 		
 		// 첨부파일 있을 시
-		product.getAttachList().forEach(attach -> {
-			attach.setPcode(product.getPcode());
-			attachMapper.insert(attach);
-		});
-
+		ProductFileAttach attach=product.getAttach();	
+		attach.setPcode(product.getPcode());
+		attachMapper.insert(attach);
+		
 		return result;
 	}
 	

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!-- 추후 Header 위치 이동시 수정 필요 -->
 <%@include file="boardHeader.jsp" %>
@@ -9,7 +10,12 @@
 			<h2 class="page-header-detail">1:1 문의 게시판 - 문의글 작성</h2>
 		
 			<div class="regist-buttons">
-			    <button type="button" class="btn btn-outline-dark" id="modify-button"> 수정 </button>
+			<sec:authentication property="principal" var="info"/>
+			<sec:authorize access="isAuthenticated()">
+				<c:if test="${info.username == selectBoard.writer}">
+				    <button type="button" class="btn btn-outline-dark" id="modify-button"> 수정 </button>
+				</c:if>    
+			</sec:authorize>
 	            <button type="reset" class="btn btn-outline-dark" id="gotolist-button"> 목록으로 </button>
 	        </div>
 	    </div>
@@ -111,7 +117,7 @@
 					        <button type="button" class="btn btn-outline-dark" id="modalRegisterBtn">등록</button>
 					        <button type="button" class="btn btn-outline-dark" id="modalModifyBtn">수정</button>
 					        <button type="button" class="btn btn-outline-dark" id="modalRemoveBtn">삭제</button>
-					        <button type="button" class="btn btn-outline-dark"  id="modalCloseBtn" data-dismiss="modal">닫기</button>
+					        <button type="button" class="btn btn-outline-dark" id="modalCloseBtn" data-dismiss="modal">닫기</button>
 					      </div>
 					    </div>
 					  </div>
@@ -137,6 +143,18 @@
 	
 	// 댓글 페이지 영역 가져오기
 	let replyPageFooter = $(".panel-footer");
+</script>
+
+<script>
+	var csrfHeaderName = "${_csrf.headerName}";
+	var csrfTokenValue = "${_csrf.token}";
+	
+	// 댓글 작성자 보여주기 - 회원제 게시판일 경우
+	var replyer = null;
+	
+	<sec:authorize access="isAuthenticated()">
+		replyer = '<sec:authentication property="principal.username"/>'
+	</sec:authorize>
 </script>
 
 <script src="/resources/js/Board_js/select.js"></script>

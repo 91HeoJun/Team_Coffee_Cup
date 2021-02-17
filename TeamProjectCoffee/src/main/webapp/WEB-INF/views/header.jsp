@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <link rel="stylesheet" type="text/css" href="/resources/css/header.css">
 <html lang="kr">
   <head>
@@ -35,7 +36,13 @@
         <nav class="navbar-static-top" role="navigation" >
             <ul class="nav navbar-top-links navbar-right">
             	<li>
-            		<c:choose>
+            		<sec:authorize access="isAnonymous()">
+						<a class="nav-toggle" href="/mypage/signin">login</a>
+					</sec:authorize>
+					<sec:authorize access="isAuthenticated()">
+						<a class="nav-toggle" href="/user/logout">logout</a>
+					</sec:authorize>
+            		<%-- <c:choose>
 	            		<c:when test="${empty sessionScope.regist}">
 	            			<a class="nav-toggle" href="/mypage/signin">
 		                      login
@@ -47,7 +54,7 @@
 		                    	logout
 		                    </a>  
 	            		</c:otherwise>
-            		</c:choose>
+            		</c:choose> --%>
             	</li>
                 <li>
                     <a class="nav-toggle" href="/mypage/myPageGo">
@@ -75,9 +82,9 @@
       		</li>
       		<li class="toggle"><a href="/product/productList">상품</a>
       			<ul class="sub">
-      				<li><a href="#" onmouseover="this.innerText='라이트 로스트'" onmouseout="this.innerText='Light Roast'">Light Roast</a></li>
-      				<li><a href="#" onmouseover="this.innerText='미디엄 로스트'" onmouseout="this.innerText='Medium Roast'">Medium Roast</a></li>
-      				<li><a href="#" onmouseover="this.innerText='다크 로스트'" onmouseout="this.innerText='Dark Roast'">Dark Roast</a></li>
+      				<li class='roast'><a href="#" onmouseover="this.innerText='라이트 로스트'" onmouseout="this.innerText='Light Roast'" data-roast='라이트'>Light Roast</a></li>
+      				<li class='roast'><a href="#" onmouseover="this.innerText='미디엄 로스트'" onmouseout="this.innerText='Medium Roast'" data-roast='미디엄'>Medium Roast</a></li>
+      				<li class='roast'><a href="#" onmouseover="this.innerText='다크 로스트'" onmouseout="this.innerText='Dark Roast'" data-roast='다크'>Dark Roast</a></li>
       			</ul>
       		</li>
       		<li class="toggle"><a href="/store/list">매장</a>
@@ -96,5 +103,5 @@
       		</li>
       	</ul>
       </div>      
-   </div>
+   </div><!-- wrapper end -->
         <div id="page-wrapper">   
