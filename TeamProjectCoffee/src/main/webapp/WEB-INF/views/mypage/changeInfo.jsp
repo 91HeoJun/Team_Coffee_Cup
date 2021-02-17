@@ -4,6 +4,7 @@
 <%@ include file="../header.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 <head>
 <fmt:requestEncoding value="utf-8"/>
@@ -214,6 +215,7 @@ border-bottom: 1px solid;
 $("#_btnInfo").click(function(){
 	if(confirm("회원정보를 수정하시겠습니까?") == true){
 		$('#_frmForm').submit();
+		alert("완료되었습니다. 다시 로그인해주세요.");
 	} else{
 		return false;
 	}
