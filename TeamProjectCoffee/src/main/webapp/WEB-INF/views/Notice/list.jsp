@@ -84,7 +84,12 @@
 									</div>	
 								
 									<div class="col-md-8">
-										<button id='regBtn' type="button" class="btn btn-outline-dark" onclick="location.href='register'">공지사항 작성</button>
+										<sec:authentication property="principal" var="info"/>
+										<sec:authorize access="isAuthenticated()">
+											<c:if test="${info.username == 'testadmin'}">	
+												<button id='regBtn' type="button" class="btn btn-outline-dark" onclick="location.href='register'">공지사항 작성</button>
+											</c:if>
+										</sec:authorize>
 									</div>
 	
 								</div> <!-- end search -->

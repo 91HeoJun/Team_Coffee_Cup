@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!-- 추후 Header 위치 이동시 수정 필요 -->
 <%@include file="../ClientBoard/boardHeader.jsp" %>
@@ -84,7 +85,12 @@
 									</div>	
 								
 									<div class="col-md-8">
-										<button id='regBtn' type="button" class="btn btn-outline-dark" onclick="location.href='register'">자주하는 질문 작성</button>
+										<sec:authentication property="principal" var="info"/>
+										<sec:authorize access="isAuthenticated()">
+											<c:if test="${info.username == 'testadmin'}">	
+												<button id='regBtn' type="button" class="btn btn-outline-dark" onclick="location.href='register'">자주하는 질문 작성</button>
+											</c:if>
+										</sec:authorize>
 									</div>
 	
 								</div> <!-- end search -->
