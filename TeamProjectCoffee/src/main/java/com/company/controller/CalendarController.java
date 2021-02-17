@@ -10,6 +10,8 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -128,10 +130,12 @@ public class CalendarController {
 	         out.flush();
 	      }
 	   }
+	   
        // 같은 ID 몇개 인지 찾기
+
       @ResponseBody // -> ajax을 사용할 때 꼭 붙여줘야 한다!! 
       @RequestMapping(value = "/getIdCount", method = {RequestMethod.GET, RequestMethod.POST})
-      public String getIdCount(String userid, HttpSession session,LoginVO login) {
+      public String getIdCount(String userid, HttpSession session) {
          log.info("CalController getIdCount "+ new Date());
          
          System.out.println("useid : " + userid);

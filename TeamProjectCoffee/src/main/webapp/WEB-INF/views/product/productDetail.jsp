@@ -21,42 +21,42 @@
                         <div class="panel-body">
                 			<form action="" role="form" method="">
                 				<div class="form-group">
-                					<label>상품 코드</label>
-                					<input class="form-control" name="pcode" readonly="readonly" value="${selectProduct.pcode}" >                				
-                				</div> 
-                				<div class="form-group">
+				   					<label>상품이미지</label>
+				   					<img src="" id="productimg">    					      				
+				   				</div>
+				            	<div class="form-group">
                 					<label>상품 구분</label>
                 					<input class="form-control" name="pcategory" readonly="readonly" value="${selectProduct.pcategory}" >                				
                 				</div>  
                 				<div class="form-group">
-                					<label>상품명</label>
-                					<textarea class="form-control" rows="3" name="product" readonly="readonly">${selectProduct.product}</textarea>               				
+                					<label>${selectProduct.product}</label>
+                					<%-- <textarea class="form-control" rows="3" name="product" readonly="readonly">${selectProduct.product}</textarea>      --%>          				
                 				</div> 
                 				<div class="form-group">
                 					<label>로스팅(제조)일자</label>
                 					<textarea class="form-control" rows="3" name="pdate" readonly="readonly"> <fmt:formatDate value="${selectProduct.pdate}" pattern="yyyy-MM-dd"/></textarea>               				
                 				</div> 
                 				<div class="form-group">
-                					<label>무게</label>
-                					<textarea class="form-control" rows="3" name="pamount" readonly="readonly">${selectProduct.pamount}</textarea>               				
+                					<label>${selectProduct.pamount}</label>
+                					<!-- <textarea class="form-control" rows="3" name="pamount" readonly="readonly"></textarea>         -->       				
                 				</div> 
                 				<div class="form-group">
                 					<label>상품 상세</label>
                 					<textarea class="form-control" rows="3" name="pcontent" readonly="readonly">${selectProduct.pcontent}</textarea>               				
                 				</div> 
                 				<div class="form-group">
-                					<label>가격</label>
-                					<textarea class="form-control" rows="3" name="price" readonly="readonly">${selectProduct.price}</textarea>               				
+                					<label>${selectProduct.price}원</label>
+                					<!-- <textarea class="form-control" rows="3" name="price" readonly="readonly"></textarea>   -->             				
                 				</div> 
                 					<button type="button" class="btn btn-outline-primary" id="order">구매하기</button>
                 					<button type="button" class="btn btn-outline-primary"  id="addcart">장바구니</button>
                 					<sec:authentication property="principal" var="info"/>
                 					<sec:authorize access="isAuthenticated()">
-	                					<c:if test="${info.username == 'admin'}">
-		                					<button type="button" class="btn btn-default" id="modify">Modify</button>
+	                					<c:if test="${info.username == 'testadmin'}">
+		                					<button type="button" class="btn btn-default" id="modify">수정</button>
 		                				</c:if>
 	                				</sec:authorize>
-	                			 	<button type="button" class="btn btn-info" id="list">List</button>          			
+	                			 	<button type="button" class="btn btn-info" id="list">리스트</button>          			
                 			</form>
                 		</div>
                 	</div>
@@ -92,4 +92,9 @@ $(function(){
 	})	
 })
 </script>
+<script>
+
+var pcode= ${selectProduct.pcode};	
+</script>
+<script src="/resources/js/Product_js/productEdit.js"></script>
 <%@include file="../footer.jsp" %>

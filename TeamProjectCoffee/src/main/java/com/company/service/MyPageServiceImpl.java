@@ -22,8 +22,8 @@ public class MyPageServiceImpl implements MyPageService {
 	}
 
 	@Override
-	public boolean leave(LoginVO login) {
-		return mapper.leaveMember(login)>0?true:false;
+	public boolean leave(String userid) {
+		return mapper.leaveMember(userid)>0?true:false;
 	}
 
 	@Override

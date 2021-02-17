@@ -89,14 +89,9 @@
       		</li>
       		<li class="toggle"><a href="/store/list">매장</a>
       		</li>
-      		<li class="toggle"><a href="/Notice/list">소식</a>
+      		<li class="toggle"><a href="/FAQ/list">고객센터</a>
       			<ul class="sub">
       				<li><a href="/Notice/list">공지사항</a></li>
-      				<li><a href="/news/clientnews">이벤트</a></li>
-      			</ul>
-      		</li>
-      		<li class="toggle"><a href="/FAQ/list">고객</a>
-      			<ul class="sub">
       				<li><a href="/FAQ/list">FAQ</a></li>
       				<li><a href="/ClientBoard/list">1:1</a></li>
       			</ul>

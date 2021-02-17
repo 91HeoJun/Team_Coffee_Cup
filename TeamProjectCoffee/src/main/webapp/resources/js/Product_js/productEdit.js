@@ -2,21 +2,41 @@
  *  update 자바스크립트
  */
 
-/*$(function() {
+$(function() {
 	
-	//pcode를 이용한 이미지 가져오기
-	
+	//pcode를 이용한 이미지 가져오기	
 	$.getJSON({
 		url:'/productAttach/upload/getAttach',
 		data: {
 			pcode:pcode
 		},
 		success:function(data){
+			//첨부파일 uuid,파일명 확인
 			console.log(data);
 			
-			var str="";
+			//가져온 이미지 경로
+			var uuid = data.uuid;
+			
+			//img 태그에 가져온 값 append
+			$("#productimg").attr("src","/resources/productimg/"+data.uuid+"_"+data.fileName);
+			
+			//  
 		}
 	});
+	
+	
+	//수정버튼 클릭
+	$("#modify").click(function(){
+		$("form").attr("action","productEdit");
+		$("form").submit();
+	})
+	
+	//삭제버튼 클릭
+	$("#delete").click(function(){
+		$("form").attr("action","productRemove");
+		$("form").submit();
+	})
+	
 });
 	
 	
@@ -38,7 +58,7 @@
 	
 	
 	
-	
+	/*
 	
 	
 	var form = $("#myform");
@@ -250,5 +270,5 @@
 			})
 		}) // x버튼 종료
 	})
-})
-*/
+<<<<<<< HEAD
+})*/

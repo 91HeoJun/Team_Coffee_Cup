@@ -78,6 +78,7 @@ public class MyPageController {
 	}
 	
 	//마이 페이지 메인 보여주기-(회원상세정보)
+	@Secured({"ROLE_MEMBER", "ROLE_ADMIN"})
 	@GetMapping("/userInfo")
 	public void userInfo() {
 		log.info("===회원정보페이지 보여주기");
@@ -85,17 +86,19 @@ public class MyPageController {
 	
 
 	//회원탈퇴 폼 보여주기
+	@Secured({"ROLE_MEMBER", "ROLE_ADMIN"})
 	@GetMapping("/leave")
 	public void leaveGet() {
 		log.info("회원탈퇴 폼 보여주기");
 	}
 	
 	//회원탈퇴 - 회원삭제하고 성공하면 세션해제후 index이동
+	@PreAuthorize("#userid == principal.username")
 	@PostMapping("/leave")
-	public String leavePost(LoginVO login, HttpSession session) {
-		log.info("회원탈퇴 요청"+login);
+	public String leavePost(String userid, HttpSession session) {
+		log.info("회원탈퇴 요청"+userid);
 		
-		if(service.leave(login)) { //비밀번호가 맞은경우
+		if(service.leave(userid)) { //비밀번호가 맞은경우
 			//auth : userid, name
 			session.invalidate();
 			return "redirect:/";
@@ -103,7 +106,10 @@ public class MyPageController {
 			return "redirect:leave";
 		}
 	}
+	
+	
 	//회원정보 수정 폼 보여주기
+	@Secured({"ROLE_MEMBER", "ROLE_ADMIN"})
 	@GetMapping("/changeInfo")
 	public void changeInfo() {
 		log.info("회원정보 수정 폼 보여주기");

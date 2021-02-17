@@ -17,6 +17,9 @@ public interface ProductService {
 	
 	public int getProductCnt(Criteria cri);
 	
-	public List<ProductFileAttach> AttachList(int pcode);
+	public ProductFileAttach getAttach(int pcode);
+	
+	//첨부 파일 삭제
+	public int deleteFile(int pcode);
 
 }

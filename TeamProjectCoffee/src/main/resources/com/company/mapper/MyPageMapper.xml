@@ -14,7 +14,7 @@
 	
 	<!-- 회원탈퇴 -->
 	<delete id="leaveMember">
-	delete from UserTBL where userid=#{userid} and password=#{password}
+	delete from UserTBL where userid=#{userid}
 	</delete>
 	
 	<!-- 회원정보 변경 -->

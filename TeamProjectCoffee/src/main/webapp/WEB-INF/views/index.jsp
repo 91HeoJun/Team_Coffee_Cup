@@ -58,30 +58,33 @@ body {
 .btn-primary:hover{
 	background-color: #9999dd; !important;
 }
-img {
-    vertical-align: top;
-    max-width: 100%;
+
+.bottom {
+background:#f4f4f2; width:100%; padding:40px 0 100px 0;
 }
-    div.cfs01_bottom { background:#f4f4f2; width:100%; padding:40px 0 100px 0; }
-    div.cfs01_bottom ul.cfs01_bottom_list { margin-left:-25px; }
-    div.cfs01_bottom ul.cfs01_bottom_list:after { content:""; display:block; clear:both; }
 
-    ul.cfs01_bottom_list li { float:left; width:350px; margin-left:25px; list-style:none;}
-    ul.cfs01_bottom_list li p.img{ position:relative; width:350px; height:150px; margin-bottom:300px; }
+ul.bottom_img {
+	text-align:center;
 
-    ul.cfs01_bottom_list li p.img span.dim_txt1{ display:block; width:341px; height:35px; position:absolute; left:0; bottom:0px;background:#9b704d; border-bottom-left-radius:3px; border-bottom-right-radius:3px; font-size:16px; color:#ffffff; line-height:29px; padding-left:9px;}
-    ul.cfs01_bottom_list li p.img span.dim_txt1 span{ font-size:14px; color:#fff; line-height:600px; }
-    ul.cfs01_bottom_list li p.img span.dim_txt2{ display:block; width:341px; height:35px; position:absolute; left:0; bottom:0;background:#9b704d; border-bottom-left-radius:3px; border-bottom-right-radius:3px; font-size:16px; color:#ffffff; line-height:29px; padding-left:9px; }
-    ul.cfs01_bottom_list li p.img span.dim_txt2 span{ font-size:14px; color:#fff; line-height:35px; }
-    ul.cfs01_bottom_list li p.img span.dim_txt3{ display:block; width:341px; height:35px; position:absolute; left:0; bottom:0;background:#9b704d; border-bottom-left-radius:3px; border-bottom-right-radius:3px; font-size:16px; color:#ffffff; line-height:29px; padding-left:9px; }
-    ul.cfs01_bottom_list li p.img span.dim_txt3 span{ font-size:14px; color:#fff; line-height:35px; }
-    
-    ul.cfs01_bottom_list li p.img span.dim_txt4{ display:block; width:341px; height:35px; position:absolute; left:0; bottom:0;background:#9b704d; border-bottom-left-radius:3px; border-bottom-right-radius:3px; font-size:16px; color:#ffffff; line-height:29px; padding-left:9px; }
-    ul.cfs01_bottom_list li p.img span.dim_txt4 span{ font-size:14px; color:#fff; line-height:35px; }
-    
-    
-    ul.cfs01_bottom_list li dl.cfs01_text dt h4{ font-size:14px; color:#222; margin-bottom:15px; }
-    ul.cfs01_bottom_list li dl.cfs01_text dd p{ font-size:14px; color:#666; line-height:1.6; }
+}
+ul.bottom_img > li {
+	display:inline-block;
+	padding-right: 60px;
+}
+
+.dim_txt1 {
+width:341px; 
+height:35px; 
+left:0; 
+top-margin:5px;
+bottom:0px;
+background:#9b704d; 
+font-size:20px; 
+color:#ffffff; 
+line-height:30px; 
+padding-left:9px;
+}
+
 </style>
 </head>
 <body>
@@ -154,63 +157,74 @@ img {
 		<a class="btn btn-primary btn-lg" href="/about" role="button" >Our Story</a>
 	</div>
 		<!-- 점보트론 끝 -->
+		
 		<!-- 이미지 이거나 동영상 -->
-							<div class="cfs01_bottom">
-								<div class="coffee_content">
-									<ul class="cfs01_bottom_list">
-										<li>											
-											<p class="img">
-												<img src="//image.istarbucks.co.kr/common/img/coffee/story_bottom_list02.jpg" alt="은은하고 부드러운 맛 Subtle & Mellow">
-												<span class="dim_txt1">에디오피아 예가체프<span class="en">Subtle &amp; Mellow</span></span>
-											</p>
-											<dl class="cfs01_text">
-												<dt><h4>홍차에 레몬을 띄운 것 같은 향미</h4></dt>
-												<dd>
-													<p>한국인이 좋아하는 원두 1위,<br>여성분들이 좋아하는 원두 1위! <br>부드러운 신맛과 달콤한 향으로 <br>깔끔하고 맛 좋은 커피입니다.</p>
-												</dd>
-											</dl>											
-										</li>
-
-										<li>											
-											<p class="img">
-												<img src="//image.istarbucks.co.kr/common/img/coffee/story_bottom_list02.jpg" alt="부드럽고 균형 잡힌 맛 Smooth & Balanced">
-												<span class="dim_txt2">부드럽고 균형 잡힌 맛 <span class="en">Smooth &amp; Balanced</span></span>
-											</p>
-											<dl class="cfs01_text">
-												<dt><h4>부드럽고 균형 잡힌 맛을 미디엄 로스트에서 만나보세요.</h4></dt>
-												<dd>
-													<p>미디엄 로스트 커피는 너무 연하거나<br> 너무 강하지 않은 그 중간의 입맛을 가진 분들에게 적합합니다. <br>부드럽고 균형 잡힌 미디엄 로스트 커피는<br> 항상 변함없는 맛을 보여줍니다.</p>
-												</dd>
-											</dl>											
-										</li>
+		<div class="bottom">
+		<div><p style="font-size:40px; color:#000; font-style:italic"><img src="/resources/img/bestpng.png" style="width:100px; height:100px; margin-left:50px;"/> Black Bean의 인기상품</p>
+		</div>
+		<ul class ="bottom_img">
+		<li><a href=""><img src="/resources/img/ethiopia.JPG" style="width:300px; height:300px;" /></a>
+		<p></p>
+		<p><span class="dim_txt1">은은하고 부드러운 맛</span></p>
+		<dl class="cfs01_text">
+		<dt><h4>에티오피아 예가체프</h4></dt>
+		<dd>
+		<p> 한국인이 좋아하는 원두 1위<br>
+		<br>특유의 달콤한 향으로 인기가 높으며,<br>
+		부드러운 신맛과 깔끔함으로<br>
+		많은 여성분들의 사랑을 받고 있습니다.</p>
+		</dd>
+		</dl>	
+		</li>
 										
-										<li>											
-											<p class="img">
-												<img src="//image.istarbucks.co.kr/common/img/coffee/story_bottom_list03.jpg" alt="진하고 강한 맛 Bold & Robust">
-												<span class="dim_txt3">진하고 강한 맛 <span class="en">Bold &amp; Robust</span></span>
-											</p>
-											<dl class="cfs01_text">
-												<dt><h4>다크 로스트 커피 팬들이 사랑하는 진하고 강한 커피</h4></dt>
-												<dd>
-													<p>다크 로스트 커피는 달콤하면서 강한 풍미와<br> 향긋한 입맛이 특징입니다.<br> 입안에서 느껴지는 꽉찬 무게감이 강조된 이 커피는 <br>마지막 한 방울까지도 여러분의 입맛을 사로잡을 것입니다.</p>
-												</dd>
-											</dl>											
-										</li>
-																				<li>											
-											<p class="img">
-												<img src="//image.istarbucks.co.kr/common/img/coffee/story_bottom_list03.jpg" alt="진하고 강한 맛 Bold & Robust">
-												<span class="dim_txt3">진하고 강한 맛 <span class="en">Bold &amp; Robust</span></span>
-											</p>
-											<dl class="cfs04_text">
-												<dt><h4>다크 로스트 커피 팬들이 사랑하는 진하고 강한 커피</h4></dt>
-												<dd>
-													<p>다크 로스트 커피는 달콤하면서 강한 풍미와<br> 향긋한 입맛이 특징입니다.<br> 입안에서 느껴지는 꽉찬 무게감이 강조된 이 커피는 <br>마지막 한 방울까지도 여러분의 입맛을 사로잡을 것입니다.</p>
-												</dd>
-											</dl>											
-										</li>
-									</ul>
-								</div>
-							</div>
+										
+		<li><a href=""><img src="/resources/img/colombia.JPG" style="width:300px; height:300px;"/></a>
+		<p> </p>
+		<p><span class="dim_txt1">마일드 커피의 대명사</span></p>
+		<dl class="cfs01_text">
+		<dt><h4>콜롬비아 수프리모</h4></dt>
+		<dd>
+		<p> 커피를 처음 접하시는 분들께 적극추천!<br>
+		<br>감미로운 아로마향이 풍부하고 <br>
+		부드러운 질감과 중량감 있는맛,<br>
+		밸런스가 가장 좋은 원두입니다.</p>
+		</dd>
+		</dl>
+		<p> </p>	
+		</li>
+		
+		
+		<li><a href=""><img src="/resources/img/kenya.JPG" style="width:300px; height:300px;"  /></a>
+				<p> </p>
+		<p><span class="dim_txt1">유럽이 사랑한 커피</span></p>
+		<dl class="cfs01_text">
+		<dt><h4>케냐AA TOP</h4></dt>
+		<dd>
+		<p> 최고급 생두에 부여하는 AA등급<br>
+		<br>열대 과일의 단맛과 향, 차분한 신맛,<br>
+		강한 바디감, 밸런스가 잘 잡힌<br>
+		아프리카의 대표적인 커피입니다.</p>
+		</dd>
+		</dl>
+		<p> </p>	
+		</li>
+		
+		<li><a href=""><img src="/resources/img/guatemala.JPG" style="width:300px; height:300px;" /></a>
+						<p> </p>
+		<p><span class="dim_txt1">진한 스모크 커피</span></p>
+		<dl class="cfs01_text">
+		<dt><h4>과테말라 안티구아</h4></dt>
+		<dd>
+		<p> 고소한 아메리카노를 원할때!<br>
+		<br>최적의 기후조건에서 수확한 커피로<br>
+		밸런스와 감칠맛이 좋고<br>
+		바디감또한 훌륭한 커피입니다.</p>
+		</dd>
+		</dl>	
+		</li>
+		
+		</ul>
+		</div>
 	<!-- top 버튼 -->
 	<div id="topBtn">TOP</div>
 </body>

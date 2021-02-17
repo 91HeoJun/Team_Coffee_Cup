@@ -10,6 +10,11 @@
 	position:relative;
 	border-top: 1px solid #e2e2e2;
 	padding-top: 50px;
+	margin: 0 120px;
+}
+
+.logo{
+	margin-left: 10px;
 }
 
 li{
@@ -18,8 +23,8 @@ li{
 
 #menu{
  	background: #fff;
- 	height: 50px;
-	margin: 0 auto;
+ 	height: 60px;
+	border-bottom: 1px solid #e2e2e2;
 }
  
 #menu ul{
@@ -28,7 +33,7 @@ li{
 
  #menu .main>li{
  	float: left;
- 	width: 20%;
+ 	width: 25%;
  	height: 50px;
  	line-height: 50px;
  	text-align: center;
@@ -38,6 +43,9 @@ li{
 
 .toggle{
 	font-weight: bold;
+} 
+.toggle>a{
+	height: 60px;
 } 
 
  #menu .main>li:hover .sub{
@@ -56,7 +64,7 @@ li{
  #menu .main .sub{
  	position: absolute;
  	z-index:1;
- 	top: 50px;
+ 	top: 60px;
  	left: 0;
  	width: 100%;
  	display: none;
@@ -88,9 +96,6 @@ li{
 
 .navbar-header{
 	display: block;
-	padding: 20px 0 0 20px;
-}
-
-.all{
-	margin: 0 120px;
+	padding-top
+	: 20px;
 }

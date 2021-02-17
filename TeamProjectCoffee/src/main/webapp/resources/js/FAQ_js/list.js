@@ -55,7 +55,7 @@ $(function() {
 	$("#board-finder").click(function(){
 		var searchData = $("#searchForm");
 		
-		var type = $("select[name='type']").val();
+		var type = $("input[name='type']").val();
 		var keyword = $("input[name='keyword']").val();
 		
 		if(type == '') {

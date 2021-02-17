@@ -40,9 +40,9 @@ border-bottom: 1px solid;
 }
 .ec-base-tooltip.typeUpper {
     top: auto;
-    left: 25px;
-    bottom: 28px;
-    width: 390px;
+    left:100px;
+    bottom: 10px;
+    width: 250px;
 }
 .ec-base-tooltip .txtWarn {
     font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
@@ -101,8 +101,8 @@ border-bottom: 1px solid;
                         <small id="name" class="text-info"></small>
                     </div>
                 </div>
-                <input type="hidden" name="password" value="${_csrf.token}"/>
-			<!--  	<div class="form-group row justify-content-center">
+                <input type="hidden" name="password" value="password"/>
+			  	<!--<div class="form-group row justify-content-center">
 					<label for="password" class="col-sm-2 col-form-label">현재 비밀번호</label>
 					<div class="col-sm-6">
 						<input type="password" name="password"
@@ -112,18 +112,19 @@ border-bottom: 1px solid;
 					</div>
 				</div>-->
            <div class="form-group row justify-content-center">
-           <label for="name" class="col-sm-2 col-form-label">새 비밀번호</label>
+           <label for="password" class="col-sm-2 col-form-label">새 비밀번호</label>
            <div class="col-sm-6">
 					<div class="eTooltip">
-						<input type="password" name="new_password" id = "new_password" class="form-control" placeholder="새 비밀번호 입력" style="width: 400px;"/>
+						<input type="password" name="new_password" id = "new_password" class="form-control" placeholder="새 비밀번호 입력" style="width:390px;"/>
                       <div class="ec-base-tooltip typeUpper" style="display:none;">
                             <div class="content">
                                 <strong class="txtWarn">※ 비밀번호 입력 조건</strong>
                                 <ul class="ec-base-help typeDash gBlank10 txtWarn">
                                     
-                - 영대소문자, 숫자, 특수문자의 조합으로 8~15자리<br>
+                - 영대소문자, 숫자, 특수문자<br>
+                - 조합으로 8~15자리<br>
                 - 입력 가능 특수문자 <br>
-                &nbsp;&nbsp;&nbsp;  !  @  #  $   %  ^ *<br>
+                &nbsp;  !  @  #  $   %  ^ *<br>
                 - 공백 입력 불가능                                </ul>
                             <a href="#none" class="btnClose"><img src="//img.echosting.cafe24.com/skin/base/common/btn_close_tip.gif" alt="닫기"/></a>
                             <span class="edge"></span>
@@ -161,12 +162,12 @@ border-bottom: 1px solid;
                 </div>
 				<!-- 주소API-->
 					<div class="form-group row justify-content-center">
-					<label for="addr" class="col-sm-2 col-form-label" style="width:200px; padding-left:0;">우편번호 </label>
-     	
-						<input type="text" name="postCode" id="sample2_postcode" placeholder="우편번호" value="${regist.postCode}" style="width:310px; padding-left: 10px !important;">&nbsp;&nbsp;<br>
-						<input type="button" class="btn_s_gray btn_100_41" onclick="sample2_execDaumPostcode()" value="주소검색" size="10" style="padding-left: 0 !important;"><br>
+					<label for="addr" class="col-sm-2 col-form-label" >우편번호 </label>
+     				 <div class="col-sm-6">
+						<input type="text" name="postCode" id="sample2_postcode" placeholder="우편번호" value="${regist.postCode}" style="width:250px; padding-left: 10px !important;">
+						<input type="button" class="btn_s_gray btn_100_41" onclick="sample2_execDaumPostcode()" value="주소검색" size="15" style="padding-left: 0 !important;">
 	                </div>
-               
+               </div>
                     <div class="form-group row justify-content-center">
                     <label for="addr" class="col-sm-2 col-form-label">주소 </label>
                     <div class="col-sm-6">

@@ -12,15 +12,8 @@
 				<div class="panel-heading">
 					<!--search Form-->
 					<form action="" id="searchForm" class="search-options">
-						<select name="type" id="">
-							<option value=""> --------------- </option>
-							<option value="T"<c:out value="${pageVO.cri.type=='T'?'selected':''}"/>> 제목 </option>
-							<option value="C"<c:out value="${pageVO.cri.type=='C'?'selected':''}"/>> 내용 </option>
-							<option value="W"<c:out value="${pageVO.cri.type=='W'?'selected':''}"/>> 작성자 </option>
-							<option value="TC"<c:out value="${pageVO.cri.type=='TC'?'selected':''}"/>> 제목 or 내용</option>
-						</select>
-												
-						<input type="text" id="keyword" name=keyword value="${pageVO.cri.keyword}" />
+						<input type="hidden" name="type" value="TC"/>						
+						<input type="text" id="keyword" name=keyword value="${pageVO.cri.keyword}" placeholder="검색어를 입력하세요"/>
 						<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum}" />
 						<input type="hidden" name="amount" value="${pageVO.cri.amount}" />
 			
@@ -57,7 +50,7 @@
 
 								<div class="col-md-12">
 								
-									<div class="col-md-2 col-md-offset-2">
+<%-- 									<div class="col-md-2 col-md-offset-2">
 
 			                            <!--페이지 목록 갯수 지정하는 폼-->
 			                            <select class="amount-form-control" id="amount">
@@ -66,7 +59,7 @@
 			                            	<option value="30" <c:out value="${pageVO.cri.amount==30?'selected':''}"/>>30</option>
 			                            	<option value="40" <c:out value="${pageVO.cri.amount==40?'selected':''}"/>>40</option>
 			                            </select>
-									</div>
+									</div> --%>
 									
 									<!-- 페이지나누기 -->
 									<div class="text-center">

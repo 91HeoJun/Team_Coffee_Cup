@@ -11,7 +11,7 @@
 	</insert>
 	
 	<update id="updateProduct">
-		update ProductTBL set price=#{price} where pcode=#{pcode}
+		update ProductTBL set price=#{price}, pcontent=#{pcontent} where pcode=#{pcode}
 	</update>
 	
 	<delete id="deleteProduct">
@@ -89,10 +89,7 @@
 		 ]]>	
 	</select>
 	
-	<!-- 첨부물 가져오기 -->
-	<select id="attachList" resultType="com.company.domain.ProductFileAttach">
-		select uuid,filename from ProdctTBL_Attach where pcode=#{pcode}
-	</select>
+	
 	
 	
 <!-- 동적 SQL -->

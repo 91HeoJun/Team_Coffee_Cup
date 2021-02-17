@@ -3,7 +3,7 @@
 <%@include file="../header.jsp" %>
 
 <!-- css 따로 뺴서 반영할것. / header, footer includ 완료 -->
-<link href="/resources/css/business-casual.min.css" rel="stylesheet">
+<!-- <link href="/resources/css/business-casual.min.css" rel="stylesheet"> -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"
 	integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
 	crossorigin="anonymous"></script>
@@ -26,7 +26,7 @@
 	 </div>
 	 <sec:authentication property="principal" var="info"/>
 	 <sec:authorize access="isAuthenticated()">
-		<c:if test="${info.username == 'admin'}">	
+		<c:if test="${info.username == 'testadmin'}">	
 			<button id='regBtn' type="button" class="btn btn-danger" onclick="location.href='productRegister'">상품 등록</button> 
 		</c:if>
 	 </sec:authorize>

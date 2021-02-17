@@ -49,7 +49,7 @@ public class FileuploadController {
 	public ResponseEntity<List<FileAttach>> uploadPost(MultipartFile[] uploadFile) {
 		log.info("upload 요청");
 		
-		String uploadFolder="d:\\pictures";
+		String uploadFolder="c:\\pictures";
 		String uploadFileName=null;
 		
 		//폴더 생성
@@ -105,7 +105,7 @@ public class FileuploadController {
 	
 	@GetMapping("/display")
 	public ResponseEntity<byte[]> getFile(String fileName){
-		File f = new File("d:\\pictures\\"+fileName);
+		File f = new File("c:\\pictures\\"+fileName);
 		
 		ResponseEntity<byte[]> entity = null;
 		

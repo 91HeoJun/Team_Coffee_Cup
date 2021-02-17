@@ -6,7 +6,7 @@
 <%@include file="boardHeader.jsp" %>
 
 			<div class="col-lg-12">
-				<h2 class="list-page-header">1:1 문의 게시판</h2>
+				<h2 class="sub_tit_wrap h2"> 자유게시판 </h2>
 			</div>
 			<div class="panel panel-default">
 				<div class="panel-heading">
@@ -20,7 +20,7 @@
 							<option value="TC"<c:out value="${pageVO.cri.type=='TC'?'selected':''}"/>> 제목 or 내용</option>
 						</select>
 												
-						<input type="text" id="keyword" name=keyword value="${pageVO.cri.keyword}" />
+						<input type="text" id="keyword" name=keyword value="${pageVO.cri.keyword}" placeholder="검색어를 입력하세요"/>
 						<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum}" />
 						<input type="hidden" name="amount" value="${pageVO.cri.amount}" />
 			
