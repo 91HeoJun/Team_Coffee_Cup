@@ -112,7 +112,7 @@
 	        </button>
 	      </div>
 	      <div class="modal-body">
-	        <p> 등록되었습니다. </p>
+	        <p> 요청이 처리되었습니다. </p>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal"> 확인 </button>

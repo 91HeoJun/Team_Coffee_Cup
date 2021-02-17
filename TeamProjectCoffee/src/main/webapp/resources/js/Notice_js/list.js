@@ -16,7 +16,7 @@ $(function() {
 		}
 		
 		if(parseInt(result)>0){
-			$(".modal-body").html(result + "번 내용이 등록되었습니다.");
+			$(".modal-body").html(result + "번 공지가 등록되었습니다.");
 		}
 		
 		$("#myModal").modal("show");
