@@ -3,8 +3,9 @@
  	color: black;
  	font-family: 'Noto Sans KR', sans-serif;
  }
+
 #page-wrapper {
-	width:100%;
+	margin: 20px 120px;
 	min-height: 450px;
 	overflow: hidden;
 	position:relative;
