@@ -358,6 +358,9 @@ function btncheck() {
       type:"post",
       url:"/getIdCount",      
       data:{ userid:$("#userid").val() },
+/*       beforeSend:function(xhr){
+    	  xhr.setRequestHeader(csrfHeaderName,csrfTokenValue);
+      }, */
       async:true,
       success:function(msg){   
          

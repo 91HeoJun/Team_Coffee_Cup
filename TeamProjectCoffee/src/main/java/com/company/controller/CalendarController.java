@@ -38,7 +38,6 @@ public class CalendarController {
 	@Autowired
 	private MyPageService mservice;
 
-	@Secured({"ROLE_MEMBER", "ROLE_ADMIN"})
 	@RequestMapping(value="/calendar", method = {RequestMethod.GET, RequestMethod.POST})
 	public String calendar(String userid,HttpSession session,Model model, String year, String month) {
 		log.info("달력페이지" + new Date());
@@ -84,7 +83,6 @@ public class CalendarController {
 	   }
 
 	 // 출석체크
-	   @Secured({"ROLE_MEMBER", "ROLE_ADMIN"})
 	   @ResponseBody
 	   @RequestMapping(value = "/calwrite", method = {RequestMethod.GET, RequestMethod.POST})
 	   public void calwrite(Model model, CalendarVO cal, 
@@ -134,7 +132,7 @@ public class CalendarController {
 	   }
 	   
        // 같은 ID 몇개 인지 찾기
-	  @PreAuthorize("#userid == principal.username")
+
       @ResponseBody // -> ajax을 사용할 때 꼭 붙여줘야 한다!! 
       @RequestMapping(value = "/getIdCount", method = {RequestMethod.GET, RequestMethod.POST})
       public String getIdCount(String userid, HttpSession session) {

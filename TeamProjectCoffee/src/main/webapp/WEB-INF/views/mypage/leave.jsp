@@ -46,7 +46,7 @@ border-bottom: 1px solid;
 	 	<div class="card-body">	
 			<div class="form-group row justify-content-center">		
 				<div class="col-sm-10">	
-					<input type="text" name="userid" id="userid" class="form-control" value="${auth.userid}" readonly/>
+					<input type="text" name="userid" id="userid" class="form-control" value="${regist.userid}" readonly/>
 			 		<small id="userid" class="text-info"></small>		
 				</div>
 			</div>	

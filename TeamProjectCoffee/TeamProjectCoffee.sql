@@ -14,6 +14,8 @@ CREATE TABLE UserTBL (
 
 --UserTBL 컬럼 수정 : password varchar2(20->60)
 alter table userTBL modify(password VARCHAR2(60));
+--UserTBL 컬럼 수정 : password varchar2(50->100)
+alter table userTBL modify(address VARCHAR2(100));
 
 select * from USERTBL;
 -- 1:1 게시판을 위한 BoarTBL

@@ -21,7 +21,10 @@
 	<!-- board/list는 시큐리티를 적용하지 않음 -->
 	<!-- <security:http pattern="/" security="none"/> -->
 	
-	
+		<!-- 시큐리티를 적용하지 않음 -->
+	 <security:http pattern="/calendar" security="none"/> 
+	 <security:http pattern="/calwrite" security="none"/> 
+	 <security:http pattern="/getIdCount" security="none"/> 
 	<!-- http로 들어오는 요청에 대해 접근통제를 위한 필터 기록 -->
 	<security:http>
 		<security:intercept-url pattern="/store/admin" access="hasRole('ROLE_ADMIN')"/>
