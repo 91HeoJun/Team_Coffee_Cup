@@ -3,10 +3,10 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!-- 추후 Header 위치 이동시 수정 필요 -->
-<%@include file="boardHeader.jsp" %>
+<%@include file="../ClientBoard/boardHeader.jsp" %>
 
 			<div class="col-lg-12">
-				<h2 class="list-page-header">1:1 문의 게시판</h2>
+				<h2 class="list-page-header"> 공지사항 </h2>
 			</div>
 			<div class="panel panel-default">
 				<div class="panel-heading">
@@ -33,7 +33,7 @@
                                 <thead>
                                     <tr>
                                         <th class="table-No">No.</th>
-                                        <th class="table-Title">제     목</th>
+                                        <th class="table-Title">제 목</th>
                                         <th class="table-Writer">작성자</th>
                                         <th class="table-Date">작성일</th>
                                         <th class="table-Date">수정일</th>
@@ -46,7 +46,7 @@
 									<c:forEach var="vo" items="${list}">
 										<tr>
 											<td class="table-No">${vo.bno}</td>
-											<td><a href="${vo.bno}" class="move">${vo.title}</a> [${vo.replyCnt}]</td>
+											<td><a href="${vo.bno}" class="move">${vo.title}</a></td>
 											<td class="table-Writer">${vo.writer}</td>
 											<td class="table-Date"><fmt:formatDate value="${vo.regDate}" pattern="yyyy-MM-dd"/></td>
 											<td class="table-Date"><fmt:formatDate value="${vo.updateDate}" pattern="yyyy-MM-dd"/></td>
@@ -55,9 +55,7 @@
 								</tbody>
                             </table>
 
-
-
-								<div class="col-md-12" id="list-buttons">
+								<div class="col-md-12">
 								
 									<div class="col-md-2 col-md-offset-2">
 
@@ -86,7 +84,12 @@
 									</div>	
 								
 									<div class="col-md-8">
-										<button id='regBtn' type="button" class="btn btn-outline-dark" onclick="location.href='register'">문의글 작성</button>
+										<sec:authentication property="principal" var="info"/>
+										<sec:authorize access="isAuthenticated()">
+											<c:if test="${info.username == 'testadmin'}">	
+												<button id='regBtn' type="button" class="btn btn-outline-dark" onclick="location.href='register'">공지사항 작성</button>
+											</c:if>
+										</sec:authorize>
 									</div>
 	
 								</div> <!-- end search -->
@@ -123,8 +126,6 @@
 	  </div>
 	</div>
 
-
-
 <script> var result = '${result}';</script>
-<script src="/resources/js/Board_js/list.js"></script>
+<script src="/resources/js/Notice_js/list.js"></script>
 <%@include file="../ClientBoard/boardFooter.jsp" %>

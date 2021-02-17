@@ -70,6 +70,7 @@ border-bottom: 1px solid;
 						onclick="location.href='/mypage/changeInfo'" style="background-color: #9999cc;">회원 정보 수정하기</button>
 					<!-- 	<button type="submit" class="btn btn-danger" onclick="location.href='/mypage/leave'">탈퇴하기</button>	 -->
 				</div>
+					     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			</form>
 		</div>
 	</div>

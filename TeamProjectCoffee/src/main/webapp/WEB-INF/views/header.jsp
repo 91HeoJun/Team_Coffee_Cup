@@ -89,9 +89,9 @@
       		</li>
       		<li class="toggle"><a href="/store/list">매장</a>
       		</li>
-      		<li class="toggle"><a href="/news/clientnews">소식</a>
+      		<li class="toggle"><a href="/Notice/list">소식</a>
       			<ul class="sub">
-      				<li><a href="/adminnews">공지사항</a></li>
+      				<li><a href="/Notice/list">공지사항</a></li>
       				<li><a href="/news/clientnews">이벤트</a></li>
       			</ul>
       		</li>

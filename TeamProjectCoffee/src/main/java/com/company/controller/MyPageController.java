@@ -7,6 +7,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -107,23 +109,41 @@ public class MyPageController {
 		log.info("회원정보 수정 폼 보여주기");
 	}
 	
+	@PreAuthorize("#userid == principal.username")
 	@PostMapping("/changeInfo")
-	public String changePost(ChangeVO change,@SessionAttribute AuthVO auth,LoginVO login,HttpSession session,RedirectAttributes rttr) {
-		//회원정보 수정 - change(password, new_password, confirm_password)
+	public String changePost(String userid,ChangeVO change,HttpSession session,RedirectAttributes rttr) {
 		log.info("회원정보 수정"+change);
 		//userid 세션에서 가져와서 change에 담기
-		change.setUserid(auth.getUserid());
+		//change.setUserid(auth.getUserid());
+		//security 적용
+		BCryptPasswordEncoder encorder = new BCryptPasswordEncoder();
+		String password_encoded = encorder.encode(change.getNew_password());
+		log.info("비밀번호 인코딩 : "+password_encoded);
 		
-		//service에 회원정보 변경 요청
-		if(service.update(change)) {//성공 => 회원상세정보 페이지 이동
-//			session.invalidate();
-			RegisterVO regist=service.getId(login.getUserid());
-			session.setAttribute("regist", regist);
-			return "redirect:userInfo";
-		}else {//실패 => 회원정보 변경 폼 보여주기
+		change.setPassword(password_encoded);
+		if(service.update(change)) {
+			log.info("==정보수정완료 완료");
+	
+			session.invalidate();
+			return "redirect:/mypage/signin";
+		}else {
+			log.info("==정보수정실패");
 			rttr.addFlashAttribute("error","입력한 정보가 틀립니다!!");				
-		} return "redirect:changeInfo";	
+			return "redirect:changeInfo";	
+		}
 	}
-	
-	
 }
+		
+//		//service에 회원정보 변경 요청
+//		if(service.update(change)) {//성공 => 회원상세정보 페이지 이동
+//			session.invalidate();
+////			RegisterVO regist=service.getId(login.getUserid());
+////			session.setAttribute("regist", regist);
+//			return "redirect:/";
+//		}else {//실패 => 회원정보 변경 폼 보여주기
+//			rttr.addFlashAttribute("error","입력한 정보가 틀립니다!!");				
+//		} return "redirect:changeInfo";	
+//	}
+	
+	
+

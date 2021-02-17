@@ -4,6 +4,7 @@
 <%@ include file="../header.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 <head>
 <fmt:requestEncoding value="utf-8"/>
@@ -100,7 +101,8 @@ border-bottom: 1px solid;
                         <small id="name" class="text-info"></small>
                     </div>
                 </div>
-				<div class="form-group row justify-content-center">
+                <input type="hidden" name="password" value="${_csrf.token}"/>
+			<!--  	<div class="form-group row justify-content-center">
 					<label for="password" class="col-sm-2 col-form-label">현재 비밀번호</label>
 					<div class="col-sm-6">
 						<input type="password" name="password"
@@ -108,7 +110,7 @@ border-bottom: 1px solid;
 							value="${regist.password}"/> <small id="password"
 							class="text-info"></small>
 					</div>
-				</div>
+				</div>-->
            <div class="form-group row justify-content-center">
            <label for="name" class="col-sm-2 col-form-label">새 비밀번호</label>
            <div class="col-sm-6">
@@ -182,11 +184,10 @@ border-bottom: 1px solid;
 				<button type="submit" class="btn btn-primary" id="_btnInfo">확인</button>
 				<button type="button" class="btn btn-secondary" id="changecancel" onclick="location.href='/mypage/myPageGo'">취소</button>
 			</div>
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			</form>
-	
 			</div>
 		</div>
-	
 </div>
 
 <script>
@@ -214,6 +215,7 @@ border-bottom: 1px solid;
 $("#_btnInfo").click(function(){
 	if(confirm("회원정보를 수정하시겠습니까?") == true){
 		$('#_frmForm').submit();
+		alert("완료되었습니다. 다시 로그인해주세요.");
 	} else{
 		return false;
 	}

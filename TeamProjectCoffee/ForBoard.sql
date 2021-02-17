@@ -11,6 +11,9 @@ CREATE TABLE BoardTBL (
 	CONSTRAINT BoardTBL_PK PRIMARY KEY (bno)
 );
 
+-- 1:1 게시판의 글번호를 위한 시퀸스
+CREATE SEQUENCE seq_board START WITH 1 INCREMENT BY 1;
+
 -- FAQ를 위한 테이블
 CREATE TABLE FAQ_BoardTBL (
 	bno			NUMBER(10, 0)	NOT NULL, 
@@ -26,14 +29,31 @@ CREATE TABLE FAQ_BoardTBL (
 -- FAQ를 위한 시퀸스
 CREATE SEQUENCE seq_FAQ START WITH 1 INCREMENT BY 1;
 
+-- 공지를 위한 테이블
+CREATE TABLE NoticeTBL (
+	bno			NUMBER(10, 0)	NOT NULL, 
+	title		VARCHAR2(200)	NOT NULL, 
+	content		VARCHAR2(2000)	NOT NULL, 
+	writer		VARCHAR2(50)	NOT NULL, 
+	regdate		DATE			DEFAULT SYSDATE, 
+	updatedate	DATE			DEFAULT SYSDATE, 
+
+	CONSTRAINT NoticeTBL_PK PRIMARY KEY (bno)
+);
+
+-- 공지를 위한 시퀸스
+CREATE SEQUENCE seq_NoticeTBL START WITH 1 INCREMENT BY 1;
+
+
+
+
 -- replyCnt 기본값 0처리
 alter table BoardTBL modify replyCnt default 0;
 -- 게시글 상태확인용
 select * from boardTBL where bno = 85;
 
 
--- 1:1 게시판의 글번호를 위한 시퀸스
-CREATE SEQUENCE seq_board START WITH 1 INCREMENT BY 1;
+
 
 -- 게시글 더미 생성 쿼리
 insert into BoardTBL(bno, title, content, writer)
