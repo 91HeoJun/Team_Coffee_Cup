@@ -37,7 +37,7 @@
                 					<textarea class="form-control" rows="3" name="pdate" readonly="readonly"> <fmt:formatDate value="${selectProduct.pdate}" pattern="yyyy-MM-dd"/></textarea>               				
                 				</div> 
                 				<div class="form-group">
-                					<label>${selectProduct.pamount}g</label>
+                					<label>${selectProduct.pamount}</label>
                 					<!-- <textarea class="form-control" rows="3" name="pamount" readonly="readonly"></textarea>         -->       				
                 				</div> 
                 				<div class="form-group">

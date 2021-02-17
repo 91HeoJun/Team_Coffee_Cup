@@ -47,4 +47,6 @@
 	</bean>
 	<tx:annotation-driven/>
 	
+	 <!-- fileupload 객체 생성 -->
+   <bean id="filterMultipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 </beans>
