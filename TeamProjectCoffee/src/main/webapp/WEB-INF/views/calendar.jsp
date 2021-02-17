@@ -8,6 +8,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <fmt:requestEncoding value="utf-8"/>
 
 <%@page import="java.util.Calendar"%>
@@ -323,6 +324,7 @@ int tmin = cal.get(Calendar.MINUTE);
    	<div style="margin-left: 35%;">
    <img alt="" src="/resources/calendarimg/stamp_01.png" onclick="btncheck()" >
    </div>
+   			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 </form>
 </div>
 
@@ -360,7 +362,7 @@ function btncheck() {
       success:function(msg){   
          
          if(msg== 'YES'){            
-            alert("포인트 지급완료.");
+            alert("포인트 지급완료.\n다음 로그인시 확인가능합니다.");
          }else{
             alert("출석일수가 모자랍니다.");
          }      

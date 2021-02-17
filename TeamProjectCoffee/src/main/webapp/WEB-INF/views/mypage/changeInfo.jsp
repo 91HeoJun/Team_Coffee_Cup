@@ -101,8 +101,8 @@ border-bottom: 1px solid;
                         <small id="name" class="text-info"></small>
                     </div>
                 </div>
-                <input type="hidden" name="password" value="${_csrf.token}"/>
-			<!--  	<div class="form-group row justify-content-center">
+                <input type="hidden" name="password" value="password"/>
+			  	<!--<div class="form-group row justify-content-center">
 					<label for="password" class="col-sm-2 col-form-label">현재 비밀번호</label>
 					<div class="col-sm-6">
 						<input type="password" name="password"

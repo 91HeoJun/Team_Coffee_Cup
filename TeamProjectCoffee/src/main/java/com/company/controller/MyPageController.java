@@ -78,6 +78,7 @@ public class MyPageController {
 	}
 	
 	//마이 페이지 메인 보여주기-(회원상세정보)
+	@Secured({"ROLE_MEMBER", "ROLE_ADMIN"})
 	@GetMapping("/userInfo")
 	public void userInfo() {
 		log.info("===회원정보페이지 보여주기");
@@ -85,6 +86,7 @@ public class MyPageController {
 	
 
 	//회원탈퇴 폼 보여주기
+	@Secured({"ROLE_MEMBER", "ROLE_ADMIN"})
 	@GetMapping("/leave")
 	public void leaveGet() {
 		log.info("회원탈퇴 폼 보여주기");
@@ -104,6 +106,7 @@ public class MyPageController {
 		}
 	}
 	//회원정보 수정 폼 보여주기
+	@Secured({"ROLE_MEMBER", "ROLE_ADMIN"})
 	@GetMapping("/changeInfo")
 	public void changeInfo() {
 		log.info("회원정보 수정 폼 보여주기");
@@ -120,7 +123,7 @@ public class MyPageController {
 		String password_encoded = encorder.encode(change.getNew_password());
 		log.info("비밀번호 인코딩 : "+password_encoded);
 		
-		change.setPassword(password_encoded);
+		change.setNew_password(password_encoded);
 		if(service.update(change)) {
 			log.info("==정보수정완료 완료");
 	
