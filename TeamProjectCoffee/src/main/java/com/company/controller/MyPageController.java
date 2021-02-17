@@ -120,7 +120,7 @@ public class MyPageController {
 		String password_encoded = encorder.encode(change.getNew_password());
 		log.info("비밀번호 인코딩 : "+password_encoded);
 		
-		change.setPassword(password_encoded);
+		change.setNew_password(password_encoded);
 		if(service.update(change)) {
 			log.info("==정보수정완료 완료");
 	
