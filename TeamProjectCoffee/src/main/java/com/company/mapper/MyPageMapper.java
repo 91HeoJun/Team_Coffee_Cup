@@ -10,5 +10,5 @@ public interface MyPageMapper {
 	public AuthVO isLogin(LoginVO login);
 	public int leaveMember(LoginVO login);
 	public int updateMember(ChangeVO change);
-	public RegisterVO getId(LoginVO login);
+	public RegisterVO getId(String userid);
 }

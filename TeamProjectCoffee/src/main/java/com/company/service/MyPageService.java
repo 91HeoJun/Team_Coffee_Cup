@@ -14,5 +14,5 @@ public interface MyPageService {
 	//비밀번호 수정
 	public boolean update(ChangeVO change);
 	//개인회원 정보
-	public RegisterVO getId(LoginVO login);
+	public RegisterVO getId(String userid);
 }

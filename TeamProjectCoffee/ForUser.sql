@@ -22,35 +22,33 @@ values('hong1234','hong1234!!','홍동동','07085','서울시 종로구 관철�
 --출석체크 테스트용
 
 insert into calendar
-values(SEQ_CAL.NEXTVAL, 'hong1234','20210202');
+values(SEQ_CAL.NEXTVAL, 'hong123','20210203');
 insert into calendar
-values(SEQ_CAL.NEXTVAL, 'hong1234','20210203');
+values(SEQ_CAL.NEXTVAL, 'hong123','20210204');
 insert into calendar
-values(SEQ_CAL.NEXTVAL, 'hong1234','20210204');
+values(SEQ_CAL.NEXTVAL, 'hong123','20210205');
 insert into calendar
-values(SEQ_CAL.NEXTVAL, 'hong1234','20210205');
+values(SEQ_CAL.NEXTVAL, 'hong123','20210206');
 insert into calendar
-values(SEQ_CAL.NEXTVAL, 'hong1234','20210206');
+values(SEQ_CAL.NEXTVAL, 'hong123','20210207');
 insert into calendar
-values(SEQ_CAL.NEXTVAL, 'hong1234','20210207');
+values(SEQ_CAL.NEXTVAL, 'hong123','20210208');
 insert into calendar
-values(SEQ_CAL.NEXTVAL, 'hong1234','20210208');
+values(SEQ_CAL.NEXTVAL, 'hong123','20210209');
 insert into calendar
-values(SEQ_CAL.NEXTVAL, 'hong1234','20210209');
+values(SEQ_CAL.NEXTVAL, 'hong123','20210210');
 insert into calendar
-values(SEQ_CAL.NEXTVAL, 'hong1234','20210210');
+values(SEQ_CAL.NEXTVAL, 'hong123','20210211');
 insert into calendar
-values(SEQ_CAL.NEXTVAL, 'hong1234','20210211');
+values(SEQ_CAL.NEXTVAL, 'hong123','20210212');
 insert into calendar
-values(SEQ_CAL.NEXTVAL, 'hong1234','20210212');
+values(SEQ_CAL.NEXTVAL, 'hong123','20210213');
 insert into calendar
-values(SEQ_CAL.NEXTVAL, 'hong1234','20210213');
+values(SEQ_CAL.NEXTVAL, 'hong123','20210214');
 insert into calendar
-values(SEQ_CAL.NEXTVAL, 'hong1234','20210214');
+values(SEQ_CAL.NEXTVAL, 'hong123','20210215');
 insert into calendar
-values(SEQ_CAL.NEXTVAL, 'hong1234','20210215');
-insert into calendar
-values(SEQ_CAL.NEXTVAL, 'hong1234','20210216');
+values(SEQ_CAL.NEXTVAL, 'hong123','20210216');
 
 delete from CALENDAR where userid='hong1234';
 delete from usertbl where userid='hong123';

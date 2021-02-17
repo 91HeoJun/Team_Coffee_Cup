@@ -71,6 +71,7 @@ public class StoreController {
 
 	// 매장 관리 컨트롤
 	// 매장 등록
+	@Secured("ROLE_ADMIN")
 	@PostMapping("/add")
 	public String storeAdd(StoreVO store) {
 		log.info("매장 추가 요청 : " + store);
@@ -93,6 +94,7 @@ public class StoreController {
 	}
 	
 	//매장 삭제
+	@Secured("ROLE_ADMIN")
 	@DeleteMapping(value = "/{code}")
 	public ResponseEntity<String> deleteStore(@PathVariable int code) {
 		
@@ -105,6 +107,7 @@ public class StoreController {
 		return new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
 	}
 	
+	@Secured("ROLE_ADMIN")
 	@PostMapping("/modify")
 	public String modify(StoreVO store) {
 		log.info("매장 수정 " + store); // 동일한 경로의 post로 이동시 : get에서 받은 데이터 유지 cri != null
