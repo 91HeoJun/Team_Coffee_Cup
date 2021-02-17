@@ -10,5 +10,5 @@ public interface ProductAttachMapper {
 	public int insert(ProductFileAttach attach);
 	public int delete(int pcode);
 	public List<ProductFileAttach> oldFileList();
-
+	public ProductFileAttach attach(int pcode);
 }

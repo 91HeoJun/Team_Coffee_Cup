@@ -11,6 +11,7 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,7 +44,9 @@ public class ProductController {
 		log.info("---- 상품 입력 페이지로 이동중 ... ----");
 	}
 	
+	
 	@PostMapping("/productRegister")
+	@PreAuthorize("isAuthenticated()")
 	public String insertProduct(ProductVO product,MultipartFile image, RedirectAttributes rttr,HttpServletRequest req) {
 		
 		log.info("---- 상품 입력 실행중 ... ----"+product);	
@@ -88,24 +91,25 @@ public class ProductController {
 	}
 	
 	// 상품 삭제 	
-	@PostMapping("/remove")
+	@PostMapping("/productRemove")
 	public String removeProduct(int pcode, Criteria cri, RedirectAttributes rttr) {
 		log.info("---- " + pcode + "번 상품 삭제 진행중... ----");
 
-		List<ProductFileAttach> attachList = productService.AttachList(pcode);
+		//List<ProductFileAttach> attachList = productService.AttachList(pcode);
 		
-		if (productService.removeProduct(pcode)) {
-			fileDelete(attachList);
-			rttr.addFlashAttribute("result", "success");
-		}
-		
-		rttr.addAttribute("pageNum", cri.getPageNum());
-		rttr.addAttribute("amount", cri.getAmount());
-		rttr.addAttribute("keyword", cri.getKeyword());
-		rttr.addAttribute("type", cri.getType());
-		
-		
-		return "redirect:productList";
+//		if (productService.removeProduct(pcode)) {
+//			fileDelete(attachList);
+//			rttr.addFlashAttribute("result", "success");
+//		}
+//		
+//		rttr.addAttribute("pageNum", cri.getPageNum());
+//		rttr.addAttribute("amount", cri.getAmount());
+//		rttr.addAttribute("keyword", cri.getKeyword());
+//		rttr.addAttribute("type", cri.getType());
+//		
+//		
+//		return "redirect:productList";
+		return null;
 	}
 	
 
@@ -119,9 +123,12 @@ public class ProductController {
 		model.addAttribute("selectProduct", selectProduct);
 	}
 	
+	
 	@PostMapping("/productEdit")
-	public String updatePost(ProductVO product, Criteria cri, RedirectAttributes rttr) {
+	@PreAuthorize("isAuthenticated()")
+	public String updatePost(ProductVO product,MultipartFile image, Criteria cri, RedirectAttributes rttr) {
 		log.info("---- 상품 수정 실행중 ... ----" + product);
+		log.info("---- 이미지 ... ----" + image);
 		
 		// 파일 첨부 확인
 		if (product.getAttach() != null) {

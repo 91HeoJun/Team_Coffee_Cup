@@ -10,7 +10,7 @@
  </head>
  <body>
     <h2>상품 등록</h2>
-   	<form action="/product/productRegister" method="post" role="form" enctype="multipart/form-data">
+   	<form action="/product/productRegister?${_csrf.parameterName}=${_csrf.token}" method="post" role="form" enctype="multipart/form-data">
         <table>
             <tr>
                 <td>상품명</td>
@@ -51,7 +51,8 @@
                     <button type="reset" class="btn btn-default" onclick="location.href='productList'">취소</button>
                 </td>
             </tr>
-        </table>            	
+        </table> 
+		<%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>   --%>        	
     </form>
  <script>
     //상품을 추가하기위한 정보를 담아 insert.do로 보내는 자바스크립트 함수

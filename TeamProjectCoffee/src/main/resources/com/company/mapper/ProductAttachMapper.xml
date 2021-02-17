@@ -17,5 +17,10 @@
 	<select id="oldFileList" resultType="com.company.domain.ProductFileAttach">
 		select * from ProductTBL_Attach where uploadPath = to_char(sysdate-1, 'yyyy\mm\dd')
 	</select>
+	
+	<!-- 첨부물 가져오기 -->
+	<select id="attach" resultType="com.company.domain.ProductFileAttach">
+		select uuid,filename from ProductTBL_Attach where pcode=#{pcode}
+	</select>
 
 </mapper>

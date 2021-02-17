@@ -17,5 +17,5 @@ public interface ProductMapper {
 	
 	public int productCnt(Criteria cri);	
 	
-	public List<ProductFileAttach> attachList(int pcode);
+	public ProductFileAttach attach(int pcode);
 }

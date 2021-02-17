@@ -89,10 +89,7 @@
 		 ]]>	
 	</select>
 	
-	<!-- 첨부물 가져오기 -->
-	<select id="attachList" resultType="com.company.domain.ProductFileAttach">
-		select uuid,filename from ProdctTBL_Attach where pcode=#{pcode}
-	</select>
+	
 	
 	
 <!-- 동적 SQL -->

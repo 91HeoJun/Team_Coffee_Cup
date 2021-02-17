@@ -10,30 +10,29 @@
 
 </head>
 <body>
-    <h2>상품 정보 편집</h2>
-   <form action="/product/productEdit" method="post" role="form">
-        <!-- 파일 업로드를 하기위한 타입, 필수로 작성해야 한다.-->
+    <h2>상품 정보 편집</h2>   
+    <!-- 파일 업로드를 하기위한 타입, 필수로 작성해야 한다.-->
       <div class="panel-body">
-   			<form action="" role="form" method="">
+   			<form action="" role="form" method="post" enctype="multipart/form-data">
    				<div class="form-group">
    					<label>상품코드</label>
-   					<input class="form-control" name="pcode" value="${selectProduct.pcode}" >                				
+   					<input class="form-control" name="pcode" value="${selectProduct.pcode}" readonly="readonly">                				
    				</div> 
    				<div class="form-group">
    					<label>상품 종류</label>
-   					<input class="form-control" name="pcategory" value="${selectProduct.pcategory}" >                				
+   					<input class="form-control" name="pcategory" value="${selectProduct.pcategory}" readonly="readonly">                				
    				</div>  
    				<div class="form-group">
    					<label>상품명</label>
-   					<textarea class="form-control" rows="3" name="product">${selectProduct.product}</textarea>               				
+   					<textarea class="form-control" rows="3" name="product" readonly="readonly">${selectProduct.product}</textarea>               				
    				</div> 
    				<div class="form-group">
    					<label>로스팅일(제조일)</label>
-   					<textarea class="form-control" rows="3" name="pdate"> <fmt:formatDate value="${selectProduct.pdate}" pattern="yyyy-MM-dd"/></textarea>               				
+   					<textarea class="form-control" rows="3" name="pdate" readonly="readonly"> <fmt:formatDate value="${selectProduct.pdate}" pattern="yyyy-MM-dd"/></textarea>               				
    				</div> 
    				<div class="form-group">
    					<label>무게</label>
-   					<textarea class="form-control" rows="3" name="pamount" >${selectProduct.pamount}</textarea>               				
+   					<textarea class="form-control" rows="3" name="pamount" readonly="readonly" >${selectProduct.pamount}</textarea>               				
    				</div> 
    				<div class="form-group">
    					<label>상세 설명</label>
@@ -45,28 +44,22 @@
    				</div> 
    				<div class="form-group">
    					<label>상품이미지</label>
-   					<img src="/resources/productimg/<c:out value="${selectProduct.attach.uuid}"/>_<c:out value="${vo.attach.fileName}"/>" style="width:100px;height:100px">            				
+   					<img src="" style="width:100px;height:100px" id="productimg">    					      				
    				</div> 
+   				<div>
+   					<input type="file" name="image"/>  
+   				</div>
 					<button type="button" class="btn btn-outline-primary" id="modify">수정</button>
-                	<button type="button" class="btn btn-outline-danger"  id="delete">삭제</button>                	
-    </form>
+                	<button type="button" class="btn btn-outline-danger"  id="delete">삭제</button>    
+                	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>            	
+   		 </form>   
+   	</div>
 </body>
 <script src="/resources/vendor/jquery/jquery.min.js"></script>
 <script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script>
-$(function(){
-	
-	var pcode= ${selectProduct.pcode};
-	
-}
-	
-	$("#modify").click(function(){
-		
-	})
-	
-	$("#delete").click(function(){
-		
-	})
-	
+
+var pcode= ${selectProduct.pcode};	
 </script>
+<script src="/resources/js/Product_js/productEdit.js"></script>
 </html>

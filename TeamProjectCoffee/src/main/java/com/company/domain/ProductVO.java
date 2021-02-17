@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,6 +29,8 @@ public class ProductVO {
 	private String pamount;  //상품 재고수량	
 	private String origin;  //상품원산지
    // private String picture_url; //상품 이미지 경로 
+	
+	private MultipartFile image;
 	
 	//첨부파일 목록
 	private ProductFileAttach attach;
