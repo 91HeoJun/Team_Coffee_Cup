@@ -134,6 +134,7 @@ public class CalendarController {
 	   }
 	   
        // 같은 ID 몇개 인지 찾기
+	  @PreAuthorize("#userid == principal.username")
       @ResponseBody // -> ajax을 사용할 때 꼭 붙여줘야 한다!! 
       @RequestMapping(value = "/getIdCount", method = {RequestMethod.GET, RequestMethod.POST})
       public String getIdCount(String userid, HttpSession session) {
