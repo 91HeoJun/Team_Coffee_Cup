@@ -1,9 +1,12 @@
 package com.company.controller;
 //MyPage- 회원정보 수정, 회원탈퇴 관련 컨트롤러-은주
 
+import java.security.Principal;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,6 +39,7 @@ public class MyPageController {
 		log.info("===login 페이지 요청");
 	}
 	//로그인 정보(아이디, 비밀번호)를 가져오는 컨트롤러
+	//수정 : 시큐리티 적용 - PostMapping
 	//@PostMapping("/signin")
 	public String loginPost(LoginVO login, HttpSession session, RedirectAttributes rttr) {
 		log.info("===로그인 페이지 요청..."+login);
@@ -53,16 +57,18 @@ public class MyPageController {
 		}
 	}
 	
+	@Secured({"ROLE_MEMBER", "ROLE_ADMIN"})
 	@GetMapping("/myPageGo")
-	public String myPageGo(HttpSession session) {
+	public String myPageGo() {
 		log.info("===마이페이지 요청...");
 
-		RegisterVO regist =(RegisterVO) session.getAttribute("regist");
-		if(regist!=null) { //로그인 정보가 있을경우 마이페이지 메인
-			return "/mypage/myPageGo";
-		}else { //로그인 정보가 없을경우 로그인페이지로 이동
-			return "redirect:signin";
-		}
+//		RegisterVO regist =(RegisterVO) session.getAttribute("regist");
+//		if(regist!=null) { //로그인 정보가 있을경우 마이페이지 메인
+//			return "/mypage/myPageGo";
+//		}else { //로그인 정보가 없을경우 로그인페이지로 이동
+//			return "redirect:signin";
+//		}
+		return "/mypage/myPageGo";
 	}
 	
 	//마이 페이지 메인 보여주기-(회원상세정보)

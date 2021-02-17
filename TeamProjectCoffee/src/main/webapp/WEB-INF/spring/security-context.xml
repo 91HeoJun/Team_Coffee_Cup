@@ -19,7 +19,7 @@
 	<bean id="customLoginHandler" class="com.company.handler.CustomLoginSuccessHandler" />
 	
 	<!-- board/list는 시큐리티를 적용하지 않음 -->
-	<!-- <security:http pattern="/store/list" security="none"/> -->
+	<!-- <security:http pattern="/" security="none"/> -->
 	
 	
 	<!-- http로 들어오는 요청에 대해 접근통제를 위한 필터 기록 -->
