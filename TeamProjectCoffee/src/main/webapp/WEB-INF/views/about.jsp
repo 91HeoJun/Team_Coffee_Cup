@@ -14,10 +14,10 @@ body {
     margin:0;
     padding:0;
 }
-img, fieldset {
+.w100, fieldset {
     border: none;
     vertical-align: top;
-    max-width: 100%; 
+    width: 100%; 
     height: auto;
 }
 .notoserif, .notoserif * {
@@ -209,7 +209,7 @@ p {
                 </div>
                 </div>
                 <span
-                  ><img src="/resources/aboutimg/about_img01.jpg" class="w100" alt="" width="150%"
+                  ><img src="/resources/aboutimg/about_img01.jpg" class="w100" alt=""
                 /></span>
               </div>
               <div class="content02">

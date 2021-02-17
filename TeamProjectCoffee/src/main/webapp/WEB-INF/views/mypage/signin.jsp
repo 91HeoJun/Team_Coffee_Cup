@@ -36,7 +36,7 @@
 	      />
 	      <div class="checkbox mb-3">
 	        <label id="remember">
-	          <input type="checkbox" value="remember-me" /> 아이디 저장
+	          <input type="checkbox" value="remember-me" /> 자동 로그인
 	        </label>
 	      </div>
 	      <div>
