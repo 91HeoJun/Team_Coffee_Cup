@@ -8,10 +8,12 @@
 
 /* List CSS */
 /*타이틀*/
-.list-page-header {	
-	float: left;
-	line-height: normal;
-} 
+.sub_tit_wrap h2 { 
+	font:bold 36px Avenir, Arial, georgia; 
+	color:#222222; 
+	padding-top:30px; 
+	position:relative; 
+}
 
 /*작성버튼 라인*/
  .panel-heading {
