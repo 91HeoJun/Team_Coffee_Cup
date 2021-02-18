@@ -2,12 +2,16 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
-
-
+<%@ include file="productHeader.jsp" %>
+	<style>
+	a:hover {
+    color: red;
+   	text-decoration:none;
+	}
+	</style>
 
 <!-- ****** Header 위치 이동 시 경로 변경 필요 ****** -->
-<%@ include file="productHeader.jsp" %>
+
 
 <div class="row row-cols-1 row-cols-md-2" style="margin-top:20px;margin-right: -10px; margin-left: -10px;">
 <c:forEach var="vo" items="${listProduct}">
@@ -17,14 +21,13 @@
       <a href="/product/productDetail?pcode=${vo.pcode}&amount=${pageVO.cri.amount}&pageNum=${pageVO.cri.pageNum}">          
       <img src="/resources/productimg/<c:out value="${vo.attach.uuid}"/>_<c:out value="${vo.attach.fileName}"/>" class="card-img-top" alt="...">      
       <div class="card-body">
-	        <h5 class="card-title">${vo.product }</h5>
+	        <h5 class="card-title">${vo.product}</h5>
 	        <p class="card-text">
 		        ${vo.pcontent} <br/>
 		        ${vo.origin} <br/>
 				로스팅(제조)일: <fmt:formatDate value="${vo.pdate}" pattern="yyyy-MM-dd"/> <br/>
-				${vo.price } <br/>
+				${vo.price}원<br/>
 			</p>
-		<button type="button" class="btn btn-outline-secondary">장바구니 담기</button>
        </div></a>
      </div>
    </div>
