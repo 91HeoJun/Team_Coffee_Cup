@@ -27,6 +27,10 @@
     <!-- Custom styles for this template -->
 <!--     <link href="/resources/css/business-casual.min.css" rel="stylesheet" /> -->
    
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" 
+	integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" 
+	crossorigin="anonymous"></script>
+
   </head>
 
   <body>
@@ -80,7 +84,6 @@
 	      <th scope="col">상품코드</th>
 	      <th scope="col">상품이름</th>
 	      <th scope="col">가격</th>
-	      <th scope="col">수량</th>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -89,21 +92,63 @@
 	      <td scope="row"><c:out value="${cart.pcode}"></c:out></td>
 	      <td><c:out value="${cart.product}"></c:out></td>
 	      <td><c:out value="${cart.price}"></c:out></td>
-	      <td><c:out value="${cart.price}"></c:out></td>
-	    </tr>	
+	    </tr>
+
 	</c:forEach>
+	    <tr>
+	      <td scope="row">Total</td>
+	      <td></td>
+	      <td id="totalPrice">${total} </td>
+	    </tr>		
+
 	 </tbody>
 </table>
 	<div>
-		<button type="button" class="btn btn-outline-secondary">결제하기</button>
+		<button type="button" class="btn btn-outline-secondary" id="PGTS">결제하기</button>
 		<button type="button" class="btn btn-outline-secondary" onclick="location.href='/product/productList'">쇼핑 계속하기</button>
 	</div>
 </div>
+
+
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+
 <script>
-$(function(){
-	$("button").click(function(){
-		location.href="/cart";
-	})
-})
+ $('#PGTS').click(function () {
+     // getter
+     var IMP = window.IMP;
+     IMP.init('imp38665701');
+     var money = $("#totalPrice").text();
+     console.log(money);
+
+     IMP.request_pay({
+         merchant_uid: 'merchant_' + new Date().getTime(),
+
+         name: '주문명 : 주문명 설정',
+         amount: money,
+         buyer_email: 'iamport@siot.do',
+         buyer_name: '구매자이름',
+         buyer_tel: '010-1234-5678',
+         buyer_addr: '인천광역시 부평구',
+         buyer_postcode: '123-456'
+     }, function (rsp) {
+         console.log(rsp);
+          if (rsp.success) { 
+             var msg = '결제가 완료되었습니다.';
+             msg += '고유ID : ' + rsp.imp_uid;
+             msg += '상점 거래ID : ' + rsp.merchant_uid;
+             msg += '결제 금액 : ' + money;
+             $.ajax({
+                 type: "GET", 
+                 url: "/", //충전 금액값을 보낼 url 설정
+             });
+          } else {
+             var msg = '결제에 실패하였습니다.';
+             msg += '에러내용 : ' + rsp.error_msg;
+         }
+         alert(msg);
+         document.location.href="/"; //alert창 확인 후 이동할 url 설정
+     });
+ });
 </script>
+
 <%@include file="../footer.jsp" %>

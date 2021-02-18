@@ -62,7 +62,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="nav-toggle" href="/cart">
+                    <a class="nav-toggle" href="/cart/cartList">
                         cart
                     </a>              
                 </li>
@@ -93,7 +93,7 @@
       			<ul class="sub">
       				<li><a href="/Notice/list">공지사항</a></li>
       				<li><a href="/FAQ/list">FAQ</a></li>
-      				<li><a href="/ClientBoard/list">1:1</a></li>
+      				<li><a href="/ClientBoard/list">자유게시판</a></li>
       			</ul>
       		</li>
       	</ul>

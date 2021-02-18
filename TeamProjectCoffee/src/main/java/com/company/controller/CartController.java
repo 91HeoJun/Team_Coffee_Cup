@@ -32,6 +32,8 @@ public class CartController {
 	@Autowired
 	private ProductService service;
 	
+	private int total;
+	
 	//카트에 물건 담기 요청
 	@PostMapping("/insert")
 	@ResponseBody
@@ -49,14 +51,18 @@ public class CartController {
 		//session에 cartList가 없는 경우
 		if(session.getAttribute("cartList")==null) {
 			List<CartVO> cartList = new ArrayList<CartVO>();
+			total+=cart.getPrice();
 			cartList.add(cart);
 			session.setAttribute("cartList", cartList);
 		}else {//session에 cartList가 있는 경우
 			//장바구니 리스트를 가져옴
 			List<CartVO> cartList = (List<CartVO>) session.getAttribute("cartList");
+			total+=cart.getPrice();
 			//장바구니 리스트에 CartVO를 추가함
 			cartList.add(cart);
 			session.setAttribute("cartList", cartList);
+			session.setAttribute("total", total);
+			
 		}	
 		return "success";
 	}
