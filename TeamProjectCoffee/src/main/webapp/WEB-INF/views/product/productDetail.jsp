@@ -64,7 +64,7 @@
             </div>
 <form id="actionForm">
 	<input type="hidden" value="${selectProduct.pcode}" name="pcode"/>
-	<!-- <input type="hidden" name="pageNum" value="" />	 -->
+	<input type="hidden" value="${cri.pageNum}" name="pageNum" />
 </form>
 
 <!-- Bootstrap core JavaScript -->

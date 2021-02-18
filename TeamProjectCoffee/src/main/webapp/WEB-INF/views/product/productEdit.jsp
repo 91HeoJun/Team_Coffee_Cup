@@ -53,6 +53,8 @@
 					<button type="button" class="btn btn-warning" id="modify">수정</button>
                 	<button type="button" class="btn btn-outline-danger"  id="delete">삭제</button>    
                 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+					<input type="hidden" value="${selectProduct.pcode}" name="pcode"/>
+                	<input type="hidden" value="${cri.pageNum}" name="pageNum" />
                 </div>            	
    		 </form>   
    	</div>
