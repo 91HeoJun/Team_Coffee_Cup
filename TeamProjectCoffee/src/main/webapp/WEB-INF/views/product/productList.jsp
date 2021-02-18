@@ -4,8 +4,11 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ include file="productHeader.jsp" %>
 	<style>
+	a {
+	color: black;
+	}
 	a:hover {
-    color: red;
+    color: #666666;
    	text-decoration:none;
 	}
 	</style>
