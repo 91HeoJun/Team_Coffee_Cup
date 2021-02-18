@@ -35,9 +35,10 @@
 	        required
 	      />
 	      <div class="checkbox mb-3">
-	        <label id="remember">
+	        <label>
 	          <input type="checkbox" value="remember-me" /> 자동 로그인
 	        </label>
+	        <a class="pwSearch navbar-right" href="/user/pwSearch">비밀번호 찾기</a>
 	      </div>
 	      <div>
 	        <p style="color: red !important;">${error}</p>
@@ -63,3 +64,27 @@ $(function(){
 })
 </script>
 <%@include file="../footer.jsp" %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

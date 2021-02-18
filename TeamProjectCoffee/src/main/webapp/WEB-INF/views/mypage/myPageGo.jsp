@@ -65,7 +65,7 @@ border-bottom: 1px solid;
 					<br>
 				</div>
 				<div class="form-group text-center">
-					<button type="button" class="btn btn-primary"
+					<button type="button" class="btn btn-secondary"
 						onclick="location.href='/mypage/changeInfo'">정보변경하기</button>
 					<!-- 	<button type="submit" class="btn btn-danger" onclick="location.href='/mypage/leave'">탈퇴하기</button>	 -->
 				</div>
