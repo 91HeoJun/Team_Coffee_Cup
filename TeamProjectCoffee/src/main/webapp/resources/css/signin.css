@@ -6,10 +6,10 @@ input:focus {
   outline: none;
 	-webkit-tap-highlight-color: transparent;
 }
-button:focus{
-	outline:none;
+/* button:focus{
+	outline: none;
 	-webkit-tap-highlight-color: transparent;
-}
+} */
 
 .title{
 	display: flex;
@@ -42,9 +42,7 @@ button:focus{
   padding: 15px;
   margin: 0 auto;
 }
-/* #label{
-	margin: 0 40px 0 0;
-}  */
+
 .form-signin .checkbox {
   font-weight: 400;
 }
@@ -69,21 +67,27 @@ button:focus{
   border-top-right-radius: 0;
 }
 
-#remember{
-	color: #666;
+.pwSearch{
+	color: black;
+	margin-right: 5px;
 }
 
 .btn-primary{
-	background-color: #9999cc;
+	background-color: #fff;
+	border: 1px solid black;
+	color: black;
 }
 .btn-primary:hover{
-	background-color: #9999dd;
+	background-color: #000;
+	border: 1px solid #000;
+	color: #fff;
 }
 
-.postbtn{
-	background: #fff;
-}
 #textarea1{
 	font-family: 'Noto Sans KR', sans-serif;
 	font-size:14px;
+}
+
+#login{
+	margin:0 auto;
 }

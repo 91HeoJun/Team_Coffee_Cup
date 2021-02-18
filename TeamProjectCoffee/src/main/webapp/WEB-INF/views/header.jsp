@@ -16,7 +16,7 @@
 <link rel="icon" href="/resources/Logo/img/bean.ico" type="image/x-icon">
 
 	<title>Business Casual - Start Bootstrap Theme</title>
-
+	
 	<!-- Bootstrap CDN -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
@@ -28,7 +28,18 @@
 <!--     <link href="/resources/css/business-casual.min.css" rel="stylesheet" /> -->
    
   </head>
-
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+    $(".toggle").mouseenter(function(){
+        $(".sub").stop().slideUp();
+        $(this).find(".sub").slideDown(200);
+    })
+    $(".toggle").mouseleave(function(){
+        $(".sub").stop().slideUp(200);
+    })
+});
+</script>
   <body>
 	<div class="all">
     <div id="wrapper">
