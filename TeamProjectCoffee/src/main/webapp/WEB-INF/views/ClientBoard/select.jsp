@@ -76,12 +76,12 @@
 					</ul>
 					<div class="panel-footer"></div>
 				</div>
-			</div>
-			
+			</div>			
+		</div>		
+		<div><br /></div>	
 			<div class="reply-button" style="text-align: right;">
 					<button id="addReplyBtn" class="btn btn-outline-secondary">댓글 쓰기</button>
 			</div>
-		</div>			
 
 			<!-- 이동값 히든폼 -->
 			<form action="update" id="myform">
