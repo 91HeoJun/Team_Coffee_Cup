@@ -58,12 +58,7 @@ border-bottom: 1px solid;
     max-width: 100% !important;
     height: auto !important;
 }
-.btn-primary {
-	background-color: #9999cc;
-}
-.btn-primary:hover{
-	background-color: #9999dd; !important;
-}
+
 
 </style>
 <body>

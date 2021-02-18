@@ -12,9 +12,7 @@ border-radius: 10px;
 #left_bar > li{
 border-bottom: 1px solid;
 }
-.btn-primary{
- background-color:#9999cc; !important;
-}
+
 </style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <div>&nbsp;</div>
@@ -111,7 +109,7 @@ border-bottom: 1px solid;
 
 				<div class="form-group text-center">
 					<button type="button" class="btn btn-primary"
-						onclick="location.href='/mypage/changeInfo'" style="border: 1px solid #9999cc; background-color:#9999cc; !important;">정보변경하기</button>
+						onclick="location.href='/mypage/changeInfo'"">정보변경하기</button>
 					<!-- <button type="submit" class="btn btn-danger" onclick="location.href='/mypage/leave'">탈퇴하기</button>	 -->
 				</div>
 			</form>
