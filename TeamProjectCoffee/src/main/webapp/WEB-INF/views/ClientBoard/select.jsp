@@ -6,18 +6,8 @@
 <!-- 추후 Header 위치 이동시 수정 필요 -->
 <%@include file="boardHeader.jsp" %>
 
-		<div class="col-lg-12">
-			<h2 class="page-header-detail">1:1 문의 게시판 - 문의글 작성</h2>
-		
-			<div class="regist-buttons">
-			<sec:authentication property="principal" var="info"/>
-			<sec:authorize access="isAuthenticated()">
-				<c:if test="${info.username == selectBoard.writer}">
-				    <button type="button" class="btn btn-outline-dark" id="modify-button"> 수정 </button>
-				</c:if>    
-			</sec:authorize>
-	            <button type="reset" class="btn btn-outline-dark" id="gotolist-button"> 목록으로 </button>
-	        </div>
+		<div class="row justify-content-between">
+			<h2 class="col-6 sub_tit_wrap h2">자유 게시판 - 게시글</h2>
 	    </div>
 		<div class="accordion" id="accordionExample">
 			<form action="/ClientBoard/register" method="post" role="form">
@@ -55,7 +45,7 @@
 						
 					<div class="card-body">
 						<div class="uploadResult">
-							<ul class="attach-position"></ul>
+							<ul class="row row-cols-1 row-cols-sm-2 row-cols-md-4 attach-position"></ul>
 						</div>
 	
 					</div>
@@ -63,6 +53,19 @@
 
 			</form>
 			
+			<div class="row" style="padding-top: 2px;">
+				<div class="col order-1" style="text-align: right;">
+				<sec:authentication property="principal" var="info"/>
+				<sec:authorize access="isAuthenticated()">
+					<c:if test="${info.username == selectBoard.writer}">
+					    <button type="button" class="btn btn-outline-secondary" id="modify-button"> 수정 </button>
+					</c:if>    
+				</sec:authorize>
+		            <button type="reset" class="btn btn-outline-secondary" id="gotolist-button"> 목록으로 </button>
+		        </div>
+	        </div>
+			
+			<div><br /></div>
  			<div class="card">
 				<div class="card-header" id="headingThree">
 					<p class="mb-0">댓글</p>
@@ -74,8 +77,9 @@
 					<div class="panel-footer"></div>
 				</div>
 			</div>
-			<div class="reply-button">
-				<button id="addReplyBtn" class="btn btn-outline-dark">댓글 쓰기</button>
+			
+			<div class="reply-button" style="text-align: right;">
+					<button id="addReplyBtn" class="btn btn-outline-secondary">댓글 쓰기</button>
 			</div>
 		</div>			
 
@@ -114,10 +118,10 @@
 					        </div>
 					      </div>
 					      <div class="modal-footer">
-					        <button type="button" class="btn btn-outline-dark" id="modalRegisterBtn">등록</button>
-					        <button type="button" class="btn btn-outline-dark" id="modalModifyBtn">수정</button>
-					        <button type="button" class="btn btn-outline-dark" id="modalRemoveBtn">삭제</button>
-					        <button type="button" class="btn btn-outline-dark" id="modalCloseBtn" data-dismiss="modal">닫기</button>
+					        <button type="button" class="btn btn-outline-secondary" id="modalRegisterBtn">등록</button>
+					        <button type="button" class="btn btn-outline-secondary" id="modalModifyBtn">수정</button>
+					        <button type="button" class="btn btn-outline-secondary" id="modalRemoveBtn">삭제</button>
+					        <button type="button" class="btn btn-outline-secondary" id="modalCloseBtn" data-dismiss="modal">닫기</button>
 					      </div>
 					    </div>
 					  </div>

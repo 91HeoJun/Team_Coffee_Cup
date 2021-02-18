@@ -20,9 +20,6 @@ insert into USERTBL
 values('hong1234','hong1234!!','홍동동','07085','서울시 종로구 관철동','중앙로156','test123@naver.com','010-1234-1234',1000);
 
 --출석체크 테스트용
-
-insert into calendar
-values(SEQ_CAL.NEXTVAL, 'hong123','20210203');
 insert into calendar
 values(SEQ_CAL.NEXTVAL, 'hong123','20210204');
 insert into calendar
@@ -49,6 +46,8 @@ insert into calendar
 values(SEQ_CAL.NEXTVAL, 'hong123','20210215');
 insert into calendar
 values(SEQ_CAL.NEXTVAL, 'hong123','20210216');
+insert into calendar
+values(SEQ_CAL.NEXTVAL, 'hong123','20210217');
 
 delete from CALENDAR where userid='hong1234';
 delete from usertbl where userid='hong123';

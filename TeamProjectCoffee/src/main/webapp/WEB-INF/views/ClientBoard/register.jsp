@@ -6,9 +6,7 @@
 <!-- 추후 Header 위치 이동시 수정 필요 -->
 <%@include file="boardHeader.jsp" %>
 
-		<div class="col-lg-12">
-			<h2 class="page-header-detail">1:1 문의 게시판 - 문의글 작성</h2>
-		</div>
+		<h2 class="col sub_tit_wrap h2">1:1 문의 게시판 - 문의글 작성</h2>
 
 		<div class="" id="accordionExample">
 			<form action="/ClientBoard/register" method="post" role="form">
@@ -48,18 +46,24 @@
 	 					<div class="form-group uploadDiv">
 							<input type="file" name="uploadFile" id="" multiple />
 						</div>
+						
 						<div class="uploadResult">
-							<ul class="attach-position"></ul>
+							<ul class="row row-cols-1 row-cols-sm-2 row-cols-md-4 attach-position"></ul>
 						</div>
 	
 					</div>
 				</div>
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-				<div class="regist-buttons">
-			    	<button type="submit" class="btn btn-outline-success">작성</button>              			
-	                <button type="reset" class="btn btn-outline-danger" onclick="location.href='list'">취소</button>       
-	            </div>
+				
+				
+	            
 			</form>
+				<div class="row">
+					<div class="col order-1" style="text-align: right;">
+				    	<button type="submit" class="btn btn-outline-secondary">작성</button>              			
+		                <button type="reset" class="btn btn-outline-secondary" onclick="location.href='list'">취소</button> 
+	                </div>      
+	            </div>
 		</div>			
 <script>
 	var csrfHeaderName = "${_csrf.headerName}";

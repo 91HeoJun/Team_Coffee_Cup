@@ -47,9 +47,8 @@ border-bottom: 1px solid;
 
 				</div>
 
-
 				<div class="form-group row justify-content-center">
-					<label for="point" class="col-sm-2 col-form-label">적립된 포인트</label>
+					<label for="point" class="col-sm-2 col-form-label">적립 포인트</label>
 					<div class="col-sm-4">
 						<input type="text" name="point" id="postCode" class="form-control"
 							value="${regist.point}" readonly /> <small id="point"
@@ -57,17 +56,17 @@ border-bottom: 1px solid;
 					</div>
 				</div>
 				<div>
-					</br>
+					<br>
 				</div>
 				<div>
-					</br>
+					<br>
 				</div>
 				<div>
-					</br>
+					<br>
 				</div>
 				<div class="form-group text-center">
 					<button type="button" class="btn btn-primary"
-						onclick="location.href='/mypage/changeInfo'" style="background-color: #9999cc;">회원 정보 수정하기</button>
+						onclick="location.href='/mypage/changeInfo'">정보변경하기</button>
 					<!-- 	<button type="submit" class="btn btn-danger" onclick="location.href='/mypage/leave'">탈퇴하기</button>	 -->
 				</div>
 					     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>

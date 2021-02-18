@@ -6,9 +6,7 @@
 <!-- 추후 Header 위치 이동시 수정 필요 -->
 <%@include file="../ClientBoard/boardHeader.jsp" %>
 
-		<div class="col-lg-12">
-			<h2 class="page-header-detail">자주하는 질문 작성</h2>
-		</div>
+		<h2 class="col-4 sub_tit_wrap h2">자주하는 질문 - 작성</h2>
 
 		<div class="" id="accordionExample">
 			<form action="/FAQ/register" method="post" role="form">
@@ -39,11 +37,15 @@
 					</div>
 				</div>
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-				<div class="regist-buttons">
-			    	<button type="submit" class="btn btn-outline-success">작성</button>              			
-	                <button type="reset" class="btn btn-outline-danger" onclick="location.href='list'">취소</button>       
-	            </div>
 			</form>
+		</div>
+			<div class="row">
+				<div class="col order-1" style="text-align: right;">
+					<div class="regist-buttons">
+				    	<button type="submit" class="btn btn-outline-secondary">작성</button>              			
+		                <button type="reset" class="btn btn-outline-secondary" onclick="location.href='list'">취소</button>       
+		            </div>
+	            </div>
 		</div>			
 		
 <script>

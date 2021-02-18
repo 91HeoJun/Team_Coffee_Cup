@@ -6,21 +6,8 @@
 <!-- 추후 Header 위치 이동시 수정 필요 -->
 <%@include file="../ClientBoard/boardHeader.jsp" %>
 
-
- 		<div class="col-lg-12">
-			<h2 class="page-header-detail">자주하는 질문</h2>
+			<h2 class="col-4 sub_tit_wrap h2">자주하는 질문</h2>
 		
-			<div class="regist-buttons">
-             <sec:authentication property="principal" var="info"/>
-              <sec:authorize access="isAuthenticated()">
-                <c:if test="${info.username == selectBoard.writer}">
-                <button type="submit" data-oper='update' class="btn btn-outline-dark">수정하기</button>              			
-                <button type="submit" data-oper='remove' class="btn btn-outline-dark">삭제하기</button>              			
-				</c:if>
-               </sec:authorize> 
-                <button type="submit" data-oper='list' class="btn btn-outline-dark">목록으로</button>  
-	        </div>
-	    </div>
 		<div class="accordion" id="accordionExample">
 			<form action="" method="post" role="form">
 				<div class="card">
@@ -37,7 +24,7 @@
 						<p class="mb-0">내용</p>
 					</div>
 					<div class="card-body">
-						<textarea class="form-control" rows="3" name="content">${selectBoard.content}</textarea> 
+						<textarea class="form-control" rows="15" name="content">${selectBoard.content}</textarea> 
 					</div>
 				</div>
 			  
@@ -51,8 +38,20 @@
 				</div>
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			</form>
-
 		</div>
+		
+		<div class="row">
+			<div class="col order-1" style="text-align: right;">
+             <sec:authentication property="principal" var="info"/>
+              <sec:authorize access="isAuthenticated()">
+                <c:if test="${info.username == selectBoard.writer}">
+                <button type="submit" data-oper='update' class="btn btn-outline-dark">수정하기</button>              			
+                <button type="submit" data-oper='remove' class="btn btn-outline-dark">삭제하기</button>              			
+				</c:if>
+               </sec:authorize> 
+                <button type="submit" data-oper='list' class="btn btn-outline-dark">목록으로</button>  
+	        </div>
+		</div>        
 
 <!-- 페이지 나누기를 위한 세팅값 -->
 <form action="" id="myform" method="post">

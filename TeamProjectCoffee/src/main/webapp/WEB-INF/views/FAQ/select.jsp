@@ -6,19 +6,9 @@
 <!-- 추후 Header 위치 이동시 수정 필요 -->
 <%@include file="../ClientBoard/boardHeader.jsp" %>
 
-		<div class="col-lg-12">
-			<h2 class="page-header-detail">자주하는 질문</h2>
-		
-			<div class="regist-buttons">
-			<sec:authentication property="principal" var="info"/>
-			<sec:authorize access="isAuthenticated()">
-				<c:if test="${info.username == selectBoard.writer}">
-			    <button type="button" class="btn btn-outline-dark" id="modify-button"> 수정 </button>
-				</c:if>    
-			</sec:authorize>
-	            <button type="reset" class="btn btn-outline-dark" id="gotolist-button"> 목록으로 </button>
-	        </div>
-	    </div>
+
+		<h2 class="col-6 sub_tit_wrap h2">자주하는 질문</h2>
+
 		<div class="accordion" id="accordionExample">
 			<form action="/FAQ/register" method="post" role="form">
 				<div class="card">
@@ -49,8 +39,19 @@
 				</div>
 
 			</form>
-
-		</div>			
+		</div>
+		<div class="row" style="padding-top: 2px;">
+				<div class="col order-1" style="text-align: right;">
+			<sec:authentication property="principal" var="info"/>
+			<sec:authorize access="isAuthenticated()">
+				<c:if test="${info.username == selectBoard.writer}">
+			    <button type="button" class="btn btn-outline-secondary" id="modify-button"> 수정 </button>
+				</c:if>    
+			</sec:authorize>
+	            <button type="reset" class="btn btn-outline-secondary" id="gotolist-button"> 목록으로 </button>
+	        </div>
+		 </div>
+					
 
 			<!-- 이동값 히든폼 -->
 			<form action="update" id="myform">
