@@ -10,36 +10,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
 <!-- 파비콘 -->
 <link rel="shortcut icon" href="/resources/Logo/bean.ico" type="image/x-icon">
 <link rel="icon" href="/resources/Logo/img/bean.ico" type="image/x-icon">
 
 	<title>Business Casual - Start Bootstrap Theme</title>
-	
+
 	<!-- Bootstrap CDN -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
-
     <!-- Custom styles for this template -->
 <!--     <link href="/resources/css/business-casual.min.css" rel="stylesheet" /> -->
    
   </head>
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-<script type="text/javascript">
-$(document).ready(function () {
-    $(".toggle").mouseenter(function(){
-        $(".sub").stop().slideUp();
-        $(this).find(".sub").slideDown(200);
-    })
-    $(".toggle").mouseleave(function(){
-        $(".sub").stop().slideUp(200);
-    })
-});
-</script>
+
   <body>
 	<div class="all">
     <div id="wrapper">
@@ -82,32 +71,39 @@ $(document).ready(function () {
         <div class="navbar-header">
         	<a href="/"><img class="logo" src="/resources/Logo/blackbeanlogo4.jpg" style="width:200px; hieght:100px;"></a>
         </div>
-        <!-- Navigation -->      
-      <div id="menu">
-      	<ul class="main">
-      		<li class="toggle"><a href="/about">소개</a>
-      			<ul class="sub">
-      				<li><a href="/about">about us</a></li>
-      				<li><a href="/coffeeStory">coffee story</a></li>
-      			</ul>
-      		</li>
-      		<li class="toggle"><a href="/product/productList">상품</a>
-      			<ul class="sub">
-      				<li class='roast'><a href="/product/productList?pageNum=1&amount=10&type=g&keyword=라이트" onmouseover="this.innerText='라이트 로스트'" onmouseout="this.innerText='Light Roast'" data-roast='라이트'>Light Roast</a></li>
-      				<li class='roast'><a href="/product/productList?pageNum=1&amount=10&type=g&keyword=미디엄" onmouseover="this.innerText='미디엄 로스트'" onmouseout="this.innerText='Medium Roast'" data-roast='미디엄'>Medium Roast</a></li>
-      				<li class='roast'><a href="/product/productList?pageNum=1&amount=10&type=g&keyword=다크" onmouseover="this.innerText='다크 로스트'" onmouseout="this.innerText='Dark Roast'" data-roast='다크'>Dark Roast</a></li>
-      			</ul>
-      		</li>
-      		<li class="toggle"><a href="/store/list">매장</a>
-      		</li>
-      		<li class="toggle"><a href="/FAQ/list">고객센터</a>
-      			<ul class="sub">
-      				<li><a href="/Notice/list">공지사항</a></li>
-      				<li><a href="/FAQ/list">FAQ</a></li>
-      				<li><a href="/ClientBoard/list">1:1</a></li>
-      			</ul>
-      		</li>
-      	</ul>
-      </div>      
-   </div><!-- wrapper end -->
-        <div id="page-wrapper">   
+ 
+<div class="container" style="margin-top:70px">
+<h1 style="font-family: 'Black Han Sans', sans-serif; font-size:30px;" >장바구니</h1>
+	<table class="table">
+	  <thead>
+	    <tr>
+	      <th scope="col">상품코드</th>
+	      <th scope="col">상품이름</th>
+	      <th scope="col">가격</th>
+	      <th scope="col">수량</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  <c:forEach items="${cartList}" var="cart">
+	    <tr>
+	      <td scope="row"><c:out value="${cart.pcode}"></c:out></td>
+	      <td><c:out value="${cart.product}"></c:out></td>
+	      <td><c:out value="${cart.price}"></c:out></td>
+	      <td><c:out value="${cart.price}"></c:out></td>
+	    </tr>	
+	</c:forEach>
+	 </tbody>
+</table>
+	<div>
+		<button type="button" class="btn btn-outline-secondary">결제하기</button>
+		<button type="button" class="btn btn-outline-secondary" onclick="location.href='/product/productList'">쇼핑 계속하기</button>
+	</div>
+</div>
+<script>
+$(function(){
+	$("button").click(function(){
+		location.href="/cart";
+	})
+})
+</script>
+<%@include file="../footer.jsp" %>

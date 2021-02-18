@@ -10,9 +10,9 @@
 
 </head>
 <body>
-    <h2>상품 정보 편집</h2>   
+    <h2>상품 정보 수정</h2>   
     <!-- 파일 업로드를 하기위한 타입, 필수로 작성해야 한다.-->
-      <div class="panel-body">
+      <div class="panel-body" style="margin-top:20px;">
    			<form action="" role="form" method="post" enctype="multipart/form-data">
    				<div class="form-group">
    					<label>상품코드</label>
@@ -53,6 +53,8 @@
 					<button type="button" class="btn btn-warning" id="modify">수정</button>
                 	<button type="button" class="btn btn-outline-danger"  id="delete">삭제</button>    
                 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+					<input type="hidden" value="${selectProduct.pcode}" name="pcode"/>
+                	<input type="hidden" value="${cri.pageNum}" name="pageNum" />
                 </div>            	
    		 </form>   
    	</div>

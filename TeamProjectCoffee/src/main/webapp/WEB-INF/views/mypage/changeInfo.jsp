@@ -177,7 +177,7 @@ border-bottom: 1px solid;
 				</div> 
 				</div>
 			<div class="form-group text-center">
-				<button type="submit" class="btn btn-primary" id="_btnInfo">확인</button>
+				<button type="submit" class="btn btn-secondary" id="_btnInfo">확인</button>
 				<button type="button" class="btn btn-secondary" id="changecancel" onclick="location.href='/mypage/myPageGo'">취소</button>
 			</div>
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>

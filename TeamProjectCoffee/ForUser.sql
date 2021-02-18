@@ -49,7 +49,7 @@ values(SEQ_CAL.NEXTVAL, 'hong123','20210216');
 insert into calendar
 values(SEQ_CAL.NEXTVAL, 'hong123','20210217');
 
-delete from CALENDAR where userid='hong1234';
+delete from CALENDAR where userid='hong123';
 delete from usertbl where userid='hong123';
 select * from CALENDAR;
 select * from usertbl;

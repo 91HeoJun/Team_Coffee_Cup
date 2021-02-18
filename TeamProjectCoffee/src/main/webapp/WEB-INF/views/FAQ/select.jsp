@@ -45,10 +45,10 @@
 			<sec:authentication property="principal" var="info"/>
 			<sec:authorize access="isAuthenticated()">
 				<c:if test="${info.username == selectBoard.writer}">
-			    <button type="button" class="btn btn-outline-dark" id="modify-button"> 수정 </button>
+			    <button type="button" class="btn btn-outline-secondary" id="modify-button"> 수정 </button>
 				</c:if>    
 			</sec:authorize>
-	            <button type="reset" class="btn btn-outline-dark" id="gotolist-button"> 목록으로 </button>
+	            <button type="reset" class="btn btn-outline-secondary" id="gotolist-button"> 목록으로 </button>
 	        </div>
 		 </div>
 					

@@ -6,7 +6,7 @@
 		<h1>${regist.name}님 환영합니다.</h1>
 	</div>
 	<div class="login">
-		<button class="btn btn-primary" onclick="location.href='/mypage/signin'">
+		<button class="btn btn-primary" id="login" onclick="location.href='/mypage/signin'">
 	        로그인
 	    </button>
 	</div>
