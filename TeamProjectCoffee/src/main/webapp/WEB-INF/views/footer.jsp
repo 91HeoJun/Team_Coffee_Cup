@@ -34,6 +34,5 @@
     </footer>
     </div>
     <!-- /#wrapper -->
-</html>
   </body>
 </html>

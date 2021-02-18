@@ -23,6 +23,9 @@
 	  <label class="btn btn-outline-secondary ${pageVO.cri.keyword=='드립백'?'active':''}">
 	    <input type="radio" name="options" id="option3" value="드립백"> 드립백
 	  </label>
+	  <label class="btn btn-outline-secondary">
+	    <input type="radio" name="options" id="cart" value="cart"> 장바구니 가기
+	  </label>
 	 </div>
 	 <sec:authentication property="principal" var="info"/>
 	 <sec:authorize access="isAuthenticated()">
