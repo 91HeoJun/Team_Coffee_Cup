@@ -48,15 +48,15 @@
                 					<label>${selectProduct.price}원</label>
                 					<!-- <textarea class="form-control" rows="3" name="price" readonly="readonly"></textarea>   -->             				
                 				</div> 
-                					<button type="button" class="btn btn-outline-primary" id="order">구매하기</button>
-                					<button type="button" class="btn btn-outline-primary"  id="addcart">장바구니</button>
+                					<button type="button" class="btn btn-outline-secondary" id="order">구매하기</button>
+                					<button type="button" class="btn btn-outline-secondary"  id="addcart">장바구니</button>
                 					<sec:authentication property="principal" var="info"/>
                 					<sec:authorize access="isAuthenticated()">
 	                					<c:if test="${info.username == 'testadmin'}">
-		                					<button type="button" class="btn btn-default" id="modify">수정</button>
+		                					<button type="button" class="btn btn-warning" id="modify">수정</button>
 		                				</c:if>
 	                				</sec:authorize>
-	                			 	<button type="button" class="btn btn-info" id="list">리스트</button>          			
+	                			 	<button type="button" class="btn btn-outline-secondary" id="list">리스트</button>          			
                 			</form>
                 		</div>
                 	</div>
@@ -88,7 +88,7 @@ $(function(){
 	})
 	
 	$("#list").click(function(){
-		location.href='/product/productList';
+		location.href='/product/productList?amount='+${cri.amount}+'&pageNum='+${cri.pageNum};
 	})	
 })
 </script>

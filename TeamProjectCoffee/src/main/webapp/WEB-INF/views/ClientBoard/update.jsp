@@ -7,19 +7,8 @@
 <%@include file="boardHeader.jsp" %>
 
 
- 		<div class="col-lg-12">
-			<h2 class="page-header-detail">1:1 문의 게시판 - 문의글 수정</h2>
-		
-			<div class="regist-buttons">
-             <sec:authentication property="principal" var="info"/>
-              <sec:authorize access="isAuthenticated()">
-                <c:if test="${info.username == selectBoard.writer}">
-					<button type="submit" data-oper='update' class="btn btn-outline-dark">수정하기</button>              			
-					<button type="submit" data-oper='remove' class="btn btn-outline-dark">삭제하기</button>   
-				</c:if>
-               </sec:authorize> 			
-                <button type="submit" data-oper='list' class="btn btn-outline-dark">목록으로</button>  
-	        </div>
+		<div class="row justify-content-between">
+			<h2 class="col-6 sub_tit_wrap h2"> 자유 게시판 - 수정</h2>
 	    </div>
 		<div class="accordion" id="accordionExample">
 			<form action="" method="post" role="form">
@@ -62,11 +51,24 @@
 							<input type="file" name="uploadFile" id="" />
 						</div>
 						<div class="uploadResult">
-							<ul class="attach-position"></ul>
+							<ul class="row row-cols-1 row-cols-sm-2 row-cols-md-4 attach-position"></ul>
 						</div>
 					</div>
 				</div>
 		</div>
+		
+			<div class="row">
+				<div class="col order-1" style="text-align: right;">
+	             <sec:authentication property="principal" var="info"/>
+	              <sec:authorize access="isAuthenticated()">
+	                <c:if test="${info.username == selectBoard.writer}">
+						<button type="submit" data-oper='update' class="btn btn-outline-dark">수정하기</button>              			
+						<button type="submit" data-oper='remove' class="btn btn-outline-dark">삭제하기</button>   
+					</c:if>
+	               </sec:authorize> 			
+	                <button type="submit" data-oper='list' class="btn btn-outline-dark">목록으로</button>  
+		        </div>
+	        </div>
 
 <!-- 페이지 나누기를 위한 세팅값 -->
 <form action="" id="myform" method="post">
