@@ -13,7 +13,7 @@ import lombok.ToString;
 @ToString
 public class CartVO {
 	private int pcode;
-	private String pname;
+	private String product;
 	private int price;
 	private int amount;
 }

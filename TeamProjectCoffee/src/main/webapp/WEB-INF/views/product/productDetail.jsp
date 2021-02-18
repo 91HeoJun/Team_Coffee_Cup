@@ -3,46 +3,45 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!-- ****** Header 위치 이동 시 경로 변경 필요 ****** -->
-<%@ include file="productHeader.jsp" %>
+<%@ include file="../header.jsp" %>
 <html lang="en">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">상품 정보</h1>
+                    <h5 class="page-header" style="text-align:center;">상품 상세 정보</h5>
                 </div>
-                <!-- /.col-lg-12 -->
+               
             </div>            
-            <div class="row">
+            <div class="row" style="margin-top:20px">
                 <div class="col-lg-12">
                 	<div class="panel panel-default">
                         <div class="panel-heading">
-                           상품 상세 페이지
+                      
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                 			<form action="" role="form" method="">
+                				<div class="form-group" style="font-size:26px">
+                					<label>${selectProduct.product}</label>
+                				</div> 
                 				<div class="form-group">
-				   					<label>상품이미지</label>
 				   					<img src="" id="productimg">    					      				
 				   				</div>
 				            	<div class="form-group">
                 					<label>상품 구분</label>
                 					<input class="form-control" name="pcategory" readonly="readonly" value="${selectProduct.pcategory}" >                				
                 				</div>  
-                				<div class="form-group">
-                					<label>${selectProduct.product}</label>
-                					<%-- <textarea class="form-control" rows="3" name="product" readonly="readonly">${selectProduct.product}</textarea>      --%>          				
-                				</div> 
+                	
                 				<div class="form-group">
                 					<label>로스팅(제조)일자</label>
                 					<textarea class="form-control" rows="3" name="pdate" readonly="readonly"> <fmt:formatDate value="${selectProduct.pdate}" pattern="yyyy-MM-dd"/></textarea>               				
                 				</div> 
                 				<div class="form-group">
-                					<label>${selectProduct.pamount}</label>
-                					<!-- <textarea class="form-control" rows="3" name="pamount" readonly="readonly"></textarea>         -->       				
-                				</div> 
-                				<div class="form-group">
                 					<label>상품 상세</label>
                 					<textarea class="form-control" rows="3" name="pcontent" readonly="readonly">${selectProduct.pcontent}</textarea>               				
+                				</div> 
+                				<div class="form-group">
+                					<label>${selectProduct.pamount}</label>
+                					<!-- <textarea class="form-control" rows="3" name="pamount" readonly="readonly"></textarea>         -->       				
                 				</div> 
                 				<div class="form-group">
                 					<label>${selectProduct.price}원</label>
@@ -75,13 +74,43 @@ $(function(){
 	
 	var form = $("#actionForm");
 	
+	//토큰값 생성
+	var csrfHeaderName = "${_csrf.headerName}";
+	var csrfTokenValue = "${_csrf.token}";
+	
 	$("#order").click(function(){
 		
 	})
 	
+ 			
 	$("#addcart").click(function(){
+		//장바구니 버튼이 눌러진 상품의 정보 가져오기(코드,상품명,가격)
+ 		var param = {
+					pcode : ${selectProduct.pcode},
+					product : '${selectProduct.product}',
+					price: ${selectProduct.price}
+			}
+			$.ajax({
+				type:"post",
+				url:"/cart/insert",
+				beforeSend:function(xhr) {
+					xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+				},
+				contentType:"application/json;charset=utf-8",
+				data:JSON.stringify(param),		
+				success:function(data){
+					$(".table").html(data);
+					alert("장바구니에 추가되었습니다");
+				},
+				error:function(xhr,txtStatus,error){
+					$(".table").html(xhr.responseText);
+				}
+			})
+		})
+		//Ajax로 카트 컨트롤러로 전송
 		
-	})
+		//success가 도착하면 alert(장바구니에 담겼습니다)창 띄우기
+	/* }) */
 	
 	$("#modify").click(function(){
 		location.href="productEdit?pcode="+${selectProduct.pcode};
@@ -97,4 +126,5 @@ $(function(){
 var pcode= ${selectProduct.pcode};	
 </script>
 <script src="/resources/js/Product_js/productEdit.js"></script>
+<script src="/resources/js/Product_js/productList.js"></script>
 <%@include file="../footer.jsp" %>

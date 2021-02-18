@@ -2,12 +2,16 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
-
-
+<%@ include file="productHeader.jsp" %>
+	<style>
+	a:hover {
+    color: red;
+   	text-decoration:none;
+	}
+	</style>
 
 <!-- ****** Header 위치 이동 시 경로 변경 필요 ****** -->
-<%@ include file="productHeader.jsp" %>
+
 
 <div class="row row-cols-1 row-cols-md-2" style="margin-top:20px;margin-right: -10px; margin-left: -10px;">
 <c:forEach var="vo" items="${listProduct}">
