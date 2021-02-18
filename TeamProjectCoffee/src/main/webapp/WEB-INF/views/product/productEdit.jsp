@@ -49,9 +49,11 @@
    				<div>
    					<input type="file" name="image"/>  
    				</div>
-					<button type="button" class="btn btn-outline-primary" id="modify">수정</button>
+   				<div class = "buttons" style = "margin-top:5px" >
+					<button type="button" class="btn btn-warning" id="modify">수정</button>
                 	<button type="button" class="btn btn-outline-danger"  id="delete">삭제</button>    
-                	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>            	
+                	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                </div>            	
    		 </form>   
    	</div>
 </body>

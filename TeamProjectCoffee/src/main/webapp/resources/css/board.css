@@ -6,8 +6,7 @@
 	width: 100%;
 } 
 
-/* List CSS */
-/*타이틀*/
+/* 게시판 상단 */
 .sub_tit_wrap h2 { 
 	font:bold 36px Avenir, Arial, georgia; 
 	color:#222222; 
@@ -15,17 +14,19 @@
 	position:relative; 
 }
 
-/*작성버튼 라인*/
- .panel-heading {
- 	padding-bottom: 0px;
-	text-align: right;
+.type-size {
+	height: 34px;
 }
 
 #keyword {
-	width: 202px;
+	font:15px Avenir, Arial, georgia;
+	line-height: 30px;
+	width: 205px;
 }
 
-/*테이블*/
+/* 게시판 상단 - end */
+
+/* 테이블 내부 */
 .table {
  	width: 100%;
  	table-layout: fixed;
@@ -60,7 +61,124 @@
 	text-align: center;
 }
 
-/*------------------------확인 필요 하단 버튼 포지셔닝*/
+#amount {
+	font: 15px Avenir, Arial, georgia;
+	width: 80px; 
+	height: 30px;
+	line-height: 30px;
+	color:#222222;
+	position:relative;
+}
+
+/* 테이블 내부 - end */
+
+/* 게시판 하단*/
+/* .col-md-12 {
+	margin: auto;
+	display: inline-block;
+	text-align: center;
+	table-layout: fixed;
+}
+
+ .text-center{
+	 text-align:center;
+ 	display: inline-block;
+ }
+ .pagination {
+	display: inline-block;
+ }
+ 
+ .page-item {
+ 	margin: 0px;
+ 	display: inline-block;
+ }
+ 
+ .button-reg{
+ 	display: inline-block;
+ 	text-align: right;
+ } */
+
+/* /* List CSS
+타이틀
+.sub_tit_wrap h2 { 
+	font:bold 36px Avenir, Arial, georgia; 
+	color:#222222; 
+	padding-top:30px; 
+	position:relative; 
+}
+
+작성버튼 라인
+ .panel-heading {
+ 	padding-bottom: 0px;
+	text-align: right;
+}
+
+#keyword {
+	font:18px Avenir, Arial, georgia;
+	line-height: 30px;
+	width: 205px;
+}
+
+테이블
+.table {
+ 	width: 100%;
+ 	table-layout: fixed;
+}
+
+.table thead tr {
+	text-align: center;
+}
+
+
+.table tbody td {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.table-No {
+	width: 98px;
+	text-align: center;
+}
+
+.table-Title {
+	width: 55%;
+	text-align: center;
+}
+
+.table-Writer {
+	text-align: center;
+}
+
+.table-Date {
+	text-align: center;
+}
+
+------------------------확인 필요 하단 버튼 포지셔닝
+
+#text-sita{
+	text-align: center;
+}
+
+
+.col-md-12 {
+	가운데로 보내는법
+	margin: auto;
+
+	text-align: center;
+	table-layout: fixed;
+}
+ .pagination {
+  	text-align:center;
+	display: inline-block;
+ }
+ 
+ .page-item {
+ 	margin: 0px;
+ 	display: inline-block;
+ }
+
+
 
 .col-md-12{
 	padding: 0px;
@@ -75,7 +193,7 @@
 }
 
 .text-center {
-	/* 가운데로 보내는법*/
+	가운데로 보내는법
 	margin: auto;
 	width: 35%;
 	text-align: center;
@@ -89,15 +207,13 @@
 	width: 35%;
 }
 
-/*------------------------확인 필요 하단 버튼 포지셔닝*/
+------------------------확인 필요 하단 버튼 포지셔닝
 
-.amount-form-control{
-	width: 98px;
-}
 
-/*--------------------------------------------*/
 
-/* Register CSS */
+--------------------------------------------
+
+Register CSS
 .page-header-detail {
 	text-align: left;
 	line-height: normal;
@@ -127,7 +243,7 @@
 	width: 35%;
 	text-align: center;
 	table-layout: fixed;
-}
+} */
 
 
 

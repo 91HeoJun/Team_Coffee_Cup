@@ -100,7 +100,7 @@ ul.tabs li.current{
 										<li>											
 											<p class="img">
 												<img src="//image.istarbucks.co.kr/common/img/coffee/story_bottom_list01.jpg" alt="은은하고 부드러운 맛 Subtle & Mellow">
-												<span class="dim_txt1">은은하고 부드러운 맛 <span class="en">Subtle &amp; Mellow</span></span>
+												<span class="dim_txt1">은은하고 부드러운 맛 </span>
 											</p>
 											<dl class="cfs01_text">
 												<dt><h4>라이트 로스트로 완성된 커피</h4></dt>
@@ -113,7 +113,7 @@ ul.tabs li.current{
 										<li>											
 											<p class="img">
 												<img src="//image.istarbucks.co.kr/common/img/coffee/story_bottom_list02.jpg" alt="부드럽고 균형 잡힌 맛 Smooth & Balanced">
-												<span class="dim_txt2">부드럽고 균형 잡힌 맛 <span class="en">Smooth &amp; Balanced</span></span>
+												<span class="dim_txt2">부드럽고 균형 잡힌 맛 </span>
 											</p>
 											<dl class="cfs01_text">
 												<dt><h4>부드럽고 균형 잡힌 맛을 미디엄 로스트에서 만나보세요.</h4></dt>
@@ -126,7 +126,7 @@ ul.tabs li.current{
 										<li>											
 											<p class="img">
 												<img src="//image.istarbucks.co.kr/common/img/coffee/story_bottom_list03.jpg" alt="진하고 강한 맛 Bold & Robust">
-												<span class="dim_txt3">진하고 강한 맛 <span class="en">Bold &amp; Robust</span></span>
+												<span class="dim_txt3">진하고 강한 맛 </span>
 											</p>
 											<dl class="cfs01_text">
 												<dt><h4>다크 로스트 커피 팬들이 사랑하는 진하고 강한 커피</h4></dt>

@@ -82,9 +82,9 @@
       		</li>
       		<li class="toggle"><a href="/product/productList">상품</a>
       			<ul class="sub">
-      				<li class='roast'><a href="#" onmouseover="this.innerText='라이트 로스트'" onmouseout="this.innerText='Light Roast'" data-roast='라이트'>Light Roast</a></li>
-      				<li class='roast'><a href="#" onmouseover="this.innerText='미디엄 로스트'" onmouseout="this.innerText='Medium Roast'" data-roast='미디엄'>Medium Roast</a></li>
-      				<li class='roast'><a href="#" onmouseover="this.innerText='다크 로스트'" onmouseout="this.innerText='Dark Roast'" data-roast='다크'>Dark Roast</a></li>
+      				<li class='roast'><a href="/product/productList?pageNum=1&amount=10&type=g&keyword=라이트" onmouseover="this.innerText='라이트 로스트'" onmouseout="this.innerText='Light Roast'" data-roast='라이트'>Light Roast</a></li>
+      				<li class='roast'><a href="/product/productList?pageNum=1&amount=10&type=g&keyword=미디엄" onmouseover="this.innerText='미디엄 로스트'" onmouseout="this.innerText='Medium Roast'" data-roast='미디엄'>Medium Roast</a></li>
+      				<li class='roast'><a href="/product/productList?pageNum=1&amount=10&type=g&keyword=다크" onmouseover="this.innerText='다크 로스트'" onmouseout="this.innerText='Dark Roast'" data-roast='다크'>Dark Roast</a></li>
       			</ul>
       		</li>
       		<li class="toggle"><a href="/store/list">매장</a>

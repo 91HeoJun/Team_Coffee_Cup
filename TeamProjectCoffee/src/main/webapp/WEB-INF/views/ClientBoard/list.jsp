@@ -5,14 +5,13 @@
 <!-- 추후 Header 위치 이동시 수정 필요 -->
 <%@include file="boardHeader.jsp" %>
 
-			<div class="col-lg-12">
-				<h2 class="sub_tit_wrap h2"> 자유게시판 </h2>
-			</div>
-			<div class="panel panel-default">
-				<div class="panel-heading">
+			<div class="row justify-content-between">
+				<h2 class="col-4 sub_tit_wrap h2"> 자유게시판 </h2>
+
+				<div class="col-lg-6 panel-heading" style="text-align: right;">
 					<!--search Form-->
 					<form action="" id="searchForm" class="search-options">
-						<select name="type" id="">
+						<select name="type" class="type-size">
 							<option value=""> --------------- </option>
 							<option value="T"<c:out value="${pageVO.cri.type=='T'?'selected':''}"/>> 제목 </option>
 							<option value="C"<c:out value="${pageVO.cri.type=='C'?'selected':''}"/>> 내용 </option>
@@ -57,9 +56,9 @@
 
 
 
-								<div class="col-md-12" id="list-buttons">
+								<div class="row">
 								
-									<div class="col-md-2 col-md-offset-2">
+									<div class="col-sm-4">
 
 			                            <!--페이지 목록 갯수 지정하는 폼-->
 			                            <select class="amount-form-control" id="amount">
@@ -71,7 +70,7 @@
 									</div>
 									
 									<!-- 페이지나누기 -->
-									<div class="text-center">
+									<div class="col-md-4 text-center">
 										<ul class="pagination">
 											<c:if test="${pageVO.previous}">
 												<li class="page-item"><a class="page-link" href="${pageVO.startPage-1}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
@@ -85,7 +84,7 @@
 										</ul>
 									</div>	
 								
-									<div class="col-md-8">
+									<div class="col-lg-4" style="text-align: right;">
 										<button id='regBtn' type="button" class="btn btn-outline-dark" onclick="location.href='register'">문의글 작성</button>
 									</div>
 	
