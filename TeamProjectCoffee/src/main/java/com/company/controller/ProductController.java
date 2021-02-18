@@ -117,10 +117,11 @@ public class ProductController {
 	@GetMapping({"/productDetail", "/productEdit"})
 	public void productSelect(int pcode, @ModelAttribute("cri") Criteria cri, Model model) {
 		log.info("---- 게시글 "+ pcode +"번 상세 페이지로 이동중 ... ----");
-		
+		log.info("ddddddddddddddddddddddddddd"+cri);
 		ProductVO selectProduct = productService.getProduct(pcode);
 		
 		model.addAttribute("selectProduct", selectProduct);
+		model.addAttribute("cri", cri);
 	}
 	
 	
