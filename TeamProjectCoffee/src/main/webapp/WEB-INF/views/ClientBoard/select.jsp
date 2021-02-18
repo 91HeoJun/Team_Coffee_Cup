@@ -58,10 +58,10 @@
 				<sec:authentication property="principal" var="info"/>
 				<sec:authorize access="isAuthenticated()">
 					<c:if test="${info.username == selectBoard.writer}">
-					    <button type="button" class="btn btn-outline-dark" id="modify-button"> 수정 </button>
+					    <button type="button" class="btn btn-outline-secondary" id="modify-button"> 수정 </button>
 					</c:if>    
 				</sec:authorize>
-		            <button type="reset" class="btn btn-outline-dark" id="gotolist-button"> 목록으로 </button>
+		            <button type="reset" class="btn btn-outline-secondary" id="gotolist-button"> 목록으로 </button>
 		        </div>
 	        </div>
 			
@@ -79,7 +79,7 @@
 			</div>
 			
 			<div class="reply-button" style="text-align: right;">
-					<button id="addReplyBtn" class="btn btn-outline-dark">댓글 쓰기</button>
+					<button id="addReplyBtn" class="btn btn-outline-secondary">댓글 쓰기</button>
 			</div>
 		</div>			
 
@@ -118,10 +118,10 @@
 					        </div>
 					      </div>
 					      <div class="modal-footer">
-					        <button type="button" class="btn btn-outline-dark" id="modalRegisterBtn">등록</button>
-					        <button type="button" class="btn btn-outline-dark" id="modalModifyBtn">수정</button>
-					        <button type="button" class="btn btn-outline-dark" id="modalRemoveBtn">삭제</button>
-					        <button type="button" class="btn btn-outline-dark" id="modalCloseBtn" data-dismiss="modal">닫기</button>
+					        <button type="button" class="btn btn-outline-secondary" id="modalRegisterBtn">등록</button>
+					        <button type="button" class="btn btn-outline-secondary" id="modalModifyBtn">수정</button>
+					        <button type="button" class="btn btn-outline-secondary" id="modalRemoveBtn">삭제</button>
+					        <button type="button" class="btn btn-outline-secondary" id="modalCloseBtn" data-dismiss="modal">닫기</button>
 					      </div>
 					    </div>
 					  </div>

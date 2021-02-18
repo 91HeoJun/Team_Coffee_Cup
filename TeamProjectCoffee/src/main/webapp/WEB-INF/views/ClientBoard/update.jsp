@@ -62,11 +62,11 @@
 	             <sec:authentication property="principal" var="info"/>
 	              <sec:authorize access="isAuthenticated()">
 	                <c:if test="${info.username == selectBoard.writer}">
-						<button type="submit" data-oper='update' class="btn btn-outline-dark">수정하기</button>              			
-						<button type="submit" data-oper='remove' class="btn btn-outline-dark">삭제하기</button>   
+						<button type="submit" data-oper='update' class="btn btn-outline-secondary">수정하기</button>              			
+						<button type="submit" data-oper='remove' class="btn btn-outline-secondary">삭제하기</button>   
 					</c:if>
 	               </sec:authorize> 			
-	                <button type="submit" data-oper='list' class="btn btn-outline-dark">목록으로</button>  
+	                <button type="submit" data-oper='list' class="btn btn-outline-secondary">목록으로</button>  
 		        </div>
 	        </div>
 

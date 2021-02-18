@@ -60,8 +60,8 @@
 			</form>
 				<div class="row">
 					<div class="col order-1" style="text-align: right;">
-				    	<button type="submit" class="btn btn-outline-success">작성</button>              			
-		                <button type="reset" class="btn btn-outline-danger" onclick="location.href='list'">취소</button> 
+				    	<button type="submit" class="btn btn-outline-secondary">작성</button>              			
+		                <button type="reset" class="btn btn-outline-secondary" onclick="location.href='list'">취소</button> 
 	                </div>      
 	            </div>
 		</div>			

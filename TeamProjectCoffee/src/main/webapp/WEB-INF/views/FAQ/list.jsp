@@ -16,7 +16,7 @@
 			<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum}" />
 			<input type="hidden" name="amount" value="${pageVO.cri.amount}" />
 			
-			<button type="button" class="btn btn-outline-dark" id="board-finder">검색</button>       		
+			<button type="button" class="btn btn-outline-secondary" id="board-finder">검색</button>       		
 		</form>
 	</div>
 </div>
@@ -64,7 +64,7 @@
 				<sec:authentication property="principal" var="info"/>
 				<sec:authorize access="isAuthenticated()">
 					<c:if test="${info.username == 'testadmin'}">	
-						<button id='regBtn' type="button" class="btn btn-outline-dark" onclick="location.href='register'">자주하는 질문 작성</button>
+						<button id='regBtn' type="button" class="btn btn-outline-secondary" onclick="location.href='register'">자주하는 질문 작성</button>
 					</c:if>
 				</sec:authorize>
 			</div>
@@ -94,7 +94,7 @@
 	        <p> 요청이 처리되었습니다. </p>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal"> 확인 </button>
+	        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"> 확인 </button>
 	      </div>
 	    </div>
 	  </div>
