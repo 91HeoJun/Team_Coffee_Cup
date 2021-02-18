@@ -95,21 +95,20 @@ public class ProductController {
 	public String removeProduct(int pcode, Criteria cri, RedirectAttributes rttr) {
 		log.info("---- " + pcode + "번 상품 삭제 진행중... ----");
 
-		//List<ProductFileAttach> attachList = productService.AttachList(pcode);
+		ProductFileAttach attach = productService.getAttach(pcode);
 		
-//		if (productService.removeProduct(pcode)) {
-//			fileDelete(attachList);
-//			rttr.addFlashAttribute("result", "success");
-//		}
-//		
-//		rttr.addAttribute("pageNum", cri.getPageNum());
-//		rttr.addAttribute("amount", cri.getAmount());
-//		rttr.addAttribute("keyword", cri.getKeyword());
-//		rttr.addAttribute("type", cri.getType());
-//		
-//		
-//		return "redirect:productList";
-		return null;
+		if (productService.removeProduct(pcode)) {
+			productService.deleteFile(pcode);
+			rttr.addFlashAttribute("result", "success");
+		}
+		
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
+		rttr.addAttribute("keyword", cri.getKeyword());
+		rttr.addAttribute("type", cri.getType());
+		
+		
+		return "redirect:productList";
 	}
 	
 

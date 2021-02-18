@@ -39,8 +39,9 @@ $(function() {
 	})
 	
 	
-	
-	
+	$("#cart").click(function(){
+		location.href="/cart/cartList";
+	});
 	//type=> pconent(c), pcategory(g)
 	//keyword => 메뉴명
 	$(":radio").click(function(){
