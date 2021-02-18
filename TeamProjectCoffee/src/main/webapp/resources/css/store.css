@@ -39,7 +39,7 @@ section{
 }
 
 #sidebar li{
-/* 	background: #9999cc; */
+ 	background: lightgray;
 	padding: 10px;
  	font-size: 1.1em;
  	display: block;
@@ -55,9 +55,15 @@ section{
 
 
 #sidebar ul li:hover {
-  background: #fff;
+  border: 1px solid gray;
 }
 
 #sidebar .activated{
-/* 	background-color: #b6b6da; */
+  background-color: white;
+}
+
+
+
+#sidebarCollapse{
+	background-color:gray;
 }

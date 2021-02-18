@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.btn-primary{
+	background-color: white;
+	border: 1px solid gray;
+}
+
+.btn-warn{
+	background-color: lightgray;
+}
+
+.btn-danger{
+	background-color: gray;
+	border-color: black;
+}
+
+#btnBox{ 
+}
+.btn-circle{
+	color:white;
+	background-color: black;
+	color:white;
+}
