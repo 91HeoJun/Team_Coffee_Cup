@@ -60,7 +60,7 @@
 	<input type="hidden" name="keyword" value="${pageVO.cri.keyword}" />
 </form>
 
-
+<div id="topBtn">TOP</div>
 <%@include file="../footer.jsp" %>
 
   <!-- Bootstrap core JavaScript -->
@@ -68,6 +68,4 @@
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
  <script src="/resources/js/Product_js/productList.js"></script>
 
-<!-- </body>
- -->
 </html>

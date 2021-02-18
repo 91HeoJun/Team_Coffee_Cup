@@ -27,6 +27,12 @@
     <!-- Custom styles for this template -->
 <!--     <link href="/resources/css/business-casual.min.css" rel="stylesheet" /> -->
    
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+   
+   
   </head>
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script type="text/javascript">
@@ -40,6 +46,7 @@ $(document).ready(function () {
     })
 });
 </script>
+<script src="/resources/js/topBtn.js"></script>
   <body>
 	<div class="all">
     <div id="wrapper">
@@ -100,7 +107,7 @@ $(document).ready(function () {
       		</li>
       		<li class="toggle"><a href="/store/list">매장</a>
       		</li>
-      		<li class="toggle"><a href="/FAQ/list">고객센터</a>
+      		<li class="toggle"><a href="/Notice/list">고객센터</a>
       			<ul class="sub">
       				<li><a href="/Notice/list">공지사항</a></li>
       				<li><a href="/FAQ/list">FAQ</a></li>

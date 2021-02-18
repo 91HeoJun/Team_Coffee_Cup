@@ -40,26 +40,6 @@ ul.tabs li.current{
 .tab-content.current{
 	display: inherit;
 }
-#topBtn {
-    display: none;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    width: 50px;
-    height: 50px;
-    border: 1px solid #9999cc;
-    color: #9999cc;
-    text-align: center;
-    line-height: 50px;
-    border-radius: 10px;
-    background-color: #9999cc; /*버튼 색상*/
-    transition: background 0.2s;
-    cursor: pointer;
-}
-
-#topBtn:hover {
-    background-color: #9999dd; /*마우스 올렸을 때 버튼 색상*/
-}
 </style>
 </head>
 <body>
@@ -329,7 +309,6 @@ ul.tabs li.current{
  <!-- top 버튼 -->
   <div id="topBtn">TOP</div>
 </body>
-<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
 $(document).ready(function(){
 	
@@ -345,25 +324,4 @@ $(document).ready(function(){
 
 })
 </script>
-<!-- TOP 버튼 시작 -->
-<script>
-    $(document).ready(function() {
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > 100) {
-                $('#topBtn').fadeIn();
-            } else {
-                $('#topBtn').fadeOut();
-            }
-        });
-
-        $("#topBtn").click(function() {
-            $('html, body').animate({
-                scrollTop: 0
-            }, 500);
-            return false;
-        });
-    });
-</script>
-<!-- TOP 버튼 끝 -->
-</html>
 <%@include file="footer.jsp" %>>

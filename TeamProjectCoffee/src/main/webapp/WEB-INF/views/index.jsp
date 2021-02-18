@@ -27,36 +27,9 @@ body {
 	height: 600px;
 }
 
-#topBtn {
-	display: none;
-	position: fixed;
-	bottom: 10px;
-	right: 10px;
-	width: 50px;
-	height: 50px;
-	border: 1px solid #fff;
-	color: #9999cc;
-	text-align: center;
-	line-height: 50px;
-	border-radius: 10px;
-	background-color: #9999cc; /*버튼 색상*/
-	transition: background 0.2s;
-	cursor: pointer;
-}
-
-#topBtn:hover {
-	background-color: #9999dd; /*마우스 올렸을 때 버튼 색상*/
-}
-
 .carousel-control-prev, .carousel-control-next {
 	height: 50%;
 	margin: auto 0;
-}
-.btn-primary {
-	background-color: #9999cc;
-}
-.btn-primary:hover{
-	background-color: #9999dd; !important;
 }
 
 .bottom {
@@ -88,9 +61,6 @@ padding-left:9px;
 </style>
 </head>
 <body>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
 		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -154,7 +124,7 @@ padding-left:9px;
 		<p class="lead">스페셜티 문화를 창조하는 회사입니다.</p>
 		<hr class="my-4">
 		<p>우리의 열정과 노력으로 그 가치가 빛날 수 있도록 최선을 다합니다.</p>
-		<a class="btn btn-primary btn-lg" href="/about" role="button" >Our Story</a>
+		<a class="btn btn-secondary btn-lg" href="/about" role="button" >Our Story</a>
 	</div>
 		<!-- 점보트론 끝 -->
 		
@@ -228,26 +198,4 @@ padding-left:9px;
 	<!-- top 버튼 -->
 	<div id="topBtn">TOP</div>
 </body>
-</html>
-<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-<!-- TOP 버튼 시작 -->
-<script>
-	$(document).ready(function() {
-		$(window).scroll(function() {
-			if ($(this).scrollTop() > 100) {
-				$('#topBtn').fadeIn();
-			} else {
-				$('#topBtn').fadeOut();
-			}
-		});
-
-		$("#topBtn").click(function() {
-			$('html, body').animate({
-				scrollTop : 0
-			}, 500);
-			return false;
-		});
-	});
-</script>
-<!-- TOP 버튼 끝 -->
 <%@ include file="footer.jsp" %>
