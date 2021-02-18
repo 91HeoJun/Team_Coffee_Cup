@@ -163,7 +163,7 @@ padding-left:9px;
 		<div><p style="font-size:40px; color:#000; font-style:italic"><img src="/resources/img/bestpng.png" style="width:100px; height:100px; margin-left:50px;"/> Black Bean의 인기상품</p>
 		</div>
 		<ul class ="bottom_img">
-		<li><a href=""><img src="/resources/img/ethiopia.JPG" style="width:300px; height:300px;" /></a>
+		<li><a href="http://localhost:8080/product/productDetail?pcode=45&amount=10&pageNum=1"><img src="/resources/img/ethiopia.JPG" style="width:300px; height:300px;" /></a>
 		<p></p>
 		<p><span class="dim_txt1">은은하고 부드러운 맛</span></p>
 		<dl class="cfs01_text">
@@ -178,7 +178,7 @@ padding-left:9px;
 		</li>
 										
 										
-		<li><a href=""><img src="/resources/img/colombia.JPG" style="width:300px; height:300px;"/></a>
+		<li><a href="http://localhost:8080/product/productDetail?pcode=46&amount=10&pageNum=1"><img src="/resources/img/colombia.JPG" style="width:300px; height:300px;"/></a>
 		<p> </p>
 		<p><span class="dim_txt1">마일드 커피의 대명사</span></p>
 		<dl class="cfs01_text">
@@ -194,7 +194,7 @@ padding-left:9px;
 		</li>
 		
 		
-		<li><a href=""><img src="/resources/img/kenya.JPG" style="width:300px; height:300px;"  /></a>
+		<li><a href="http://localhost:8080/product/productDetail?pcode=45&amount=10&pageNum=1"><img src="/resources/img/kenya.JPG" style="width:300px; height:300px;"  /></a>
 				<p> </p>
 		<p><span class="dim_txt1">유럽이 사랑한 커피</span></p>
 		<dl class="cfs01_text">
@@ -209,7 +209,7 @@ padding-left:9px;
 		<p> </p>	
 		</li>
 		
-		<li><a href=""><img src="/resources/img/guatemala.JPG" style="width:300px; height:300px;" /></a>
+		<li><a href="http://localhost:8080/product/productDetail?pcode=48&amount=10&pageNum=1"><img src="/resources/img/guatemala.JPG" style="width:300px; height:300px;" /></a>
 						<p> </p>
 		<p><span class="dim_txt1">진한 스모크 커피</span></p>
 		<dl class="cfs01_text">
