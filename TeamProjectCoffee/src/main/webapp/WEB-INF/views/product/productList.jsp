@@ -14,7 +14,7 @@
  <div class="col mb-4">
     <div class="card">
     	<!-- 수정 예정 -->
-      <a href="/product/productDetail?pcode=${vo.pcode}">          
+      <a href="/product/productDetail?pcode=${vo.pcode}&amount=${pageVO.cri.amount}&pageNum=${pageVO.cri.pageNum}">          
       <img src="/resources/productimg/<c:out value="${vo.attach.uuid}"/>_<c:out value="${vo.attach.fileName}"/>" class="card-img-top" alt="...">      
       <div class="card-body">
 	        <h5 class="card-title">${vo.product }</h5>
@@ -24,7 +24,7 @@
 				로스팅(제조)일: <fmt:formatDate value="${vo.pdate}" pattern="yyyy-MM-dd"/> <br/>
 				${vo.price } <br/>
 			</p>
-		<button type="button" class="btn btn-outline-primary">장바구니 담기</button>
+		<button type="button" class="btn btn-outline-secondary">장바구니 담기</button>
        </div></a>
      </div>
    </div>

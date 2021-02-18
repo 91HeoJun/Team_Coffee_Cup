@@ -54,6 +54,5 @@ $(function() {
 		actionForm.attr("action", "productList");
 		actionForm.submit();
 	})
-	
 })
 
