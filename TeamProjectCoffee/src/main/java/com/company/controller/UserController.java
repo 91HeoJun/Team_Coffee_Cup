@@ -99,9 +99,10 @@ public class UserController {
 			}
 		}
 
-	 @GetMapping("/logout")
-	 public void logout(HttpSession session) {
+	// @GetMapping("/logout")
+	 public String logout(HttpSession session) {
 		 log.info("로그아웃-----------");
+		 return "/";
 	 }
 	 
 }

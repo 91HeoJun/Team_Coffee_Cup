@@ -129,6 +129,8 @@ create table UserTBL_auth(
 	constraint fk_user_auth foreign key(userid) references UserTBL(userid)
 );
 
+select * from UserTBL_auth;
+
 insert into UserTBL_auth values('admin', 'ROLE_ADMIN');
 
 --출석체크 tbl
