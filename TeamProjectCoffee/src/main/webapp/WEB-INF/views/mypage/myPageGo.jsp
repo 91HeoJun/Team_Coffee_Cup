@@ -14,19 +14,22 @@ margin-top: 100px;
 #left_bar{
 border: 2px solid;
 border-radius: 10px;
+
 }
 #left_bar > li{
 border-bottom: 1px solid;
 }
-
+.nav-link {
+color:black !important;
+}
 </style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-2">
-			<ul class="nav flex-column" id="left_bar">
-				<li class="nav-item"><a class="nav-link active" href="../">HOME</a>
+		<div class="col-md-2" >
+			<ul class="nav flex-column" id="left_bar" >
+				<li class="nav-item" ><a class="nav-link active" href="../" >HOME</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="../calendar">출석체크</a>
 				</li>
