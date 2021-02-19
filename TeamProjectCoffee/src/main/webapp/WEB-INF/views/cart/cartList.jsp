@@ -103,9 +103,9 @@
 
 	 </tbody>
 </table>
-	<div>
-		<button type="button" class="btn btn-outline-secondary" id="PGTS">결제하기</button>
-		<button type="button" class="btn btn-outline-secondary" onclick="location.href='/product/productList'">쇼핑 계속하기</button>
+	<div style="float:right;">
+		<button type="button" class="btn btn-primary" id="PGTS">결제하기</button>
+		<button type="button" class="btn btn-outline-dark" onclick="location.href='/product/productList'">쇼핑 계속하기</button>
 	</div>
 </div>
 
