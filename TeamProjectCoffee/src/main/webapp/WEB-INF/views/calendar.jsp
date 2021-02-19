@@ -63,26 +63,6 @@ td {
   padding: 0;
   vertical-align: top;
 }
-#topBtn {
-    display: none;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    width: 50px;
-    height: 50px;
-    border: 1px solid #9999cc;
-    color: #9999cc;
-    text-align: center;
-    line-height: 50px;
-    border-radius: 10px;
-    background-color: #9999cc; /*버튼 색상*/
-    transition: background 0.2s;
-    cursor: pointer;
-}
-
-#topBtn:hover {
-    background-color: #9999dd; /*마우스 올렸을 때 버튼 색상*/
-}
 </style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -360,7 +340,7 @@ function btncheck() {
       success:function(msg){   
          
          if(msg== 'YES'){            
-            alert("포인트 지급완료.");
+            alert("포인트 지급완료. \n 다음 방문시 확인가능합니다." );
          }else{
             alert("출석일수가 모자랍니다.");
          }      

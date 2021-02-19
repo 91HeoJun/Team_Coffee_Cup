@@ -21,8 +21,6 @@ values('hong1234','hong1234!!','홍동동','07085','서울시 종로구 관철�
 
 --출석체크 테스트용
 insert into calendar
-values(SEQ_CAL.NEXTVAL, 'hong123','20210204');
-insert into calendar
 values(SEQ_CAL.NEXTVAL, 'hong123','20210205');
 insert into calendar
 values(SEQ_CAL.NEXTVAL, 'hong123','20210206');
@@ -48,6 +46,8 @@ insert into calendar
 values(SEQ_CAL.NEXTVAL, 'hong123','20210216');
 insert into calendar
 values(SEQ_CAL.NEXTVAL, 'hong123','20210217');
+insert into calendar
+values(SEQ_CAL.NEXTVAL, 'hong123','20210218');
 
 delete from CALENDAR where userid='hong123';
 delete from usertbl where userid='hong123';
