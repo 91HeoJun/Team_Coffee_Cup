@@ -28,7 +28,9 @@ border-radius: 10px;
 #left_bar > li{
 border-bottom: 1px solid;
 }
-
+.nav-link {
+color:black !important;
+}
 .f_content{
 	width: 100%; 
 	height: 100%;		
@@ -63,6 +65,7 @@ td {
   padding: 0;
   vertical-align: top;
 }
+
 </style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
