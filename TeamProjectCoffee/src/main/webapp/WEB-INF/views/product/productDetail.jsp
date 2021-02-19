@@ -11,7 +11,7 @@
                 </div>
                
             </div>            
-            <div class="row" style="margin-top:20px">
+            <div class="row" style="margin-top:20px;margin-left:100px;margin-right:100px">
                 <div class="col-lg-12">
                 	<div class="panel panel-default">
                         <div class="panel-heading">

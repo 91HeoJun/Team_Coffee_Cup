@@ -14,18 +14,18 @@
 	crossorigin="anonymous"></script>
 
 <!-- 상품 종류별 리스트 -->
-<div class="row  justify-content-between" style="margin-left: 5px;">
+<div class="row  justify-content-between" style="margin-left: 30px;">
 	<div class="btn-group btn-group-toggle" data-toggle="buttons">
-	  <label class="btn btn-outline-secondary" style="color:black;" ${pageVO.cri.keyword==''?'active':''}">
+	  <label class="btn btn-outline-secondary  ${pageVO.cri.keyword==''?'active':''}" style="color:black;">
 	    <input type="radio" name="options" id="option1" value=""> 전체
 	  </label>
-	  <label class="btn btn-outline-secondary" style="color:black;" ${pageVO.cri.keyword=='싱글 오리진'?'active':''}">
+	  <label class="btn btn-outline-secondary ${pageVO.cri.keyword=='싱글 오리진'?'active':''}" style="color:black;">
 	    <input type="radio" name="options" id="option1" value="싱글 오리진"> 싱글 오리진
 	  </label>
-	  <label class="btn btn-outline-secondary" style="color:black;" ${pageVO.cri.keyword=='블렌드'?'active':''}">
+	  <label class="btn btn-outline-secondary ${pageVO.cri.keyword=='블렌드'?'active':''}" style="color:black;">
 	    <input type="radio" name="options" id="option2" value="블렌드"> 블렌드
 	  </label>
-	  <label class="btn btn-outline-secondary" style="color:black;" ${pageVO.cri.keyword=='드립백'?'active':''}">
+	  <label class="btn btn-outline-secondary  ${pageVO.cri.keyword=='드립백'?'active':''}" style="color:black;">
 	    <input type="radio" name="options" id="option3" value="드립백"> 드립백
 	  </label>
 	</div>

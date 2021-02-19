@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ include file="productHeader.jsp" %>
-	<style>
+	<style>	
 	a {
 	color: black;
 	}
@@ -61,11 +61,8 @@
 </form>
 
 <div id="topBtn">TOP</div>
+ <script src="/resources/js/Product_js/productList.js"></script>
 <%@include file="../footer.jsp" %>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
- <script src="/resources/js/Product_js/productList.js"></script>
 
-</html>
+

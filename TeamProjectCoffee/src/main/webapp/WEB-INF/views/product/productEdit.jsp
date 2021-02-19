@@ -9,7 +9,7 @@
 <%@ include file="../header.jsp" %>
 
 </head>
-<body>
+<body style="margin-top:20px;margin-left:100px;margin-right:100px">
     <h2>상품 정보 수정</h2>   
     <!-- 파일 업로드를 하기위한 타입, 필수로 작성해야 한다.-->
       <div class="panel-body" style="margin-top:20px;">
