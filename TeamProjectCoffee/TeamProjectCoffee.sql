@@ -154,3 +154,19 @@ REFERENCES usertbl(userid) on delete cascade;
 
 select * from usertbl;
 select * from CALENDAR;
+
+--스프링에서 시큐리티에서 remember me 를 위해 기본적으로 구현하는 테이블 
+create table persistent_logins(
+   username varchar2(64) not null,
+   series varchar2(64) primary key,
+   token varchar2(64) not null,
+   last_used timestamp not null
+);
+
+
+
+drop table persistent_logins;
+
+select table_name from user_tables;
+select * from usertbl_auth;
+select * from persistent_logins;
