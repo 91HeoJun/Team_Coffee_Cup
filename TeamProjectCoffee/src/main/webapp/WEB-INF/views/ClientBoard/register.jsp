@@ -6,7 +6,7 @@
 <!-- 추후 Header 위치 이동시 수정 필요 -->
 <%@include file="boardHeader.jsp" %>
 
-		<h2 class="col sub_tit_wrap h2">1:1 문의 게시판 - 문의글 작성</h2>
+		<h2 class="col sub_tit_wrap h2">자유게시판 - 문의글 작성</h2>
 
 		<div class="" id="accordionExample">
 			<form action="/ClientBoard/register" method="post" role="form">
