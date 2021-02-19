@@ -16,7 +16,7 @@
 <!-- ****** Header 위치 이동 시 경로 변경 필요 ****** -->
 
 
-<div class="row row-cols-1 row-cols-md-2" style="margin-top:20px;margin-right: -10px; margin-left: -10px;">
+<div class="row row-cols-1 row-cols-md-2" style="margin-top:20px;margin-right: 45px; margin-left: 45px;">
 <c:forEach var="vo" items="${listProduct}">
  <div class="col mb-4">
     <div class="card">
@@ -49,10 +49,7 @@
 			<li class="page-item"><a class="page-link" href="${pageVO.endPage+1}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
 		</c:if>
 	</ul>
-</div>
-
-
-<!-- 페이지 링크 값을 넘기기 위한 폼 -->
+</div><!-- 페이지 링크 값을 넘기기 위한 폼 -->
 <form action="" id="actionForm">
 	<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum}" />
 	<input type="hidden" name="amount" value="${pageVO.cri.amount}" />
@@ -60,8 +57,8 @@
 	<input type="hidden" name="keyword" value="${pageVO.cri.keyword}" />
 </form>
 
+<script src="/resources/js/Product_js/productList.js"></script>
 <div id="topBtn">TOP</div>
- <script src="/resources/js/Product_js/productList.js"></script>
 <%@include file="../footer.jsp" %>
 
 

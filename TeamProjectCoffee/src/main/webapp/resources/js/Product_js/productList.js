@@ -36,15 +36,11 @@ $(function() {
 		actionForm.find("input[name='type']").val("g");
 		actionForm.find("input[name='keyword']").val($(this).data("roast"));
 		actionForm.submit();
-	})
-	
-	
-	$("#cart").click(function(){
-		location.href="/cart/cartList";
-	});
+	})	
+
 	//type=> pconent(c), pcategory(g)
 	//keyword => 메뉴명
-	$(":radio").click(function(){
+	$("#option1,#option2,#option3,#option4").click(function(){
 		console.log("상품 종류별 클릭");
 		console.log($(this).val());
 		
@@ -54,6 +50,11 @@ $(function() {
 		actionForm.find("input[name='keyword']").val($(this).val());
 		actionForm.attr("action", "productList");
 		actionForm.submit();
-	})
+	});
+	
+	
+	$("#cart").click(function(){
+		location.href="/cart/cartList";
+	});
 })
 
