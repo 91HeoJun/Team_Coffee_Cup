@@ -36,8 +36,7 @@
 		<!-- 사용자가 원하는 로그인 폼을 띄우기 위헤 login-page 옵션 사용 -->
 		<security:form-login login-page="/mypage/signin" authentication-success-handler-ref="customLoginHandler"/>
 		
-		<!-- 시큐리티가 제공하는 기본 로그아웃 : 성공하면 로그인 페이지로 이동되고 logout 파라미터 따라감 -->
-		<security:logout/>
+		<!-- 시큐리티가 제공하는 기본 로그아웃 : 성공하면 로그인 페이지로 이동되고 logout 파라미터 따라감 -->		
 		<security:logout logout-url="/user/logout" invalidate-session="true" logout-success-url="/" delete-cookies="remember-me, JSESSION_ID" />
 		
 		<!-- Remember Me -->
