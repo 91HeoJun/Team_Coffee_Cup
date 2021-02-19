@@ -38,7 +38,7 @@
 	        <label>
 	          <input type="checkbox" value="remember-me" /> 자동 로그인
 	        </label>
-	        <a class="pwSearch navbar-right" href="/user/pwSearch">비밀번호 찾기</a>
+	        <!-- <a class="pwSearch navbar-right" href="/user/pwSearch">비밀번호 찾기</a> -->
 	      </div>
 	      <div>
 	        <p style="color: red !important;">${error}</p>

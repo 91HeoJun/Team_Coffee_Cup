@@ -33,15 +33,16 @@ section{
 #sidebar {
   min-width: 200px;
   max-width: 200px;
-/*   background: #9999cc; */
+  /* background: lightgray; */
   color: #fff;
   transition: all 0.3s;
+  /* margin-top:10px; */
 }
 
 #sidebar li{
  	background: lightgray;
 	padding: 10px;
- 	font-size: 1.1em;
+ 	font-size: 0.8em;
  	display: block;
 }
 

@@ -4,6 +4,19 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <%@ include file="../header.jsp"%>
+<!-- <style>
+.container{
+margin-top: 100px;
+}
+#left_bar{
+border: 2px solid;
+border-radius: 10px;
+}
+#left_bar > li{
+border-bottom: 1px solid;
+}
+
+</style> -->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
 	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
@@ -31,9 +44,9 @@
 						<li class="list-group-item" id="list3">서울숲역점</li>
 						<li class="list-group-item" id="list4">용산아이파크몰점</li>
 						<li class="list-group-item" id="list5">판교역점</li> -->
-				<%-- <c:forEach var="store" items="${list}" varStatus="status">
+				<c:forEach var="store" items="${list}" varStatus="status">
 							<li data-code="${store.code}" class="list-group-item" id="list${status.count}">${store.name}</li>
-						</c:forEach> --%>
+						</c:forEach>
 				<sec:authentication property="principal" var="info"/>
 				<sec:authorize access="hasRole('ROLE_ADMIN')">
 				<button type="button" style="margin-top: 10px"
@@ -42,10 +55,25 @@
 			</ul>
 		</nav>
 
+		
+		<%-- <div class="col-md-2">
+			<ul class="nav flex-column components menu" id="left_bar">
+				<c:forEach var="store" items="${list}" varStatus="status">
+					<li data-code="${store.code}" class="list-group-item" id="list${status.count}">${store.name}</li>
+				</c:forEach>
+				<sec:authentication property="principal" var="info"/>
+				<sec:authorize access="hasRole('ROLE_ADMIN')">
+				<button type="button" style="margin-top: 10px"
+					onclick="location.href='/store/admin'">매장 관리</button>
+				</sec:authorize>
+			</ul>
+		</div> --%>
+		
+
 		<div class="container-fluid">
-			<button type="button" id="sidebarCollapse" class="btn btn-info">
+			<!-- <button type="button" id="sidebarCollapse" class="btn btn-info">
               <i class="fas fa-align-left"></i>
-            </button>
+            </button> -->
             <hr />
 			<div class="row">
 	

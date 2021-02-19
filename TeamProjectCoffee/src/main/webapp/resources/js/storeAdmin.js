@@ -140,7 +140,7 @@ $(function(){
 				str+="data-filename='"+obj.fileName+"' data-type='"+obj.fileType+"'>";
 				str+="<a href='/download?fileName="+fileCallPath+"'>";
 				str+="<img src='/resources/img/file.jpg'><div>"+obj.fileName+"</a>";
-				str+="<button type='button' style='font-size:0.5em;color:white; padding:0px' data-file='";
+				str+="<button type='button' style='font-size:0.5em;color:white; padding:0px' class='btn btn-circle' data-file='";
 				str+=fileCallPath+"' data-type='file'>";
 				str+="삭제";
 				str+="</button>"
