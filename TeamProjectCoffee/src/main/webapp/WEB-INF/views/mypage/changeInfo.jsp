@@ -59,7 +59,9 @@ border-bottom: 1px solid;
     height: auto !important;
 }
 
-
+.nav-link {
+color:black !important;
+}
 </style>
 <body>
 <div>&nbsp;</div>

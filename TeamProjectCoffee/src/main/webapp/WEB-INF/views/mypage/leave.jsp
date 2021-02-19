@@ -20,6 +20,9 @@ border-radius: 10px;
 #left_bar > li{
 border-bottom: 1px solid;
 }
+.nav-link {
+color:black !important;
+}
 </style>
 <div>&nbsp;</div>
 <div>&nbsp;</div>
