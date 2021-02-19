@@ -70,6 +70,15 @@
 	position:relative;
 }
 
+.move{
+	color: black;
+}
+
+.move:hover{
+	color:black;
+	text-decoration: none;
+}
+
 /* 테이블 내부 - end */
 
 /* 게시판 하단*/
