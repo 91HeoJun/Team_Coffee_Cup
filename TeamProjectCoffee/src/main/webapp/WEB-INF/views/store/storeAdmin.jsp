@@ -82,7 +82,7 @@
 								<td>
 								<div id="btnBox">
 									<input type="hidden" name="code" value="${vo.code}"/>
-									<button class="btn btn-primary modify" data-status="modify" data-code="${vo.code}" type="button">수정</button>
+									<button class="btn btn-secondary modify" data-status="modify" data-code="${vo.code}" type="button">수정</button>
 									<button id="cancel${vo.code}" style="display:none" class="btn btn-warn" type="reset" onclick="location.href='/store/admin'">취소</button>
 									<button type="button" class="btn btn-danger delete" data-code="${vo.code}">삭제</button>
 								</div>
