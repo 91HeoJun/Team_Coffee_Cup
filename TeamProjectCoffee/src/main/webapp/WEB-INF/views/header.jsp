@@ -58,7 +58,16 @@ $(document).ready(function () {
 						<a class="nav-toggle" href="/mypage/signin">login</a>
 					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">
-						<a class="nav-toggle" href="/user/logout">logout</a>
+						<a class="nav-toggle" href="" id="logout">logout</a>
+							<form action="/user/logout" method="post" id="logoutForm">
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+							</form>
+						<script>
+							$("#logout").click(function(e){
+								e.preventDefault();
+								$("#logoutForm").submit();
+							})
+						</script>
 					</sec:authorize>
             		<%-- <c:choose>
 	            		<c:when test="${empty sessionScope.regist}">

@@ -37,7 +37,7 @@
 		<security:form-login login-page="/mypage/signin" authentication-success-handler-ref="customLoginHandler"/>
 		
 		<!-- 시큐리티가 제공하는 기본 로그아웃 : 성공하면 로그인 페이지로 이동되고 logout 파라미터 따라감 -->		
-		<security:logout logout-url="/user/logout" invalidate-session="true" logout-success-url="/" delete-cookies="remember-me, JSESSION_ID" />
+		<security:logout logout-url="/user/logout" invalidate-session="true" logout-success-url="/cart/logout" delete-cookies="remember-me, JSESSION_ID" />
 		
 		<!-- Remember Me -->
 		<security:remember-me data-source-ref="ds" token-validity-seconds="604800"/>

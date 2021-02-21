@@ -6,7 +6,7 @@
 <!-- 추후 Header 위치 이동시 수정 필요 -->
 <%@include file="../ClientBoard/boardHeader.jsp" %>
 
-			<h2 class="col-4 sub_tit_wrap h2">자주하는 질문</h2>
+			<h2 class="col-4 sub_tit_wrap h2">공지사항 수정</h2>
 		
 		<div class="accordion" id="accordionExample">
 			<form action="" method="post" role="form">
