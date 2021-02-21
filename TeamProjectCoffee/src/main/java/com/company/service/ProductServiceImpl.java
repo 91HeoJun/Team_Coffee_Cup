@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.company.domain.Criteria;
-import com.company.domain.FileAttach;
 import com.company.domain.ProductFileAttach;
 import com.company.domain.ProductVO;
 import com.company.mapper.ProductAttachMapper;
@@ -19,6 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 @Service("productService")
 public class ProductServiceImpl implements ProductService {
 
+	
 	@Autowired
 	private ProductMapper productmapper;
 	

@@ -19,14 +19,14 @@ import lombok.ToString;
 @AllArgsConstructor
 public class ProductVO {
 	
-	private int pcode;  //상품코드 됏나여? 잠깐만요~
+	private int pcode;  //상품코드
 	private String pcategory;  //상품종류
 	private String product;  //상품이름
 	private String pcontent; //상품 상세내용
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date pdate;  //상품 제조(로스팅)일자
 	private int price;  //상품가격
-	private String pamount;  //상품 재고수량	
+	private String pamount;  //상품양(무게)	- 재고관리기능 못넣음..
 	private String origin;  //상품원산지
    // private String picture_url; //상품 이미지 경로 
 	
